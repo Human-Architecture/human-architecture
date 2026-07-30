@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Human Architecture® — structural orientation across Blueprint, Body & Regulation, and Identity & Transition."
+  >
+
+  <meta name="theme-color" content="#102c34">
+
+  <title>Human Architecture® | Structural Design of the Human System</title>
+
+  <style>
+    :root {
+      --ocean-deep: #102c34;
+      --ocean-dark: #163b44;
+      --ocean: #1f6575;
+      --ocean-muted: #527e87;
+      --forest: #263c39;
+      --forest-deep: #152725;
+      --sage: #8e9d91;
+      --sage-light: #dce2dc;
+      --sand: #f1eee7;
+      --paper: #f8f6f0;
+      --white: #ffffff;
+      --ink: #17201f;
+      --ink-soft: #52605d;
+      --line: rgba(23, 32, 31, 0.14);
+      --line-light: rgba(255, 255, 255, 0.17);
+
+      --serif:
+        "Cormorant Garamond",
+        "Iowan Old Style",
+        Baskerville,
+        Georgia,
+        serif;
+
+      --sans:
+        Inter,
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      --page: clamp(22px, 6vw, 92px);
+      --transition: 260ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    h1 {
+      max-width: 10ch;
+      margin-bottom: 28px;
+      font-size: clamp(4rem, 9vw, 8.6rem);
+      line-height: 0.88;
+      letter-spacing: -0.057em;
+    }
+
+    h2 {
+      max-width: 14ch;
+      margin-bottom: 26px;
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.048em;
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      line-height: 1.07;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .section {
+      padding: 118px var(--page);
+    }
+
+    .section-dark {
+      color: var(--white);
+      background: var(--forest-deep);
+    }
+
+    .section-forest {
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .section-paper {
+      background: var(--paper);
+    }
+
+    .section-sand {
+      background: var(--sand);
+    }
+
+    .eyebrow {
+      margin-bottom: 17px;
+      color: var(--ocean-muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .section-dark .eyebrow,
+    .section-forest .eyebrow {
+      color: rgba(255, 255, 255, 0.56);
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      line-height: 1.72;
+    }
+
+    .section-dark .lead,
+    .section-forest .lead {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .section-index {
+      margin-bottom: 62px;
+      color: var(--ocean-muted);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      opacity: 0.62;
+    }
+
+    .section-dark .section-index,
+    .section-forest .section-index {
+      color: rgba(255, 255, 255, 0.47);
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 15px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-align: center;
+      text-transform: uppercase;
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-light {
+      color: var(--forest-deep);
+      background: var(--paper);
+    }
+
+    .button-dark {
+      color: var(--white);
+      background: var(--forest-deep);
+    }
+
+    .button-outline-light {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    .button-outline-dark {
+      color: var(--ink);
+      border-color: rgba(23, 32, 31, 0.32);
+    }
+
+    .text-link {
+      display: inline-block;
+      padding-bottom: 4px;
+      border-bottom: 1px solid currentColor;
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 720ms ease,
+        transform 720ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header */
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 84px;
+      padding: 0 var(--page);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--white);
+      background: rgba(15, 42, 49, 0.84);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      border-radius: 50%;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 47%;
+      transform: scale(2.9);
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-copy strong {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      margin-top: 3px;
+      font-size: 0.48rem;
+      letter-spacing: 0.12em;
+      opacity: 0.6;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .main-nav a,
+    .language-button {
+      font-size: 0.63rem;
+      font-weight: 740;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .main-nav a:not(.nav-cta) {
+      opacity: 0.75;
+      transition: opacity var(--transition);
+    }
+
+    .main-nav a:hover {
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      color: var(--forest-deep);
+      background: var(--paper);
+      border-radius: 999px;
+    }
+
+    .language-button {
+      padding: 0;
+      color: var(--white);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .menu-button {
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .menu-button span {
+      width: 24px;
+      height: 1px;
+      margin: 7px auto;
+      display: block;
+      background: var(--white);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100svh;
+      padding: 154px var(--page) 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--ocean-deep);
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 32, 39, 0.94) 0%,
+          rgba(8, 32, 39, 0.73) 47%,
+          rgba(8, 32, 39, 0.29) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(7, 26, 31, 0.14),
+          rgba(7, 26, 31, 0.46)
+        ),
+        url("HAA%20BACKGROUND.png") center / cover no-repeat;
+    }
+
+    .hero-content,
+    .hero-bottom {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      max-width: 640px;
+      margin-bottom: 34px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: clamp(1rem, 1.7vw, 1.24rem);
+    }
+
+    .hero-principles {
+      max-width: 680px;
+      margin-bottom: 34px;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.34);
+      color: rgba(255, 255, 255, 0.73);
+      font-family: var(--serif);
+      font-size: clamp(1.12rem, 2vw, 1.48rem);
+      line-height: 1.52;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-bottom {
+      padding-top: 58px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .hero-tags span {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.67);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .scroll-label {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.56rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Introduction */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .intro-copy {
+      padding-top: 39px;
+      color: var(--ink-soft);
+      font-size: 1.07rem;
+    }
+
+    .statement-block {
+      margin-top: 42px;
+      padding: 27px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .statement-block p {
+      max-width: 19ch;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 3.15rem);
+      line-height: 1.13;
+    }
+
+    /* System */
+
+    .system-header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 65px;
+    }
+
+    .system-header h2,
+    .system-header p {
+      margin-bottom: 0;
+    }
+
+    .system-header p {
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+    .system-line {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+    }
+
+    .system-node {
+      min-height: 178px;
+      padding: 17px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.035);
+      transition:
+        transform var(--transition),
+        background var(--transition);
+    }
+
+    .system-node:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .system-node span {
+      color: rgba(255, 255, 255, 0.42);
+      font-family: var(--serif);
+    }
+
+    .system-node strong {
+      font-family: var(--serif);
+      font-size: 1.23rem;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    /* Audience */
+
+    .audience-head {
+      max-width: 890px;
+      margin-bottom: 56px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .audience-item {
+      min-height: 142px;
+      padding: 23px;
+      display: flex;
+      align-items: flex-end;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.12;
+      transition:
+        color var(--transition),
+        background var(--transition);
+    }
+
+    .audience-item:hover {
+      color: var(--white);
+      background: var(--ocean-dark);
+    }
+
+    /* Domains */
+
+    .domains-head {
+      max-width: 880px;
+      margin-bottom: 62px;
+    }
+
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .domain-card {
+      min-height: 535px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      transition:
+        background var(--transition),
+        color var(--transition);
+    }
+
+    .domain-card + .domain-card {
+      border-left: 0;
+    }
+
+    .domain-card:hover {
+      color: var(--white);
+      background: var(--ocean-dark);
+    }
+
+    .domain-card:hover p,
+    .domain-card:hover .domain-label {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .domain-index {
+      margin-bottom: 70px;
+      color: var(--ocean-muted);
+      font-family: var(--serif);
+      font-size: 1.5rem;
+    }
+
+    .domain-label {
+      margin-bottom: 10px;
+      color: var(--ink-soft);
+      font-size: 0.62rem;
+      font-weight: 740;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .domain-card p {
+      color: var(--ink-soft);
+    }
+
+    .domain-footer {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+
+    /* Orientation */
+
+    .orientation-layout {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .orientation-options {
+      display: grid;
+      gap: 9px;
+      margin-top: 35px;
+    }
+
+    .orientation-option {
+      width: 100%;
+      padding: 18px 20px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line-light);
+      text-align: left;
+      cursor: pointer;
+      transition:
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+    .orientation-option:hover,
+    .orientation-option.active {
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .orientation-option span {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.78rem;
+      font-weight: 720;
+      line-height: 1.45;
+    }
+
+    .orientation-result {
+      min-height: 490px;
+      padding: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid var(--line-light);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.075),
+          rgba(255, 255, 255, 0.018)
+        );
+    }
+
+    .result-domain {
+      margin-bottom: 21px;
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.64rem;
+      font-weight: 740;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .orientation-result h3 {
+      max-width: 12ch;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+    }
+
+    .orientation-result p {
+      max-width: 610px;
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+    .result-button {
+      align-self: flex-start;
+      margin-top: 18px;
+    }
+
+    /* Sessions */
+
+    .sessions-header {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 60px;
+    }
+
+    .sessions-header h2,
+    .sessions-header p {
+      margin-bottom: 0;
+    }
+
+    .session-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .session-column {
+      min-height: 610px;
+      padding: 30px;
+      border: 1px solid var(--line);
+    }
+
+    .session-column + .session-column {
+      border-left: 0;
+    }
+
+    .session-label {
+      margin-bottom: 55px;
+      color: var(--ocean-muted);
+      font-size: 0.61rem;
+      font-weight: 750;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .session-list {
+      margin: 30px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .session-list li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .session-list li:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .session-list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.73rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .session-list span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    /* Partnerships */
+
+    .partnership-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 90px;
+    }
+
+    .partner-list {
+      border-top: 1px solid var(--line-light);
+    }
+
+    .partner-list div {
+      padding: 17px 0;
+      color: rgba(255, 255, 255, 0.68);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 55px;
+    }
+
+    .format-card {
+      min-height: 125px;
+      padding: 18px;
+      display: flex;
+      align-items: flex-end;
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.035);
+      font-family: var(--serif);
+      font-size: 1.17rem;
+      line-height: 1.15;
+    }
+
+    /* Process */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 62px;
+    }
+
+    .process-step {
+      min-height: 275px;
+      padding: 28px;
+      border: 1px solid var(--line);
+    }
+
+    .process-step + .process-step {
+      border-left: 0;
+    }
+
+    .process-step span {
+      display: block;
+      margin-bottom: 52px;
+      color: var(--ocean-muted);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+    }
+
+    .process-step h3 {
+      font-size: 1.5rem;
+    }
+
+    .process-step p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+
+    .contact {
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 32, 39, 0.96),
+          rgba(8, 32, 39, 0.77)
+        ),
+        url("HA%20BAKCGROUND.png") center / cover no-repeat;
+    }
+
+    .contact-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 90px;
+    }
+
+    .contact-links {
+      border-top: 1px solid var(--line-light);
+    }
+
+    .contact-link {
+      padding: 21px 0;
+      display: block;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .contact-link span {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, 0.47);
+      font-size: 0.6rem;
+      font-weight: 750;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-link strong {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 2.5vw, 1.78rem);
+      font-weight: 400;
+      overflow-wrap: anywhere;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      padding: 43px var(--page);
+      display: grid;
+      grid-template-columns: 1fr 1.35fr auto;
+      gap: 42px;
+      color: rgba(255, 255, 255, 0.55);
+      background: #091718;
+      font-size: 0.67rem;
+    }
+
+    .footer-brand strong {
+      display: block;
+      color: var(--white);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-brand span {
+      display: block;
+      margin-top: 5px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1180px) {
+      .system-line {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-step + .process-step {
+        border-left: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .menu-button {
+        display: block;
+      }
+
+      .main-nav {
+        position: fixed;
+        inset: 84px 0 0;
+        padding: 42px var(--page);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--ocean-deep);
+        overflow-y: auto;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a,
+      .language-button {
+        font-size: 0.88rem;
+      }
+
+      .intro-grid,
+      .system-header,
+      .orientation-layout,
+      .sessions-header,
+      .partnership-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .intro-copy {
+        padding-top: 0;
+      }
+
+      .domain-grid,
+      .session-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .domain-card + .domain-card,
+      .session-column + .session-column {
+        border-left: 1px solid var(--line);
+        border-top: 0;
+      }
+
+      .domain-card,
+      .session-column {
+        min-height: auto;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding-top: 88px;
+        padding-bottom: 88px;
+      }
+
+      .brand-copy span {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 135px;
+      }
+
+      .hero-image {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(8, 32, 39, 0.88),
+            rgba(8, 32, 39, 0.68)
+          ),
+          url("HAA%20BACKGROUND.png") center / cover no-repeat;
+      }
+
+      .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .system-line,
+      .audience-grid,
+      .format-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-node {
+        min-height: 120px;
+      }
+
+      .process-step + .process-step {
+        border-top: 0;
+      }
+
+      .orientation-result {
+        min-height: 400px;
+        padding: 28px;
+      }
+
+      .domain-index,
+      .session-label {
+        margin-bottom: 42px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a href="#home" class="brand" aria-label="Human Architecture home">
+
+      <span class="brand-mark">
+        <img
+          src="HA%20BAKCGROUND.png"
+          alt=""
+        >
+      </span>
+
+      <span class="brand-copy">
+        <strong>Human Architecture®</strong>
+        <span>Structural Design of the Human System</span>
+      </span>
+
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+
+      <a
+        href="#system"
+        data-en="The System"
+        data-de="Das System"
+      >
+        The System
+      </a>
+
+      <a
+        href="#domains"
+        data-en="Domains"
+        data-de="Bereiche"
+      >
+        Domains
+      </a>
+
+      <a
+        href="#sessions"
+        data-en="Sessions"
+        data-de="Sessions"
+      >
+        Sessions
+      </a>
+
+      <a
+        href="#partnerships"
+        data-en="Partnerships"
+        data-de="Partnerschaften"
+      >
+        Partnerships
+      </a>
+
+      <a
+        href="#contact"
+        data-en="Contact"
+        data-de="Kontakt"
+      >
+        Contact
+      </a>
+
+      <a
+        href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
+        class="nav-cta"
+        target="_blank"
+        rel="noopener"
+        data-en="Start a Conversation"
+        data-de="Gespräch beginnen"
+      >
+        Start a Conversation
+      </a>
+
+      <button
+        class="language-button"
+        type="button"
+        aria-label="Change language"
+      >
+        DE
+      </button>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section id="home" class="hero">
+
+      <div class="hero-image" aria-hidden="true"></div>
+
+      <div class="hero-content reveal">
+
+        <p class="eyebrow">
+          Human Architecture®
+        </p>
+
+        <h1
+          data-en="Structural Design of the Human System."
+          data-de="Strukturelles Design des menschlichen Systems."
+        >
+          Structural Design of the Human System.
+        </h1>
+
+        <p
+          class="hero-kicker"
+          data-en="A precise framework for orientation across blueprint, structure, movement, breathing, regulation, recovery, identity and integration."
+          data-de="Ein präziser Orientierungsrahmen für Blueprint, Struktur, Bewegung, Atmung, Regulation, Erholung, Identität und Integration."
+        >
+          A precise framework for orientation across blueprint, structure,
+          movement, breathing, regulation, recovery, identity and integration.
+        </p>
+
+        <div class="hero-principles">
+          <span
+            data-en="Understanding before action. Structure before interpretation. Regulation before expansion."
+            data-de="Verständnis vor Handlung. Struktur vor Interpretation. Regulation vor Erweiterung."
+          >
+            Understanding before action. Structure before interpretation.
+            Regulation before expansion.
+          </span>
+        </div>
+
+        <div class="hero-actions">
+
+          <a
+            href="#system"
+            class="button button-light"
+            data-en="Explore the System"
+            data-de="Das System erkunden"
+          >
+            Explore the System
+          </a>
+
+          <a
+            href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
+            class="button button-outline-light"
+            target="_blank"
+            rel="noopener"
+            data-en="Start a Conversation"
+            data-de="Gespräch beginnen"
+          >
+            Start a Conversation
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-bottom reveal">
+
+        <div class="hero-tags">
+          <span>Blueprint</span>
+          <span>Structure</span>
+          <span>Movement</span>
+          <span>Breathing</span>
+          <span>Regulation</span>
+          <span>Recovery</span>
+          <span>Identity</span>
+          <span>Integration</span>
+        </div>
+
+        <span
+          class="scroll-label"
+          data-en="Scroll to explore"
+          data-de="Scrollen zum Erkunden"
+        >
+          Scroll to explore
+        </span>
+
+      </div>
+
+    </section>
+
+    <!-- INTRODUCTION -->
+
+    <section class="section section-paper">
+
+      <div class="section-index">01</div>
+
+      <div class="intro-grid">
+
+        <div class="reveal">
+
+          <p
+            class="eyebrow"
+            data-en="Orientation before intervention"
+            data-de="Orientierung vor Intervention"
+          >
+            Orientation before intervention
+          </p>
+
+          <h2
+            data-en="Not every system requires the same response."
+            data-de="Nicht jedes System braucht dieselbe Antwort."
+          >
+            Not every system requires the same response.
+          </h2>
+
+          <div class="statement-block">
+            <p
+              data-en="Every human system already has a structure."
+              data-de="Jedes menschliche System besitzt bereits eine Struktur."
+            >
+              Every human system already has a structure.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="intro-copy reveal">
+
+          <p
+            data-en="Human Architecture® is an integrative structural framework for understanding how the human system is currently organized."
+            data-de="Human Architecture® ist ein integrativer struktureller Rahmen, um zu verstehen, wie das menschliche System aktuell organisiert ist."
+          >
+            Human Architecture® is an integrative structural framework for
+            understanding how the human system is currently organized.
+          </p>
+
+          <p
+            data-en="Rather than beginning with a predetermined method, the work begins by identifying the most relevant domain and the structurally appropriate entry point."
+            data-de="Anstatt mit einer vorgegebenen Methode zu beginnen, wird zunächst der relevante Bereich und der strukturell passende Einstiegspunkt geklärt."
+          >
+            Rather than beginning with a predetermined method, the work begins
+            by identifying the most relevant domain and the structurally
+            appropriate entry point.
+          </p>
+
+          <p
+            data-en="The work is oriented toward alignment with inherent structure—not modification, diagnosis or generalized self-improvement."
+            data-de="Die Arbeit ist auf Ausrichtung mit der vorhandenen Struktur ausgerichtet – nicht auf Veränderung, Diagnose oder allgemeine Selbstoptimierung."
+          >
+            The work is oriented toward alignment with inherent structure—not
+            modification, diagnosis or generalized self-improvement.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SYSTEM -->
+
+    <section id="system" class="section section-forest">
+
+      <div class="section-index">02</div>
+
+      <div class="system-header">
+
+        <div class="reveal">
+
+          <p
+            class="eyebrow"
+            data-en="The Human System"
+            data-de="Das menschliche System"
+          >
+            The Human System
+          </p>
+
+          <h2
+            data-en="The layers do not operate separately."
+            data-de="Die Ebenen wirken nicht getrennt voneinander."
+          >
+            The layers do not operate separately.
+          </h2>
+
+        </div>
+
+        <p class="lead reveal"
+          data-en="Human Architecture® approaches internal and external organization as one connected structure. A shift in one layer influences how the others are supported, regulated and integrated."
+          data-de="Human Architecture® betrachtet innere und äußere Organisation als zusammenhängende Struktur. Eine Veränderung auf einer Ebene beeinflusst, wie die anderen Ebenen getragen, reguliert und integriert werden."
+        >
+          Human Architecture® approaches internal and external organization
+          as one connected structure. A shift in one layer influences how the
+          others are supported, regulated and integrated.
+        </p>
+
+      </div>
+
+      <div class="system-line">
+
+        <div class="system-node reveal">
+          <span>01</span>
+          <strong>Blueprint</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>02</span>
+          <strong data-en="Structure" data-de="Struktur">Structure</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>03</span>
+          <strong data-en="Movement" data-de="Bewegung">Movement</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>04</span>
+          <strong data-en="Breathing" data-de="Atmung">Breathing</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>05</span>
+          <strong data-en="Regulation" data-de="Regulation">Regulation</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>06</span>
+          <strong data-en="Recovery" data-de="Erholung">Recovery</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>07</span>
+          <strong data-en="Identity" data-de="Identität">Identity</strong>
+        </div>
+
+        <div class="system-node reveal">
+          <span>08</span>
+          <strong data-en="Integration" data-de="Integration">Integration</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- AUDIENCE -->
+
+    <section class="section section-sand">
+
+      <div class="section-index">03</div>
+
+      <div class="audience-head reveal">
+
+        <p
+          class="eyebrow"
+          data-en="Who We Support"
+          data-de="Wen wir unterstützen"
+        >
+          Who We Support
+        </p>
+
+        <h2
+          data-en="One framework. Different contexts."
+          data-de="Ein Rahmen. Unterschiedliche Kontexte."
+        >
+          One framework. Different contexts.
+        </h2>
+
+        <p
+          class="lead"
+          data-en="Human Architecture® can support individuals, active communities and professional environments where clarity, structure, regulation or integration are relevant."
+          data-de="Human Architecture® kann Einzelpersonen, aktive Communities und professionelle Umgebungen unterstützen, in denen Klarheit, Struktur, Regulation oder Integration relevant sind."
+        >
+          Human Architecture® can support individuals, active communities
+          and professional environments where clarity, structure, regulation
+          or integration are relevant.
+        </p>
+
+      </div>
+
+      <div class="audience-grid">
+
+        <div class="audience-item reveal"
+          data-en="Individuals seeking orientation"
+          data-de="Menschen auf der Suche nach Orientierung"
+        >
+          Individuals seeking orientation
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Athletes and active communities"
+          data-de="Athleten und aktive Communities"
+        >
+          Athletes and active communities
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Coaches and trainers"
+          data-de="Coaches und Trainer"
+        >
+          Coaches and trainers
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Founders and professionals"
+          data-de="Gründer und Berufstätige"
+        >
+          Founders and professionals
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Hotels and wellness environments"
+          data-de="Hotels und Wellnessumgebungen"
+        >
+          Hotels and wellness environments
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Gyms and performance communities"
+          data-de="Fitnessstudios und Performance-Communities"
+        >
+          Gyms and performance communities
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Retreats and private villas"
+          data-de="Retreats und private Villen"
+        >
+          Retreats and private villas
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Yoga and movement spaces"
+          data-de="Yoga- und Bewegungsräume"
+        >
+          Yoga and movement spaces
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Martial arts academies"
+          data-de="Kampfsportakademien"
+        >
+          Martial arts academies
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="Teams and organizations"
+          data-de="Teams und Organisationen"
+        >
+          Teams and organizations
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="People seeking recovery"
+          data-de="Menschen mit Bedarf an Erholung"
+        >
+          People seeking recovery
+        </div>
+
+        <div class="audience-item reveal"
+          data-en="People moving through transition"
+          data-de="Menschen in Übergangsphasen"
+        >
+          People moving through transition
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- DOMAINS -->
+
+    <section id="domains" class="section section-paper">
+
+      <div class="section-index">04</div>
+
+      <div class="domains-head reveal">
+
+        <p
+          class="eyebrow"
+          data-en="Three Domains"
+          data-de="Drei Bereiche"
+        >
+          Three Domains
+        </p>
+
+        <h2
+          data-en="The entry point follows the nature of the situation."
+          data-de="Der Einstieg folgt der Art der Situation."
+        >
+          The entry point follows the nature of the situation.
+        </h2>
+
+        <p
+          class="lead"
+          data-en="Each domain has a distinct function. They may be entered independently or connected over time."
+          data-de="Jeder Bereich hat eine eigene Funktion. Sie können einzeln betreten oder im Verlauf miteinander verbunden werden."
+        >
+          Each domain has a distinct function. They may be entered
+          independently or connected over time.
+        </p>
+
+      </div>
+
+      <div class="domain-grid">
+
+        <article class="domain-card reveal">
+
+          <div class="domain-index">I</div>
+
+          <p class="domain-label">Blueprint</p>
+
+          <h3>Codex</h3>
+
+          <p
+            data-en="For questions concerning personal structure, identity, decision-making, recurring dynamics and the way an individual system processes and executes."
+            data-de="Für Fragen zur persönlichen Struktur, Identität, Entscheidungsweise, zu wiederkehrenden Dynamiken und zur Art, wie ein individuelles System verarbeitet und umsetzt."
+          >
+            For questions concerning personal structure, identity,
+            decision-making, recurring dynamics and the way an individual
+            system processes and executes.
+          </p>
+
+          <div class="domain-footer">
+            <a
+              href="mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
+              class="text-link"
+              data-en="Enquire about Codex"
+              data-de="Codex anfragen"
+            >
+              Enquire about Codex
+            </a>
+          </div>
+
+        </article>
+
+        <article class="domain-card reveal">
+
+          <div class="domain-index">II</div>
+
+          <p class="domain-label">Body &amp; Regulation</p>
+
+          <h3>Human Architecture® Sessions</h3>
+
+          <p
+            data-en="For physical tension, restricted mobility, altered breathing, internal holding, fatigue, overwhelm, recovery and nervous-system strain."
+            data-de="Für körperliche Spannung, eingeschränkte Mobilität, veränderte Atmung, inneres Halten, Erschöpfung, Überforderung, Erholung und Belastung des Nervensystems."
+          >
+            For physical tension, restricted mobility, altered breathing,
+            internal holding, fatigue, overwhelm, recovery and nervous-system
+            strain.
+          </p>
+
+          <div class="domain-footer">
+            <a
+              href="#sessions"
+              class="text-link"
+              data-en="Explore Sessions"
+              data-de="Sessions erkunden"
+            >
+              Explore Sessions
+            </a>
+          </div>
+
+        </article>
+
+        <article class="domain-card reveal">
+
+          <div class="domain-index">III</div>
+
+          <p class="domain-label">Identity &amp; Transition</p>
+
+          <h3>Mihira Ceremonia</h3>
+
+          <p
+            data-en="For transitions, reorientation and the conscious integration of a changing inner or outer life structure."
+            data-de="Für Übergänge, Neuorientierung und die bewusste Integration einer veränderten inneren oder äußeren Lebensstruktur."
+          >
+            For transitions, reorientation and the conscious integration of
+            a changing inner or outer life structure.
+          </p>
+
+          <div class="domain-footer">
+            <a
+              href="mailto:hello@human-architecture.info?subject=Mihira%20Ceremonia%20Enquiry"
+              class="text-link"
+              data-en="Enquire about Mihira"
+              data-de="Mihira anfragen"
+            >
+              Enquire about Mihira
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- ORIENTATION -->
+
+    <section id="orientation" class="section section-dark">
+
+      <div class="section-index">05</div>
+
+      <div class="orientation-layout">
+
+        <div class="reveal">
+
+          <p
+            class="eyebrow"
+            data-en="Orientation"
+            data-de="Orientierung"
+          >
+            Orientation
+          </p>
+
+          <h2
+            data-en="What brings you here?"
+            data-de="Was bringt Sie hierher?"
+          >
+            What brings you here?
+          </h2>
+
+          <p
+            class="lead"
+            data-en="Choose the statement closest to your current situation. This is not a diagnosis, but an initial structural orientation."
+            data-de="Wählen Sie die Aussage, die Ihrer aktuellen Situation am nächsten kommt. Dies ist keine Diagnose, sondern eine erste strukturelle Orientierung."
+          >
+            Choose the statement closest to your current situation. This is
+            not a diagnosis, but an initial structural orientation.
+          </p>
+
+          <div class="orientation-options">
+
+            <button
+              class="orientation-option active"
+              type="button"
+              data-result="codex"
+            >
+              <span
+                data-en="I want to understand myself and recurring patterns."
+                data-de="Ich möchte mich und wiederkehrende Muster besser verstehen."
+              >
+                I want to understand myself and recurring patterns.
+              </span>
+            </button>
+
+            <button
+              class="orientation-option"
+              type="button"
+              data-result="structure"
+            >
+              <span
+                data-en="I experience physical tension or restricted movement."
+                data-de="Ich erlebe körperliche Spannung oder Bewegungseinschränkung."
+              >
+                I experience physical tension or restricted movement.
+              </span>
+            </button>
+
+            <button
+              class="orientation-option"
+              type="button"
+              data-result="regulation"
+            >
+              <span
+                data-en="I feel overwhelmed, fatigued or unable to settle."
+                data-de="Ich fühle mich überfordert, müde oder schwer regulierbar."
+              >
+                I feel overwhelmed, fatigued or unable to settle.
+              </span>
+            </button>
+
+            <button
+              class="orientation-option"
+              type="button"
+              data-result="core"
+            >
+              <span
+                data-en="I notice shallow breathing, abdominal tension or internal holding."
+                data-de="Ich bemerke flache Atmung, Bauchspannung oder inneres Halten."
+              >
+                I notice shallow breathing, abdominal tension or internal holding.
+              </span>
+            </button>
+
+            <button
+              class="orientation-option"
+              type="button"
+              data-result="transition"
+            >
+              <span
+                data-en="I am moving through transition or reorientation."
+                data-de="Ich befinde mich in einem Übergang oder einer Neuorientierung."
+              >
+                I am moving through transition or reorientation.
+              </span>
+            </button>
+
+            <button
+              class="orientation-option"
+              type="button"
+              data-result="intensive"
+            >
+              <span
+                data-en="I am seeking comprehensive work across several layers."
+                data-de="Ich suche eine umfassende Arbeit über mehrere Ebenen."
+              >
+                I am seeking comprehensive work across several layers.
+              </span>
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="orientation-result reveal">
+
+          <p class="result-domain" id="result-domain">
+            Blueprint
+          </p>
+
+          <h3 id="result-title">
+            Codex
+          </h3>
+
+          <p id="result-copy">
+            Codex is the most logical entry point when questions about
+            personal structure, decision-making or recurring dynamics are
+            central.
+          </p>
+
+          <a
+            id="result-action"
+            href="mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
+            class="button button-light result-button"
+          >
+            Enquire about Codex
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SESSIONS -->
+
+    <section id="sessions" class="section section-paper">
+
+      <div class="section-index">06</div>
+
+      <div class="sessions-header">
+
+        <div class="reveal">
+
+          <p class="eyebrow">
+            Body &amp; Regulation
+          </p>
+
+          <h2
+            data-en="Individually composed structural sessions."
+            data-de="Individuell komponierte strukturelle Sessions."
+          >
+            Individually composed structural sessions.
+          </h2>
+
+        </div>
+
+        <p class="lead reveal"
+          data-en="The selection follows the system’s current organization, capacity and intention. Not every modality is necessary for every situation."
+          data-de="Die Auswahl folgt der aktuellen Organisation, Kapazität und Zielsetzung des Systems. Nicht jede Modalität ist für jede Situation notwendig."
+        >
+          The selection follows the system’s current organization, capacity
+          and intention. Not every modality is necessary for every situation.
+        </p>
+
+      </div>
+
+      <div class="session-grid">
+
+        <section class="session-column reveal">
+
+          <div
+            class="session-label"
+            data-en="I — Structural Foundation"
+            data-de="I — Strukturelle Grundlage"
+          >
+            I — Structural Foundation
+          </div>
+
+          <h3
+            data-en="Structure & Movement"
+            data-de="Struktur & Bewegung"
+          >
+            Structure &amp; Movement
+          </h3>
+
+          <ul class="session-list">
+
+            <li>
+              <strong>Structural Consultation</strong>
+              <span
+                data-en="Establishes a structural baseline and the appropriate pathway."
+                data-de="Schafft eine strukturelle Ausgangsbasis und orientiert den passenden Weg."
+              >
+                Establishes a structural baseline and the appropriate pathway.
+              </span>
+            </li>
+
+            <li>
+              <strong>Manual Therapy &amp; Mobility Integration</strong>
+              <span
+                data-en="Supports mobility, fascial balance and functional movement."
+                data-de="Unterstützt Mobilität, fasziales Gleichgewicht und funktionale Bewegung."
+              >
+                Supports mobility, fascial balance and functional movement.
+              </span>
+            </li>
+
+            <li>
+              <strong>Massage Therapy</strong>
+              <span
+                data-en="Targeted manual work for accumulated muscular tension."
+                data-de="Gezielte manuelle Arbeit bei angesammelter muskulärer Spannung."
+              >
+                Targeted manual work for accumulated muscular tension.
+              </span>
+            </li>
+
+            <li>
+              <strong>Fascial Scraping</strong>
+              <span
+                data-en="Instrument-assisted work supporting fascial glide."
+                data-de="Instrumentengestützte Arbeit zur Unterstützung faszialer Gleitfähigkeit."
+              >
+                Instrument-assisted work supporting fascial glide.
+              </span>
+            </li>
+
+            <li>
+              <strong>Cupping Therapy</strong>
+              <span
+                data-en="Controlled tissue decompression supporting local mobility."
+                data-de="Kontrollierte Gewebedekompression zur Unterstützung lokaler Beweglichkeit."
+              >
+                Controlled tissue decompression supporting local mobility.
+              </span>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section class="session-column reveal">
+
+          <div
+            class="session-label"
+            data-en="II — Regulation & Recovery"
+            data-de="II — Regulation & Erholung"
+          >
+            II — Regulation &amp; Recovery
+          </div>
+
+          <h3
+            data-en="Breath & Regulation"
+            data-de="Atmung & Regulation"
+          >
+            Breath &amp; Regulation
+          </h3>
+
+          <ul class="session-list">
+
+            <li>
+              <strong>Craniosacral Therapy</strong>
+              <span
+                data-en="Gentle work supporting settling and reduced protective holding."
+                data-de="Sanfte Arbeit zur Unterstützung von Ruhe und dem Nachlassen schützender Spannung."
+              >
+                Gentle work supporting settling and reduced protective holding.
+              </span>
+            </li>
+
+            <li>
+              <strong>Breathwork</strong>
+              <span
+                data-en="Supports breathing mechanics, diaphragm function and regulation."
+                data-de="Unterstützt Atmungsmechanik, Zwerchfellfunktion und Regulation."
+              >
+                Supports breathing mechanics, diaphragm function and regulation.
+              </span>
+            </li>
+
+            <li>
+              <strong>NSDR / Yoga Nidra</strong>
+              <span
+                data-en="Structured deep rest supporting recovery during high demand."
+                data-de="Strukturierte Tiefenruhe zur Unterstützung der Erholung in Belastungsphasen."
+              >
+                Structured deep rest supporting recovery during high demand.
+              </span>
+            </li>
+
+            <li>
+              <strong>Sound Therapy</strong>
+              <span
+                data-en="Sound and vibration supporting relaxation and awareness."
+                data-de="Klang und Vibration zur Unterstützung von Entspannung und Wahrnehmung."
+              >
+                Sound and vibration supporting relaxation and awareness.
+              </span>
+            </li>
+
+            <li>
+              <strong>Contrast Therapy</strong>
+              <span
+                data-en="Guided heat and cold exposure within a complementary recovery context."
+                data-de="Geführter Wärme- und Kältereiz in einem ergänzenden Erholungskontext."
+              >
+                Guided heat and cold exposure within a complementary recovery context.
+              </span>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section class="session-column reveal">
+
+          <div
+            class="session-label"
+            data-en="III — Core & Integration"
+            data-de="III — Kern & Integration"
+          >
+            III — Core &amp; Integration
+          </div>
+
+          <h3
+            data-en="Full-System Integration"
+            data-de="Ganzheitliche Integration"
+          >
+            Full-System Integration
+          </h3>
+
+          <ul class="session-list">
+
+            <li>
+              <strong>Chi Nei Tsang</strong>
+              <span
+                data-en="Focused abdominal work supporting diaphragmatic and internal ease."
+                data-de="Fokussierte Baucharbeit zur Unterstützung von Zwerchfell und innerer Weite."
+              >
+                Focused abdominal work supporting diaphragmatic and internal ease.
+              </span>
+            </li>
+
+            <li>
+              <strong>Structural Yoga Integration</strong>
+              <span
+                data-en="Individualized movement supporting mobility and coordination."
+                data-de="Individuelle Bewegung zur Unterstützung von Mobilität und Koordination."
+              >
+                Individualized movement supporting mobility and coordination.
+              </span>
+            </li>
+
+            <li>
+              <strong>Calamus Ceremony</strong>
+              <span
+                data-en="A body-based ceremonial format oriented toward sensory activation and presence."
+                data-de="Ein körperbezogenes zeremonielles Format für sensorische Aktivierung und Präsenz."
+              >
+                A body-based ceremonial format oriented toward sensory activation and presence.
+              </span>
+            </li>
+
+            <li>
+              <strong>Human Architecture® Intensive</strong>
+              <span
+                data-en="A comprehensive session combining several structurally appropriate modalities."
+                data-de="Eine umfassende Session, die mehrere strukturell passende Modalitäten verbindet."
+              >
+                A comprehensive session combining several structurally appropriate modalities.
+              </span>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </div>
+
+      <div style="margin-top:36px;">
+
+        <a
+          href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20a%20Human%20Architecture%20session."
+          class="button button-dark"
+          target="_blank"
+          rel="noopener"
+          data-en="Enquire about a Session"
+          data-de="Session anfragen"
+        >
+          Enquire about a Session
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- PARTNERSHIPS -->
+
+    <section id="partnerships" class="section section-forest">
+
+      <div class="section-index">07</div>
+
+      <div class="partnership-layout">
+
+        <div class="reveal">
+
+          <p
+            class="eyebrow"
+            data-en="Partnerships"
+            data-de="Partnerschaften"
+          >
+            Partnerships
+          </p>
+
+          <h2
+            data-en="A complementary structural layer for your community."
+            data-de="Eine ergänzende strukturelle Ebene für Ihre Community."
+          >
+            A complementary structural layer for your community.
+          </h2>
+
+          <p
+            class="lead"
+            data-en="Human Architecture® can integrate into an existing professional environment without replacing its current offer."
+            data-de="Human Architecture® kann in eine bestehende professionelle Umgebung integriert werden, ohne deren aktuelles Angebot zu ersetzen."
+          >
+            Human Architecture® can integrate into an existing professional
+            environment without replacing its current offer.
+          </p>
+
+          <p
+            class="lead"
+            data-en="Each collaboration is shaped around the partner’s audience, context and operational structure."
+            data-de="Jede Zusammenarbeit wird auf Zielgruppe, Kontext und operative Struktur des Partners abgestimmt."
+          >
+            Each collaboration is shaped around the partner’s audience,
+            context and operational structure.
+          </p>
+
+          <a
+            href="mailto:hello@human-architecture.info?subject=Human%20Architecture%20Partnership%20Enquiry"
+            class="button button-light"
+            data-en="Partnership Enquiry"
+            data-de="Partnerschaft anfragen"
+          >
+            Partnership Enquiry
+          </a>
+
+        </div>
+
+        <div class="partner-list reveal">
+
+          <div
+            data-en="Boutique hotels and wellness resorts"
+            data-de="Boutique-Hotels und Wellness-Resorts"
+          >
+            Boutique hotels and wellness resorts
+          </div>
+
+          <div
+            data-en="Retreat centres and private villas"
+            data-de="Retreat-Zentren und private Villen"
+          >
+            Retreat centres and private villas
+          </div>
+
+          <div
+            data-en="Gyms and performance communities"
+            data-de="Fitnessstudios und Performance-Communities"
+          >
+            Gyms and performance communities
+          </div>
+
+          <div
+            data-en="Martial arts academies"
+            data-de="Kampfsportakademien"
+          >
+            Martial arts academies
+          </div>
+
+          <div
+            data-en="Yoga, Pilates and movement spaces"
+            data-de="Yoga-, Pilates- und Bewegungsräume"
+          >
+            Yoga, Pilates and movement spaces
+          </div>
+
+          <div
+            data-en="Surf camps and recovery concepts"
+            data-de="Surf-Camps und Recovery-Konzepte"
+          >
+            Surf camps and recovery concepts
+          </div>
+
+          <div
+            data-en="Companies and co-working environments"
+            data-de="Unternehmen und Co-Working-Umgebungen"
+          >
+            Companies and co-working environments
+          </div>
+
+          <div
+            data-en="Coaches and professional collaborators"
+            data-de="Coaches und professionelle Kooperationspartner"
+          >
+            Coaches and professional collaborators
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="format-grid">
+
+        <div class="format-card reveal"
+          data-en="Member Referral Pathways"
+          data-de="Empfehlungswege für Mitglieder"
+        >
+          Member Referral Pathways
+        </div>
+
+        <div class="format-card reveal"
+          data-en="Recovery Days"
+          data-de="Recovery Days"
+        >
+          Recovery Days
+        </div>
+
+        <div class="format-card reveal"
+          data-en="Structural Consultations"
+          data-de="Strukturelle Konsultationen"
+        >
+          Structural Consultations
+        </div>
+
+        <div class="format-card reveal"
+          data-en="Mobility Sessions"
+          data-de="Mobilitäts-Sessions"
+        >
+          Mobility Sessions
+        </div>
+
+        <div class="format-card reveal"
+          data-en="Breath & Regulation Events"
+          data-de="Atem- und Regulationsevents"
+        >
+          Breath &amp; Regulation Events
+        </div>
+
+        <div class="format-card reveal"
+          data-en="Team & Staff Sessions"
+          data-de="Team- und Mitarbeiter-Sessions"
+        >
+          Team &amp; Staff Sessions
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROCESS -->
+
+    <section class="section section-sand">
+
+      <div class="section-index">08</div>
+
+      <div class="reveal">
+
+        <p
+          class="eyebrow"
+          data-en="How to Begin"
+          data-de="Wie der Einstieg beginnt"
+        >
+          How to Begin
+        </p>
+
+        <h2
+          data-en="One system. One relevant entry point."
+          data-de="Ein System. Ein relevanter Einstiegspunkt."
+        >
+          One system. One relevant entry point.
+        </h2>
+
+      </div>
+
+      <div class="process-grid">
+
+        <article class="process-step reveal">
+
+          <span>01</span>
+
+          <h3 data-en="Contact" data-de="Kontakt">
+            Contact
+          </h3>
+
+          <p
+            data-en="A direct enquiry begins the conversation."
+            data-de="Eine direkte Anfrage eröffnet das Gespräch."
+          >
+            A direct enquiry begins the conversation.
+          </p>
+
+        </article>
+
+        <article class="process-step reveal">
+
+          <span>02</span>
+
+          <h3 data-en="Orientation" data-de="Orientierung">
+            Orientation
+          </h3>
+
+          <p
+            data-en="We clarify the domain in which the current situation belongs."
+            data-de="Wir klären, welchem Bereich die aktuelle Situation entspricht."
+          >
+            We clarify the domain in which the current situation belongs.
+          </p>
+
+        </article>
+
+        <article class="process-step reveal">
+
+          <span>03</span>
+
+          <h3 data-en="Entry Point" data-de="Einstieg">
+            Entry Point
+          </h3>
+
+          <p
+            data-en="One structurally appropriate first step is identified."
+            data-de="Ein strukturell passender erster Schritt wird benannt."
+          >
+            One structurally appropriate first step is identified.
+          </p>
+
+        </article>
+
+        <article class="process-step reveal">
+
+          <span>04</span>
+
+          <h3 data-en="Session or Collaboration" data-de="Session oder Zusammenarbeit">
+            Session or Collaboration
+          </h3>
+
+          <p
+            data-en="The work is adapted to the individual or partner environment."
+            data-de="Die Arbeit wird an die Person oder Partnerumgebung angepasst."
+          >
+            The work is adapted to the individual or partner environment.
+          </p>
+
+        </article>
+
+        <article class="process-step reveal">
+
+          <span>05</span>
+
+          <h3 data-en="Integration" data-de="Integration">
+            Integration
+          </h3>
+
+          <p
+            data-en="Further steps are considered only where they make structural sense."
+            data-de="Weitere Schritte werden nur erwogen, wenn sie strukturell sinnvoll sind."
+          >
+            Further steps are considered only where they make structural sense.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section section-dark contact">
+
+      <div class="contact-layout">
+
+        <div class="reveal">
+
+          <p
+            class="eyebrow"
+            data-en="Direct Contact"
+            data-de="Direkter Kontakt"
+          >
+            Direct Contact
+          </p>
+
+          <h2
+            data-en="Begin with a clear conversation."
+            data-de="Beginnen Sie mit einem klaren Gespräch."
+          >
+            Begin with a clear conversation.
+          </h2>
+
+          <p
+            class="lead"
+            data-en="For individual orientation, session enquiries or professional partnerships, contact Human Architecture® directly."
+            data-de="Für individuelle Orientierung, Session-Anfragen oder professionelle Partnerschaften kontaktieren Sie Human Architecture® direkt."
+          >
+            For individual orientation, session enquiries or professional
+            partnerships, contact Human Architecture® directly.
+          </p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;">
+
+            <a
+              href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
+              class="button button-light"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="mailto:hello@human-architecture.info?subject=Human%20Architecture%20Enquiry"
+              class="button button-outline-light"
+              data-en="Send an Email"
+              data-de="E-Mail senden"
+            >
+              Send an Email
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="contact-links reveal">
+
+          <a
+            href="mailto:hello@human-architecture.info"
+            class="contact-link"
+          >
+            <span>Email</span>
+            <strong>hello@human-architecture.info</strong>
+          </a>
+
+          <a
+            href="https://wa.me/4915203131871"
+            class="contact-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>WhatsApp</span>
+            <strong>+49 1520 3131871</strong>
+          </a>
+
+          <a
+            href="https://www.instagram.com/human_arch.itecture/"
+            class="contact-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Instagram</span>
+            <strong>@human_arch.itecture</strong>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <strong>Human Architecture®</strong>
+      <span>Structural Design of the Human System</span>
+    </div>
+
+    <div
+      data-en="Human Architecture® provides complementary wellness, structural and ceremonial services. The offers do not diagnose, treat or cure medical or psychological conditions and do not replace medical or psychological care."
+      data-de="Human Architecture® bietet ergänzende Wellness-, strukturelle und zeremonielle Leistungen. Die Angebote diagnostizieren, behandeln oder heilen keine medizinischen oder psychologischen Erkrankungen und ersetzen keine medizinische oder psychologische Betreuung."
+    >
+      Human Architecture® provides complementary wellness, structural and
+      ceremonial services. The offers do not diagnose, treat or cure medical
+      or psychological conditions and do not replace medical or psychological
+      care.
+    </div>
+
+    <div class="footer-links">
+      <a href="mailto:hello@human-architecture.info">Email</a>
+      <a
+        href="https://www.instagram.com/human_arch.itecture/"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
+      <a
+        href="https://wa.me/4915203131871"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp
+      </a>
+    </div>
+
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuButton = document.querySelector(".menu-button");
+    const mainNav = document.querySelector(".main-nav");
+    const languageButton = document.querySelector(".language-button");
+
+    let currentLanguage = "en";
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+
+      body.classList.toggle("menu-open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".main-nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const orientationContent = {
+      en: {
+        codex: {
+          domain: "Blueprint",
+          title: "Codex",
+          copy:
+            "Codex is the most logical entry point when questions about personal structure, decision-making or recurring dynamics are central.",
+          action: "Enquire about Codex",
+          href:
+            "mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
+        },
+        structure: {
+          domain: "Body & Regulation",
+          title: "Structural Consultation",
+          copy:
+            "A Structural Consultation is the clearest first step when physical tension, mobility restriction or biomechanical strain is central.",
+          action: "Enquire about a Consultation",
+          href:
+            "mailto:hello@human-architecture.info?subject=Structural%20Consultation%20Enquiry"
+        },
+        regulation: {
+          domain: "Body & Regulation",
+          title: "Regulation & Recovery",
+          copy:
+            "Breathwork, NSDR or Sound Therapy may provide the most appropriate orientation when overwhelm, fatigue or nervous-system strain is central.",
+          action: "Enquire about Regulation",
+          href:
+            "mailto:hello@human-architecture.info?subject=Regulation%20Session%20Enquiry"
+        },
+        core: {
+          domain: "Body & Regulation",
+          title: "Chi Nei Tsang",
+          copy:
+            "Chi Nei Tsang is the most direct entry point when abdominal tension, shallow breathing or internal holding is central.",
+          action: "Enquire about Chi Nei Tsang",
+          href:
+            "mailto:hello@human-architecture.info?subject=Chi%20Nei%20Tsang%20Enquiry"
+        },
+        transition: {
+          domain: "Identity & Transition",
+          title: "Mihira Ceremonia",
+          copy:
+            "Mihira Ceremonia is designed for transition, reorientation and the conscious integration of a changing life structure.",
+          action: "Enquire about Mihira",
+          href:
+            "mailto:hello@human-architecture.info?subject=Mihira%20Ceremonia%20Enquiry"
+        },
+        intensive: {
+          domain: "Full-System Immersion",
+          title: "Human Architecture® Intensive",
+          copy:
+            "The Intensive is the most appropriate entry point when several structural and regulatory layers require one carefully composed session.",
+          action: "Enquire about the Intensive",
+          href:
+            "mailto:hello@human-architecture.info?subject=Human%20Architecture%20Intensive%20Enquiry"
+        }
+      },
+
+      de: {
+        codex: {
+          domain: "Blueprint",
+          title: "Codex",
+          copy:
+            "Der Codex ist der logischste Einstieg, wenn Fragen zur persönlichen Struktur, Entscheidungsweise oder zu wiederkehrenden Dynamiken im Vordergrund stehen.",
+          action: "Codex anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Codex%20Anfrage"
+        },
+        structure: {
+          domain: "Körper & Regulation",
+          title: "Strukturelle Konsultation",
+          copy:
+            "Eine Strukturelle Konsultation ist der klarste erste Schritt, wenn körperliche Spannung, eingeschränkte Mobilität oder biomechanische Belastung im Vordergrund stehen.",
+          action: "Konsultation anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Strukturelle%20Konsultation"
+        },
+        regulation: {
+          domain: "Körper & Regulation",
+          title: "Regulation & Erholung",
+          copy:
+            "Breathwork, NSDR oder Sound Therapy können der passende Einstieg sein, wenn Überforderung, Erschöpfung oder Belastung des Nervensystems zentral sind.",
+          action: "Regulation anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Regulation%20Session"
+        },
+        core: {
+          domain: "Körper & Regulation",
+          title: "Chi Nei Tsang",
+          copy:
+            "Chi Nei Tsang ist der direkteste Einstieg, wenn Bauchspannung, flache Atmung oder inneres Halten im Vordergrund stehen.",
+          action: "Chi Nei Tsang anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Chi%20Nei%20Tsang"
+        },
+        transition: {
+          domain: "Identität & Übergang",
+          title: "Mihira Ceremonia",
+          copy:
+            "Mihira Ceremonia ist für Übergang, Neuorientierung und die bewusste Integration einer veränderten Lebensstruktur vorgesehen.",
+          action: "Mihira anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Mihira%20Ceremonia"
+        },
+        intensive: {
+          domain: "Ganzheitliche Immersion",
+          title: "Human Architecture® Intensive",
+          copy:
+            "Das Intensive ist der passende Einstieg, wenn mehrere strukturelle und regulatorische Ebenen in einer sorgfältig komponierten Session verbunden werden sollen.",
+          action: "Intensive anfragen",
+          href:
+            "mailto:hello@human-architecture.info?subject=Human%20Architecture%20Intensive"
+        }
+      }
+    };
+
+    const resultDomain = document.getElementById("result-domain");
+    const resultTitle = document.getElementById("result-title");
+    const resultCopy = document.getElementById("result-copy");
+    const resultAction = document.getElementById("result-action");
+
+    function showOrientationResult(key) {
+      const data = orientationContent[currentLanguage][key];
+
+      resultDomain.textContent = data.domain;
+      resultTitle.textContent = data.title;
+      resultCopy.textContent = data.copy;
+      resultAction.textContent = data.action;
+      resultAction.href = data.href;
+    }
+
+    document.querySelectorAll(".orientation-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        document
+          .querySelectorAll(".orientation-option")
+          .forEach((item) => item.classList.remove("active"));
+
+        button.classList.add("active");
+        showOrientationResult(button.dataset.result);
+      });
+    });
+
+    languageButton.addEventListener("click", () => {
+      currentLanguage = currentLanguage === "en" ? "de" : "en";
+
+      document.documentElement.lang = currentLanguage;
+
+      document.querySelectorAll("[data-en][data-de]").forEach((element) => {
+        element.textContent = element.dataset[currentLanguage];
+      });
+
+      languageButton.textContent = currentLanguage === "en" ? "DE" : "EN";
+
+      const activeOption = document.querySelector(
+        ".orientation-option.active"
+      );
+
+      showOrientationResult(activeOption.dataset.result);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
