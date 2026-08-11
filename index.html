@@ -50,8 +50,8 @@
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#philosophy">Philosophy</a>
         <a href="#human-system">Human System</a>
-        <a href="#domains">Domains</a>
         <a href="#entry-point">Entry Point</a>
+        <a href="#domains">Domains</a>
         <a href="#offerings">Offerings</a>
         <a href="#partnerships">Partnerships</a>
         <a href="#about">About</a>
@@ -84,8 +84,8 @@
     >
       <a href="#philosophy">Philosophy</a>
       <a href="#human-system">Human System</a>
-      <a href="#domains">Domains</a>
       <a href="#entry-point">Entry Point</a>
+      <a href="#domains">Domains</a>
       <a href="#offerings">Offerings</a>
       <a href="#partnerships">Partnerships</a>
       <a href="#about">About</a>
@@ -105,6 +105,7 @@
     ====================================================== -->
 
     <section class="hero" id="top" aria-labelledby="hero-title">
+
       <div class="hero__media" aria-hidden="true"></div>
       <div class="hero__veil" aria-hidden="true"></div>
 
@@ -119,7 +120,7 @@
         />
 
         <p class="hero__classification">
-          Human Architecture
+          Structural design of the human system
         </p>
 
         <h1 id="hero-title">
@@ -134,6 +135,7 @@
         <a class="line-link line-link--light" href="#philosophy">
           Explore the system
         </a>
+
       </div>
 
       <a
@@ -144,6 +146,7 @@
         <span>Scroll</span>
         <i aria-hidden="true"></i>
       </a>
+
     </section>
 
 
@@ -170,36 +173,52 @@
         </div>
 
         <div class="philosophy__copy reveal">
+
           <p class="lead">
             Human Architecture begins with the whole human context rather than
             isolating one part from the system around it.
           </p>
 
           <p>
-            Body, nervous system, emotion, cognition, identity, relationships,
-            environment and meaning continuously influence one another.
-            Understanding becomes more useful when those relationships remain
-            visible.
+            Body, nervous system, emotion, cognition, identity, relationship,
+            environment and meaning continually influence one another.
           </p>
 
           <p>
-            The intention is not to impose a standard form upon a person, but to
-            create greater clarity around the structure already present.
+            The intention is not to impose a standard form upon a person.
+            It is to understand more clearly the structure, context and
+            relationships already present.
           </p>
+
         </div>
 
-        <!--
-          FUTURE ASSET:
-          Replace this atmospheric placeholder with a real observational
-          Human Architecture photograph when an approved image is available.
-        -->
         <div
           class="philosophy__image-placeholder reveal"
           role="img"
-          aria-label="Reserved area for an observational Human Architecture photograph"
+          aria-label="Reserved area for an approved observational Human Architecture photograph"
         >
           <span>Human presence / image to confirm</span>
         </div>
+
+      </div>
+
+      <div class="philosophy-principles page-grid">
+
+        <article class="principle reveal">
+          <span>01</span>
+          <p>Understanding before action.</p>
+        </article>
+
+        <article class="principle reveal">
+          <span>02</span>
+          <p>Structure before interpretation.</p>
+        </article>
+
+        <article class="principle reveal">
+          <span>03</span>
+          <p>Regulation before expansion.</p>
+        </article>
+
       </div>
 
       <svg
@@ -212,6 +231,7 @@
           d="M0 108 C240 175 395 32 610 97 C830 165 986 36 1183 91 C1365 140 1470 81 1600 35"
         />
       </svg>
+
     </section>
 
 
@@ -232,20 +252,33 @@
         </div>
 
         <div class="system-intro reveal">
-          <h2 id="system-title">The Human System</h2>
+
+          <h2 id="system-title">
+            One human.
+            <span>Eight dimensions.</span>
+            One living system.
+          </h2>
 
           <p>
-            Eight interdependent dimensions. One living context.
+            No dimension exists in isolation. Human Architecture looks at
+            relationship, context and proportion across the whole system.
           </p>
+
         </div>
+
 
         <figure class="system-figure reveal">
 
-          <div class="system-diagram" aria-hidden="true">
+          <div
+            class="system-diagram"
+            data-system-diagram
+          >
+
             <svg
               class="system-connections"
               viewBox="0 0 800 800"
               preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
             >
               <circle cx="400" cy="400" r="275"></circle>
               <circle cx="400" cy="400" r="205"></circle>
@@ -264,17 +297,75 @@
               <span>Human</span>
             </div>
 
-            <div class="system-node system-node--body">Body</div>
-            <div class="system-node system-node--nervous">Nervous System</div>
-            <div class="system-node system-node--emotion">Emotion</div>
-            <div class="system-node system-node--cognition">Cognition</div>
-            <div class="system-node system-node--identity">Identity</div>
-            <div class="system-node system-node--relationship">Relationship</div>
-            <div class="system-node system-node--environment">Environment</div>
-            <div class="system-node system-node--meaning">Meaning</div>
+            <button
+              class="system-node system-node--body"
+              type="button"
+              data-system-node="body"
+            >
+              Body
+            </button>
+
+            <button
+              class="system-node system-node--nervous"
+              type="button"
+              data-system-node="nervous"
+            >
+              Nervous System
+            </button>
+
+            <button
+              class="system-node system-node--emotion"
+              type="button"
+              data-system-node="emotion"
+            >
+              Emotion
+            </button>
+
+            <button
+              class="system-node system-node--cognition"
+              type="button"
+              data-system-node="cognition"
+            >
+              Cognition
+            </button>
+
+            <button
+              class="system-node system-node--identity"
+              type="button"
+              data-system-node="identity"
+            >
+              Identity
+            </button>
+
+            <button
+              class="system-node system-node--relationship"
+              type="button"
+              data-system-node="relationship"
+            >
+              Relationship
+            </button>
+
+            <button
+              class="system-node system-node--environment"
+              type="button"
+              data-system-node="environment"
+            >
+              Environment
+            </button>
+
+            <button
+              class="system-node system-node--meaning"
+              type="button"
+              data-system-node="meaning"
+            >
+              Meaning
+            </button>
+
           </div>
 
+
           <figcaption class="system-mobile-list">
+
             <ol>
               <li><span>01</span> Body</li>
               <li><span>02</span> Nervous System</li>
@@ -285,14 +376,21 @@
               <li><span>07</span> Environment</li>
               <li><span>08</span> Meaning</li>
             </ol>
+
           </figcaption>
 
         </figure>
 
-        <div class="system-note reveal">
+
+        <div
+          class="system-response"
+          data-system-response
+          aria-live="polite"
+        >
+          <p class="eyebrow">Relationship</p>
+
           <p>
-            No dimension exists in isolation. The value of the system lies in
-            understanding relationship, context and proportion.
+            Select a dimension to bring one relationship into focus.
           </p>
         </div>
 
@@ -301,101 +399,31 @@
 
 
     <!-- =====================================================
-         04 — THREE DOMAINS
+         04 — ORIENTATION BRIDGE
     ====================================================== -->
 
     <section
-      class="section section--abyss domains"
-      id="domains"
-      aria-labelledby="domains-title"
+      class="section section--ivory orientation-bridge"
+      aria-labelledby="orientation-title"
     >
-      <div class="page-grid">
+      <div class="orientation-bridge__inner reveal">
 
-        <div class="section-marker section-marker--light reveal">
-          <span>03</span>
-          <p>Three Domains</p>
-        </div>
+        <p class="eyebrow">
+          Orientation
+        </p>
 
-        <div class="domains__intro reveal">
-          <h2 id="domains-title">
-            Three ways of entering the same human architecture.
-          </h2>
-        </div>
+        <h2 id="orientation-title">
+          There is no single place everyone should begin.
+        </h2>
 
-        <div class="domain-panels">
+        <p>
+          Begin with what is happening now.
+        </p>
 
-          <article class="domain-panel domain-panel--codex reveal" tabindex="0">
-            <div class="domain-panel__atmosphere" aria-hidden="true"></div>
+        <a class="line-link" href="#entry-point">
+          Find your entry point
+        </a>
 
-            <div class="domain-panel__content">
-              <span class="domain-panel__number">01</span>
-
-              <p class="domain-panel__classification">
-                Blueprint
-              </p>
-
-              <h3>Codex</h3>
-
-              <p>
-                Understanding, research, frameworks, education and applied human
-                knowledge.
-              </p>
-
-              <a class="line-link line-link--sand" href="#entry-point">
-                Enter this domain
-              </a>
-            </div>
-          </article>
-
-
-          <article class="domain-panel domain-panel--body reveal" tabindex="0">
-            <div class="domain-panel__atmosphere" aria-hidden="true"></div>
-
-            <div class="domain-panel__content">
-              <span class="domain-panel__number">02</span>
-
-              <p class="domain-panel__classification">
-                Embodiment
-              </p>
-
-              <h3>Body &amp; Regulation</h3>
-
-              <p>
-                Movement, regulation, physical intelligence, recovery, capacity
-                and embodiment.
-              </p>
-
-              <a class="line-link line-link--sand" href="#entry-point">
-                Enter this domain
-              </a>
-            </div>
-          </article>
-
-
-          <article class="domain-panel domain-panel--mihira reveal" tabindex="0">
-            <div class="domain-panel__atmosphere" aria-hidden="true"></div>
-
-            <div class="domain-panel__content">
-              <span class="domain-panel__number">03</span>
-
-              <p class="domain-panel__classification">
-                Meaning &amp; Transition
-              </p>
-
-              <h3>Mihira Ceremonia</h3>
-
-              <p>
-                Ritual, transition, gathering, meaning and significant human
-                moments.
-              </p>
-
-              <a class="line-link line-link--sand" href="#entry-point">
-                Enter this domain
-              </a>
-            </div>
-          </article>
-
-        </div>
       </div>
     </section>
 
@@ -409,111 +437,460 @@
       id="entry-point"
       aria-labelledby="entry-title"
     >
-      <div class="entry__heading reveal">
-        <p class="eyebrow">Orientation</p>
+      <div class="page-grid">
 
-        <h2 id="entry-title">Find Your Entry Point</h2>
-
-        <p>
-          Begin with the context that feels closest to where you are now.
-        </p>
-      </div>
-
-      <div class="entry-map reveal" data-entry-map>
-
-        <svg
-          class="entry-map__lines"
-          viewBox="0 0 1400 640"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M700 320 C480 280 420 110 190 110"></path>
-          <path d="M700 320 C610 190 650 90 720 72"></path>
-          <path d="M700 320 C895 260 1010 115 1215 105"></path>
-
-          <path d="M700 320 C505 345 390 295 180 305"></path>
-          <path d="M700 320 C540 430 420 510 250 548"></path>
-          <path d="M700 320 C700 460 700 515 705 567"></path>
-
-          <path d="M700 320 C875 355 965 290 1185 295"></path>
-          <path d="M700 320 C870 430 1010 500 1195 550"></path>
-
-          <path d="M700 320 C545 345 500 470 470 575"></path>
-          <path d="M700 320 C840 365 885 470 915 575"></path>
-        </svg>
-
-        <div class="entry-map__centre">
-          <span>Begin here</span>
+        <div class="section-marker reveal">
+          <span>03</span>
+          <p>Entry Point</p>
         </div>
 
-        <button class="entry-point entry-point--1" type="button" data-entry="self">
-          I want to understand myself
-        </button>
+        <div class="entry__heading reveal">
 
-        <button class="entry-point entry-point--2" type="button" data-entry="body">
-          I want to reconnect with my body
-        </button>
+          <h2 id="entry-title">
+            Where are you meeting the system right now?
+          </h2>
 
-        <button class="entry-point entry-point--3" type="button" data-entry="transition">
-          I am navigating a transition
-        </button>
+          <p>
+            Begin with the domain that feels closest to what you are
+            currently navigating.
+          </p>
 
-        <button class="entry-point entry-point--4" type="button" data-entry="young">
-          I support children or young people
-        </button>
+        </div>
 
-        <button class="entry-point entry-point--5" type="button" data-entry="women">
-          I work with women or young women
-        </button>
 
-        <button class="entry-point entry-point--6" type="button" data-entry="lead">
-          I lead people or organisations
-        </button>
+        <div
+          class="entry-domain-selector reveal"
+          data-entry-selector
+        >
 
-        <button class="entry-point entry-point--7" type="button" data-entry="culture">
-          I am building a healthier team or culture
-        </button>
+          <button
+            class="entry-domain"
+            type="button"
+            data-entry-domain="blueprint"
+            aria-expanded="false"
+            aria-controls="entry-blueprint"
+          >
+            <span class="entry-domain__number">01</span>
 
-        <button class="entry-point entry-point--8" type="button" data-entry="institution">
-          I represent a school or institution
-        </button>
+            <span class="entry-domain__label">
+              Understanding
+            </span>
 
-        <button class="entry-point entry-point--9" type="button" data-entry="practitioner">
-          I am a practitioner or coach
-        </button>
+            <strong>
+              I want to understand myself or recurring patterns more clearly.
+            </strong>
 
-        <button class="entry-point entry-point--10" type="button" data-entry="partnership">
-          I want to create a partnership
-        </button>
-      </div>
+            <small>
+              Blueprint / Codex
+            </small>
+          </button>
 
-      <div
-        class="entry-response"
-        data-entry-response
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        <p class="entry-response__classification">
-          Select a point of entry
-        </p>
 
-        <h3>
-          Your context can guide where the conversation begins.
-        </h3>
+          <button
+            class="entry-domain"
+            type="button"
+            data-entry-domain="body"
+            aria-expanded="false"
+            aria-controls="entry-body"
+          >
+            <span class="entry-domain__number">02</span>
 
-        <p>
-          Human Architecture is designed to orient rather than prescribe.
-        </p>
+            <span class="entry-domain__label">
+              Body &amp; Regulation
+            </span>
 
-        <a class="line-link" href="#offerings">
-          Continue
-        </a>
+            <strong>
+              Something is asking for attention through my body, capacity or
+              regulation.
+            </strong>
+
+            <small>
+              Human Architecture Sessions
+            </small>
+          </button>
+
+
+          <button
+            class="entry-domain"
+            type="button"
+            data-entry-domain="transition"
+            aria-expanded="false"
+            aria-controls="entry-transition"
+          >
+            <span class="entry-domain__number">03</span>
+
+            <span class="entry-domain__label">
+              Identity &amp; Transition
+            </span>
+
+            <strong>
+              I am moving through a meaningful threshold, change or transition.
+            </strong>
+
+            <small>
+              Mihira Ceremonia
+            </small>
+          </button>
+
+        </div>
+
+
+        <!-- ================= BLUEPRINT ================= -->
+
+        <div
+          class="entry-detail"
+          id="entry-blueprint"
+          data-entry-detail="blueprint"
+          hidden
+        >
+          <div class="entry-detail__intro">
+            <p class="eyebrow">Blueprint / Codex</p>
+
+            <h3>
+              Understanding comes before changing.
+            </h3>
+
+            <p>
+              Codex is the clearest first entry when the central question is
+              understanding individual structure, recurring patterns or
+              orientation.
+            </p>
+          </div>
+
+          <div class="entry-detail__choices">
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="self-understanding"
+            >
+              <span>I want to understand myself more clearly.</span>
+              <small>Codex</small>
+            </button>
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="patterns"
+            >
+              <span>
+                I keep encountering patterns I do not fully understand.
+              </span>
+              <small>Codex</small>
+            </button>
+
+          </div>
+        </div>
+
+
+        <!-- ================= BODY ================= -->
+
+        <div
+          class="entry-detail"
+          id="entry-body"
+          data-entry-detail="body"
+          hidden
+        >
+          <div class="entry-detail__intro">
+            <p class="eyebrow">Body &amp; Regulation</p>
+
+            <h3>
+              Begin with the way the system is being lived.
+            </h3>
+
+            <p>
+              This domain is the most logical entry when the experience is
+              primarily structural, physical, regulatory or related to
+              embodied capacity.
+            </p>
+          </div>
+
+          <div class="entry-detail__choices">
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="structural"
+            >
+              <span>
+                My body feels restricted, tense or limited in movement.
+              </span>
+              <small>Structural Consultation</small>
+            </button>
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="regulation"
+            >
+              <span>
+                I feel overwhelmed, depleted or under sustained strain.
+              </span>
+              <small>Regulation</small>
+            </button>
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="core"
+            >
+              <span>
+                I experience significant holding around the core or breath.
+              </span>
+              <small>Chi Nei Tsang</small>
+            </button>
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="vitality"
+            >
+              <span>
+                I feel dull, stagnant or disconnected from vitality.
+              </span>
+              <small>Calamus Ceremony</small>
+            </button>
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="intensive"
+            >
+              <span>
+                I want to experience the system more comprehensively.
+              </span>
+              <small>Human Architecture Intensive</small>
+            </button>
+
+          </div>
+        </div>
+
+
+        <!-- ================= TRANSITION ================= -->
+
+        <div
+          class="entry-detail"
+          id="entry-transition"
+          data-entry-detail="transition"
+          hidden
+        >
+          <div class="entry-detail__intro">
+            <p class="eyebrow">Identity &amp; Transition</p>
+
+            <h3>
+              Some moments are less about fixing and more about crossing.
+            </h3>
+
+            <p>
+              Mihira Ceremonia provides ceremonial integration around identity,
+              transition and significant human passages.
+            </p>
+          </div>
+
+          <div class="entry-detail__choices">
+
+            <button
+              type="button"
+              class="entry-choice"
+              data-entry-choice="transition"
+            >
+              <span>
+                I am moving through a significant transition.
+              </span>
+              <small>Mihira Ceremonia</small>
+            </button>
+
+          </div>
+        </div>
+
+
+        <div
+          class="entry-response"
+          data-entry-response
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <p class="entry-response__classification">
+            Orientation
+          </p>
+
+          <h3>
+            Your context can guide where the conversation begins.
+          </h3>
+
+          <p>
+            Human Architecture is designed to orient rather than prescribe.
+          </p>
+
+          <a class="line-link" href="#domains">
+            Continue into the three domains
+          </a>
+        </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
-         06 — OFFERINGS
+         06 — THREE DOMAINS
+    ====================================================== -->
+
+    <section
+      class="section section--abyss domains"
+      id="domains"
+      aria-labelledby="domains-title"
+    >
+      <div class="page-grid">
+
+        <div class="section-marker section-marker--light reveal">
+          <span>04</span>
+          <p>Three Domains</p>
+        </div>
+
+        <div class="domains__intro reveal">
+
+          <h2 id="domains-title">
+            Three perspectives into one human architecture.
+          </h2>
+
+          <p>
+            Each domain offers a different point of contact with the same
+            underlying human system.
+          </p>
+
+        </div>
+
+
+        <div class="domain-panels">
+
+          <article
+            class="domain-panel domain-panel--codex reveal"
+            tabindex="0"
+          >
+            <div
+              class="domain-panel__atmosphere"
+              aria-hidden="true"
+            ></div>
+
+            <div class="domain-panel__content">
+
+              <span class="domain-panel__number">01</span>
+
+              <p class="domain-panel__classification">
+                Blueprint
+              </p>
+
+              <h3>
+                Codex
+              </h3>
+
+              <p>
+                Understanding how the individual system is designed.
+              </p>
+
+              <p class="domain-panel__detail">
+                Research, frameworks, education and applied human knowledge.
+              </p>
+
+              <a
+                class="line-link line-link--sand"
+                href="#offerings"
+              >
+                Enter this domain
+              </a>
+
+            </div>
+          </article>
+
+
+          <article
+            class="domain-panel domain-panel--body reveal"
+            tabindex="0"
+          >
+            <div
+              class="domain-panel__atmosphere"
+              aria-hidden="true"
+            ></div>
+
+            <div class="domain-panel__content">
+
+              <span class="domain-panel__number">02</span>
+
+              <p class="domain-panel__classification">
+                Body &amp; Regulation
+              </p>
+
+              <h3>
+                Human Architecture Sessions
+              </h3>
+
+              <p>
+                How structure is lived, embodied and regulated.
+              </p>
+
+              <p class="domain-panel__detail">
+                Structural work, physical intelligence, regulation, recovery
+                and embodied capacity.
+              </p>
+
+              <a
+                class="line-link line-link--sand"
+                href="#offerings"
+              >
+                Enter this domain
+              </a>
+
+            </div>
+          </article>
+
+
+          <article
+            class="domain-panel domain-panel--mihira reveal"
+            tabindex="0"
+          >
+            <div
+              class="domain-panel__atmosphere"
+              aria-hidden="true"
+            ></div>
+
+            <div class="domain-panel__content">
+
+              <span class="domain-panel__number">03</span>
+
+              <p class="domain-panel__classification">
+                Identity &amp; Transition
+              </p>
+
+              <h3>
+                Mihira Ceremonia
+              </h3>
+
+              <p>
+                How the human moves through meaning, identity and transition.
+              </p>
+
+              <p class="domain-panel__detail">
+                Ceremonial integration around significant human passages.
+              </p>
+
+              <a
+                class="line-link line-link--sand"
+                href="#offerings"
+              >
+                Enter this domain
+              </a>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         07 — OFFERINGS
     ====================================================== -->
 
     <section
@@ -524,24 +901,31 @@
       <div class="page-grid">
 
         <div class="section-marker reveal">
-          <span>04</span>
-          <p>Offerings</p>
+          <span>05</span>
+          <p>Ways of Working</p>
         </div>
 
         <div class="offerings__intro reveal">
+
           <h2 id="offerings-title">
-            Ways of Working
+            Different forms.
+            <span>One underlying architecture.</span>
           </h2>
 
           <p>
-            The form of the work follows the context rather than forcing every
-            person, group or institution into the same process.
+            The form of the work follows the human context rather than forcing
+            every person, group or environment into the same format.
           </p>
+
         </div>
+
 
         <div class="accordion" data-accordion>
 
+          <!-- 01 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -554,20 +938,42 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-1" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-1"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Individuals seeking orientation or deeper understanding.</p>
-                <p><strong>Addresses:</strong> Blueprint, embodiment, regulation, identity or transition.</p>
-                <p><strong>How:</strong> One-to-one Human Architecture work.</p>
-                <p><strong>Format:</strong> Individual session or structured series.</p>
-                <p><strong>Domain:</strong> Depends on the point of entry.</p>
-                <a href="#contact">Begin with a conversation</a>
+                <p>
+                  <strong>For:</strong>
+                  Individuals seeking orientation, structural work or
+                  transition support.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  One-to-one work shaped around the appropriate Human
+                  Architecture domain.
+                </p>
+
+                <p>
+                  <strong>Format:</strong>
+                  Individual session or structured series.
+                </p>
+
+                <a href="#contact">
+                  Begin with a conversation
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 02 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -580,20 +986,41 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-2" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-2"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Existing or intentionally formed groups.</p>
-                <p><strong>Addresses:</strong> Shared understanding, embodiment, reflection and integration.</p>
-                <p><strong>How:</strong> Facilitated group formats shaped around context.</p>
-                <p><strong>Format:</strong> Single experience or series.</p>
-                <p><strong>Domain:</strong> One or several domains.</p>
-                <a href="#contact">Start a Conversation</a>
+                <p>
+                  <strong>For:</strong>
+                  Existing or intentionally formed groups.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Facilitated formats shaped around understanding, embodied
+                  experience and integration.
+                </p>
+
+                <p>
+                  <strong>Format:</strong>
+                  Single experience or series.
+                </p>
+
+                <a href="#contact">
+                  Start a Conversation
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 03 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -606,20 +1033,42 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-3" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-3"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Schools, educators, students, families and learning communities.</p>
-                <p><strong>Addresses:</strong> Human understanding, individual difference and applied self-knowledge.</p>
-                <p><strong>How:</strong> Age-appropriate educational formats.</p>
-                <p><strong>Format:</strong> Workshops, modules or longer programmes.</p>
-                <p><strong>Domain:</strong> Primarily Codex, supported by embodied work where appropriate.</p>
-                <a href="#partnerships">Explore educational partnerships</a>
+                <p>
+                  <strong>For:</strong>
+                  Schools, educators, students, families and learning
+                  communities.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Age-appropriate educational formats around human
+                  understanding and individual difference.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  Primarily Codex.
+                </p>
+
+                <a href="#partnerships">
+                  Explore educational contexts
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 04 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -632,20 +1081,42 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-4" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-4"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Individuals, groups or organisations seeking concentrated engagement.</p>
-                <p><strong>Addresses:</strong> A defined topic or fuller-system immersion.</p>
-                <p><strong>How:</strong> Structured, time-bound experiential learning.</p>
-                <p><strong>Format:</strong> Half-day, full-day or multi-day formats.</p>
-                <p><strong>Domain:</strong> One or multiple domains.</p>
-                <a href="#contact">Discuss an appropriate format</a>
+                <p>
+                  <strong>For:</strong>
+                  Individuals, groups or organisations seeking concentrated
+                  engagement.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Structured, time-bound work around a defined subject or a
+                  fuller Human Architecture immersion.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  One or multiple domains.
+                </p>
+
+                <a href="#contact">
+                  Discuss an appropriate format
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 05 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -658,20 +1129,41 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-5" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-5"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Founders, leaders, teams and organisations.</p>
-                <p><strong>Addresses:</strong> Human context within leadership, culture and collective work.</p>
-                <p><strong>How:</strong> Contextual programme design.</p>
-                <p><strong>Format:</strong> Workshops, leadership work or longer engagements.</p>
-                <p><strong>Domain:</strong> Codex with relevant embodied and transition layers.</p>
-                <a href="#contact">Start an organisational conversation</a>
+                <p>
+                  <strong>For:</strong>
+                  Founders, leaders, teams and organisations.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Contextual work around human structure, leadership and
+                  collective environments.
+                </p>
+
+                <p>
+                  <strong>Format:</strong>
+                  Workshops, programmes or longer engagements.
+                </p>
+
+                <a href="#contact">
+                  Begin an organisational conversation
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 06 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -684,20 +1176,42 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-6" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-6"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Groups seeking deeper time and context for Human Architecture work.</p>
-                <p><strong>Addresses:</strong> Understanding, embodiment, reflection and integration.</p>
-                <p><strong>How:</strong> Immersive multi-layer work.</p>
-                <p><strong>Format:</strong> Retreat-based experience.</p>
-                <p><strong>Domain:</strong> May bridge all three domains.</p>
-                <a href="#contact">Discuss a retreat context</a>
+                <p>
+                  <strong>For:</strong>
+                  Groups seeking deeper time and context for Human Architecture
+                  work.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Immersive work that can combine understanding, embodiment,
+                  regulation and integration.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  May bridge all three domains.
+                </p>
+
+                <a href="#contact">
+                  Discuss a retreat context
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 07 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -710,20 +1224,40 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-7" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-7"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Significant human moments, identity shifts and transitions.</p>
-                <p><strong>Addresses:</strong> Meaning, threshold and integration.</p>
-                <p><strong>How:</strong> Context-specific ceremonial work.</p>
-                <p><strong>Format:</strong> Individual or small-group ceremony.</p>
-                <p><strong>Domain:</strong> Mihira Ceremonia.</p>
-                <a href="#contact">Begin with context</a>
+                <p>
+                  <strong>For:</strong>
+                  Significant human moments, identity shifts and transitions.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Context-specific ceremonial integration.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  Mihira Ceremonia.
+                </p>
+
+                <a href="#contact">
+                  Begin with context
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 08 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -736,20 +1270,41 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-8" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-8"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Coaches, educators, movement professionals and practitioners.</p>
-                <p><strong>Addresses:</strong> Integrating Human Architecture perspectives into existing practice.</p>
-                <p><strong>How:</strong> Applied learning and professional dialogue.</p>
-                <p><strong>Format:</strong> Workshop, series or partnership.</p>
-                <p><strong>Domain:</strong> Primarily Codex with contextual crossover.</p>
-                <a href="#contact">Explore practitioner development</a>
+                <p>
+                  <strong>For:</strong>
+                  Coaches, educators, movement professionals and practitioners.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Applied learning and professional dialogue around Human
+                  Architecture perspectives.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  Primarily Codex with contextual crossover.
+                </p>
+
+                <a href="#contact">
+                  Explore practitioner development
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 09 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -762,20 +1317,41 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-9" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-9"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Institutions and interdisciplinary collaborators.</p>
-                <p><strong>Addresses:</strong> Human-centred frameworks, inquiry and contextual design.</p>
-                <p><strong>How:</strong> Research, dialogue and system development.</p>
-                <p><strong>Format:</strong> Bespoke.</p>
-                <p><strong>Domain:</strong> Codex.</p>
-                <a href="#contact">Discuss a research context</a>
+                <p>
+                  <strong>For:</strong>
+                  Institutions and interdisciplinary collaborators.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Research, dialogue, inquiry and contextual system
+                  development.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  Codex.
+                </p>
+
+                <a href="#contact">
+                  Discuss a research context
+                </a>
               </div>
             </div>
+
           </article>
 
 
+          <!-- 10 -->
+
           <article class="accordion-item">
+
             <h3>
               <button
                 type="button"
@@ -788,25 +1364,142 @@
               </button>
             </h3>
 
-            <div class="accordion-panel" id="offering-10" hidden>
+            <div
+              class="accordion-panel"
+              id="offering-10"
+              hidden
+            >
               <div>
-                <p><strong>For:</strong> Institutions and organisations seeking sustained collaboration.</p>
-                <p><strong>Addresses:</strong> Context-specific human development over time.</p>
-                <p><strong>How:</strong> Co-designed programmes and ongoing collaboration.</p>
-                <p><strong>Format:</strong> Bespoke.</p>
-                <p><strong>Domain:</strong> May integrate all three domains.</p>
-                <a href="#contact">Create a partnership</a>
+                <p>
+                  <strong>For:</strong>
+                  Institutions and organisations seeking sustained
+                  collaboration.
+                </p>
+
+                <p>
+                  <strong>How:</strong>
+                  Co-designed programmes and long-term contextual work.
+                </p>
+
+                <p>
+                  <strong>Domain:</strong>
+                  May integrate all three domains.
+                </p>
+
+                <a href="#contact">
+                  Create a partnership
+                </a>
               </div>
             </div>
+
           </article>
 
         </div>
+
       </div>
     </section>
 
 
     <!-- =====================================================
-         07 — PARTNERSHIPS
+         08 — ACROSS HUMAN LIFE
+    ====================================================== -->
+
+    <section
+      class="section section--ivory life-contexts"
+      id="life-contexts"
+      aria-labelledby="life-contexts-title"
+    >
+      <div class="page-grid">
+
+        <div class="section-marker reveal">
+          <span>06</span>
+          <p>Across Human Life</p>
+        </div>
+
+        <div class="life-contexts__intro reveal">
+
+          <h2 id="life-contexts-title">
+            Structure remains.
+            <span>Context changes.</span>
+          </h2>
+
+          <p>
+            The same underlying human architecture may be encountered
+            differently across stages of life and forms of responsibility.
+          </p>
+
+        </div>
+
+
+        <div class="life-context-list">
+
+          <article class="life-context reveal">
+            <span>01</span>
+
+            <h3>Children</h3>
+
+            <p>
+              Age-appropriate understanding of individuality, context and
+              difference.
+            </p>
+          </article>
+
+
+          <article class="life-context reveal">
+            <span>02</span>
+
+            <h3>Adolescence</h3>
+
+            <p>
+              Orientation through developmental, relational and identity
+              transition.
+            </p>
+          </article>
+
+
+          <article class="life-context reveal">
+            <span>03</span>
+
+            <h3>Adults</h3>
+
+            <p>
+              Understanding inherent structure in relation to lived experience
+              and present context.
+            </p>
+          </article>
+
+
+          <article class="life-context reveal">
+            <span>04</span>
+
+            <h3>Leadership &amp; Teams</h3>
+
+            <p>
+              Greater clarity around individual structure, interaction and
+              collective contribution.
+            </p>
+          </article>
+
+
+          <article class="life-context reveal">
+            <span>05</span>
+
+            <h3>Transition</h3>
+
+            <p>
+              Orientation around meaningful periods of identity, direction and
+              change.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         09 — PARTNERSHIPS
     ====================================================== -->
 
     <section
@@ -817,92 +1510,135 @@
       <div class="page-grid">
 
         <div class="section-marker section-marker--light reveal">
-          <span>05</span>
+          <span>07</span>
           <p>Partnerships</p>
         </div>
 
         <div class="partnerships__statement reveal">
+
           <h2 id="partnerships-title">
             Human systems live inside larger systems.
           </h2>
 
           <p>
-            Human Architecture can enter different environments without losing
-            sight of the individual human being inside them.
+            Human Architecture can enter different environments while
+            remaining grounded in the individual human context.
           </p>
+
         </div>
 
-        <div class="ecosystem reveal">
+
+        <div
+          class="ecosystem reveal"
+          data-ecosystem
+        >
+
+          <div class="ecosystem__rings" aria-hidden="true">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
 
           <div class="ecosystem__centre">
-            <img
-              src="assets/logo.png"
-              alt="Human Architecture"
-              width="500"
-              height="180"
-              loading="lazy"
-            />
+            <span>The Human</span>
+            <small>Human Architecture</small>
           </div>
+
 
           <article class="ecosystem-group ecosystem-group--education">
             <span>01</span>
-            <h3>Education &amp; Youth</h3>
+
+            <h3>
+              Education &amp; Youth
+            </h3>
+
             <p>
               Schools · Educational institutions · Children · Teenagers
             </p>
           </article>
 
+
           <article class="ecosystem-group ecosystem-group--women">
             <span>02</span>
-            <h3>Women &amp; Families</h3>
+
+            <h3>
+              Women &amp; Families
+            </h3>
+
             <p>
               Families · Parents · Women · Young women
             </p>
           </article>
 
+
           <article class="ecosystem-group ecosystem-group--movement">
             <span>03</span>
-            <h3>Movement &amp; Practice</h3>
+
+            <h3>
+              Movement &amp; Practice
+            </h3>
+
             <p>
               Gyms · Movement spaces · Martial arts · Practitioners
             </p>
           </article>
 
+
           <article class="ecosystem-group ecosystem-group--health">
             <span>04</span>
-            <h3>Health &amp; Wellbeing</h3>
+
+            <h3>
+              Health &amp; Wellbeing
+            </h3>
+
             <p>
               Wellness environments · Human-centred wellbeing contexts
             </p>
           </article>
 
+
           <article class="ecosystem-group ecosystem-group--work">
             <span>05</span>
-            <h3>Work &amp; Leadership</h3>
+
+            <h3>
+              Work &amp; Leadership
+            </h3>
+
             <p>
               Companies · Founders · CEOs · Leadership teams
             </p>
           </article>
 
+
           <article class="ecosystem-group ecosystem-group--institutions">
             <span>06</span>
-            <h3>Institutions &amp; Culture</h3>
+
+            <h3>
+              Institutions &amp; Culture
+            </h3>
+
             <p>
-              Foundations · Community organisations · Cultural and research institutions · Bespoke collaborations
+              Foundations · Community organisations · Cultural and research
+              institutions · Bespoke collaborations
             </p>
           </article>
 
         </div>
 
-        <a class="line-link line-link--sand partnerships__link" href="#contact">
+
+        <a
+          class="line-link line-link--sand partnerships__link"
+          href="#contact"
+        >
           Explore partnership possibilities
         </a>
+
       </div>
     </section>
 
 
     <!-- =====================================================
-         08 — ABOUT
+         10 — ABOUT
     ====================================================== -->
 
     <section
@@ -914,8 +1650,7 @@
 
         <!--
           FUTURE ASSET:
-          Replace this block only when a verified real founder photograph
-          has been supplied.
+          Replace only when the verified founder photograph is supplied.
         -->
         <div
           class="about__portrait-placeholder reveal"
@@ -925,8 +1660,12 @@
           <span>Founder photograph to confirm</span>
         </div>
 
+
         <div class="about__content reveal">
-          <p class="eyebrow">About</p>
+
+          <p class="eyebrow">
+            About
+          </p>
 
           <h2 id="about-title">
             A practice built between disciplines.
@@ -939,23 +1678,30 @@
 
           <p>
             Its work sits between understanding, embodiment and meaningful
-            transition. The three domains provide different points of entry,
-            while remaining parts of one integrated human context.
+            transition.
           </p>
 
           <p>
-            The work is informed by interdisciplinary inquiry, practical
-            experience and a commitment to treating the individual as more than
-            a category, output or number.
+            Codex explores how the system is structured. Human Architecture
+            sessions engage the way structure is lived through the body and
+            regulation. Mihira Ceremonia works with identity, transition and
+            meaningful human thresholds.
           </p>
 
           <p>
-            Human dignity, rigour and lived experience remain central. Technology
-            may support the process, but it does not replace the human relationship
-            behind it.
+            Together they form different points of entry into one human
+            architecture.
           </p>
+
+          <p>
+            Human dignity, rigour and lived experience remain central.
+            Technology may support the process, but it does not replace the
+            human relationship behind it.
+          </p>
+
 
           <div class="about-principles">
+
             <div>
               <span>01</span>
               <p>Human dignity</p>
@@ -970,7 +1716,9 @@
               <span>03</span>
               <p>Lived experience</p>
             </div>
+
           </div>
+
         </div>
 
       </div>
@@ -978,7 +1726,7 @@
 
 
     <!-- =====================================================
-         09 — CONTACT
+         11 — CONTACT
     ====================================================== -->
 
     <section
@@ -989,10 +1737,14 @@
       <div class="contact__media" aria-hidden="true"></div>
       <div class="contact__veil" aria-hidden="true"></div>
 
+
       <div class="page-grid contact__layout">
 
         <div class="contact__statement reveal">
-          <p class="eyebrow eyebrow--light">Conversation</p>
+
+          <p class="eyebrow eyebrow--light">
+            Conversation
+          </p>
 
           <h2 id="contact-title">
             Every collaboration begins with understanding the human context.
@@ -1001,12 +1753,41 @@
           <p>
             Tell us what you are navigating, building or seeking to understand.
           </p>
+
+          <div class="contact__direct">
+
+            <!--
+              Replace these placeholders only when the verified
+              Human Architecture contact details are supplied.
+            -->
+
+            <div>
+              <span>Email</span>
+              <p>Address to confirm</p>
+            </div>
+
+            <div>
+              <span>Instagram</span>
+              <p>Profile link to confirm</p>
+            </div>
+
+          </div>
+
         </div>
 
-        <form class="contact-form reveal" data-contact-form novalidate>
+
+        <form
+          class="contact-form reveal"
+          data-contact-form
+          novalidate
+        >
 
           <div class="form-field">
-            <label for="name">Name</label>
+
+            <label for="name">
+              Name
+            </label>
+
             <input
               id="name"
               name="name"
@@ -1014,11 +1795,21 @@
               autocomplete="name"
               required
             />
-            <span class="field-error" data-error-for="name"></span>
+
+            <span
+              class="field-error"
+              data-error-for="name"
+            ></span>
+
           </div>
 
+
           <div class="form-field">
-            <label for="email">Email</label>
+
+            <label for="email">
+              Email
+            </label>
+
             <input
               id="email"
               name="email"
@@ -1026,12 +1817,20 @@
               autocomplete="email"
               required
             />
-            <span class="field-error" data-error-for="email"></span>
+
+            <span
+              class="field-error"
+              data-error-for="email"
+            ></span>
+
           </div>
 
+
           <div class="form-field">
+
             <label for="organisation">
-              Organisation <span>(if relevant)</span>
+              Organisation
+              <span>(if relevant)</span>
             </label>
 
             <input
@@ -1040,28 +1839,79 @@
               type="text"
               autocomplete="organization"
             />
+
           </div>
 
-          <div class="form-field">
-            <label for="context">What brings you here?</label>
 
-            <select id="context" name="context" required>
-              <option value="">Choose one</option>
-              <option value="individual">Individual work</option>
-              <option value="group">Group experience</option>
-              <option value="education">Education</option>
-              <option value="organisation">Organisation / leadership</option>
-              <option value="practitioner">Practitioner development</option>
-              <option value="transition">Transition / ceremony</option>
-              <option value="partnership">Partnership</option>
-              <option value="other">Something else</option>
+          <div class="form-field">
+
+            <label for="context">
+              What brings you here?
+            </label>
+
+            <select
+              id="context"
+              name="context"
+              required
+            >
+              <option value="">
+                Choose one
+              </option>
+
+              <option value="blueprint">
+                Understanding / Codex
+              </option>
+
+              <option value="body">
+                Body / structural work
+              </option>
+
+              <option value="regulation">
+                Regulation
+              </option>
+
+              <option value="transition">
+                Identity / transition
+              </option>
+
+              <option value="intensive">
+                Human Architecture Intensive
+              </option>
+
+              <option value="education">
+                Education
+              </option>
+
+              <option value="organisation">
+                Organisation / leadership
+              </option>
+
+              <option value="practitioner">
+                Practitioner development
+              </option>
+
+              <option value="partnership">
+                Partnership
+              </option>
+
+              <option value="other">
+                Something else
+              </option>
             </select>
 
-            <span class="field-error" data-error-for="context"></span>
+            <span
+              class="field-error"
+              data-error-for="context"
+            ></span>
+
           </div>
 
+
           <div class="form-field">
-            <label for="message">Message</label>
+
+            <label for="message">
+              Message
+            </label>
 
             <textarea
               id="message"
@@ -1070,12 +1920,21 @@
               required
             ></textarea>
 
-            <span class="field-error" data-error-for="message"></span>
+            <span
+              class="field-error"
+              data-error-for="message"
+            ></span>
+
           </div>
 
-          <button class="conversation-button" type="submit">
+
+          <button
+            class="conversation-button"
+            type="submit"
+          >
             Start a Conversation
           </button>
+
 
           <div
             class="form-status"
@@ -1084,17 +1943,31 @@
             data-form-status
           ></div>
 
+
           <!--
             IMPORTANT:
-            No form backend has been invented.
-            Connect this form to the verified Human Architecture form-delivery
-            endpoint/email service before public launch.
+            No delivery endpoint has been invented.
+
+            Before launch, connect this form to the verified Human Architecture
+            form-delivery endpoint or email service.
+
+            The JavaScript must NOT show a false success message until
+            successful delivery can genuinely be confirmed.
           -->
+
         </form>
+
       </div>
 
+
+      <!-- =====================================================
+           FOOTER
+      ====================================================== -->
+
       <footer class="footer">
+
         <div class="footer__brand">
+
           <img
             src="assets/logo.png"
             alt="Human Architecture"
@@ -1102,24 +1975,57 @@
             height="180"
             loading="lazy"
           />
+
         </div>
 
-        <div class="footer__meta">
-          <!-- Verified contact/social URLs must be supplied before launch. -->
-          <span>Email — to confirm</span>
-          <span>Instagram — URL to confirm</span>
+
+        <div class="footer__connections">
+
+          <!--
+            TODO:
+            Replace with real verified links before launch.
+
+            Example structure once confirmed:
+
+            <a href="mailto:REAL-EMAIL">Email</a>
+
+            <a
+              href="REAL-INSTAGRAM-URL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          -->
+
+          <span>
+            Email — to confirm
+          </span>
+
+          <span>
+            Instagram — to confirm
+          </span>
+
         </div>
 
-        <a href="#top" class="footer__top">
-          Back to top
-        </a>
+
+        <div class="footer__navigation">
+
+          <a href="#top">
+            Back to top
+          </a>
+
+        </div>
+
 
         <p class="footer__disclaimer">
           Human Architecture services are complementary wellness and structural
           services and do not diagnose, treat, cure or replace medical or
           psychological care.
         </p>
+
       </footer>
+
     </section>
 
   </main>
