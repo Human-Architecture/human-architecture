@@ -1,865 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <meta
     name="description"
-    content="Human Architecture® — Structural Design of the Human System. Orientation across Blueprint, Body & Regulation, and Identity & Transition."
-  >
+    content="Human Architecture — Structural Design of the Human System."
+  />
 
-  <meta name="theme-color" content="#071f27">
+  <title>Human Architecture</title>
 
-  <title>
-    Human Architecture® | Structural Design of the Human System
-  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-  <!-- =========================================================
+  <!-- =========================
        NAVIGATION
-  ========================================================== -->
+  ========================== -->
 
   <header class="site-header">
+    <div class="site-header__inner">
 
-    <a href="#home" class="brand" aria-label="Human Architecture home">
-
-      <span class="brand-symbol">M</span>
-
-      <span class="brand-copy">
-        <strong>Human Architecture®</strong>
-        <small>Structural Design of the Human System</small>
-      </span>
-
-    </a>
-
-    <button
-      class="menu-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="site-nav">
-
-      <a href="#system">The System</a>
-      <a href="#entry">Find Your Entry Point</a>
-      <a href="#domains">Domains</a>
-      <a href="#applications">Applications</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-
-      <a
-        href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
-        target="_blank"
-        rel="noopener"
-        class="button button-light nav-button"
-      >
-        Start a Conversation
+      <a href="#top" class="brand" aria-label="Human Architecture home">
+        <img
+          src="assets/logo/logo-white.png"
+          alt="Human Architecture"
+          class="brand__logo"
+        />
       </a>
 
-    </nav>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#system">System</a>
+        <a href="#domains">Domains</a>
+        <a href="#entry">Entry Point</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
   </header>
 
 
-  <main>
+  <main id="top">
 
-    <!-- =========================================================
-         01 HERO
-    ========================================================== -->
+    <!-- =========================
+         01 HERO / ARRIVAL
+    ========================== -->
 
-    <section id="home" class="hero">
+    <section class="hero section-dark">
 
-      <div class="hero-background"></div>
-      <div class="hero-shade"></div>
+      <div class="hero__media"></div>
+      <div class="hero__overlay"></div>
 
-      <div class="hero-content reveal">
+      <div class="hero__content reveal">
 
-        <p class="eyebrow light">
-          Human Architecture®
+        <img
+          src="assets/logo/logo-white.png"
+          alt="Human Architecture"
+          class="hero__logo"
+        />
+
+        <p class="eyebrow eyebrow--light">
+          Structural Design of the Human System
         </p>
 
-        <h1>
-          Structural Design
-          <span>of the Human System.</span>
+        <h1 class="hero__title">
+          The human system already has a structure.
         </h1>
 
-        <div class="hero-principles">
-
-          <p>Understanding before action.</p>
-          <p>Structure before interpretation.</p>
-          <p>Regulation before expansion.</p>
-
-        </div>
-
-        <div class="hero-actions">
-
-          <a href="#entry" class="button button-light">
-            Find Your Entry Point
-          </a>
-
-          <a
-            href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
-            target="_blank"
-            rel="noopener"
-            class="button button-ghost"
-          >
-            Start a Conversation
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="hero-bottom">
-
-        <span>Blueprint</span>
-        <span>Body & Regulation</span>
-        <span>Identity & Transition</span>
-
-      </div>
-
-      <a href="#philosophy" class="scroll-indicator">
-        Explore
-        <span>↓</span>
-      </a>
-
-    </section>
-
-
-    <!-- =========================================================
-         02 PHILOSOPHY
-    ========================================================== -->
-
-    <section id="philosophy" class="section section-ivory">
-
-      <div class="section-number">02</div>
-
-      <div class="philosophy-grid">
-
-        <div class="reveal">
-
-          <p class="eyebrow">
-            Orientation before intervention
-          </p>
-
-          <h2>
-            Every human system
-            already has a structure.
-          </h2>
-
-          <p class="editorial-statement">
-            Not everyone has learned how to read it.
-          </p>
-
-        </div>
-
-        <div class="philosophy-copy reveal">
-
-          <p>
-            Human Architecture® is an integrative framework for
-            understanding how a human system is currently organized.
-          </p>
-
-          <p>
-            It considers the relationships between blueprint, body
-            structure, movement, breathing, regulation, recovery,
-            identity and integration.
-          </p>
-
-          <p>
-            Rather than beginning with a predetermined method,
-            the work begins by identifying the most relevant domain
-            and the structurally appropriate point of entry.
-          </p>
-
-          <blockquote>
-            Alignment with inherent structure — not generalized
-            self-improvement.
-          </blockquote>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         03 HUMAN SYSTEM
-    ========================================================== -->
-
-    <section id="system" class="section section-dark">
-
-      <div class="section-number light-number">03</div>
-
-      <div class="section-heading reveal">
-
-        <p class="eyebrow light">
-          The Human System
+        <p class="hero__intro">
+          Human Architecture begins by understanding what is already present.
         </p>
 
-        <h2>
-          One system.
-          <br>
-          Interdependent layers.
-        </h2>
-
-        <p class="lead light-copy">
-          Human Architecture® does not approach the person as a
-          collection of isolated parts. Each layer influences how
-          the others organize, compensate, regulate and integrate.
-        </p>
-
-      </div>
-
-      <div class="system-map">
-
-        <div class="system-node reveal">
-          <span>01</span>
-          <strong>Blueprint</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>02</span>
-          <strong>Structure</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>03</span>
-          <strong>Movement</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>04</span>
-          <strong>Breathing</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>05</span>
-          <strong>Regulation</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>06</span>
-          <strong>Recovery</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>07</span>
-          <strong>Identity</strong>
-        </div>
-
-        <div class="system-arrow">↓</div>
-
-        <div class="system-node reveal">
-          <span>08</span>
-          <strong>Integration</strong>
-        </div>
-
-      </div>
-
-      <p class="system-note reveal">
-        Different layers. One underlying human system.
-      </p>
-
-    </section>
-
-
-    <!-- =========================================================
-         04 FIND YOUR ENTRY POINT
-    ========================================================== -->
-
-    <section id="entry" class="section section-stone">
-
-      <div class="section-number">04</div>
-
-      <div class="entry-layout">
-
-        <div class="reveal">
-
-          <p class="eyebrow">
-            Find Your Entry Point
-          </p>
-
-          <h2>
-            Where are you
-            right now?
-          </h2>
-
-          <p class="lead">
-            Choose the statement that feels closest to your current
-            situation. This is an orientation tool — not a diagnosis.
-          </p>
-
-          <div class="entry-options">
-
-            <button
-              class="entry-option active"
-              data-result="patterns"
-            >
-              <span class="option-number">01</span>
-
-              <span>
-                I keep repeating the same patterns and want to
-                understand myself more clearly.
-              </span>
-            </button>
-
-            <button
-              class="entry-option"
-              data-result="body"
-            >
-              <span class="option-number">02</span>
-
-              <span>
-                My body feels tense, restricted, overloaded or
-                disconnected.
-              </span>
-            </button>
-
-            <button
-              class="entry-option"
-              data-result="regulation"
-            >
-              <span class="option-number">03</span>
-
-              <span>
-                I feel overwhelmed, fatigued or unable to settle.
-              </span>
-            </button>
-
-            <button
-              class="entry-option"
-              data-result="core"
-            >
-              <span class="option-number">04</span>
-
-              <span>
-                I notice shallow breathing, abdominal tension or
-                internal holding.
-              </span>
-            </button>
-
-            <button
-              class="entry-option"
-              data-result="transition"
-            >
-              <span class="option-number">05</span>
-
-              <span>
-                I am moving through a significant transition or
-                reorientation.
-              </span>
-            </button>
-
-            <button
-              class="entry-option"
-              data-result="unclear"
-            >
-              <span class="option-number">06</span>
-
-              <span>
-                Several areas feel relevant and I am not sure where
-                to begin.
-              </span>
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="entry-result reveal">
-
-          <p class="result-domain" id="result-domain">
-            Blueprint
-          </p>
-
-          <h3 id="result-title">
-            Codex
-          </h3>
-
-          <p id="result-copy">
-            Codex is the most logical starting point when the central
-            question concerns identity, recurring patterns,
-            decision-making or understanding how your individual
-            system is organized.
-          </p>
-
-          <p class="result-support">
-            Designed to support:
-          </p>
-
-          <ul id="result-list">
-            <li>Structural self-understanding</li>
-            <li>Recognition of recurring dynamics</li>
-            <li>Orientation before strategy</li>
-          </ul>
-
-          <a
-            id="result-button"
-            class="button button-dark"
-            href="mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
-          >
-            Explore Codex
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         05 THREE DOMAINS
-    ========================================================== -->
-
-    <section id="domains" class="section section-ivory">
-
-      <div class="section-number">05</div>
-
-      <div class="section-heading reveal">
-
-        <p class="eyebrow">
-          The Three Domains
-        </p>
-
-        <h2>
-          Different points of entry.
-          <br>
-          One interconnected system.
-        </h2>
-
-      </div>
-
-      <div class="domains-grid">
-
-        <article class="domain-card reveal">
-
-          <div class="domain-top">
-
-            <span>I</span>
-            <p>Blueprint</p>
-
-          </div>
-
-          <h3>Codex</h3>
-
-          <p class="domain-line">
-            Understanding how your system is designed.
-          </p>
-
-          <p>
-            For questions concerning personal structure, identity,
-            decision-making, recurring dynamics, processing and
-            execution.
-          </p>
-
-          <div class="domain-tags">
-            <span>Identity</span>
-            <span>Patterns</span>
-            <span>Decisions</span>
-            <span>Orientation</span>
-          </div>
-
-          <a
-            href="mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
-            class="text-link"
-          >
-            Explore Codex →
-          </a>
-
-        </article>
-
-
-        <article class="domain-card domain-featured reveal">
-
-          <div class="domain-top">
-
-            <span>II</span>
-            <p>Body & Regulation</p>
-
-          </div>
-
-          <h3>
-            Human Architecture®
-            Sessions
-          </h3>
-
-          <p class="domain-line">
-            Working directly with the physical and regulatory system.
-          </p>
-
-          <p>
-            For structural tension, restricted mobility, altered
-            breathing, internal holding, recovery needs, fatigue or
-            nervous-system strain.
-          </p>
-
-          <div class="domain-tags">
-            <span>Structure</span>
-            <span>Movement</span>
-            <span>Breathing</span>
-            <span>Recovery</span>
-          </div>
-
-          <a href="#services" class="text-link">
-            Explore Sessions →
-          </a>
-
-        </article>
-
-
-        <article class="domain-card reveal">
-
-          <div class="domain-top">
-
-            <span>III</span>
-            <p>Identity & Transition</p>
-
-          </div>
-
-          <h3>Mihira Ceremonia</h3>
-
-          <p class="domain-line">
-            Conscious integration during significant transition.
-          </p>
-
-          <p>
-            For periods of reorientation, changing identity,
-            thresholds, endings, beginnings and the integration of
-            new inner or outer life structures.
-          </p>
-
-          <div class="domain-tags">
-            <span>Transition</span>
-            <span>Identity</span>
-            <span>Integration</span>
-          </div>
-
-          <a
-            href="mailto:hello@human-architecture.info?subject=Mihira%20Ceremonia%20Enquiry"
-            class="text-link"
-          >
-            Explore Mihira →
-          </a>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         06 SERVICES
-    ========================================================== -->
-
-    <section id="services" class="section section-dark">
-
-      <div class="section-number light-number">06</div>
-
-      <div class="services-intro reveal">
-
-        <p class="eyebrow light">
-          Body & Regulation
-        </p>
-
-        <h2>
-          Different tools.
-          <br>
-          One structural intention.
-        </h2>
-
-        <p class="lead light-copy">
-          A Human Architecture® session is composed according to
-          the current organization, capacity and context of the
-          individual system.
-        </p>
-
-      </div>
-
-      <div class="service-groups">
-
-        <details class="service-group reveal" open>
-
-          <summary>
-            <span>01</span>
-            Structural Foundation
-          </summary>
-
-          <div class="service-content">
-
-            <p>Structural Consultation</p>
-            <p>Manual Therapy & Mobility Integration</p>
-            <p>Massage Therapy</p>
-            <p>Fascial Scraping</p>
-            <p>Cupping Therapy</p>
-
-          </div>
-
-        </details>
-
-
-        <details class="service-group reveal">
-
-          <summary>
-            <span>02</span>
-            Regulation & Recovery
-          </summary>
-
-          <div class="service-content">
-
-            <p>Craniosacral Therapy</p>
-            <p>Breathwork</p>
-            <p>NSDR / Yoga Nidra</p>
-            <p>Sound Therapy</p>
-            <p>Contrast Therapy</p>
-
-          </div>
-
-        </details>
-
-
-        <details class="service-group reveal">
-
-          <summary>
-            <span>03</span>
-            Core & Active Integration
-          </summary>
-
-          <div class="service-content">
-
-            <p>Chi Nei Tsang</p>
-            <p>Structural Yoga Integration</p>
-
-          </div>
-
-        </details>
-
-
-        <details class="service-group reveal">
-
-          <summary>
-            <span>04</span>
-            Signature & Ceremonial
-          </summary>
-
-          <div class="service-content">
-
-            <p>Calamus Ceremony</p>
-            <p>Human Architecture® Intensive</p>
-
-          </div>
-
-        </details>
-
-      </div>
-
-      <div class="services-cta reveal">
-
-        <p>
-          Not sure which session fits?
-        </p>
-
-        <a href="#entry" class="button button-light">
-          Find Your Entry Point
+        <a href="#philosophy" class="button button--outline-light">
+          Explore the system
         </a>
 
       </div>
 
+      <a
+        href="#philosophy"
+        class="hero__scroll"
+        aria-label="Scroll to philosophy"
+      >
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+
     </section>
 
 
-    <!-- =========================================================
-         07 APPLICATIONS
-    ========================================================== -->
+    <!-- =========================
+         02 PHILOSOPHY / RECOGNITION
+    ========================== -->
 
-    <section id="applications" class="section section-stone">
+    <section id="philosophy" class="section section-light philosophy">
 
-      <div class="section-number">07</div>
+      <div class="container">
 
-      <div class="applications-heading reveal">
-
-        <p class="eyebrow">
-          Applications
+        <p class="section-label reveal">
+          01 — Philosophy
         </p>
 
-        <h2>
-          Where Human Architecture®
-          integrates.
-        </h2>
+        <div class="philosophy__grid">
 
-        <p class="lead">
-          The framework can be adapted across individual,
-          educational, professional, organisational, movement,
-          wellbeing and community environments.
-        </p>
+          <div class="reveal">
+            <h2 class="display-title">
+              Human beings are not fragmented problems.
+            </h2>
+          </div>
 
-      </div>
+          <div class="philosophy__copy reveal">
 
-      <div class="applications-grid">
+            <p class="lead-copy">
+              Every human system already has a structure.
+            </p>
 
-        <article class="application reveal">
-          <span>01</span>
-          <h3>Individuals</h3>
-          <p>
-            Personal orientation, identity, relationships,
-            performance, recovery and significant life transitions.
-          </p>
-        </article>
+            <p>
+              Human Architecture begins by understanding the individual rather
+              than placing a standardised structure upon the individual.
+            </p>
 
-        <article class="application reveal">
-          <span>02</span>
-          <h3>Families</h3>
-          <p>
-            Parents, couples, family dynamics, communication and
-            deeper recognition of individual differences.
-          </p>
-        </article>
+            <p>
+              The work brings intrinsic design, lived embodiment, regulation,
+              identity and environment into relationship.
+            </p>
 
-        <article class="application reveal">
-          <span>03</span>
-          <h3>Education</h3>
-          <p>
-            Schools, educators, students, universities and learning
-            environments interested in individual development and
-            regulation.
-          </p>
-        </article>
+          </div>
 
-        <article class="application reveal">
-          <span>04</span>
-          <h3>Health & Wellbeing</h3>
-          <p>
-            Complementary collaboration with clinics, bodyworkers,
-            coaches and established health-oriented professionals.
-          </p>
-        </article>
+        </div>
 
-        <article class="application reveal">
-          <span>05</span>
-          <h3>Movement & Performance</h3>
-          <p>
-            Gyms, HYROX communities, martial arts, yoga, Pilates,
-            athletic environments and movement professionals.
-          </p>
-        </article>
+        <div class="principles reveal">
 
-        <article class="application reveal">
-          <span>06</span>
-          <h3>Leadership & Organisations</h3>
-          <p>
-            CEOs, executives, leadership teams, HR, organisational
-            development, communication and sustainable performance.
-          </p>
-        </article>
+          <div class="principle">
+            <span>01</span>
+            <p>Understanding before action.</p>
+          </div>
 
-        <article class="application reveal">
-          <span>07</span>
-          <h3>Professional Development</h3>
-          <p>
-            Coaches, consultants, educators, facilitators and
-            practitioners exploring a deeper structural framework.
-          </p>
-        </article>
+          <div class="principle">
+            <span>02</span>
+            <p>Structure before interpretation.</p>
+          </div>
 
-        <article class="application reveal">
-          <span>08</span>
-          <h3>Retreats & Communities</h3>
-          <p>
-            Hotels, retreats, foundations, community projects,
-            immersive environments and tailored experiences.
-          </p>
-        </article>
+          <div class="principle">
+            <span>03</span>
+            <p>Regulation before expansion.</p>
+          </div>
 
-      </div>
-
-      <div class="applications-statement reveal">
-
-        <p>
-          One framework.
-          <br>
-          Many environments.
-          <br>
-          One underlying human system.
-        </p>
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- =========================================================
-         08 WORKING TOGETHER
-    ========================================================== -->
+    <!-- =========================
+         03 THE HUMAN SYSTEM
+    ========================== -->
 
-    <section class="section section-ocean">
+    <section id="system" class="section section-system">
 
-      <div class="section-number light-number">08</div>
+      <div class="container">
 
-      <div class="working-grid">
+        <div class="section-heading reveal">
 
-        <div class="reveal">
-
-          <p class="eyebrow light">
-            Working Together
+          <p class="section-label">
+            02 — The Human System
           </p>
 
-          <h2>
-            Every collaboration
-            begins with orientation.
+          <h2 class="display-title display-title--medium">
+            One architecture.
+            <br />
+            Three interconnected domains.
+          </h2>
+
+          <p class="section-intro">
+            Human Architecture looks at inherent structure, lived embodiment
+            and the way identity moves through changing contexts.
+          </p>
+
+        </div>
+
+        <div class="system-map reveal">
+
+          <div class="system-node system-node--01">
+            <span class="system-node__number">01</span>
+            <h3>Blueprint</h3>
+            <p>How the individual system is inherently structured.</p>
+          </div>
+
+          <div class="system-line"></div>
+
+          <div class="system-node system-node--02">
+            <span class="system-node__number">02</span>
+            <h3>Body & Regulation</h3>
+            <p>How structure is lived, embodied and regulated.</p>
+          </div>
+
+          <div class="system-line"></div>
+
+          <div class="system-node system-node--03">
+            <span class="system-node__number">03</span>
+            <h3>Identity & Transition</h3>
+            <p>How the human moves through meaning, identity and transition.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         04 THREE DOMAINS
+    ========================== -->
+
+    <section id="domains" class="section section-dark domains">
+
+      <div class="container">
+
+        <div class="section-heading section-heading--light reveal">
+
+          <p class="section-label section-label--light">
+            03 — Three Domains
+          </p>
+
+          <h2 class="display-title display-title--light display-title--medium">
+            Three perspectives into one human architecture.
           </h2>
 
         </div>
 
-        <div class="working-copy reveal">
+        <div class="domain-grid">
 
-          <p>
-            Depending on the context, a relationship with Human
-            Architecture® may begin through an individual session,
-            Codex, Mihira Ceremonia, an orientation conversation,
-            a professional collaboration or an organisational
-            integration.
-          </p>
+          <article class="domain-card domain-card--codex reveal">
 
-          <p>
-            The aim is not to force the complete framework into every
-            environment. It is to identify what is relevant and begin
-            there.
-          </p>
+            <div class="domain-card__media"></div>
 
-          <a
-            href="mailto:hello@human-architecture.info?subject=Human%20Architecture%20Collaboration"
-            class="button button-light"
-          >
-            Explore a Collaboration
-          </a>
+            <div class="domain-card__content">
+
+              <span class="domain-card__number">01</span>
+
+              <p class="domain-card__label">
+                Blueprint
+              </p>
+
+              <h3>Codex</h3>
+
+              <p>
+                Understanding how the individual system is designed.
+              </p>
+
+              <a href="#entry" class="text-link">
+                Explore this domain
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="domain-card domain-card--body reveal">
+
+            <div class="domain-card__media"></div>
+
+            <div class="domain-card__content">
+
+              <span class="domain-card__number">02</span>
+
+              <p class="domain-card__label">
+                Body & Regulation
+              </p>
+
+              <h3>Human Architecture Sessions</h3>
+
+              <p>
+                Structural, embodied and regulatory work with the lived system.
+              </p>
+
+              <a href="#entry" class="text-link">
+                Explore this domain
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="domain-card domain-card--mihira reveal">
+
+            <div class="domain-card__media"></div>
+
+            <div class="domain-card__content">
+
+              <span class="domain-card__number">03</span>
+
+              <p class="domain-card__label">
+                Identity & Transition
+              </p>
+
+              <h3>Mihira Ceremonia</h3>
+
+              <p>
+                Ceremonial integration around identity, transition and
+                significant human passages.
+              </p>
+
+              <a href="#entry" class="text-link">
+                Explore this domain
+              </a>
+
+            </div>
+
+          </article>
 
         </div>
 
@@ -868,51 +344,428 @@
     </section>
 
 
-    <!-- =========================================================
+    <!-- =========================
+         05 FIND YOUR ENTRY POINT
+    ========================== -->
+
+    <section id="entry" class="section section-light entry">
+
+      <div class="container">
+
+        <div class="section-heading section-heading--center reveal">
+
+          <p class="section-label">
+            04 — Orientation
+          </p>
+
+          <h2 class="display-title display-title--medium">
+            Find your point of entry.
+          </h2>
+
+          <p class="section-intro section-intro--center">
+            You do not need to know which service you need.
+            Begin with what is happening now.
+          </p>
+
+        </div>
+
+        <div class="entry-grid">
+
+          <button
+            class="entry-card reveal"
+            data-entry="codex"
+            type="button"
+          >
+            <span class="entry-card__number">01</span>
+            <h3>I want to understand myself more clearly.</h3>
+            <p>Blueprint / Codex</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="patterns"
+            type="button"
+          >
+            <span class="entry-card__number">02</span>
+            <h3>I keep encountering patterns I do not fully understand.</h3>
+            <p>Blueprint / Codex</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="structural"
+            type="button"
+          >
+            <span class="entry-card__number">03</span>
+            <h3>My body feels restricted, tense or disconnected.</h3>
+            <p>Structural Consultation</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="regulation"
+            type="button"
+          >
+            <span class="entry-card__number">04</span>
+            <h3>I feel overwhelmed, depleted or under sustained strain.</h3>
+            <p>Regulation</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="chi-nei-tsang"
+            type="button"
+          >
+            <span class="entry-card__number">05</span>
+            <h3>
+              I experience significant internal holding around the core or breath.
+            </h3>
+            <p>Chi Nei Tsang</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="calamus"
+            type="button"
+          >
+            <span class="entry-card__number">06</span>
+            <h3>I feel dull, stagnant or disconnected from vitality.</h3>
+            <p>Calamus Ceremony</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="mihira"
+            type="button"
+          >
+            <span class="entry-card__number">07</span>
+            <h3>I am moving through a significant transition.</h3>
+            <p>Mihira Ceremonia</p>
+          </button>
+
+          <button
+            class="entry-card reveal"
+            data-entry="intensive"
+            type="button"
+          >
+            <span class="entry-card__number">08</span>
+            <h3>I want to experience the system more comprehensively.</h3>
+            <p>Human Architecture Intensive</p>
+          </button>
+
+          <button
+            class="entry-card entry-card--wide reveal"
+            data-entry="partnership"
+            type="button"
+          >
+            <span class="entry-card__number">09</span>
+            <h3>I represent a school, team, organisation or community.</h3>
+            <p>Partnerships</p>
+          </button>
+
+        </div>
+
+        <div class="entry-result" aria-live="polite">
+
+          <p class="entry-result__eyebrow">
+            Your likely point of entry
+          </p>
+
+          <h3 class="entry-result__title">
+            Select the statement that feels closest to your current situation.
+          </h3>
+
+          <p class="entry-result__copy">
+            The orientation is directional. A conversation can clarify the
+            most appropriate next step.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         06 WAYS OF WORKING
+    ========================== -->
+
+    <section id="work" class="section section-work">
+
+      <div class="container">
+
+        <div class="work-layout">
+
+          <div class="work-intro reveal">
+
+            <p class="section-label">
+              05 — Ways of Working
+            </p>
+
+            <h2 class="display-title display-title--medium">
+              Different forms.
+              <br />
+              One underlying architecture.
+            </h2>
+
+            <p class="section-intro">
+              The form of the work follows the human context rather than forcing
+              every person or environment into the same format.
+            </p>
+
+          </div>
+
+          <div class="work-list">
+
+            <div class="work-row reveal">
+              <span>01</span>
+              <h3>Individual Work</h3>
+              <p>One-to-one orientation, structure and embodied work.</p>
+            </div>
+
+            <div class="work-row reveal">
+              <span>02</span>
+              <h3>Group Experiences</h3>
+              <p>Shared spaces for understanding, regulation and integration.</p>
+            </div>
+
+            <div class="work-row reveal">
+              <span>03</span>
+              <h3>Educational Programmes</h3>
+              <p>Age-appropriate learning for students, families and educators.</p>
+            </div>
+
+            <div class="work-row reveal">
+              <span>04</span>
+              <h3>Organisational Programmes</h3>
+              <p>Leadership, teams and contextual organisational work.</p>
+            </div>
+
+            <div class="work-row reveal">
+              <span>05</span>
+              <h3>Intensives</h3>
+              <p>More comprehensive full-system immersion.</p>
+            </div>
+
+            <div class="work-row reveal">
+              <span>06</span>
+              <h3>Ceremonial Work</h3>
+              <p>Integration around transition, identity and meaningful passage.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         07 ACROSS HUMAN LIFE
+    ========================== -->
+
+    <section class="section section-light life">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <p class="section-label">
+            06 — Across Human Life
+          </p>
+
+          <h2 class="display-title display-title--medium">
+            Structure remains.
+            <br />
+            Context changes.
+          </h2>
+
+        </div>
+
+        <div class="life-grid">
+
+          <div class="life-item reveal">
+            <span>01</span>
+            <h3>Children</h3>
+            <p>
+              Clearer self-understanding and language for individual difference.
+            </p>
+          </div>
+
+          <div class="life-item reveal">
+            <span>02</span>
+            <h3>Adolescence</h3>
+            <p>
+              Greater orientation through developmental, hormonal and identity
+              transition.
+            </p>
+          </div>
+
+          <div class="life-item reveal">
+            <span>03</span>
+            <h3>Adults</h3>
+            <p>
+              Understanding inherent structure in relation to lived experience,
+              adaptation and present context.
+            </p>
+          </div>
+
+          <div class="life-item reveal">
+            <span>04</span>
+            <h3>Leadership & Teams</h3>
+            <p>
+              Greater clarity around individual strengths, interaction and
+              collective contribution.
+            </p>
+          </div>
+
+          <div class="life-item reveal">
+            <span>05</span>
+            <h3>Transition</h3>
+            <p>
+              Support for meaningful periods of identity, direction and change.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         08 PARTNERSHIPS
+    ========================== -->
+
+    <section id="partnerships" class="section section-dark partnerships">
+
+      <div class="container">
+
+        <div class="partnerships__intro reveal">
+
+          <p class="section-label section-label--light">
+            07 — Partnerships
+          </p>
+
+          <h2 class="display-title display-title--light display-title--medium">
+            Human systems live inside larger systems.
+          </h2>
+
+          <p class="section-intro section-intro--light">
+            Human Architecture can enter different environments while remaining
+            grounded in the individual human context.
+          </p>
+
+        </div>
+
+        <div class="partnership-grid">
+
+          <article class="partnership-card reveal">
+            <span>01</span>
+            <h3>Education</h3>
+            <p>
+              Schools, private schools, students, teenagers, educators and
+              youth programmes.
+            </p>
+          </article>
+
+          <article class="partnership-card reveal">
+            <span>02</span>
+            <h3>Families & Development</h3>
+            <p>
+              Families, parents, young people, girls and young women.
+            </p>
+          </article>
+
+          <article class="partnership-card reveal">
+            <span>03</span>
+            <h3>Movement & Performance</h3>
+            <p>
+              Gyms, movement environments, martial arts, sports and trainers.
+            </p>
+          </article>
+
+          <article class="partnership-card reveal">
+            <span>04</span>
+            <h3>Leadership & Organisations</h3>
+            <p>
+              Founders, CEOs, Führungskräfte, leadership teams and companies.
+            </p>
+          </article>
+
+          <article class="partnership-card reveal">
+            <span>05</span>
+            <h3>Professional Practice</h3>
+            <p>
+              Coaches, practitioners, facilitators, educators and movement
+              professionals.
+            </p>
+          </article>
+
+          <article class="partnership-card reveal">
+            <span>06</span>
+            <h3>Institutions & Culture</h3>
+            <p>
+              Foundations, community organisations, cultural environments and
+              interdisciplinary initiatives.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
          09 ABOUT
-    ========================================================== -->
+    ========================== -->
 
-    <section id="about" class="section section-ivory">
+    <section id="about" class="section section-light about">
 
-      <div class="section-number">09</div>
+      <div class="container">
 
-      <div class="about-grid">
+        <div class="about__grid">
 
-        <div class="reveal">
+          <div class="about__visual reveal">
+            <div class="about__placeholder">
+              <span>Human Architecture</span>
+            </div>
+          </div>
 
-          <p class="eyebrow">
-            About Human Architecture®
-          </p>
+          <div class="about__content reveal">
 
-          <h2>
-            Clarity with depth.
-            <br>
-            Direction without overload.
-          </h2>
+            <p class="section-label">
+              08 — About
+            </p>
 
-        </div>
+            <h2 class="display-title display-title--medium">
+              Understanding the human before imposing the structure.
+            </h2>
 
-        <div class="about-copy reveal">
+            <p>
+              Human Architecture was developed from a simple observation:
+              people are frequently asked to adapt to systems before the
+              structure of the individual has been understood.
+            </p>
 
-          <p>
-            Human Architecture® is an interdisciplinary framework
-            developed to support orientation across the human
-            system.
-          </p>
+            <p>
+              The work brings intrinsic architecture and lived human experience
+              into one frame — allowing clearer orientation across blueprint,
+              body, regulation, identity and transition.
+            </p>
 
-          <p>
-            Rather than focusing on isolated components, it considers
-            the relationships between blueprint, structure, movement,
-            breathing, regulation, recovery, identity and
-            integration.
-          </p>
+            <p>
+              Technology can support that process, but it does not replace the
+              human relationship at the centre of the work.
+            </p>
 
-          <p>
-            Its educational, structural and ceremonial offerings
-            operate as complementary pathways and are selected
-            according to the context of the individual or
-            environment.
-          </p>
+          </div>
 
         </div>
 
@@ -921,65 +774,102 @@
     </section>
 
 
-    <!-- =========================================================
+    <!-- =========================
          10 CONTACT
-    ========================================================== -->
+    ========================== -->
 
-    <section id="contact" class="section section-contact">
+    <section id="contact" class="section section-contact section-dark">
 
-      <div class="contact-background"></div>
+      <div class="container">
 
-      <div class="contact-inner">
+        <div class="contact__grid">
 
-        <div class="reveal">
+          <div class="contact__intro reveal">
 
-          <p class="eyebrow light">
-            Begin
-          </p>
+            <p class="section-label section-label--light">
+              09 — Conversation
+            </p>
 
-          <h2>
-            Begin with the
-            right point of entry.
-          </h2>
+            <h2 class="display-title display-title--light display-title--medium">
+              Begin with the right point of entry.
+            </h2>
 
-          <p class="lead light-copy">
-            If you are unsure which domain, session or collaboration
-            fits your situation, begin with a conversation.
-          </p>
+            <p class="section-intro section-intro--light">
+              You do not need to know the exact format before reaching out.
+              Tell us what you are navigating, building or seeking to understand.
+            </p>
+
+          </div>
+
+          <form class="contact-form reveal">
+
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+
+            <label>
+              <span>Organisation</span>
+              <input type="text" name="organisation" />
+            </label>
+
+            <label>
+              <span>What brings you here?</span>
+
+              <select name="interest">
+                <option value="">Select one</option>
+                <option value="individual">Individual work</option>
+                <option value="education">Education</option>
+                <option value="leadership">Leadership / Team</option>
+                <option value="partnership">Partnership</option>
+                <option value="transition">Transition / Mihira</option>
+                <option value="other">Something else</option>
+              </select>
+
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5"></textarea>
+            </label>
+
+            <button class="button button--light" type="submit">
+              Start a Conversation
+            </button>
+
+          </form>
 
         </div>
 
-        <div class="contact-links reveal">
+        <footer class="site-footer">
 
-          <a
-            href="https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20Human%20Architecture."
-            target="_blank"
-            rel="noopener"
-          >
-            <small>WhatsApp</small>
-            <strong>+49 1520 3131871</strong>
-            <span>→</span>
-          </a>
+          <div class="site-footer__brand">
+            <img
+              src="assets/logo/logo-white.png"
+              alt="Human Architecture"
+            />
+          </div>
 
-          <a href="mailto:hello@human-architecture.info">
+          <div class="site-footer__links">
+            <a href="mailto:hello@human-architecture.info">
+              Email
+            </a>
 
-            <small>Email</small>
-            <strong>hello@human-architecture.info</strong>
-            <span>→</span>
+            <a href="#" aria-label="Instagram">
+              Instagram
+            </a>
 
-          </a>
+            <a href="#top">
+              Back to top
+            </a>
+          </div>
 
-          <a
-            href="https://www.instagram.com/human_arch.itecture/"
-            target="_blank"
-            rel="noopener"
-          >
-            <small>Instagram</small>
-            <strong>@human_arch.itecture</strong>
-            <span>→</span>
-          </a>
-
-        </div>
+        </footer>
 
       </div>
 
@@ -987,45 +877,7 @@
 
   </main>
 
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-
-  <footer class="site-footer">
-
-    <div class="footer-brand">
-
-      <strong>Human Architecture®</strong>
-      <span>Structural Design of the Human System</span>
-
-    </div>
-
-    <div class="footer-nav">
-
-      <a href="#system">The System</a>
-      <a href="#entry">Entry Point</a>
-      <a href="#domains">Domains</a>
-      <a href="#applications">Applications</a>
-      <a href="#contact">Contact</a>
-
-    </div>
-
-    <p class="disclaimer">
-      Human Architecture® provides complementary wellness,
-      structural, educational and ceremonial services. The offerings
-      do not diagnose, treat or cure medical or psychological
-      conditions and do not replace medical or psychological care.
-    </p>
-
-    <p class="copyright">
-      © Human Architecture®
-    </p>
-
-  </footer>
-
-
   <script src="script.js"></script>
 
 </body>
-</html>
+</html>  
