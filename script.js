@@ -1,375 +1,306 @@
 /* =========================================================
-   REVEAL ANIMATIONS
+   HUMAN ARCHITECTURE
+   WEBSITE INTERACTIONS
 ========================================================= */
 
-const revealElements =
-  document.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
 
-const revealObserver =
-  new IntersectionObserver(
-    (entries) => {
+  /* =======================================================
+     01 — HEADER SCROLL STATE
+  ======================================================= */
 
-      entries.forEach((entry) => {
+  const header = document.querySelector(".site-header");
 
-        if (entry.isIntersecting) {
+  const updateHeader = () => {
+    if (!header) return;
 
-          entry.target.classList.add(
-            "is-visible"
-          );
+    if (window.scrollY > 24) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
 
-          revealObserver.unobserve(
-            entry.target
-          );
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 
-        }
 
+  /* =======================================================
+     02 — MOBILE NAVIGATION
+  ======================================================= */
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
+  const navLinks = document.querySelectorAll(".site-nav a");
+
+  const closeMenu = () => {
+    if (!menuToggle || !siteNav) return;
+
+    menuToggle.classList.remove("is-open");
+    siteNav.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
+
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.classList.toggle("is-open");
+
+      siteNav.classList.toggle("is-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
+    });
+  }
+
+
+  /* =======================================================
+     03 — REVEAL ON SCROLL
+  ======================================================= */
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reducedMotion) {
+    revealElements.forEach((element) => {
+      element.classList.add("is-visible");
+    });
+  } else if ("IntersectionObserver" in window) {
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    revealElements.forEach((element, index) => {
+      element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+      revealObserver.observe(element);
+    });
+
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("is-visible");
+    });
+  }
+
+
+  /* =======================================================
+     04 — ENTRY POINT ORIENTATION
+  ======================================================= */
+
+  const entryCards = document.querySelectorAll(".entry-card");
+  const resultTitle = document.querySelector(".entry-result__title");
+  const resultCopy = document.querySelector(".entry-result__copy");
+  const resultEyebrow = document.querySelector(".entry-result__eyebrow");
+
+  const entryContent = {
+
+    codex: {
+      eyebrow: "Blueprint",
+      title: "Codex",
+      copy:
+        "A logical first point of entry when you want clearer orientation around your own inherent structure and how your system is designed."
+    },
+
+    patterns: {
+      eyebrow: "Blueprint",
+      title: "Codex",
+      copy:
+        "When recurring patterns raise questions about how you are structured, Blueprint work offers a clearer frame for understanding the system beneath them."
+    },
+
+    structural: {
+      eyebrow: "Body & Regulation",
+      title: "Structural Consultation",
+      copy:
+        "A logical entry point when the primary question is physical structure, mobility, tension or the way the body is currently organising itself."
+    },
+
+    regulation: {
+      eyebrow: "Body & Regulation",
+      title: "Regulation",
+      copy:
+        "A regulation-oriented entry point when sustained strain, overwhelm or depletion is the dominant experience."
+    },
+
+    "chi-nei-tsang": {
+      eyebrow: "Body & Regulation",
+      title: "Chi Nei Tsang",
+      copy:
+        "A body-based entry point when there is notable internal holding around the abdominal core, breath or digestive centre."
+    },
+
+    calamus: {
+      eyebrow: "Body & Regulation",
+      title: "Calamus Ceremony",
+      copy:
+        "A possible entry point when the dominant experience is stagnation, dullness or disconnection from vitality."
+    },
+
+    mihira: {
+      eyebrow: "Identity & Transition",
+      title: "Mihira Ceremonia",
+      copy:
+        "A ceremonial entry point for significant periods of identity change, transition and integration."
+    },
+
+    intensive: {
+      eyebrow: "Full-System Immersion",
+      title: "Human Architecture Intensive",
+      copy:
+        "A broader entry point when you want to engage the system more comprehensively rather than begin with one isolated layer."
+    },
+
+    partnership: {
+      eyebrow: "Partnerships",
+      title: "Institutional or Organisational Conversation",
+      copy:
+        "A conversation is the most appropriate first step when the context involves a school, organisation, team, community or collaborative environment."
+    }
+
+  };
+
+  entryCards.forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+      const key = card.dataset.entry;
+      const content = entryContent[key];
+
+      if (!content) return;
+
+      entryCards.forEach((item) => {
+        item.classList.remove("is-active");
       });
 
-    },
-    {
-      threshold: 0.12
-    }
-  );
+      card.classList.add("is-active");
 
-revealElements.forEach((element) => {
-  revealObserver.observe(element);
+      if (resultEyebrow) {
+        resultEyebrow.textContent = content.eyebrow;
+      }
+
+      if (resultTitle) {
+        resultTitle.textContent = content.title;
+      }
+
+      if (resultCopy) {
+        resultCopy.textContent = content.copy;
+      }
+
+      const result = document.querySelector(".entry-result");
+
+      if (result) {
+        result.animate(
+          [
+            {
+              opacity: 0.35,
+              transform: "translateY(8px)"
+            },
+            {
+              opacity: 1,
+              transform: "translateY(0)"
+            }
+          ],
+          {
+            duration: 420,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+          }
+        );
+      }
+
+    });
+
+  });
+
+
+  /* =======================================================
+     05 — SMOOTH INTERNAL LINKS
+  ======================================================= */
+
+  const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+  internalLinks.forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      const headerOffset = 82;
+      const targetTop =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerOffset;
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: reducedMotion ? "auto" : "smooth"
+      });
+
+    });
+
+  });
+
+
+  /* =======================================================
+     06 — CONTACT FORM
+     FRONT-END PLACEHOLDER ONLY
+  ======================================================= */
+
+  const contactForm = document.querySelector(".contact-form");
+
+  if (contactForm) {
+
+    contactForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const submitButton = contactForm.querySelector(
+        'button[type="submit"]'
+      );
+
+      if (!submitButton) return;
+
+      const originalText = submitButton.textContent;
+
+      submitButton.textContent = "Form connection coming next";
+      submitButton.disabled = true;
+
+      window.setTimeout(() => {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }, 2200);
+
+    });
+
+  }
+
 });
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menuToggle =
-  document.querySelector(".menu-toggle");
-
-const siteNav =
-  document.querySelector(".site-nav");
-
-menuToggle.addEventListener(
-  "click",
-  () => {
-
-    const isOpen =
-      siteNav.classList.toggle("open");
-
-    document.body.classList.toggle(
-      "menu-open",
-      isOpen
-    );
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-
-  }
-);
-
-document
-  .querySelectorAll(".site-nav a")
-  .forEach((link) => {
-
-    link.addEventListener(
-      "click",
-      () => {
-
-        siteNav.classList.remove("open");
-
-        document.body.classList.remove(
-          "menu-open"
-        );
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-    );
-
-  });
-
-
-/* =========================================================
-   ENTRY POINT ORIENTATION
-========================================================= */
-
-const orientationResults = {
-
-  patterns: {
-
-    domain:
-      "Blueprint",
-
-    title:
-      "Codex",
-
-    copy:
-      "Codex is the most logical starting point when the central question concerns identity, recurring patterns, decision-making or understanding how your individual system is organized.",
-
-    support: [
-      "Structural self-understanding",
-      "Recognition of recurring dynamics",
-      "Orientation before strategy"
-    ],
-
-    button:
-      "Explore Codex",
-
-    href:
-      "mailto:hello@human-architecture.info?subject=Codex%20Enquiry"
-
-  },
-
-
-  body: {
-
-    domain:
-      "Body & Regulation",
-
-    title:
-      "Structural Consultation",
-
-    copy:
-      "A Structural Consultation is the clearest starting point when physical tension, restricted mobility or changes in structural organization are central.",
-
-    support: [
-      "Observation of posture and movement",
-      "Breathing and mobility orientation",
-      "Identification of an appropriate pathway"
-    ],
-
-    button:
-      "Explore Structural Consultation",
-
-    href:
-      "mailto:hello@human-architecture.info?subject=Structural%20Consultation%20Enquiry"
-
-  },
-
-
-  regulation: {
-
-    domain:
-      "Body & Regulation",
-
-    title:
-      "Regulation & Recovery",
-
-    copy:
-      "Where overwhelm, fatigue or difficulty settling is central, the most relevant entry point may begin within the regulation layer rather than with greater physical intensity.",
-
-    support: [
-      "Breathing mechanics",
-      "Deep rest",
-      "Nervous-system settling"
-    ],
-
-    button:
-      "Explore Regulation",
-
-    href:
-      "mailto:hello@human-architecture.info?subject=Regulation%20Session%20Enquiry"
-
-  },
-
-
-  core: {
-
-    domain:
-      "Body & Regulation",
-
-    title:
-      "Chi Nei Tsang",
-
-    copy:
-      "When abdominal tension, restricted breathing or internal holding is particularly relevant, Chi Nei Tsang may provide the clearest structural entry point.",
-
-    support: [
-      "Abdominal ease",
-      "Diaphragmatic mobility",
-      "Internal body awareness"
-    ],
-
-    button:
-      "Explore Chi Nei Tsang",
-
-    href:
-      "mailto:hello@human-architecture.info?subject=Chi%20Nei%20Tsang%20Enquiry"
-
-  },
-
-
-  transition: {
-
-    domain:
-      "Identity & Transition",
-
-    title:
-      "Mihira Ceremonia",
-
-    copy:
-      "Mihira Ceremonia is designed for periods of transition, reorientation and the conscious integration of changing inner or outer life structures.",
-
-    support: [
-      "Transition",
-      "Reorientation",
-      "Conscious integration"
-    ],
-
-    button:
-      "Explore Mihira",
-
-    href:
-      "mailto:hello@human-architecture.info?subject=Mihira%20Ceremonia%20Enquiry"
-
-  },
-
-
-  unclear: {
-
-    domain:
-      "Orientation",
-
-    title:
-      "Begin with a Conversation",
-
-    copy:
-      "When several areas feel relevant at once, the most appropriate first step is simply to clarify which domain is currently primary before choosing a session or pathway.",
-
-    support: [
-      "Clarify the current situation",
-      "Identify the relevant domain",
-      "Determine one logical first step"
-    ],
-
-    button:
-      "Start a Conversation",
-
-    href:
-      "https://wa.me/4915203131871?text=Hello%2C%20I%20would%20like%20help%20finding%20the%20right%20Human%20Architecture%20entry%20point."
-
-  }
-
-};
-
-
-const resultDomain =
-  document.getElementById(
-    "result-domain"
-  );
-
-const resultTitle =
-  document.getElementById(
-    "result-title"
-  );
-
-const resultCopy =
-  document.getElementById(
-    "result-copy"
-  );
-
-const resultList =
-  document.getElementById(
-    "result-list"
-  );
-
-const resultButton =
-  document.getElementById(
-    "result-button"
-  );
-
-
-function showOrientationResult(key) {
-
-  const result =
-    orientationResults[key];
-
-  resultDomain.textContent =
-    result.domain;
-
-  resultTitle.textContent =
-    result.title;
-
-  resultCopy.textContent =
-    result.copy;
-
-  resultList.innerHTML =
-    result.support
-      .map(
-        (item) =>
-          `<li>${item}</li>`
-      )
-      .join("");
-
-  resultButton.textContent =
-    result.button;
-
-  resultButton.href =
-    result.href;
-
-}
-
-
-document
-  .querySelectorAll(".entry-option")
-  .forEach((button) => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        document
-          .querySelectorAll(
-            ".entry-option"
-          )
-          .forEach((item) => {
-
-            item.classList.remove(
-              "active"
-            );
-
-          });
-
-        button.classList.add(
-          "active"
-        );
-
-        showOrientationResult(
-          button.dataset.result
-        );
-
-      }
-    );
-
-  });
-
-
-/* =========================================================
-   HEADER DEPTH ON SCROLL
-========================================================= */
-
-const header =
-  document.querySelector(
-    ".site-header"
-  );
-
-window.addEventListener(
-  "scroll",
-  () => {
-
-    if (window.scrollY > 40) {
-
-      header.style.background =
-        "rgba(7,31,39,0.94)";
-
-    } else {
-
-      header.style.background =
-        "rgba(7,31,39,0.82)";
-
-    }
-
-  }
-);
+ 
