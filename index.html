@@ -5,15 +5,13 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
+    content="width=device-width, initial-scale=1"
   />
 
   <meta
     name="description"
-    content="Human Architecture — a system for understanding, developing and supporting human life."
+    content="Human Architecture — an integrated system for understanding human structure, embodiment, regulation, identity and transition."
   />
-
-  <meta name="theme-color" content="#063442" />
 
   <title>Human Architecture</title>
 
@@ -28,17 +26,27 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
+
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
 
   <!-- =====================================================
-       NAVIGATION
+       HEADER
   ====================================================== -->
 
-  <header class="site-header" data-header>
+  <header class="site-header">
+
     <div class="site-header__inner">
 
-      <a class="brand" href="#top" aria-label="Human Architecture home">
+      <a
+        class="brand"
+        href="#top"
+        aria-label="Human Architecture home"
+      >
         <img
           src="assets/logo/logo-white.png"
           alt="Human Architecture"
@@ -47,7 +55,11 @@
         />
       </a>
 
-      <nav class="desktop-nav" aria-label="Primary navigation">
+
+      <nav
+        class="site-nav"
+        aria-label="Primary navigation"
+      >
         <a href="#philosophy">Philosophy</a>
         <a href="#human-system">Human System</a>
         <a href="#entry-point">Entry Point</a>
@@ -58,9 +70,14 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <a class="nav-conversation" href="#contact">
+
+      <a
+        class="nav-conversation"
+        href="#contact"
+      >
         Start a Conversation
       </a>
+
 
       <button
         class="menu-button"
@@ -75,6 +92,7 @@
       </button>
 
     </div>
+
 
     <nav
       class="mobile-menu"
@@ -91,23 +109,46 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
 
-      <a class="mobile-menu__conversation" href="#contact">
+      <a
+        class="mobile-menu__conversation"
+        href="#contact"
+      >
         Start a Conversation
       </a>
     </nav>
+
   </header>
 
 
+
   <main id="main-content">
+
 
     <!-- =====================================================
          01 — HERO
     ====================================================== -->
 
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section
+      class="hero"
+      id="top"
+      aria-labelledby="hero-title"
+    >
 
-      <div class="hero__media" aria-hidden="true"></div>
-      <div class="hero__veil" aria-hidden="true"></div>
+      <!--
+        HERO IMAGE:
+        CSS may use assets/hero-ocean.jpg.
+        We can update the exact asset path once final ocean imagery is uploaded.
+      -->
+      <div
+        class="hero__media"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="hero__veil"
+        aria-hidden="true"
+      ></div>
+
 
       <div class="hero__content reveal">
 
@@ -119,24 +160,32 @@
           height="330"
         />
 
+
         <p class="hero__classification">
           Structural design of the human system
         </p>
+
 
         <h1 id="hero-title">
           The human being is
           <span>a living architecture.</span>
         </h1>
 
+
         <p class="hero__support">
           A system for understanding, developing and supporting human life.
         </p>
 
-        <a class="line-link line-link--light" href="#philosophy">
+
+        <a
+          class="line-link line-link--light"
+          href="#philosophy"
+        >
           Explore the system
         </a>
 
       </div>
+
 
       <a
         class="scroll-cue"
@@ -150,6 +199,7 @@
     </section>
 
 
+
     <!-- =====================================================
          02 — PHILOSOPHY
     ====================================================== -->
@@ -159,6 +209,7 @@
       id="philosophy"
       aria-labelledby="philosophy-title"
     >
+
       <div class="page-grid philosophy__layout">
 
         <div class="section-marker reveal">
@@ -166,11 +217,15 @@
           <p>Philosophy</p>
         </div>
 
+
         <div class="philosophy__statement reveal">
+
           <h2 id="philosophy-title">
             Human beings are not fragmented problems.
           </h2>
+
         </div>
+
 
         <div class="philosophy__copy reveal">
 
@@ -179,10 +234,12 @@
             isolating one part from the system around it.
           </p>
 
+
           <p>
             Body, nervous system, emotion, cognition, identity, relationship,
             environment and meaning continually influence one another.
           </p>
+
 
           <p>
             The intention is not to impose a standard form upon a person.
@@ -192,15 +249,19 @@
 
         </div>
 
+
+        <!--
+          IMAGE SLOT:
+          Replace this element with an approved observational photograph later.
+          It deliberately contains no visible placeholder copy.
+        -->
         <div
           class="philosophy__image-placeholder reveal"
-          role="img"
-          aria-label="Reserved area for an approved observational Human Architecture photograph"
-        >
-          <span>Human presence / image to confirm</span>
-        </div>
+          aria-hidden="true"
+        ></div>
 
       </div>
+
 
       <div class="philosophy-principles page-grid">
 
@@ -221,6 +282,7 @@
 
       </div>
 
+
       <svg
         class="philosophy-line"
         viewBox="0 0 1600 180"
@@ -235,6 +297,7 @@
     </section>
 
 
+
     <!-- =====================================================
          03 — HUMAN SYSTEM
     ====================================================== -->
@@ -244,12 +307,14 @@
       id="human-system"
       aria-labelledby="system-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker reveal">
           <span>02</span>
           <p>Human System</p>
         </div>
+
 
         <div class="system-intro reveal">
 
@@ -259,9 +324,10 @@
             One living system.
           </h2>
 
+
           <p>
-            No dimension exists in isolation. Human Architecture looks at
-            relationship, context and proportion across the whole system.
+            Human Architecture considers interdependent dimensions rather than
+            treating one aspect of human experience in isolation.
           </p>
 
         </div>
@@ -271,17 +337,26 @@
 
           <div
             class="system-diagram"
-            data-system-diagram
+            aria-hidden="true"
           >
 
             <svg
               class="system-connections"
               viewBox="0 0 800 800"
               preserveAspectRatio="xMidYMid meet"
-              aria-hidden="true"
             >
-              <circle cx="400" cy="400" r="275"></circle>
-              <circle cx="400" cy="400" r="205"></circle>
+
+              <circle
+                cx="400"
+                cy="400"
+                r="275"
+              ></circle>
+
+              <circle
+                cx="400"
+                cy="400"
+                r="205"
+              ></circle>
 
               <line x1="400" y1="400" x2="400" y2="105"></line>
               <line x1="400" y1="400" x2="610" y2="190"></line>
@@ -291,251 +366,196 @@
               <line x1="400" y1="400" x2="190" y2="610"></line>
               <line x1="400" y1="400" x2="105" y2="400"></line>
               <line x1="400" y1="400" x2="190" y2="190"></line>
+
             </svg>
+
 
             <div class="system-core">
               <span>Human</span>
             </div>
 
-            <button
-              class="system-node system-node--body"
-              type="button"
-              data-system-node="body"
-            >
+
+            <div class="system-node system-node--body">
               Body
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--nervous"
-              type="button"
-              data-system-node="nervous"
-            >
+            <div class="system-node system-node--nervous">
               Nervous System
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--emotion"
-              type="button"
-              data-system-node="emotion"
-            >
+            <div class="system-node system-node--emotion">
               Emotion
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--cognition"
-              type="button"
-              data-system-node="cognition"
-            >
+            <div class="system-node system-node--cognition">
               Cognition
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--identity"
-              type="button"
-              data-system-node="identity"
-            >
+            <div class="system-node system-node--identity">
               Identity
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--relationship"
-              type="button"
-              data-system-node="relationship"
-            >
+            <div class="system-node system-node--relationship">
               Relationship
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--environment"
-              type="button"
-              data-system-node="environment"
-            >
+            <div class="system-node system-node--environment">
               Environment
-            </button>
+            </div>
 
-            <button
-              class="system-node system-node--meaning"
-              type="button"
-              data-system-node="meaning"
-            >
+            <div class="system-node system-node--meaning">
               Meaning
-            </button>
+            </div>
 
           </div>
 
 
-          <figcaption class="system-mobile-list">
+          <figcaption>
 
-            <ol>
-              <li><span>01</span> Body</li>
-              <li><span>02</span> Nervous System</li>
-              <li><span>03</span> Emotion</li>
-              <li><span>04</span> Cognition</li>
-              <li><span>05</span> Identity</li>
-              <li><span>06</span> Relationship</li>
-              <li><span>07</span> Environment</li>
-              <li><span>08</span> Meaning</li>
-            </ol>
+            No dimension exists in isolation. The value of the system lies in
+            understanding relationship, context and proportion.
 
           </figcaption>
 
         </figure>
 
 
-        <div
-          class="system-response"
-          data-system-response
-          aria-live="polite"
-        >
-          <p class="eyebrow">Relationship</p>
+        <!-- Accessible mobile / textual representation -->
 
-          <p>
-            Select a dimension to bring one relationship into focus.
-          </p>
+        <div class="system-list">
+
+          <div>
+            <span>01</span>
+            <p>Body</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>Nervous System</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>Emotion</p>
+          </div>
+
+          <div>
+            <span>04</span>
+            <p>Cognition</p>
+          </div>
+
+          <div>
+            <span>05</span>
+            <p>Identity</p>
+          </div>
+
+          <div>
+            <span>06</span>
+            <p>Relationship</p>
+          </div>
+
+          <div>
+            <span>07</span>
+            <p>Environment</p>
+          </div>
+
+          <div>
+            <span>08</span>
+            <p>Meaning</p>
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         04 — ORIENTATION BRIDGE
+         04 — ENTRY POINT
     ====================================================== -->
 
     <section
-      class="section section--ivory orientation-bridge"
-      aria-labelledby="orientation-title"
-    >
-      <div class="orientation-bridge__inner reveal">
-
-        <p class="eyebrow">
-          Orientation
-        </p>
-
-        <h2 id="orientation-title">
-          There is no single place everyone should begin.
-        </h2>
-
-        <p>
-          Begin with what is happening now.
-        </p>
-
-        <a class="line-link" href="#entry-point">
-          Find your entry point
-        </a>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================================
-         05 — ENTRY POINT
-    ====================================================== -->
-
-    <section
-      class="section section--ivory entry"
+      class="section section--ivory entry-point"
       id="entry-point"
       aria-labelledby="entry-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker reveal">
           <span>03</span>
-          <p>Entry Point</p>
+          <p>Orientation</p>
         </div>
 
-        <div class="entry__heading reveal">
+
+        <div class="entry-point__intro reveal">
 
           <h2 id="entry-title">
-            Where are you meeting the system right now?
+            Find your point of entry.
           </h2>
 
+
           <p>
-            Begin with the domain that feels closest to what you are
-            currently navigating.
+            You do not need to know which service you need.
+            Begin with what is happening now.
           </p>
 
         </div>
 
 
         <div
-          class="entry-domain-selector reveal"
-          data-entry-selector
+          class="entry-map reveal"
+          data-entry-map
         >
 
           <button
-            class="entry-domain"
             type="button"
+            class="entry-map__point"
             data-entry-domain="blueprint"
-            aria-expanded="false"
-            aria-controls="entry-blueprint"
+            aria-pressed="false"
           >
-            <span class="entry-domain__number">01</span>
-
-            <span class="entry-domain__label">
-              Understanding
-            </span>
-
-            <strong>
-              I want to understand myself or recurring patterns more clearly.
-            </strong>
-
-            <small>
-              Blueprint / Codex
-            </small>
+            <span>Understand myself</span>
+            <small>Blueprint</small>
           </button>
 
 
           <button
-            class="entry-domain"
             type="button"
+            class="entry-map__point"
             data-entry-domain="body"
-            aria-expanded="false"
-            aria-controls="entry-body"
+            aria-pressed="false"
           >
-            <span class="entry-domain__number">02</span>
-
-            <span class="entry-domain__label">
-              Body &amp; Regulation
-            </span>
-
-            <strong>
-              Something is asking for attention through my body, capacity or
-              regulation.
-            </strong>
-
-            <small>
-              Human Architecture Sessions
-            </small>
+            <span>Reconnect with my body</span>
+            <small>Body &amp; Regulation</small>
           </button>
 
 
           <button
-            class="entry-domain"
             type="button"
+            class="entry-map__point"
             data-entry-domain="transition"
-            aria-expanded="false"
-            aria-controls="entry-transition"
+            aria-pressed="false"
           >
-            <span class="entry-domain__number">03</span>
+            <span>Navigate a transition</span>
+            <small>Identity &amp; Transition</small>
+          </button>
 
-            <span class="entry-domain__label">
-              Identity &amp; Transition
-            </span>
 
-            <strong>
-              I am moving through a meaningful threshold, change or transition.
-            </strong>
-
-            <small>
-              Mihira Ceremonia
-            </small>
+          <button
+            type="button"
+            class="entry-map__centre"
+            data-entry-reset
+          >
+            Begin here
           </button>
 
         </div>
 
 
-        <!-- ================= BLUEPRINT ================= -->
+
+        <!-- BLUEPRINT -->
 
         <div
           class="entry-detail"
@@ -543,30 +563,43 @@
           data-entry-detail="blueprint"
           hidden
         >
+
           <div class="entry-detail__intro">
-            <p class="eyebrow">Blueprint / Codex</p>
+
+            <p class="eyebrow">
+              Blueprint
+            </p>
+
 
             <h3>
-              Understanding comes before changing.
+              Begin by understanding how your system is designed.
             </h3>
 
+
             <p>
-              Codex is the clearest first entry when the central question is
-              understanding individual structure, recurring patterns or
-              orientation.
+              Blueprint work provides orientation when questions centre on
+              self-understanding, inherent structure or recurring patterns.
             </p>
+
           </div>
+
 
           <div class="entry-detail__choices">
 
             <button
               type="button"
               class="entry-choice"
-              data-entry-choice="self-understanding"
+              data-entry-choice="codex"
             >
-              <span>I want to understand myself more clearly.</span>
-              <small>Codex</small>
+              <span>
+                I want to understand myself more clearly.
+              </span>
+
+              <small>
+                Codex
+              </small>
             </button>
+
 
             <button
               type="button"
@@ -576,14 +609,19 @@
               <span>
                 I keep encountering patterns I do not fully understand.
               </span>
-              <small>Codex</small>
+
+              <small>
+                Codex
+              </small>
             </button>
 
           </div>
+
         </div>
 
 
-        <!-- ================= BODY ================= -->
+
+        <!-- BODY -->
 
         <div
           class="entry-detail"
@@ -591,19 +629,26 @@
           data-entry-detail="body"
           hidden
         >
+
           <div class="entry-detail__intro">
-            <p class="eyebrow">Body &amp; Regulation</p>
+
+            <p class="eyebrow">
+              Body &amp; Regulation
+            </p>
+
 
             <h3>
-              Begin with the way the system is being lived.
+              Begin with the layer that is most present in your lived system.
             </h3>
 
+
             <p>
-              This domain is the most logical entry when the experience is
-              primarily structural, physical, regulatory or related to
-              embodied capacity.
+              Structural and regulation-oriented work offers different points
+              of entry according to the context you are currently experiencing.
             </p>
+
           </div>
+
 
           <div class="entry-detail__choices">
 
@@ -615,8 +660,12 @@
               <span>
                 My body feels restricted, tense or limited in movement.
               </span>
-              <small>Structural Consultation</small>
+
+              <small>
+                Structural Consultation
+              </small>
             </button>
+
 
             <button
               type="button"
@@ -626,8 +675,12 @@
               <span>
                 I feel overwhelmed, depleted or under sustained strain.
               </span>
-              <small>Regulation</small>
+
+              <small>
+                Regulation
+              </small>
             </button>
+
 
             <button
               type="button"
@@ -635,10 +688,14 @@
               data-entry-choice="core"
             >
               <span>
-                I experience significant holding around the core or breath.
+                I notice significant holding around my core or breath.
               </span>
-              <small>Chi Nei Tsang</small>
+
+              <small>
+                Chi Nei Tsang
+              </small>
             </button>
+
 
             <button
               type="button"
@@ -648,8 +705,12 @@
               <span>
                 I feel dull, stagnant or disconnected from vitality.
               </span>
-              <small>Calamus Ceremony</small>
+
+              <small>
+                Calamus Ceremony
+              </small>
             </button>
+
 
             <button
               type="button"
@@ -659,14 +720,19 @@
               <span>
                 I want to experience the system more comprehensively.
               </span>
-              <small>Human Architecture Intensive</small>
+
+              <small>
+                Human Architecture Intensive
+              </small>
             </button>
 
           </div>
+
         </div>
 
 
-        <!-- ================= TRANSITION ================= -->
+
+        <!-- TRANSITION -->
 
         <div
           class="entry-detail"
@@ -674,18 +740,26 @@
           data-entry-detail="transition"
           hidden
         >
+
           <div class="entry-detail__intro">
-            <p class="eyebrow">Identity &amp; Transition</p>
+
+            <p class="eyebrow">
+              Identity &amp; Transition
+            </p>
+
 
             <h3>
-              Some moments are less about fixing and more about crossing.
+              Some moments are less about correction and more about crossing.
             </h3>
+
 
             <p>
               Mihira Ceremonia provides ceremonial integration around identity,
               transition and significant human passages.
             </p>
+
           </div>
+
 
           <div class="entry-detail__choices">
 
@@ -697,12 +771,19 @@
               <span>
                 I am moving through a significant transition.
               </span>
-              <small>Mihira Ceremonia</small>
+
+              <small>
+                Mihira Ceremonia
+              </small>
             </button>
 
           </div>
+
         </div>
 
+
+
+        <!-- RESPONSE -->
 
         <div
           class="entry-response"
@@ -710,29 +791,39 @@
           aria-live="polite"
           aria-atomic="true"
         >
+
           <p class="entry-response__classification">
             Orientation
           </p>
+
 
           <h3>
             Your context can guide where the conversation begins.
           </h3>
 
+
           <p>
             Human Architecture is designed to orient rather than prescribe.
           </p>
 
-          <a class="line-link" href="#domains">
+
+          <a
+            class="line-link"
+            href="#domains"
+          >
             Continue into the three domains
           </a>
+
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         06 — THREE DOMAINS
+         05 — THREE DOMAINS
     ====================================================== -->
 
     <section
@@ -740,6 +831,7 @@
       id="domains"
       aria-labelledby="domains-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker section-marker--light reveal">
@@ -747,11 +839,13 @@
           <p>Three Domains</p>
         </div>
 
+
         <div class="domains__intro reveal">
 
           <h2 id="domains-title">
             Three perspectives into one human architecture.
           </h2>
+
 
           <p>
             Each domain offers a different point of contact with the same
@@ -763,34 +857,44 @@
 
         <div class="domain-panels">
 
-          <article
-            class="domain-panel domain-panel--codex reveal"
-            tabindex="0"
-          >
+
+          <!-- CODEX -->
+
+          <article class="domain-panel domain-panel--codex reveal">
+
             <div
-              class="domain-panel__atmosphere"
+              class="domain-panel__image"
               aria-hidden="true"
             ></div>
 
+
             <div class="domain-panel__content">
 
-              <span class="domain-panel__number">01</span>
+              <span class="domain-panel__number">
+                01
+              </span>
+
 
               <p class="domain-panel__classification">
                 Blueprint
               </p>
 
+
               <h3>
                 Codex
               </h3>
+
 
               <p>
                 Understanding how the individual system is designed.
               </p>
 
+
               <p class="domain-panel__detail">
-                Research, frameworks, education and applied human knowledge.
+                Blueprint, research, frameworks, education and applied human
+                knowledge.
               </p>
+
 
               <a
                 class="line-link line-link--sand"
@@ -800,38 +904,48 @@
               </a>
 
             </div>
+
           </article>
 
 
-          <article
-            class="domain-panel domain-panel--body reveal"
-            tabindex="0"
-          >
+
+          <!-- BODY -->
+
+          <article class="domain-panel domain-panel--body reveal">
+
             <div
-              class="domain-panel__atmosphere"
+              class="domain-panel__image"
               aria-hidden="true"
             ></div>
 
+
             <div class="domain-panel__content">
 
-              <span class="domain-panel__number">02</span>
+              <span class="domain-panel__number">
+                02
+              </span>
+
 
               <p class="domain-panel__classification">
                 Body &amp; Regulation
               </p>
 
+
               <h3>
                 Human Architecture Sessions
               </h3>
+
 
               <p>
                 How structure is lived, embodied and regulated.
               </p>
 
+
               <p class="domain-panel__detail">
-                Structural work, physical intelligence, regulation, recovery
-                and embodied capacity.
+                Structural work, movement, regulation, recovery, capacity and
+                embodiment.
               </p>
+
 
               <a
                 class="line-link line-link--sand"
@@ -841,56 +955,69 @@
               </a>
 
             </div>
+
           </article>
 
 
-          <article
-            class="domain-panel domain-panel--mihira reveal"
-            tabindex="0"
-          >
+
+          <!-- MIHIRA -->
+
+          <article class="domain-panel domain-panel--mihira reveal">
+
             <div
-              class="domain-panel__atmosphere"
+              class="domain-panel__image"
               aria-hidden="true"
             ></div>
 
+
             <div class="domain-panel__content">
 
-              <span class="domain-panel__number">03</span>
+              <span class="domain-panel__number">
+                03
+              </span>
+
 
               <p class="domain-panel__classification">
                 Identity &amp; Transition
               </p>
 
+
               <h3>
                 Mihira Ceremonia
               </h3>
+
 
               <p>
                 How the human moves through meaning, identity and transition.
               </p>
 
+
               <p class="domain-panel__detail">
                 Ceremonial integration around significant human passages.
               </p>
 
+
               <a
                 class="line-link line-link--sand"
-                href="#offerings"
+                href="#contact"
               >
-                Enter this domain
+                Begin with a conversation
               </a>
 
             </div>
+
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         07 — OFFERINGS
+         06 — OFFERINGS
     ====================================================== -->
 
     <section
@@ -898,6 +1025,7 @@
       id="offerings"
       aria-labelledby="offerings-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker reveal">
@@ -905,12 +1033,14 @@
           <p>Ways of Working</p>
         </div>
 
+
         <div class="offerings__intro reveal">
 
           <h2 id="offerings-title">
             Different forms.
             <span>One underlying architecture.</span>
           </h2>
+
 
           <p>
             The form of the work follows the human context rather than forcing
@@ -920,13 +1050,19 @@
         </div>
 
 
-        <div class="accordion" data-accordion>
+
+        <div
+          class="accordion"
+          data-accordion
+        >
+
 
           <!-- 01 -->
 
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -936,14 +1072,18 @@
                 <span>Individual Work</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-1"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Individuals seeking orientation, structural work or
@@ -961,13 +1101,21 @@
                   Individual session or structured series.
                 </p>
 
+                <p>
+                  <strong>Next step:</strong>
+                  Begin with your context rather than choosing a modality first.
+                </p>
+
                 <a href="#contact">
                   Begin with a conversation
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 02 -->
@@ -975,6 +1123,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -984,14 +1133,18 @@
                 <span>Group Experiences</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-2"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Existing or intentionally formed groups.
@@ -1008,13 +1161,21 @@
                   Single experience or series.
                 </p>
 
+                <p>
+                  <strong>Domain:</strong>
+                  One or several domains depending on context.
+                </p>
+
                 <a href="#contact">
                   Start a Conversation
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 03 -->
@@ -1022,6 +1183,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1031,14 +1193,18 @@
                 <span>Educational Programmes</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-3"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Schools, educators, students, families and learning
@@ -1059,10 +1225,13 @@
                 <a href="#partnerships">
                   Explore educational contexts
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 04 -->
@@ -1070,6 +1239,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1079,14 +1249,18 @@
                 <span>Workshops &amp; Intensives</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-4"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Individuals, groups or organisations seeking concentrated
@@ -1107,10 +1281,13 @@
                 <a href="#contact">
                   Discuss an appropriate format
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 05 -->
@@ -1118,6 +1295,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1127,14 +1305,18 @@
                 <span>Organisational Programmes</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-5"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Founders, leaders, teams and organisations.
@@ -1154,10 +1336,13 @@
                 <a href="#contact">
                   Begin an organisational conversation
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 06 -->
@@ -1165,6 +1350,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1174,14 +1360,18 @@
                 <span>Retreats</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-6"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Groups seeking deeper time and context for Human Architecture
@@ -1202,10 +1392,13 @@
                 <a href="#contact">
                   Discuss a retreat context
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 07 -->
@@ -1213,6 +1406,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1222,14 +1416,18 @@
                 <span>Ceremonies</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-7"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Significant human moments, identity shifts and transitions.
@@ -1245,13 +1443,20 @@
                   Mihira Ceremonia.
                 </p>
 
-                <a href="#contact">
+                <a
+                  href="https://wa.me/4915203131871"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Begin with context
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 08 -->
@@ -1259,6 +1464,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1268,14 +1474,18 @@
                 <span>Practitioner Development</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-8"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Coaches, educators, movement professionals and practitioners.
@@ -1295,10 +1505,13 @@
                 <a href="#contact">
                   Explore practitioner development
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 09 -->
@@ -1306,6 +1519,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1315,14 +1529,18 @@
                 <span>Research &amp; System Design</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-9"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Institutions and interdisciplinary collaborators.
@@ -1342,10 +1560,13 @@
                 <a href="#contact">
                   Discuss a research context
                 </a>
+
               </div>
+
             </div>
 
           </article>
+
 
 
           <!-- 10 -->
@@ -1353,6 +1574,7 @@
           <article class="accordion-item">
 
             <h3>
+
               <button
                 type="button"
                 aria-expanded="false"
@@ -1362,14 +1584,18 @@
                 <span>Long-Term Partnerships</span>
                 <i aria-hidden="true"></i>
               </button>
+
             </h3>
+
 
             <div
               class="accordion-panel"
               id="offering-10"
               hidden
             >
+
               <div>
+
                 <p>
                   <strong>For:</strong>
                   Institutions and organisations seeking sustained
@@ -1389,7 +1615,9 @@
                 <a href="#contact">
                   Create a partnership
                 </a>
+
               </div>
+
             </div>
 
           </article>
@@ -1397,11 +1625,13 @@
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         08 — ACROSS HUMAN LIFE
+         07 — ACROSS HUMAN LIFE
     ====================================================== -->
 
     <section
@@ -1409,6 +1639,7 @@
       id="life-contexts"
       aria-labelledby="life-contexts-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker reveal">
@@ -1416,12 +1647,14 @@
           <p>Across Human Life</p>
         </div>
 
+
         <div class="life-contexts__intro reveal">
 
           <h2 id="life-contexts-title">
             Structure remains.
             <span>Context changes.</span>
           </h2>
+
 
           <p>
             The same underlying human architecture may be encountered
@@ -1434,72 +1667,94 @@
         <div class="life-context-list">
 
           <article class="life-context reveal">
+
             <span>01</span>
 
-            <h3>Children</h3>
+            <h3>
+              Children
+            </h3>
 
             <p>
               Age-appropriate understanding of individuality, context and
               difference.
             </p>
+
           </article>
 
 
           <article class="life-context reveal">
+
             <span>02</span>
 
-            <h3>Adolescence</h3>
+            <h3>
+              Adolescence
+            </h3>
 
             <p>
               Orientation through developmental, relational and identity
               transition.
             </p>
+
           </article>
 
 
           <article class="life-context reveal">
+
             <span>03</span>
 
-            <h3>Adults</h3>
+            <h3>
+              Adults
+            </h3>
 
             <p>
               Understanding inherent structure in relation to lived experience
               and present context.
             </p>
+
           </article>
 
 
           <article class="life-context reveal">
+
             <span>04</span>
 
-            <h3>Leadership &amp; Teams</h3>
+            <h3>
+              Leadership &amp; Teams
+            </h3>
 
             <p>
               Greater clarity around individual structure, interaction and
               collective contribution.
             </p>
+
           </article>
 
 
           <article class="life-context reveal">
+
             <span>05</span>
 
-            <h3>Transition</h3>
+            <h3>
+              Transition
+            </h3>
 
             <p>
               Orientation around meaningful periods of identity, direction and
               change.
             </p>
+
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         09 — PARTNERSHIPS
+         08 — PARTNERSHIPS
     ====================================================== -->
 
     <section
@@ -1507,6 +1762,7 @@
       id="partnerships"
       aria-labelledby="partnerships-title"
     >
+
       <div class="page-grid">
 
         <div class="section-marker section-marker--light reveal">
@@ -1514,11 +1770,13 @@
           <p>Partnerships</p>
         </div>
 
+
         <div class="partnerships__statement reveal">
 
           <h2 id="partnerships-title">
             Human systems live inside larger systems.
           </h2>
+
 
           <p>
             Human Architecture can enter different environments while
@@ -1528,24 +1786,37 @@
         </div>
 
 
+
         <div
           class="ecosystem reveal"
           data-ecosystem
         >
 
-          <div class="ecosystem__rings" aria-hidden="true">
+          <div
+            class="ecosystem__rings"
+            aria-hidden="true"
+          >
             <i></i>
             <i></i>
             <i></i>
           </div>
 
+
           <div class="ecosystem__centre">
-            <span>The Human</span>
-            <small>Human Architecture</small>
+
+            <img
+              src="assets/logo/logo-white.png"
+              alt="Human Architecture"
+              width="500"
+              height="180"
+              loading="lazy"
+            />
+
           </div>
 
 
           <article class="ecosystem-group ecosystem-group--education">
+
             <span>01</span>
 
             <h3>
@@ -1555,10 +1826,12 @@
             <p>
               Schools · Educational institutions · Children · Teenagers
             </p>
+
           </article>
 
 
           <article class="ecosystem-group ecosystem-group--women">
+
             <span>02</span>
 
             <h3>
@@ -1568,10 +1841,12 @@
             <p>
               Families · Parents · Women · Young women
             </p>
+
           </article>
 
 
           <article class="ecosystem-group ecosystem-group--movement">
+
             <span>03</span>
 
             <h3>
@@ -1581,10 +1856,12 @@
             <p>
               Gyms · Movement spaces · Martial arts · Practitioners
             </p>
+
           </article>
 
 
           <article class="ecosystem-group ecosystem-group--health">
+
             <span>04</span>
 
             <h3>
@@ -1594,10 +1871,12 @@
             <p>
               Wellness environments · Human-centred wellbeing contexts
             </p>
+
           </article>
 
 
           <article class="ecosystem-group ecosystem-group--work">
+
             <span>05</span>
 
             <h3>
@@ -1607,10 +1886,12 @@
             <p>
               Companies · Founders · CEOs · Leadership teams
             </p>
+
           </article>
 
 
           <article class="ecosystem-group ecosystem-group--institutions">
+
             <span>06</span>
 
             <h3>
@@ -1621,6 +1902,7 @@
               Foundations · Community organisations · Cultural and research
               institutions · Bespoke collaborations
             </p>
+
           </article>
 
         </div>
@@ -1634,11 +1916,13 @@
         </a>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         10 — ABOUT
+         09 — ABOUT
     ====================================================== -->
 
     <section
@@ -1646,19 +1930,21 @@
       id="about"
       aria-labelledby="about-title"
     >
+
       <div class="page-grid about__layout">
 
+
         <!--
-          FUTURE ASSET:
-          Replace only when the verified founder photograph is supplied.
+          IMAGE SLOT:
+          Replace with a verified real founder photograph when selected.
+          No generic or generated founder identity should be used.
         -->
+
         <div
           class="about__portrait-placeholder reveal"
-          role="img"
-          aria-label="Reserved area for the Human Architecture founder photograph"
-        >
-          <span>Founder photograph to confirm</span>
-        </div>
+          aria-hidden="true"
+        ></div>
+
 
 
         <div class="about__content reveal">
@@ -1667,31 +1953,38 @@
             About
           </p>
 
+
           <h2 id="about-title">
             A practice built between disciplines.
           </h2>
+
 
           <p class="lead">
             Human Architecture exists to create a clearer relationship between
             inherent structure and lived human experience.
           </p>
 
+
           <p>
             Its work sits between understanding, embodiment and meaningful
-            transition.
+            transition. The three domains provide different points of entry
+            while remaining parts of one integrated human context.
           </p>
 
-          <p>
-            Codex explores how the system is structured. Human Architecture
-            sessions engage the way structure is lived through the body and
-            regulation. Mihira Ceremonia works with identity, transition and
-            meaningful human thresholds.
-          </p>
 
           <p>
-            Together they form different points of entry into one human
+            The work is informed by interdisciplinary inquiry, practical
+            experience and a commitment to treating the individual as more than
+            a category, output or number.
+          </p>
+
+
+          <p>
+            Together, Codex, Human Architecture sessions and Mihira Ceremonia
+            provide different ways of approaching the same underlying human
             architecture.
           </p>
+
 
           <p>
             Human dignity, rigour and lived experience remain central.
@@ -1722,11 +2015,13 @@
         </div>
 
       </div>
+
     </section>
 
 
+
     <!-- =====================================================
-         11 — CONTACT
+         10 — CONTACT
     ====================================================== -->
 
     <section
@@ -1734,11 +2029,28 @@
       id="contact"
       aria-labelledby="contact-title"
     >
-      <div class="contact__media" aria-hidden="true"></div>
-      <div class="contact__veil" aria-hidden="true"></div>
+
+      <!--
+        CONTACT IMAGE:
+        CSS may use ocean-detail.jpg when the final file is uploaded.
+      -->
+
+      <div
+        class="contact__media"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="contact__veil"
+        aria-hidden="true"
+      ></div>
+
 
 
       <div class="page-grid contact__layout">
+
+
+        <!-- CONTACT STATEMENT -->
 
         <div class="contact__statement reveal">
 
@@ -1746,61 +2058,85 @@
             Conversation
           </p>
 
+
           <h2 id="contact-title">
             Every collaboration begins with understanding the human context.
           </h2>
+
 
           <p>
             Tell us what you are navigating, building or seeking to understand.
           </p>
 
-         <div class="contact__direct">
 
-  <div>
-    <span>Email</span>
-    <p>
-      <a href="mailto:hello@human-architecture.info">
-        hello@human-architecture.info
-      </a>
-    </p>
-  </div>
 
-  <div>
-    <span>Instagram</span>
-    <p>
-      <a
-        href="https://www.instagram.com/human_arch.itecture/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        @human_arch.itecture
-      </a>
-    </p>
-  </div>
+          <div class="contact__direct">
 
-  <div>
-    <span>WhatsApp</span>
-    <p>
-      <a
-        href="https://wa.me/4915203131871"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Start a conversation
-      </a>
-    </p>
-  </div>
 
-</div>
+            <!-- EMAIL -->
 
             <div>
-              <span>Email</span>
-              <p>Address to confirm</p>
+
+              <span>
+                Email
+              </span>
+
+              <p>
+
+                <a href="mailto:hello@human-architecture.info">
+                  hello@human-architecture.info
+                </a>
+
+              </p>
+
             </div>
 
+
+
+            <!-- INSTAGRAM -->
+
             <div>
-              <span>Instagram</span>
-              <p>Profile link to confirm</p>
+
+              <span>
+                Instagram
+              </span>
+
+              <p>
+
+                <a
+                  href="https://www.instagram.com/human_arch.itecture/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @human_arch.itecture
+                </a>
+
+              </p>
+
+            </div>
+
+
+
+            <!-- WHATSAPP -->
+
+            <div>
+
+              <span>
+                WhatsApp
+              </span>
+
+              <p>
+
+                <a
+                  href="https://wa.me/4915203131871?text=Hello%20Human%20Architecture%2C%20I%20found%20you%20through%20the%20website%20and%20would%20like%20to%20understand%20my%20most%20appropriate%20entry%20point."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Start a conversation
+                </a>
+
+              </p>
+
             </div>
 
           </div>
@@ -1808,11 +2144,15 @@
         </div>
 
 
+
+        <!-- CONTACT FORM -->
+
         <form
           class="contact-form reveal"
           data-contact-form
           novalidate
         >
+
 
           <div class="form-field">
 
@@ -1834,6 +2174,7 @@
             ></span>
 
           </div>
+
 
 
           <div class="form-field">
@@ -1858,6 +2199,7 @@
           </div>
 
 
+
           <div class="form-field">
 
             <label for="organisation">
@@ -1875,43 +2217,46 @@
           </div>
 
 
+
           <div class="form-field">
 
             <label for="context">
               What brings you here?
             </label>
 
+
             <select
               id="context"
               name="context"
               required
             >
+
               <option value="">
                 Choose one
               </option>
 
-              <option value="blueprint">
+              <option value="understanding">
                 Understanding / Codex
               </option>
 
-              <option value="body">
+              <option value="structural">
                 Body / structural work
               </option>
 
               <option value="regulation">
-                Regulation
+                Regulation / recovery
               </option>
 
               <option value="transition">
                 Identity / transition
               </option>
 
-              <option value="intensive">
-                Human Architecture Intensive
+              <option value="group">
+                Group experience
               </option>
 
               <option value="education">
-                Education
+                Education / youth
               </option>
 
               <option value="organisation">
@@ -1929,7 +2274,9 @@
               <option value="other">
                 Something else
               </option>
+
             </select>
+
 
             <span
               class="field-error"
@@ -1937,6 +2284,7 @@
             ></span>
 
           </div>
+
 
 
           <div class="form-field">
@@ -1960,12 +2308,14 @@
           </div>
 
 
+
           <button
             class="conversation-button"
             type="submit"
           >
             Start a Conversation
           </button>
+
 
 
           <div
@@ -1977,14 +2327,14 @@
 
 
           <!--
-            IMPORTANT:
-            No delivery endpoint has been invented.
+            DELIVERY:
+            The visual form is complete.
 
-            Before launch, connect this form to the verified Human Architecture
-            form-delivery endpoint or email service.
+            Next technical step:
+            connect submission to the Human Architecture form endpoint
+            and send verified notifications / confirmations.
 
-            The JavaScript must NOT show a false success message until
-            successful delivery can genuinely be confirmed.
+            Do not display a success state unless delivery succeeds.
           -->
 
         </form>
@@ -1992,11 +2342,13 @@
       </div>
 
 
+
       <!-- =====================================================
            FOOTER
       ====================================================== -->
 
       <footer class="footer">
+
 
         <div class="footer__brand">
 
@@ -2011,51 +2363,38 @@
         </div>
 
 
+
         <div class="footer__connections">
 
-          <!--
-            TODO:
-            Replace with real verified links before launch.
+          <a
+            href="mailto:hello@human-architecture.info"
+            class="footer__contact-link"
+          >
+            Email
+          </a>
 
-            Example structure once confirmed:
-
-            <a href="mailto:REAL-EMAIL">Email</a>
-
-            <a
-              href="REAL-INSTAGRAM-URL"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          -->
 
           <a
-  href="mailto:hello@human-architecture.info"
-  class="footer__contact-link"
->
-  Email
-</a>
+            href="https://www.instagram.com/human_arch.itecture/"
+            class="footer__contact-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
 
-<a
-  href="https://www.instagram.com/human_arch.itecture/"
-  class="footer__contact-link"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Instagram
-</a>
 
-<a
-  href="https://wa.me/4915203131871"
-  class="footer__contact-link"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  WhatsApp
-</a>
+          <a
+            href="https://wa.me/4915203131871"
+            class="footer__contact-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
 
         </div>
+
 
 
         <div class="footer__navigation">
@@ -2065,6 +2404,7 @@
           </a>
 
         </div>
+
 
 
         <p class="footer__disclaimer">
@@ -2079,6 +2419,8 @@
 
   </main>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>
