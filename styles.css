@@ -2935,3 +2935,235 @@ p {
   }
 
 }
+/* =========================================================
+   26 — FINAL CONTACT REFINEMENT
+   Launch correction
+========================================================= */
+
+/* More controlled contact composition */
+.contact {
+  min-height: auto;
+  padding:
+    clamp(120px, 9vw, 150px)
+    0
+    48px;
+}
+
+/* Left side */
+.contact__statement {
+  grid-column: 1 / span 5;
+  max-width: 570px;
+}
+
+.contact__statement .eyebrow {
+  margin-bottom: 26px;
+}
+
+.contact__statement h2 {
+  max-width: 560px;
+
+  font-size: clamp(3rem, 4.15vw, 4.75rem);
+  line-height: .98;
+  letter-spacing: -.025em;
+}
+
+.contact__statement > p:not(.eyebrow) {
+  max-width: 510px;
+  margin-top: 24px;
+
+  color: rgba(217, 231, 229, .76);
+
+  font-size: .94rem;
+  line-height: 1.7;
+}
+
+
+/* Direct contact information */
+.contact__direct {
+  max-width: 520px;
+
+  margin-top: 42px;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact__direct div {
+  padding-top: 15px;
+}
+
+.contact__direct span {
+  margin-bottom: 8px;
+
+  font-size: .57rem;
+  letter-spacing: .16em;
+}
+
+.contact__direct p,
+.contact__direct a {
+  color: var(--sea-glass);
+
+  font-size: .72rem;
+  line-height: 1.5;
+
+  transition: color 250ms ease;
+}
+
+.contact__direct a:hover,
+.contact__direct a:focus-visible {
+  color: var(--white);
+}
+
+
+/* Form — slightly narrower and much calmer */
+.contact-form {
+  grid-column: 8 / span 5;
+
+  width: 100%;
+  max-width: 560px;
+
+  justify-self: end;
+
+  padding:
+    clamp(30px, 3vw, 42px)
+    clamp(30px, 3.2vw, 46px);
+
+  border-radius: 34px 34px 18px 18px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  margin-bottom: 5px;
+
+  font-size: .57rem;
+  letter-spacing: .17em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 8px 0;
+
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.form-field textarea {
+  min-height: 92px;
+  max-height: 180px;
+}
+
+.field-error {
+  min-height: 14px;
+  margin-top: 3px;
+
+  font-size: .66rem;
+}
+
+.conversation-button {
+  min-height: 50px;
+
+  margin-top: 4px;
+
+  font-size: .61rem;
+  letter-spacing: .19em;
+}
+
+.form-status {
+  margin: 14px 0 0;
+
+  font-size: .69rem;
+  line-height: 1.55;
+}
+
+
+/* Footer belongs to contact composition */
+.footer {
+  margin-top: 72px;
+}
+
+
+/* =========================================================
+   CONTACT — TABLET
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .contact__statement {
+    grid-column: 1 / span 5;
+  }
+
+  .contact-form {
+    grid-column: 7 / -1;
+  }
+
+  .contact__direct {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   CONTACT — MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .contact {
+    padding:
+      104px
+      0
+      38px;
+  }
+
+  .contact__statement {
+    max-width: none;
+    margin-bottom: 46px;
+  }
+
+  .contact__statement h2 {
+    max-width: 520px;
+
+    font-size: clamp(2.75rem, 12vw, 3.9rem);
+    line-height: .98;
+  }
+
+  .contact__statement > p:not(.eyebrow) {
+    font-size: .9rem;
+  }
+
+  .contact__direct {
+    max-width: none;
+
+    margin-top: 34px;
+
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: none;
+
+    padding: 28px 22px;
+
+    border-radius: 28px 28px 16px 16px;
+  }
+
+  .form-field {
+    margin-bottom: 17px;
+  }
+
+  .form-field textarea {
+    min-height: 100px;
+  }
+
+  .footer {
+    margin-top: 58px;
+  }
+
+}
