@@ -1,6 +1,7 @@
 /* =========================================================
    HUMAN ARCHITECTURE
-   FINAL WEBSITE INTERACTIONS
+   MASTER WEBSITE INTERACTIONS
+   Reconciled with final index.html + styles.css
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,11 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ).matches;
 
 
+
   /* =======================================================
      02 — HEADER SCROLL STATE
   ======================================================= */
 
-  const header = document.querySelector("[data-header]");
+  const header =
+    document.querySelector("[data-header]");
+
 
   function updateHeader() {
     if (!header) return;
@@ -31,13 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+
   updateHeader();
+
 
   window.addEventListener(
     "scroll",
     updateHeader,
     { passive: true }
   );
+
 
 
   /* =======================================================
@@ -56,7 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function openMenu() {
     if (!menuButton || !mobileMenu) return;
 
-    lastFocusedElement = document.activeElement;
+    lastFocusedElement =
+      document.activeElement;
 
     menuButton.setAttribute(
       "aria-expanded",
@@ -68,16 +76,29 @@ document.addEventListener("DOMContentLoaded", () => {
       "Close navigation"
     );
 
-    mobileMenu.classList.add("is-open");
-    body.classList.add("menu-open");
+    mobileMenu.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    mobileMenu.classList.add(
+      "is-open"
+    );
+
+    body.classList.add(
+      "menu-open"
+    );
+
 
     const firstLink =
       mobileMenu.querySelector("a");
 
+
     if (firstLink) {
-      window.setTimeout(() => {
-        firstLink.focus();
-      }, 60);
+      window.setTimeout(
+        () => firstLink.focus(),
+        60
+      );
     }
   }
 
@@ -85,7 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeMenu({
     restoreFocus = false
   } = {}) {
+
     if (!menuButton || !mobileMenu) return;
+
 
     menuButton.setAttribute(
       "aria-expanded",
@@ -97,8 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
       "Open navigation"
     );
 
-    mobileMenu.classList.remove("is-open");
-    body.classList.remove("menu-open");
+    mobileMenu.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    mobileMenu.classList.remove(
+      "is-open"
+    );
+
+    body.classList.remove(
+      "menu-open"
+    );
+
 
     if (
       restoreFocus &&
@@ -115,16 +149,19 @@ document.addEventListener("DOMContentLoaded", () => {
     menuButton.addEventListener(
       "click",
       () => {
+
         const isOpen =
           menuButton.getAttribute(
             "aria-expanded"
           ) === "true";
+
 
         if (isOpen) {
           closeMenu();
         } else {
           openMenu();
         }
+
       }
     );
 
@@ -135,9 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         link.addEventListener(
           "click",
-          () => {
-            closeMenu();
-          }
+          () => closeMenu()
         );
 
       });
@@ -153,9 +188,11 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-expanded"
           ) === "true"
         ) {
+
           closeMenu({
             restoreFocus: true
           });
+
         }
 
       }
@@ -172,7 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }
     );
+
   }
+
 
 
   /* =======================================================
@@ -194,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetId =
           link.getAttribute("href");
 
+
         if (
           !targetId ||
           targetId === "#"
@@ -201,19 +241,24 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
+
         const target =
           document.querySelector(
             targetId
           );
 
+
         if (!target) return;
 
+
         event.preventDefault();
+
 
         const headerHeight =
           header
             ? header.getBoundingClientRect().height
             : 0;
+
 
         const targetTop =
           target
@@ -221,7 +266,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .top +
           window.scrollY -
           headerHeight -
-          18;
+          16;
+
 
         window.scrollTo({
           top: Math.max(
@@ -239,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   });
+
 
 
   /* =======================================================
@@ -268,20 +315,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealObserver =
       new IntersectionObserver(
+
         (entries, observer) => {
 
           entries.forEach(
             (entry) => {
 
-              if (
-                !entry.isIntersecting
-              ) {
+              if (!entry.isIntersecting) {
                 return;
               }
+
 
               entry.target.classList.add(
                 "is-visible"
               );
+
 
               observer.unobserve(
                 entry.target
@@ -291,11 +339,13 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
         },
+
         {
           threshold: 0.12,
           rootMargin:
-            "0px 0px -32px 0px"
+            "0px 0px -30px 0px"
         }
+
       );
 
 
@@ -306,11 +356,13 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
     );
+
   }
 
 
+
   /* =======================================================
-     06 — PHILOSOPHY LINE DRAW
+     06 — PHILOSOPHY LINE
   ======================================================= */
 
   const philosophyLine =
@@ -334,22 +386,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const lineObserver =
         new IntersectionObserver(
+
           (entries, observer) => {
 
             entries.forEach(
               (entry) => {
 
-                if (
-                  !entry.isIntersecting
-                ) {
+                if (!entry.isIntersecting) {
                   return;
                 }
 
-                entry.target
-                  .classList
-                  .add(
-                    "is-visible"
-                  );
+
+                entry.target.classList.add(
+                  "is-visible"
+                );
+
 
                 observer.unobserve(
                   entry.target
@@ -359,16 +410,22 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
           },
+
           {
-            threshold: 0.24
+            threshold: 0.22
           }
+
         );
+
 
       lineObserver.observe(
         philosophyLine
       );
+
     }
+
   }
+
 
 
   /* =======================================================
@@ -392,8 +449,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "about",
       "contact"
     ]
-      .map((id) =>
-        document.getElementById(id)
+      .map(
+        (id) =>
+          document.getElementById(id)
       )
       .filter(Boolean);
 
@@ -405,6 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sectionObserver =
       new IntersectionObserver(
+
         (entries) => {
 
           const visibleEntries =
@@ -419,11 +478,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   a.intersectionRatio
               );
 
-          if (
-            !visibleEntries.length
-          ) {
+
+          if (!visibleEntries.length) {
             return;
           }
+
 
           const activeId =
             visibleEntries[0]
@@ -440,6 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ) ===
                 `#${activeId}`;
 
+
               link.classList.toggle(
                 "is-active",
                 isActive
@@ -447,23 +507,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
               if (isActive) {
+
                 link.setAttribute(
                   "aria-current",
                   "location"
                 );
+
               } else {
+
                 link.removeAttribute(
                   "aria-current"
                 );
+
               }
 
             }
           );
 
         },
+
         {
           rootMargin:
-            "-30% 0px -52% 0px",
+            "-28% 0px -55% 0px",
 
           threshold:
             [
@@ -473,6 +538,7 @@ document.addEventListener("DOMContentLoaded", () => {
               0.5
             ]
         }
+
       );
 
 
@@ -483,17 +549,20 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
     );
+
   }
 
 
+
   /* =======================================================
-     08 — HUMAN SYSTEM INTERACTION
+     08 — HUMAN SYSTEM
   ======================================================= */
 
   const systemNodes =
     document.querySelectorAll(
       "[data-system-node]"
     );
+
 
   const systemResponse =
     document.querySelector(
@@ -504,51 +573,98 @@ document.addEventListener("DOMContentLoaded", () => {
   const systemContent = {
 
     body: {
-      label: "Body",
+      label:
+        "Body",
+
+      title:
+        "Structure becomes lived through the body.",
+
       text:
-        "The physical expression of structure, movement and lived capacity."
+        "The physical dimension includes structure, movement and the way capacity is expressed through lived embodiment."
     },
 
-    nervous: {
-      label: "Nervous System",
+
+    "nervous-system": {
+      label:
+        "Nervous System",
+
+      title:
+        "Regulation influences how capacity is experienced.",
+
       text:
-        "The regulatory layer through which activation, rest, adaptation and capacity are experienced."
+        "The nervous system is the regulatory dimension through which activation, rest, adaptation and available capacity are experienced."
     },
+
 
     emotion: {
-      label: "Emotion",
+      label:
+        "Emotion",
+
+      title:
+        "Emotion belongs to the wider human context.",
+
       text:
-        "The felt layer of human experience, continuously shaped by context and relationship."
+        "The emotional dimension is continuously shaped by relationship, environment, experience and the wider system around it."
     },
+
 
     cognition: {
-      label: "Cognition",
+      label:
+        "Cognition",
+
+      title:
+        "Information becomes organised into understanding.",
+
       text:
-        "How information is perceived, organised, interpreted and brought into understanding."
+        "Cognition describes how information is perceived, organised, interpreted and brought into conscious understanding."
     },
+
 
     identity: {
-      label: "Identity",
+      label:
+        "Identity",
+
+      title:
+        "Identity develops in relationship with structure and context.",
+
       text:
-        "The lived relationship between self-understanding, adaptation, direction and personal context."
+        "Identity concerns the lived relationship between self-understanding, adaptation, direction and personal context."
     },
+
 
     relationship: {
-      label: "Relationship",
+      label:
+        "Relationship",
+
+      title:
+        "Human structure is always meeting other structure.",
+
       text:
-        "The relational field through which the individual encounters other people and shared environments."
+        "Relationship is the dimension through which the individual encounters other people, shared environments and collective dynamics."
     },
+
 
     environment: {
-      label: "Environment",
+      label:
+        "Environment",
+
+      title:
+        "Context shapes how the system can be lived.",
+
       text:
-        "The surrounding conditions in which the human system lives, responds and participates."
+        "Environment includes the surrounding conditions in which the human system lives, responds, participates and develops."
     },
 
+
     meaning: {
-      label: "Meaning",
+      label:
+        "Meaning",
+
+      title:
+        "Experience is integrated within a larger context.",
+
       text:
-        "The layer through which experience, identity and significant moments become integrated into a larger context."
+        "Meaning is the dimension through which experience, identity and significant moments become integrated into a wider human context."
     }
 
   };
@@ -556,11 +672,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateSystemResponse(
     key,
-    node
+    selectedNode
   ) {
 
     const content =
       systemContent[key];
+
 
     if (
       !content ||
@@ -571,49 +688,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     systemNodes.forEach(
-      (item) => {
+      (node) => {
 
-        item.classList.remove(
-          "is-active"
+        const nodeKey =
+          node.dataset.systemNode;
+
+
+        const isSelected =
+          nodeKey === key;
+
+
+        node.classList.toggle(
+          "is-active",
+          isSelected
         );
 
-        item.setAttribute(
+
+        node.setAttribute(
           "aria-pressed",
-          "false"
+          String(isSelected)
         );
 
       }
     );
 
 
-    node.classList.add(
-      "is-active"
-    );
-
-    node.setAttribute(
-      "aria-pressed",
-      "true"
-    );
-
-
-    const responseLabel =
+    const eyebrow =
       systemResponse.querySelector(
-        ".eyebrow"
+        ".system-response__eyebrow"
       );
 
-    const responseText =
+    const title =
       systemResponse.querySelector(
-        "p:not(.eyebrow)"
+        ".system-response__title"
+      );
+
+    const copy =
+      systemResponse.querySelector(
+        ".system-response__copy"
       );
 
 
-    if (responseLabel) {
-      responseLabel.textContent =
+    if (eyebrow) {
+      eyebrow.textContent =
         content.label;
     }
 
-    if (responseText) {
-      responseText.textContent =
+
+    if (title) {
+      title.textContent =
+        content.title;
+    }
+
+
+    if (copy) {
+      copy.textContent =
         content.text;
     }
 
@@ -624,26 +753,56 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
       systemResponse.animate(
+
         [
           {
-            opacity: 0.4,
+            opacity: 0.42,
             transform:
               "translateY(7px)"
           },
+
           {
             opacity: 1,
             transform:
               "translateY(0)"
           }
         ],
+
         {
           duration: 420,
           easing:
             "cubic-bezier(.22,1,.36,1)"
         }
+
       );
 
     }
+
+
+    if (
+      selectedNode &&
+      window.innerWidth <= 760
+    ) {
+
+      const responseTop =
+        systemResponse
+          .getBoundingClientRect()
+          .top +
+        window.scrollY -
+        96;
+
+
+      window.scrollTo({
+        top: responseTop,
+
+        behavior:
+          reducedMotion
+            ? "auto"
+            : "smooth"
+      });
+
+    }
+
   }
 
 
@@ -672,6 +831,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
+
   /* =======================================================
      09 — ENTRY POINT: DOMAIN LEVEL
   ======================================================= */
@@ -681,19 +841,22 @@ document.addEventListener("DOMContentLoaded", () => {
       "[data-entry-domain]"
     );
 
+
   const entryDetails =
     document.querySelectorAll(
       "[data-entry-detail]"
     );
+
 
   const entryChoices =
     document.querySelectorAll(
       "[data-entry-choice]"
     );
 
-  const entryResponse =
+
+  const entryResult =
     document.querySelector(
-      "[data-entry-response]"
+      "[data-entry-result]"
     );
 
 
@@ -705,6 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
+
     entryDomains.forEach(
       (button) => {
 
@@ -712,13 +876,15 @@ document.addEventListener("DOMContentLoaded", () => {
           "is-active"
         );
 
+
         button.setAttribute(
-          "aria-expanded",
+          "aria-pressed",
           "false"
         );
 
       }
     );
+
   }
 
 
@@ -732,14 +898,16 @@ document.addEventListener("DOMContentLoaded", () => {
           const key =
             button.dataset.entryDomain;
 
+
           const detail =
             document.querySelector(
               `[data-entry-detail="${key}"]`
             );
 
-          const alreadyOpen =
+
+          const alreadySelected =
             button.getAttribute(
-              "aria-expanded"
+              "aria-pressed"
             ) === "true";
 
 
@@ -747,7 +915,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           if (
-            alreadyOpen ||
+            alreadySelected ||
             !detail
           ) {
             return;
@@ -758,10 +926,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "is-active"
           );
 
+
           button.setAttribute(
-            "aria-expanded",
+            "aria-pressed",
             "true"
           );
+
 
           detail.hidden = false;
 
@@ -772,23 +942,27 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
 
             detail.animate(
+
               [
                 {
                   opacity: 0,
                   transform:
-                    "translateY(12px)"
+                    "translateY(10px)"
                 },
+
                 {
                   opacity: 1,
                   transform:
                     "translateY(0)"
                 }
               ],
+
               {
-                duration: 520,
+                duration: 480,
                 easing:
                   "cubic-bezier(.22,1,.36,1)"
               }
+
             );
 
           }
@@ -798,6 +972,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   );
+
 
 
   /* =======================================================
@@ -814,10 +989,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Codex",
 
       copy:
-        "A logical first point of entry when the central question is clearer understanding of your own inherent structure.",
+        "A logical first point of entry when the central question is understanding your own inherent structure more clearly.",
 
       context:
-        "blueprint"
+        "codex"
     },
 
 
@@ -829,10 +1004,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Codex",
 
       copy:
-        "When recurring patterns raise questions about how the system is structured, Blueprint work provides the clearest first frame for orientation.",
+        "When recurring patterns raise questions about how your system is designed, Blueprint work provides a clearer frame for orientation.",
 
       context:
-        "blueprint"
+        "codex"
     },
 
 
@@ -844,10 +1019,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Structural Consultation",
 
       copy:
-        "A logical first point of entry when the primary context is physical structure, mobility, biomechanical tension or movement limitation.",
+        "A logical entry point when the primary question concerns physical structure, mobility, biomechanical tension or movement limitation.",
 
       context:
-        "body"
+        "structural"
     },
 
 
@@ -866,7 +1041,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
 
-    core: {
+    "chi-nei-tsang": {
       classification:
         "Body & Regulation",
 
@@ -874,14 +1049,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "Chi Nei Tsang",
 
       copy:
-        "A body-based entry point when the dominant context involves digestive-core tension, shallow breathing or significant internal holding.",
+        "A body-based entry point when there is notable internal holding around the abdominal core, breath or digestive centre.",
 
       context:
-        "body"
+        "chi-nei-tsang"
     },
 
 
-    vitality: {
+    calamus: {
       classification:
         "Body & Regulation",
 
@@ -892,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "A possible entry point when the dominant experience is dullness, stagnation or disconnection from vitality.",
 
       context:
-        "body"
+        "other"
     },
 
 
@@ -911,7 +1086,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
 
-    transition: {
+    mihira: {
       classification:
         "Identity & Transition",
 
@@ -922,7 +1097,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "A ceremonial integration point for significant periods of identity, transition and meaningful human passage.",
 
       context:
-        "transition"
+        "mihira"
     }
 
   };
@@ -940,6 +1115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         value
       );
 
+
       sessionStorage.setItem(
         "humanArchitectureContextTitle",
         title
@@ -948,8 +1124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
 
       /*
-        sessionStorage is enhancement only.
-        The website remains functional without it.
+        Context memory is enhancement only.
       */
 
     }
@@ -957,12 +1132,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  function updateEntryResponse(
+  function updateEntryResult(
     content
   ) {
 
     if (
-      !entryResponse ||
+      !entryResult ||
       !content
     ) {
       return;
@@ -970,18 +1145,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const classification =
-      entryResponse.querySelector(
-        ".entry-response__classification"
+      entryResult.querySelector(
+        ".entry-result__eyebrow"
       );
+
 
     const title =
-      entryResponse.querySelector(
-        "h3"
+      entryResult.querySelector(
+        ".entry-result__title"
       );
 
+
     const copy =
-      entryResponse.querySelector(
-        "p:not(.entry-response__classification)"
+      entryResult.querySelector(
+        ".entry-result__copy"
       );
 
 
@@ -990,10 +1167,12 @@ document.addEventListener("DOMContentLoaded", () => {
         content.classification;
     }
 
+
     if (title) {
       title.textContent =
         content.title;
     }
+
 
     if (copy) {
       copy.textContent =
@@ -1003,32 +1182,144 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (
       !reducedMotion &&
-      entryResponse.animate
+      entryResult.animate
     ) {
 
-      entryResponse.animate(
+      entryResult.animate(
+
         [
           {
-            opacity: 0.4,
+            opacity: 0.42,
             transform:
               "translateY(8px)"
           },
+
           {
             opacity: 1,
             transform:
               "translateY(0)"
           }
         ],
+
         {
-          duration: 460,
+          duration: 450,
           easing:
             "cubic-bezier(.22,1,.36,1)"
         }
+
       );
 
     }
+
   }
 
+
+
+  /* =======================================================
+     11 — CONTACT CONTEXT
+  ======================================================= */
+
+  const contactContext =
+    document.querySelector(
+      "[data-context-select]"
+    ) ||
+    document.getElementById(
+      "context"
+    );
+
+
+  function updateContactContext(
+    value
+  ) {
+
+    if (
+      !contactContext ||
+      !value
+    ) {
+      return;
+    }
+
+
+    const optionExists =
+      Array
+        .from(contactContext.options)
+        .some(
+          (option) =>
+            option.value === value
+        );
+
+
+    if (optionExists) {
+
+      contactContext.value =
+        value;
+
+    }
+
+  }
+
+
+
+  /* =======================================================
+     12 — CONTEXT-AWARE WHATSAPP
+  ======================================================= */
+
+  const whatsappLinks =
+    document.querySelectorAll(
+      'a[href*="wa.me/4915203131871"]'
+    );
+
+
+  function updateWhatsAppLinks(
+    title = ""
+  ) {
+
+    const base =
+      "https://wa.me/4915203131871";
+
+
+    const message =
+      title
+        ? `Hello Human Architecture, I came through the website and was oriented toward ${title}. I would like to understand the appropriate next step.`
+        : "Hello Human Architecture, I found you through the website and would like to understand my most appropriate entry point.";
+
+
+    const url =
+      `${base}?text=${encodeURIComponent(message)}`;
+
+
+    whatsappLinks.forEach(
+      (link) => {
+
+        /*
+          Preserve Mihira-specific wording when the link
+          already intentionally belongs to Mihira.
+        */
+
+        const href =
+          link.getAttribute("href") || "";
+
+
+        const isMihiraSpecific =
+          href
+            .toLowerCase()
+            .includes("mihira");
+
+
+        if (!isMihiraSpecific) {
+          link.href = url;
+        }
+
+      }
+    );
+
+  }
+
+
+
+  /* =======================================================
+     13 — ENTRY CHOICE EVENTS
+  ======================================================= */
 
   entryChoices.forEach(
     (choice) => {
@@ -1046,6 +1337,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const key =
             choice.dataset.entryChoice;
 
+
           const content =
             entryChoiceContent[key];
 
@@ -1060,6 +1352,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "is-active"
               );
 
+
               item.setAttribute(
                 "aria-pressed",
                 "false"
@@ -1073,13 +1366,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "is-active"
           );
 
+
           choice.setAttribute(
             "aria-pressed",
             "true"
           );
 
 
-          updateEntryResponse(
+          updateEntryResult(
             content
           );
 
@@ -1094,6 +1388,11 @@ document.addEventListener("DOMContentLoaded", () => {
             content.context
           );
 
+
+          updateWhatsAppLinks(
+            content.title
+          );
+
         }
       );
 
@@ -1101,8 +1400,54 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
+
   /* =======================================================
-     11 — DOMAIN PANEL CONTEXT MEMORY
+     14 — RESTORE STORED ORIENTATION
+  ======================================================= */
+
+  try {
+
+    const storedContext =
+      sessionStorage.getItem(
+        "humanArchitectureContext"
+      );
+
+
+    const storedTitle =
+      sessionStorage.getItem(
+        "humanArchitectureContextTitle"
+      );
+
+
+    if (storedContext) {
+
+      updateContactContext(
+        storedContext
+      );
+
+    }
+
+
+    if (storedTitle) {
+
+      updateWhatsAppLinks(
+        storedTitle
+      );
+
+    }
+
+  } catch (error) {
+
+    /*
+      Context memory is progressive enhancement only.
+    */
+
+  }
+
+
+
+  /* =======================================================
+     15 — DOMAIN PANEL CONTEXT
   ======================================================= */
 
   const domainLinks =
@@ -1134,12 +1479,18 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
 
             saveEntryContext(
-              "blueprint",
+              "codex",
               "Codex"
             );
 
+
             updateContactContext(
-              "blueprint"
+              "codex"
+            );
+
+
+            updateWhatsAppLinks(
+              "Codex"
             );
 
           }
@@ -1152,12 +1503,18 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
 
             saveEntryContext(
-              "body",
+              "structural",
               "Human Architecture Sessions"
             );
 
+
             updateContactContext(
-              "body"
+              "structural"
+            );
+
+
+            updateWhatsAppLinks(
+              "Human Architecture Sessions"
             );
 
           }
@@ -1170,12 +1527,13 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
 
             saveEntryContext(
-              "transition",
+              "mihira",
               "Mihira Ceremonia"
             );
 
+
             updateContactContext(
-              "transition"
+              "mihira"
             );
 
           }
@@ -1187,13 +1545,14 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
+
   /* =======================================================
-     12 — ACCESSIBLE OFFERINGS ACCORDION
+     16 — ACCESSIBLE OFFERINGS ACCORDION
   ======================================================= */
 
   const accordionButtons =
     document.querySelectorAll(
-      ".accordion-item button[aria-expanded]"
+      ".accordion-item h3 > button[aria-expanded]"
     );
 
 
@@ -1208,6 +1567,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.getAttribute(
               "aria-controls"
             );
+
 
           const panel =
             document.getElementById(
@@ -1230,7 +1590,8 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          panel.hidden = expanded;
+          panel.hidden =
+            expanded;
 
 
           if (
@@ -1240,23 +1601,27 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
 
             panel.animate(
+
               [
                 {
                   opacity: 0,
                   transform:
                     "translateY(-5px)"
                 },
+
                 {
                   opacity: 1,
                   transform:
                     "translateY(0)"
                 }
               ],
+
               {
-                duration: 400,
+                duration: 380,
                 easing:
                   "cubic-bezier(.22,1,.36,1)"
               }
+
             );
 
           }
@@ -1268,78 +1633,16 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-  /* =======================================================
-     13 — CONTACT CONTEXT MEMORY
-  ======================================================= */
-
-  const contactContext =
-    document.getElementById(
-      "context"
-    );
-
-
-  function updateContactContext(
-    value
-  ) {
-
-    if (
-      !contactContext ||
-      !value
-    ) {
-      return;
-    }
-
-
-    const optionExists =
-      Array
-        .from(
-          contactContext.options
-        )
-        .some(
-          (option) =>
-            option.value === value
-        );
-
-
-    if (optionExists) {
-      contactContext.value =
-        value;
-    }
-
-  }
-
-
-  try {
-
-    const storedContext =
-      sessionStorage.getItem(
-        "humanArchitectureContext"
-      );
-
-
-    if (storedContext) {
-      updateContactContext(
-        storedContext
-      );
-    }
-
-  } catch (error) {
-
-    /*
-      Context memory is progressive enhancement only.
-    */
-
-  }
-
 
   /* =======================================================
-     14 — CONTACT FORM VALIDATION
+     17 — CONTACT FORM VALIDATION
   ======================================================= */
 
   const contactForm =
     document.querySelector(
       "[data-contact-form]"
     );
+
 
   const formStatus =
     document.querySelector(
@@ -1356,6 +1659,7 @@ document.addEventListener("DOMContentLoaded", () => {
       field.closest(
         ".form-field"
       );
+
 
     const errorElement =
       document.querySelector(
@@ -1378,6 +1682,10 @@ document.addEventListener("DOMContentLoaded", () => {
       errorElement.textContent =
         message;
 
+
+      errorElement.id =
+        `error-${field.id}`;
+
     }
 
 
@@ -1388,15 +1696,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "true"
       );
 
+
       if (errorElement) {
 
         field.setAttribute(
           "aria-describedby",
-          `error-${field.id}`
+          errorElement.id
         );
 
-        errorElement.id =
-          `error-${field.id}`;
       }
 
     } else {
@@ -1404,6 +1711,7 @@ document.addEventListener("DOMContentLoaded", () => {
       field.removeAttribute(
         "aria-invalid"
       );
+
 
       field.removeAttribute(
         "aria-describedby"
@@ -1425,7 +1733,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ""
       );
 
+
       return true;
+
     }
 
 
@@ -1438,7 +1748,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Please complete this field."
       );
 
+
       return false;
+
     }
 
 
@@ -1452,7 +1764,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Please enter a valid email address."
       );
 
+
       return false;
+
     }
 
 
@@ -1461,7 +1775,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ""
     );
 
+
     return true;
+
   }
 
 
@@ -1481,9 +1797,11 @@ document.addEventListener("DOMContentLoaded", () => {
         field.addEventListener(
           "blur",
           () => {
+
             validateField(
               field
             );
+
           }
         );
 
@@ -1531,6 +1849,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+
     contactForm.addEventListener(
       "submit",
       (event) => {
@@ -1567,7 +1886,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           if (firstInvalid) {
+
             firstInvalid.focus();
+
           }
 
 
@@ -1578,57 +1899,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
           }
 
+
           return;
+
         }
 
 
         /*
           ===================================================
-          IMPORTANT — FORM DELIVERY
+          FORM DELIVERY
           ===================================================
 
-          No backend or email endpoint has been invented.
+          The front-end is now complete and validated.
 
-          Connect the verified Human Architecture form
-          delivery service here before launch.
+          The real delivery endpoint is connected in the
+          next technical phase.
 
-          Only after a real successful server response
-          should the site display a success confirmation.
+          Until that endpoint exists, this form MUST NOT
+          display a false success confirmation.
 
-          Example future pattern:
+          Internal delivery destination planned:
+          mihira.ceremonia@googlemail.com
 
-          const response = await fetch("VERIFIED-ENDPOINT", {
-            method: "POST",
-            body: new FormData(contactForm)
-          });
-
-          if (response.ok) {
-            // Genuine confirmation state.
-          }
-
+          Public Human Architecture address:
+          hello@human-architecture.info
         */
 
 
         if (formStatus) {
 
           formStatus.textContent =
-            "Your message is ready, but form delivery has not yet been connected. The verified Human Architecture contact endpoint must be added before launch.";
+            "The form is ready, but secure message delivery is being connected. Please use Email or WhatsApp below in the meantime.";
 
         }
 
       }
     );
+
   }
 
 
+
   /* =======================================================
-     15 — ECOSYSTEM SUBTLE RESPONSE
+     18 — ECOSYSTEM SUBTLE RESPONSE
   ======================================================= */
 
   const ecosystemGroups =
     document.querySelectorAll(
       ".ecosystem-group"
     );
+
 
   const ecosystemCentre =
     document.querySelector(
@@ -1652,6 +1972,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           ecosystemCentre.animate(
+
             [
               {
                 transform:
@@ -1663,12 +1984,14 @@ document.addEventListener("DOMContentLoaded", () => {
                   "translate(-50%, -50%) scale(1.025)"
               }
             ],
+
             {
-              duration: 450,
+              duration: 430,
               fill: "forwards",
               easing:
                 "cubic-bezier(.22,1,.36,1)"
             }
+
           );
 
         }
@@ -1688,6 +2011,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           ecosystemCentre.animate(
+
             [
               {
                 transform:
@@ -1699,12 +2023,14 @@ document.addEventListener("DOMContentLoaded", () => {
                   "translate(-50%, -50%) scale(1)"
               }
             ],
+
             {
-              duration: 450,
+              duration: 430,
               fill: "forwards",
               easing:
                 "cubic-bezier(.22,1,.36,1)"
             }
+
           );
 
         }
