@@ -1905,34 +1905,79 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /*
-          ===================================================
-          FORM DELIVERY
-          ===================================================
+        const submitButton =
+  contactForm.querySelector('button[type="submit"]');
 
-          The front-end is now complete and validated.
+const originalButtonText =
+  submitButton ? submitButton.textContent : "";
 
-          The real delivery endpoint is connected in the
-          next technical phase.
+if (submitButton) {
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+}
 
-          Until that endpoint exists, this form MUST NOT
-          display a false success confirmation.
+if (formStatus) {
+  formStatus.textContent = "Sending your message...";
+}
 
-          Internal delivery destination planned:
-          mihira.ceremonia@googlemail.com
+const formData = new FormData(contactForm);
 
-          Public Human Architecture address:
-          hello@human-architecture.info
-        */
+const payload = {
+  name: formData.get("name") || "",
+  email: formData.get("email") || "",
+  organisation: formData.get("organisation") || "",
+  context: formData.get("context") || "",
+  message: formData.get("message") || ""
+};
 
+fetch("/api/contact", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(payload)
+})
+  .then(async (response) => {
+    const data = await response.json().catch(() => ({}));
 
-        if (formStatus) {
+    if (!response.ok) {
+      throw new Error(
+        data.message || "Your message could not be delivered."
+      );
+    }
 
-          formStatus.textContent =
-            "The form is ready, but secure message delivery is being connected. Please use Email or WhatsApp below in the meantime.";
+    return data;
+  })
+  .then((data) => {
+    if (formStatus) {
+      formStatus.textContent =
+        data.message || "Thank you. Your message has been received.";
+    }
 
-        }
+    contactForm.reset();
 
+    try {
+      sessionStorage.removeItem("humanArchitectureContext");
+      sessionStorage.removeItem("humanArchitectureContextTitle");
+    } catch (error) {
+      // Progressive enhancement only.
+    }
+  })
+  .catch((error) => {
+    console.error("Human Architecture form error:", error);
+
+    if (formStatus) {
+      formStatus.textContent =
+        error.message ||
+        "Your message could not be delivered. Please contact us by email or WhatsApp.";
+    }
+  })
+  .finally(() => {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
       }
     );
 
