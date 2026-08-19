@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
 
     const notification = await resend.emails.send({
       from: "Human Architecture Website <website@human-architecture.info>",
-      to: ["mihira.ceremonia@googlemail.com"],
+      to: ["hello@human-architecture.info", "mihira.ceremonia@googlemail.com"],
       replyTo: cleanEmail,
       subject: `Human Architecture enquiry — ${cleanContext}`,
 
