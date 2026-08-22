@@ -571,112 +571,205 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const systemContent = {
+  body: {
+    label: "Body",
+    title: "The structural layer.",
+    text:
+      "This is the physical dimension of the system — structure, movement, mobility and the way the body organizes itself in space.",
+    domain: "Body & Regulation",
+    entry: "Structural Consultation"
+  },
 
-    body: {
-      label:
-        "Body",
+  "nervous-system": {
+    label: "Nervous System",
+    title: "The regulatory layer.",
+    text:
+      "This is the dimension of activation, rest, adaptation and available capacity — how the system meets demand and returns toward regulation.",
+    domain: "Body & Regulation",
+    entry: "Regulation"
+  },
 
-      title:
-        "Structure becomes lived through the body.",
+  emotion: {
+    label: "Emotion",
+    title: "The felt layer.",
+    text:
+      "Emotion belongs within the wider human system. It is experienced in relationship with the body, nervous system, environment and lived context.",
+    domain: "Identity & Transition",
+    entry: "Mihira Ceremonia"
+  },
 
-      text:
-        "The physical dimension includes structure, movement and the way capacity is expressed through lived embodiment."
-    },
+  cognition: {
+    label: "Cognition",
+    title: "The interpretive layer.",
+    text:
+      "This is where information is perceived, organized and brought into conscious understanding — including how patterns and experience are made intelligible.",
+    domain: "Blueprint",
+    entry: "Codex"
+  },
 
+  identity: {
+    label: "Identity",
+    title: "The orientation layer.",
+    text:
+      "Identity concerns the relationship between self-understanding, inherent structure, adaptation and direction across lived experience.",
+    domain: "Blueprint",
+    entry: "Codex"
+  },
 
-    "nervous-system": {
-      label:
-        "Nervous System",
+  relationship: {
+    label: "Relationship",
+    title: "The relational layer.",
+    text:
+      "Human structure does not exist in isolation. Relationship is where individual structure meets other people, shared environments and collective dynamics.",
+    domain: "Blueprint",
+    entry: "Codex"
+  },
 
-      title:
-        "Regulation influences how capacity is experienced.",
+  environment: {
+    label: "Environment",
+    title: "The contextual layer.",
+    text:
+      "Environment is the surrounding context in which the system lives and participates. Different conditions can change how available capacity is experienced and expressed.",
+    domain: "Blueprint",
+    entry: "Codex"
+  },
 
-      text:
-        "The nervous system is the regulatory dimension through which activation, rest, adaptation and available capacity are experienced."
-    },
-
-
-    emotion: {
-      label:
-        "Emotion",
-
-      title:
-        "Emotion belongs to the wider human context.",
-
-      text:
-        "The emotional dimension is continuously shaped by relationship, environment, experience and the wider system around it."
-    },
-
-
-    cognition: {
-      label:
-        "Cognition",
-
-      title:
-        "Information becomes organised into understanding.",
-
-      text:
-        "Cognition describes how information is perceived, organised, interpreted and brought into conscious understanding."
-    },
-
-
-    identity: {
-      label:
-        "Identity",
-
-      title:
-        "Identity develops in relationship with structure and context.",
-
-      text:
-        "Identity concerns the lived relationship between self-understanding, adaptation, direction and personal context."
-    },
-
-
-    relationship: {
-      label:
-        "Relationship",
-
-      title:
-        "Human structure is always meeting other structure.",
-
-      text:
-        "Relationship is the dimension through which the individual encounters other people, shared environments and collective dynamics."
-    },
-
-
-    environment: {
-      label:
-        "Environment",
-
-      title:
-        "Context shapes how the system can be lived.",
-
-      text:
-        "Environment includes the surrounding conditions in which the human system lives, responds, participates and develops."
-    },
-
-
-    meaning: {
-      label:
-        "Meaning",
-
-      title:
-        "Experience is integrated within a larger context.",
-
-      text:
-        "Meaning is the dimension through which experience, identity and significant moments become integrated into a wider human context."
-    }
-
-  };
-
+  meaning: {
+    label: "Meaning",
+    title: "The integration layer.",
+    text:
+      "This is where experience, identity and significant passages are held within a wider human context — particularly during periods of transition.",
+    domain: "Identity & Transition",
+    entry: "Mihira Ceremonia"
+  }
+};
 
   function updateSystemResponse(
     key,
     selectedNode
   ) {
 
-    const content =
-      systemContent[key];
+    const systemContent = {
+  body: {
+    en: {
+      label: "Body",
+      title: "The structural layer.",
+      text:
+        "This is the physical dimension of the system — structure, movement, mobility and the way the body organizes itself in space."
+    },
+    de: {
+      label: "Körper",
+      title: "Die strukturelle Ebene.",
+      text:
+        "Dies ist die körperliche Dimension des Systems — Struktur, Bewegung, Mobilität und die Art, wie sich der Körper im Raum organisiert."
+    }
+  },
+
+  "nervous-system": {
+    en: {
+      label: "Nervous System",
+      title: "The regulatory layer.",
+      text:
+        "This is the dimension of activation, rest, adaptation and available capacity — how the system meets demand and returns toward regulation."
+    },
+    de: {
+      label: "Nervensystem",
+      title: "Die regulative Ebene.",
+      text:
+        "Dies ist die Ebene von Aktivierung, Ruhe, Anpassung und verfügbarer Kapazität — wie das System auf Anforderungen reagiert und wieder in Richtung Regulation findet."
+    }
+  },
+
+  emotion: {
+    en: {
+      label: "Emotion",
+      title: "The felt layer.",
+      text:
+        "Emotion belongs within the wider human system. It is experienced in relationship with the body, nervous system, environment and lived context."
+    },
+    de: {
+      label: "Emotion",
+      title: "Die fühlende Ebene.",
+      text:
+        "Emotion gehört in den größeren menschlichen Zusammenhang. Sie wird in Beziehung zum Körper, Nervensystem, Umfeld und gelebten Kontext erfahren."
+    }
+  },
+
+  cognition: {
+    en: {
+      label: "Cognition",
+      title: "The interpretive layer.",
+      text:
+        "This is where information is perceived, organized and brought into conscious understanding — including how patterns and experience are made intelligible."
+    },
+    de: {
+      label: "Kognition",
+      title: "Die interpretierende Ebene.",
+      text:
+        "Hier werden Informationen wahrgenommen, geordnet und in bewusstes Verstehen überführt — einschließlich der Art, wie Muster und Erfahrungen verständlich werden."
+    }
+  },
+
+  identity: {
+    en: {
+      label: "Identity",
+      title: "The orientation layer.",
+      text:
+        "Identity concerns the relationship between self-understanding, inherent structure, adaptation and direction across lived experience."
+    },
+    de: {
+      label: "Identität",
+      title: "Die Ebene der Orientierung.",
+      text:
+        "Identität betrifft die Beziehung zwischen Selbstverständnis, innewohnender Struktur, Anpassung und Ausrichtung innerhalb der gelebten Erfahrung."
+    }
+  },
+
+  relationship: {
+    en: {
+      label: "Relationship",
+      title: "The relational layer.",
+      text:
+        "Human structure does not exist in isolation. Relationship is where individual structure meets other people, shared environments and collective dynamics."
+    },
+    de: {
+      label: "Beziehung",
+      title: "Die relationale Ebene.",
+      text:
+        "Menschliche Struktur existiert nicht isoliert. Beziehung ist der Raum, in dem individuelle Struktur auf andere Menschen, gemeinsame Umfelder und kollektive Dynamiken trifft."
+    }
+  },
+
+  environment: {
+    en: {
+      label: "Environment",
+      title: "The contextual layer.",
+      text:
+        "Environment is the surrounding context in which the system lives and participates. Different conditions can change how available capacity is experienced and expressed."
+    },
+    de: {
+      label: "Umfeld",
+      title: "Die kontextuelle Ebene.",
+      text:
+        "Das Umfeld ist der umgebende Kontext, in dem das System lebt und teilnimmt. Unterschiedliche Bedingungen können verändern, wie verfügbare Kapazität erlebt und ausgedrückt wird."
+    }
+  },
+
+  meaning: {
+    en: {
+      label: "Meaning",
+      title: "The integration layer.",
+      text:
+        "This is where experience, identity and significant passages are held within a wider human context — particularly during periods of transition."
+    },
+    de: {
+      label: "Bedeutung",
+      title: "Die integrative Ebene.",
+      text:
+        "Hier werden Erfahrung, Identität und bedeutsame Übergänge in einen größeren menschlichen Zusammenhang eingebettet — besonders in Zeiten des Wandels."
+    }
+  }
+};
 
 
     if (
@@ -2090,11 +2183,13 @@ fetch("/api/contact", {
    LANGUAGE SWITCH — EN / DE
    ========================================================= */
 
+let currentLanguage = document.documentElement.lang || "en";
 const langButtons = document.querySelectorAll(".lang-button");
 
 langButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.dataset.lang;
+     currentLanguage = lang;
 
     document.documentElement.lang = lang;
 
@@ -2105,5 +2200,14 @@ langButtons.forEach((button) => {
     langButtons.forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.lang === lang);
     });
+     const activeSystemNode =
+  document.querySelector("[data-system-node].is-active");
+
+if (activeSystemNode) {
+  updateSystemResponse(
+    activeSystemNode.dataset.systemNode,
+    activeSystemNode
+  );
+}
   });
 });
