@@ -2085,3 +2085,21 @@ fetch("/api/contact", {
   );
 
 });
+
+/* =========================================================
+   LANGUAGE SWITCH — EN / DE
+   ========================================================= */
+
+const langButtons = document.querySelectorAll(".lang-button");
+
+langButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const lang = button.dataset.lang;
+
+    document.documentElement.lang = lang;
+
+    langButtons.forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.lang === lang);
+    });
+  });
+});
