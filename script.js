@@ -570,79 +570,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-  const systemContent = {
-  body: {
-    label: "Body",
-    title: "The structural layer.",
-    text:
-      "This is the physical dimension of the system — structure, movement, mobility and the way the body organizes itself in space.",
-    domain: "Body & Regulation",
-    entry: "Structural Consultation"
-  },
-
-  "nervous-system": {
-    label: "Nervous System",
-    title: "The regulatory layer.",
-    text:
-      "This is the dimension of activation, rest, adaptation and available capacity — how the system meets demand and returns toward regulation.",
-    domain: "Body & Regulation",
-    entry: "Regulation"
-  },
-
-  emotion: {
-    label: "Emotion",
-    title: "The felt layer.",
-    text:
-      "Emotion belongs within the wider human system. It is experienced in relationship with the body, nervous system, environment and lived context.",
-    domain: "Identity & Transition",
-    entry: "Mihira Ceremonia"
-  },
-
-  cognition: {
-    label: "Cognition",
-    title: "The interpretive layer.",
-    text:
-      "This is where information is perceived, organized and brought into conscious understanding — including how patterns and experience are made intelligible.",
-    domain: "Blueprint",
-    entry: "Codex"
-  },
-
-  identity: {
-    label: "Identity",
-    title: "The orientation layer.",
-    text:
-      "Identity concerns the relationship between self-understanding, inherent structure, adaptation and direction across lived experience.",
-    domain: "Blueprint",
-    entry: "Codex"
-  },
-
-  relationship: {
-    label: "Relationship",
-    title: "The relational layer.",
-    text:
-      "Human structure does not exist in isolation. Relationship is where individual structure meets other people, shared environments and collective dynamics.",
-    domain: "Blueprint",
-    entry: "Codex"
-  },
-
-  environment: {
-    label: "Environment",
-    title: "The contextual layer.",
-    text:
-      "Environment is the surrounding context in which the system lives and participates. Different conditions can change how available capacity is experienced and expressed.",
-    domain: "Blueprint",
-    entry: "Codex"
-  },
-
-  meaning: {
-    label: "Meaning",
-    title: "The integration layer.",
-    text:
-      "This is where experience, identity and significant passages are held within a wider human context — particularly during periods of transition.",
-    domain: "Identity & Transition",
-    entry: "Mihira Ceremonia"
-  }
-};
 
   function updateSystemResponse(
     key,
@@ -771,6 +698,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 };
 
+     const language =
+  document.documentElement.lang === "de"
+    ? "de"
+    : "en";
+
+const contentGroup =
+  systemContent[key];
+
+const content =
+  contentGroup
+    ? contentGroup[language] || contentGroup.en
+    : null;
 
     if (
       !content ||
