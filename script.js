@@ -1074,127 +1074,158 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const entryChoiceContent = {
 
-    "self-understanding": {
-      classification:
-        "Blueprint / Codex",
+  "self-understanding": {
+    context: "codex",
 
-      title:
-        "Codex",
-
+    en: {
+      classification: "Blueprint / Codex",
+      title: "Codex",
       copy:
-        "A logical first point of entry when the central question is understanding your own inherent structure more clearly.",
-
-      context:
-        "codex"
+        "A logical first point of entry when the central question is understanding your own inherent structure more clearly."
     },
 
-
-    patterns: {
-      classification:
-        "Blueprint / Codex",
-
-      title:
-        "Codex",
-
+    de: {
+      classification: "Blueprint / Codex",
+      title: "Codex",
       copy:
-        "When recurring patterns raise questions about how your system is designed, Blueprint work provides a clearer frame for orientation.",
-
-      context:
-        "codex"
-    },
-
-
-    structural: {
-      classification:
-        "Body & Regulation",
-
-      title:
-        "Structural Consultation",
-
-      copy:
-        "A logical entry point when the primary question concerns physical structure, mobility, biomechanical tension or movement limitation.",
-
-      context:
-        "structural"
-    },
-
-
-    regulation: {
-      classification:
-        "Body & Regulation",
-
-      title:
-        "Regulation",
-
-      copy:
-        "A regulation-oriented entry point when sustained overwhelm, fatigue or nervous-system strain is the dominant context.",
-
-      context:
-        "regulation"
-    },
-
-
-    "chi-nei-tsang": {
-      classification:
-        "Body & Regulation",
-
-      title:
-        "Chi Nei Tsang",
-
-      copy:
-        "A body-based entry point when there is notable internal holding around the abdominal core, breath or digestive centre.",
-
-      context:
-        "chi-nei-tsang"
-    },
-
-
-    calamus: {
-      classification:
-        "Body & Regulation",
-
-      title:
-        "Calamus Ceremony",
-
-      copy:
-        "A possible entry point when the dominant experience is dullness, stagnation or disconnection from vitality.",
-
-      context:
-        "other"
-    },
-
-
-    intensive: {
-      classification:
-        "Full-System Immersion",
-
-      title:
-        "Human Architecture Intensive",
-
-      copy:
-        "A broader entry point when you want to engage the Human Architecture system comprehensively rather than beginning with one isolated layer.",
-
-      context:
-        "intensive"
-    },
-
-
-    mihira: {
-      classification:
-        "Identity & Transition",
-
-      title:
-        "Mihira Ceremonia",
-
-      copy:
-        "A ceremonial integration point for significant periods of identity, transition and meaningful human passage.",
-
-      context:
-        "mihira"
+        "Ein logischer erster Einstiegspunkt, wenn die zentrale Frage darin besteht, die eigene grundlegende Struktur klarer zu verstehen."
     }
+  },
 
-  };
 
+  patterns: {
+    context: "codex",
+
+    en: {
+      classification: "Blueprint / Codex",
+      title: "Codex",
+      copy:
+        "When recurring patterns raise questions about how your system is designed, Blueprint work provides a clearer frame for orientation."
+    },
+
+    de: {
+      classification: "Blueprint / Codex",
+      title: "Codex",
+      copy:
+        "Wenn wiederkehrende Muster Fragen darüber aufwerfen, wie dein System angelegt ist, bietet die Blueprint-Arbeit einen klareren Rahmen zur Orientierung."
+    }
+  },
+
+
+  structural: {
+    context: "structural",
+
+    en: {
+      classification: "Body & Regulation",
+      title: "Structural Consultation",
+      copy:
+        "A logical entry point when the primary question concerns physical structure, mobility, biomechanical tension or movement limitation."
+    },
+
+    de: {
+      classification: "Körper & Regulation",
+      title: "Structural Consultation",
+      copy:
+        "Ein logischer Einstiegspunkt, wenn es in erster Linie um körperliche Struktur, Beweglichkeit, biomechanische Spannung oder Bewegungseinschränkungen geht."
+    }
+  },
+
+
+  regulation: {
+    context: "regulation",
+
+    en: {
+      classification: "Body & Regulation",
+      title: "Regulation",
+      copy:
+        "A regulation-oriented entry point when sustained overwhelm, fatigue or nervous-system strain is the dominant context."
+    },
+
+    de: {
+      classification: "Körper & Regulation",
+      title: "Regulation",
+      copy:
+        "Ein regulationsorientierter Einstiegspunkt, wenn anhaltende Überforderung, Erschöpfung oder Belastung des Nervensystems im Vordergrund stehen."
+    }
+  },
+
+
+  "chi-nei-tsang": {
+    context: "chi-nei-tsang",
+
+    en: {
+      classification: "Body & Regulation",
+      title: "Chi Nei Tsang",
+      copy:
+        "A body-based entry point when there is notable internal holding around the abdominal core, breath or digestive centre."
+    },
+
+    de: {
+      classification: "Körper & Regulation",
+      title: "Chi Nei Tsang",
+      copy:
+        "Ein körperorientierter Einstiegspunkt, wenn deutliches inneres Halten im Bauchraum, im Atem oder im Verdauungszentrum spürbar ist."
+    }
+  },
+
+
+  calamus: {
+    context: "other",
+
+    en: {
+      classification: "Body & Regulation",
+      title: "Calamus Ceremony",
+      copy:
+        "A possible entry point when the dominant experience is dullness, stagnation or disconnection from vitality."
+    },
+
+    de: {
+      classification: "Körper & Regulation",
+      title: "Calamus Ceremony",
+      copy:
+        "Ein möglicher Einstiegspunkt, wenn vor allem Dumpfheit, Stagnation oder eine Distanz zur eigenen Lebendigkeit erlebt wird."
+    }
+  },
+
+
+  intensive: {
+    context: "intensive",
+
+    en: {
+      classification: "Full-System Immersion",
+      title: "Human Architecture Intensive",
+      copy:
+        "A broader entry point when you want to engage the Human Architecture system comprehensively rather than beginning with one isolated layer."
+    },
+
+    de: {
+      classification: "Ganzheitliche System-Immersion",
+      title: "Human Architecture Intensive",
+      copy:
+        "Ein umfassenderer Einstiegspunkt, wenn du das Human-Architecture-System als Ganzes erleben möchtest, statt mit einer einzelnen Ebene zu beginnen."
+    }
+  },
+
+
+  mihira: {
+    context: "mihira",
+
+    en: {
+      classification: "Identity & Transition",
+      title: "Mihira Ceremonia",
+      copy:
+        "A ceremonial integration point for significant periods of identity, transition and meaningful human passage."
+    },
+
+    de: {
+      classification: "Identität & Übergang",
+      title: "Mihira Ceremonia",
+      copy:
+        "Ein zeremonieller Integrationsraum für bedeutsame Phasen von Identität, Übergang und menschlicher Veränderung."
+    }
+  }
+
+};
 
   function saveEntryContext(
     value,
@@ -1431,11 +1462,13 @@ document.addEventListener("DOMContentLoaded", () => {
             choice.dataset.entryChoice;
 
 
-          const content =
-            entryChoiceContent[key];
+          const entry =
+  entryChoiceContent[key];
 
+if (!entry) return;
 
-          if (!content) return;
+const content =
+  entry[currentLanguage] || entry.en;
 
 
           entryChoices.forEach(
@@ -1472,13 +1505,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           saveEntryContext(
-            content.context,
+            entry.context,
             content.title
           );
 
 
           updateContactContext(
-            content.context
+            entry.context
           );
 
 
