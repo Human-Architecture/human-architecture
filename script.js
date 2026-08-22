@@ -2098,6 +2098,10 @@ langButtons.forEach((button) => {
 
     document.documentElement.lang = lang;
 
+     document.querySelectorAll("[data-en][data-de]").forEach((element) => {
+  element.textContent = element.dataset[lang];
+});
+
     langButtons.forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.lang === lang);
     });
