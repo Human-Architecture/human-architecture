@@ -116,7 +116,7 @@ button:focus-visible {
 }
 
 .lang-button.is-active {
-  color: var(--sand);
+  color: var(--gold);
 }
 
 .main-nav {
