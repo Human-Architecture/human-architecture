@@ -345,6 +345,37 @@ p {
   height: auto;
 }
 
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  margin-right: 18px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.lang-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 4px 2px;
+  color: rgba(255, 255, 255, 0.55);
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.lang-button:hover {
+  color: var(--white);
+}
+
+.lang-button.is-active {
+  color: var(--human-sand);
+}
+
 .desktop-nav {
   margin-left: auto;
 
