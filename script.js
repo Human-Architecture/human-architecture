@@ -2166,6 +2166,15 @@ langButtons.forEach((button) => {
   element.textContent = element.dataset[lang];
 });
 
+     document
+  .querySelectorAll("[data-en-aria-label][data-de-aria-label]")
+  .forEach((element) => {
+    element.setAttribute(
+      "aria-label",
+      element.dataset[`${lang}AriaLabel`]
+    );
+  });
+
     langButtons.forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.lang === lang);
     });
