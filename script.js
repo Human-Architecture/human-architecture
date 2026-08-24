@@ -2195,79 +2195,147 @@ if (activeSystemNode) {
 
 /* =========================================================
    OCEAN INTRO SOUND
-   First visitor interaction → soft arrival → fade away
+   Gentle arrival → subtle presence → long fade away
 ========================================================= */
 
 const oceanIntro = document.getElementById("ocean-intro");
 
 if (oceanIntro) {
-  let oceanHasPlayed = false;
+  let oceanHasStarted = false;
+  let oceanIsStarting = false;
 
-  const playOceanIntro = () => {
-    if (oceanHasPlayed) return;
-    oceanHasPlayed = true;
+  const maxVolume = 0.12;
 
-    oceanIntro.currentTime = 0;
-    oceanIntro.volume = 0;
+  const fadeInDuration = 2800;
+  const holdDuration = 5500;
+  const fadeOutDuration = 3700;
 
-    const playPromise = oceanIntro.play();
+  const easeInOut = (t) =>
+    t < 0.5
+      ? 2 * t * t
+      : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        oceanHasPlayed = false;
-      });
-    }
+  const fadeVolume = (
+    from,
+    to,
+    duration,
+    onComplete
+  ) => {
+    const startTime = performance.now();
 
-    const maxVolume = 0.22;
-    const fadeInDuration = 1400;
-    const holdDuration = 4200;
-    const fadeOutDuration = 2600;
-
-    const fadeInStart = performance.now();
-
-    const fadeIn = (now) => {
+    const step = (now) => {
       const progress = Math.min(
-        (now - fadeInStart) / fadeInDuration,
+        (now - startTime) / duration,
         1
       );
 
-      oceanIntro.volume = maxVolume * progress;
+      const eased = easeInOut(progress);
+
+      oceanIntro.volume =
+        from + (to - from) * eased;
 
       if (progress < 1) {
-        requestAnimationFrame(fadeIn);
-      } else {
-        setTimeout(startFadeOut, holdDuration);
+        requestAnimationFrame(step);
+      } else if (onComplete) {
+        onComplete();
       }
     };
 
-    const startFadeOut = () => {
-      const fadeOutStart = performance.now();
-
-      const fadeOut = (now) => {
-        const progress = Math.min(
-          (now - fadeOutStart) / fadeOutDuration,
-          1
-        );
-
-        oceanIntro.volume = maxVolume * (1 - progress);
-
-        if (progress < 1) {
-          requestAnimationFrame(fadeOut);
-        } else {
-          oceanIntro.pause();
-          oceanIntro.volume = 0;
-        }
-      };
-
-      requestAnimationFrame(fadeOut);
-    };
-
-    requestAnimationFrame(fadeIn);
-
-    document.removeEventListener("pointerdown", playOceanIntro);
-    document.removeEventListener("keydown", playOceanIntro);
+    requestAnimationFrame(step);
   };
 
-  document.addEventListener("pointerdown", playOceanIntro);
-  document.addEventListener("keydown", playOceanIntro);
+  const finishOceanIntro = () => {
+    fadeVolume(
+      maxVolume,
+      0,
+      fadeOutDuration,
+      () => {
+        oceanIntro.pause();
+        oceanIntro.volume = 0;
+      }
+    );
+  };
+
+  const startOceanIntro = async () => {
+    if (oceanHasStarted || oceanIsStarting) return;
+
+    oceanIsStarting = true;
+
+    try {
+      oceanIntro.currentTime = 0;
+      oceanIntro.volume = 0;
+
+      await oceanIntro.play();
+
+      oceanHasStarted = true;
+      oceanIsStarting = false;
+
+      removeInteractionListeners();
+
+      fadeVolume(
+        0,
+        maxVolume,
+        fadeInDuration,
+        () => {
+          setTimeout(
+            finishOceanIntro,
+            holdDuration
+          );
+        }
+      );
+    } catch (error) {
+      oceanIsStarting = false;
+
+      /*
+        Browser blocked automatic audio.
+        We keep the interaction listeners active so
+        the first real visitor interaction can start it.
+      */
+    }
+  };
+
+  const handleFirstInteraction = () => {
+    startOceanIntro();
+  };
+
+  const addInteractionListeners = () => {
+    document.addEventListener(
+      "pointerdown",
+      handleFirstInteraction
+    );
+
+    document.addEventListener(
+      "keydown",
+      handleFirstInteraction
+    );
+  };
+
+  const removeInteractionListeners = () => {
+    document.removeEventListener(
+      "pointerdown",
+      handleFirstInteraction
+    );
+
+    document.removeEventListener(
+      "keydown",
+      handleFirstInteraction
+    );
+  };
+
+  /*
+    First attempt:
+    start automatically when the page is ready.
+
+    Some browsers will permit this.
+    Others will block it until the first interaction.
+  */
+
+  window.addEventListener(
+    "load",
+    () => {
+      startOceanIntro();
+      addInteractionListeners();
+    },
+    { once: true }
+  );
 }
