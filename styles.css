@@ -523,13 +523,13 @@ p {
 
 .hero__logo {
   display: block;
-  width: clamp(460px, 56vw, 860px);
-  max-width: 82vw;
+  width: clamp(480px, 54vw, 840px);
+  max-width: 88vw;
   height: auto;
 
   margin:
     0 auto
-    clamp(42px, 4.7vw, 66px);
+    clamp(4px, 0.6vw, 10px);
 }
 
 .hero__classification {
