@@ -2192,3 +2192,82 @@ if (activeSystemNode) {
 
 });
 
+
+/* =========================================================
+   OCEAN INTRO SOUND
+   First visitor interaction → soft arrival → fade away
+========================================================= */
+
+const oceanIntro = document.getElementById("ocean-intro");
+
+if (oceanIntro) {
+  let oceanHasPlayed = false;
+
+  const playOceanIntro = () => {
+    if (oceanHasPlayed) return;
+    oceanHasPlayed = true;
+
+    oceanIntro.currentTime = 0;
+    oceanIntro.volume = 0;
+
+    const playPromise = oceanIntro.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        oceanHasPlayed = false;
+      });
+    }
+
+    const maxVolume = 0.22;
+    const fadeInDuration = 1400;
+    const holdDuration = 4200;
+    const fadeOutDuration = 2600;
+
+    const fadeInStart = performance.now();
+
+    const fadeIn = (now) => {
+      const progress = Math.min(
+        (now - fadeInStart) / fadeInDuration,
+        1
+      );
+
+      oceanIntro.volume = maxVolume * progress;
+
+      if (progress < 1) {
+        requestAnimationFrame(fadeIn);
+      } else {
+        setTimeout(startFadeOut, holdDuration);
+      }
+    };
+
+    const startFadeOut = () => {
+      const fadeOutStart = performance.now();
+
+      const fadeOut = (now) => {
+        const progress = Math.min(
+          (now - fadeOutStart) / fadeOutDuration,
+          1
+        );
+
+        oceanIntro.volume = maxVolume * (1 - progress);
+
+        if (progress < 1) {
+          requestAnimationFrame(fadeOut);
+        } else {
+          oceanIntro.pause();
+          oceanIntro.volume = 0;
+        }
+      };
+
+      requestAnimationFrame(fadeOut);
+    };
+
+    requestAnimationFrame(fadeIn);
+
+    document.removeEventListener("pointerdown", playOceanIntro);
+    document.removeEventListener("keydown", playOceanIntro);
+  };
+
+  document.addEventListener("pointerdown", playOceanIntro);
+  document.addEventListener("keydown", playOceanIntro);
+}
