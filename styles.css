@@ -2450,7 +2450,11 @@ p:not(.eyebrow) {
 }
 
 .footer__brand img {
-  width: 150px;
+  display: block;
+  width: clamp(180px, 14vw, 230px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .footer__connections {
