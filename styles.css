@@ -523,7 +523,7 @@ p {
 
 .hero__logo {
   display: block;
-  width: clamp(380px, 44vw, 700px);
+  width: clamp(460px, 56vw, 860px);
   max-width: 82vw;
   height: auto;
 
