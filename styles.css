@@ -1108,7 +1108,7 @@ p {
 }
 
 .entry-domain-selector > button[data-entry-choice="self-understanding"]::after {
-  background-image: url("assets/icons/BLUEPRINT%20FINGERPRINT%20SYM.png");
+  background-image: url("assets/icons/BLUEPRINT FINGERPRINT SYM.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
