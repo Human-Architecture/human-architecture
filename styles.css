@@ -1263,6 +1263,8 @@ p {
   width: 92px;
   height: 92px;
 
+   padding: 0;
+
   border-radius: 50%;
   overflow: hidden;
 
