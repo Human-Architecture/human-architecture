@@ -3502,139 +3502,200 @@ p:not(.eyebrow) {
 
 
 /* =========================================================
-   HUMAN SYSTEM — SUBTLE ICON BACKGROUNDS
-   FINAL ROBUST VERSION
+   HUMAN SYSTEM — ICON BACKGROUNDS
+   REFINED VISIBILITY + OPTICAL ALIGNMENT
    ========================================================= */
 
 
 /* ---------------------------------------------------------
-   BASE CIRCLE BEHAVIOUR
+   BASE
    --------------------------------------------------------- */
 
 .system-node,
 .system-core {
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-size: 62% auto !important;
 
   transition:
-    background-size 500ms ease,
+    background-size 480ms ease,
     border-color 350ms ease,
     box-shadow 350ms ease !important;
 }
 
 
 /* =========================================================
-   01 — BODY
+   BODY
    ========================================================= */
 
 .system-node--body {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/humansilhouettetransparent1.png") !important;
+
+  background-size:
+    100% 100%,
+    72% auto !important;
+
+  background-position:
+    center,
+    50% 52% !important;
 }
 
 
 /* =========================================================
-   02 — NERVOUS SYSTEM
+   NERVOUS SYSTEM
    ========================================================= */
 
 .system-node--nervous {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
+
+  background-size:
+    100% 100%,
+    76% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   03 — EMOTION
+   EMOTION
    ========================================================= */
 
 .system-node--emotion {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/emotiontransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    72% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   04 — COGNITION / WAHRNEHMUNG
-   Your live page calls this Cognition.
+   COGNITION / WAHRNEHMUNG
    ========================================================= */
 
 .system-node--cognition {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/wahrnehmungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    70% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   05 — IDENTITY
+   IDENTITY
    ========================================================= */
 
 .system-node--identity {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/identitaettransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    68% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   06 — RELATIONSHIP
-   filename is intentionally spelled exactly as uploaded
+   RELATIONSHIP
    ========================================================= */
 
 .system-node--relationship {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/beyiehungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    72% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   07 — ENVIRONMENT
+   ENVIRONMENT
    ========================================================= */
 
 .system-node--environment {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/umwelttransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    74% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   08 — MEANING
+   MEANING
    ========================================================= */
 
 .system-node--meaning {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.92),
-      rgba(244, 247, 243, 0.92)
+      rgba(244,247,243,.76),
+      rgba(244,247,243,.76)
     ),
     url("assets/icons/bedeutungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    71% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
@@ -3645,130 +3706,188 @@ p:not(.eyebrow) {
 .system-core {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.90),
-      rgba(244, 247, 243, 0.90)
+      rgba(244,247,243,.72),
+      rgba(244,247,243,.72)
     ),
     url("assets/icons/menschtransparent.png") !important;
 
-  background-size: 72% auto !important;
+  background-size:
+    100% 100%,
+    82% auto !important;
+
+  background-position:
+    center,
+    50% 50% !important;
 }
 
 
 /* =========================================================
-   HOVER — ICON EMERGES
+   HOVER
+   More visible, but still background-level
    ========================================================= */
 
 .system-node:hover,
 .system-node:focus-visible {
-  background-size: 68% auto !important;
-
-  border-color: rgba(11, 98, 114, 0.42) !important;
+  border-color: rgba(11,98,114,.38) !important;
 }
 
 
-/*
-   Reduce the pale veil on hover so the image
-   becomes more visible.
-*/
-
-.system-node--body:hover {
+/* BODY */
+.system-node--body:hover,
+.system-node--body:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/humansilhouettetransparent1.png") !important;
+
+  background-size:
+    100% 100%,
+    77% auto !important;
 }
 
-.system-node--nervous:hover {
+
+/* NERVOUS */
+.system-node--nervous:hover,
+.system-node--nervous:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
+
+  background-size:
+    100% 100%,
+    81% auto !important;
 }
 
-.system-node--emotion:hover {
+
+/* EMOTION */
+.system-node--emotion:hover,
+.system-node--emotion:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/emotiontransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    77% auto !important;
 }
 
-.system-node--cognition:hover {
+
+/* COGNITION */
+.system-node--cognition:hover,
+.system-node--cognition:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/wahrnehmungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    75% auto !important;
 }
 
-.system-node--identity:hover {
+
+/* IDENTITY */
+.system-node--identity:hover,
+.system-node--identity:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/identitaettransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    73% auto !important;
 }
 
-.system-node--relationship:hover {
+
+/* RELATIONSHIP */
+.system-node--relationship:hover,
+.system-node--relationship:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/beyiehungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    77% auto !important;
 }
 
-.system-node--environment:hover {
+
+/* ENVIRONMENT */
+.system-node--environment:hover,
+.system-node--environment:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/umwelttransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    79% auto !important;
 }
 
-.system-node--meaning:hover {
+
+/* MEANING */
+.system-node--meaning:hover,
+.system-node--meaning:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.80),
-      rgba(244, 247, 243, 0.80)
+      rgba(244,247,243,.55),
+      rgba(244,247,243,.55)
     ),
     url("assets/icons/bedeutungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    76% auto !important;
 }
 
 
 /* =========================================================
-   ACTIVE / CLICKED
+   CENTER HOVER
    ========================================================= */
 
-.system-node[aria-pressed="true"] {
-  background-size: 70% auto !important;
-
-  border-color: rgba(11, 98, 114, 0.52) !important;
-
-  box-shadow:
-    0 10px 34px rgba(6, 52, 66, 0.07) !important;
-}
-
-
-/* CENTER HOVER */
-
-.system-core:hover {
+.system-core:hover,
+.system-core:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244, 247, 243, 0.79),
-      rgba(244, 247, 243, 0.79)
+      rgba(244,247,243,.52),
+      rgba(244,247,243,.52)
     ),
     url("assets/icons/menschtransparent.png") !important;
 
-  background-size: 77% auto !important;
+  background-size:
+    100% 100%,
+    88% auto !important;
+}
+
+
+/* =========================================================
+   ACTIVE / CLICK
+   ========================================================= */
+
+.system-node[aria-pressed="true"] {
+  border-color: rgba(11,98,114,.50) !important;
+
+  box-shadow:
+    0 8px 28px rgba(6,52,66,.055) !important;
 }
 
 
@@ -3779,10 +3898,14 @@ p:not(.eyebrow) {
 @media (max-width: 900px) {
 
   .system-node {
-    background-size: 55% auto !important;
+    background-position:
+      center,
+      center !important;
   }
 
   .system-core {
-    background-size: 64% auto !important;
+    background-position:
+      center,
+      center !important;
   }
 }
