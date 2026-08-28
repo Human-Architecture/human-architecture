@@ -3737,8 +3737,8 @@ p:not(.eyebrow) {
 .system-node--body:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+     rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/humansilhouettetransparent1.png") !important;
 
@@ -3753,8 +3753,8 @@ p:not(.eyebrow) {
 .system-node--nervous:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+     rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
 
@@ -3769,8 +3769,8 @@ p:not(.eyebrow) {
 .system-node--emotion:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+      rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/emotiontransparent.png") !important;
 
@@ -3785,8 +3785,8 @@ p:not(.eyebrow) {
 .system-node--cognition:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+      rgba(244,247,243,.32),
+     rgba(244,247,243,.32)
     ),
     url("assets/icons/wahrnehmungtransparent.png") !important;
 
@@ -3801,8 +3801,8 @@ p:not(.eyebrow) {
 .system-node--identity:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+     rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/identitaettransparent.png") !important;
 
@@ -3817,8 +3817,8 @@ p:not(.eyebrow) {
 .system-node--relationship:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+      rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/beyiehungtransparent.png") !important;
 
@@ -3833,8 +3833,8 @@ p:not(.eyebrow) {
 .system-node--environment:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+     rgba(244,247,243,.32),
+     rgba(244,247,243,.32)
     ),
     url("assets/icons/umwelttransparent.png") !important;
 
@@ -3849,8 +3849,8 @@ p:not(.eyebrow) {
 .system-node--meaning:focus-visible {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.55),
-      rgba(244,247,243,.55)
+      rgba(244,247,243,.32),
+      rgba(244,247,243,.32)
     ),
     url("assets/icons/bedeutungtransparent.png") !important;
 
@@ -3919,8 +3919,8 @@ p:not(.eyebrow) {
 .system-node--body[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+      rgba(244,247,243,.06)
     ),
     url("assets/icons/humansilhouettetransparent1.png") !important;
 
@@ -3934,8 +3934,8 @@ p:not(.eyebrow) {
 .system-node--nervous[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+      rgba(244,247,243,.06)
     ),
     url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
 
@@ -3949,8 +3949,8 @@ p:not(.eyebrow) {
 .system-node--emotion[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+      rgba(244,247,243,.06)
     ),
     url("assets/icons/emotiontransparent.png") !important;
 
@@ -3964,8 +3964,8 @@ p:not(.eyebrow) {
 .system-node--cognition[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+     rgba(244,247,243,.06),
+      rgba(244,247,243,.06)
     ),
     url("assets/icons/wahrnehmungtransparent.png") !important;
 
@@ -3979,8 +3979,8 @@ p:not(.eyebrow) {
 .system-node--identity[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+     rgba(244,247,243,.06)
     ),
     url("assets/icons/identitaettransparent.png") !important;
 
@@ -3994,8 +3994,8 @@ p:not(.eyebrow) {
 .system-node--relationship[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+     rgba(244,247,243,.06)
     ),
     url("assets/icons/beyiehungtransparent.png") !important;
 
@@ -4009,8 +4009,8 @@ p:not(.eyebrow) {
 .system-node--environment[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+      rgba(244,247,243,.06),
+     rgba(244,247,243,.06)
     ),
     url("assets/icons/umwelttransparent.png") !important;
 
@@ -4024,8 +4024,8 @@ p:not(.eyebrow) {
 .system-node--meaning[aria-pressed="true"] {
   background-image:
     linear-gradient(
-      rgba(244,247,243,.28),
-      rgba(244,247,243,.28)
+     rgba(244,247,243,.06),
+      rgba(244,247,243,.06)
     ),
     url("assets/icons/bedeutungtransparent.png") !important;
 
@@ -4056,4 +4056,63 @@ p:not(.eyebrow) {
   background-size:
     100% 100%,
     90% auto !important;
+}
+
+
+/* =========================================================
+   HUMAN SYSTEM — ACTIVE VISIBILITY TEST
+   ========================================================= */
+
+.system-node[aria-pressed="true"] {
+  background-blend-mode: normal !important;
+  border-color: rgba(11, 98, 114, .62) !important;
+  box-shadow: 0 10px 32px rgba(6, 52, 66, .09) !important;
+}
+
+.system-node--body[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/humansilhouettetransparent1.png") !important;
+}
+
+.system-node--nervous[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
+}
+
+.system-node--emotion[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/emotiontransparent.png") !important;
+}
+
+.system-node--cognition[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/wahrnehmungtransparent.png") !important;
+}
+
+.system-node--identity[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/identitaettransparent.png") !important;
+}
+
+.system-node--relationship[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/beyiehungtransparent.png") !important;
+}
+
+.system-node--environment[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/umwelttransparent.png") !important;
+}
+
+.system-node--meaning[aria-pressed="true"] {
+  background-image:
+    linear-gradient(rgba(244,247,243,.06), rgba(244,247,243,.06)),
+    url("assets/icons/bedeutungtransparent.png") !important;
 }
