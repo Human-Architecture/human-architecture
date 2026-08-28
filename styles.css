@@ -3909,3 +3909,151 @@ p:not(.eyebrow) {
       center !important;
   }
 }
+
+/* =========================================================
+   HUMAN SYSTEM — STRONGER ACTIVE / CLICKED ICON VISIBILITY
+   ========================================================= */
+
+
+/* BODY */
+.system-node--body[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/humansilhouettetransparent1.png") !important;
+
+  background-size:
+    100% 100%,
+    80% auto !important;
+}
+
+
+/* NERVOUS SYSTEM */
+.system-node--nervous[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/NERVENSYSTEMTRANSPARENT.png") !important;
+
+  background-size:
+    100% 100%,
+    84% auto !important;
+}
+
+
+/* EMOTION */
+.system-node--emotion[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/emotiontransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    80% auto !important;
+}
+
+
+/* COGNITION / WAHRNEHMUNG */
+.system-node--cognition[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/wahrnehmungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    78% auto !important;
+}
+
+
+/* IDENTITY */
+.system-node--identity[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/identitaettransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    76% auto !important;
+}
+
+
+/* RELATIONSHIP */
+.system-node--relationship[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/beyiehungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    80% auto !important;
+}
+
+
+/* ENVIRONMENT */
+.system-node--environment[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/umwelttransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    82% auto !important;
+}
+
+
+/* MEANING */
+.system-node--meaning[aria-pressed="true"] {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.28),
+      rgba(244,247,243,.28)
+    ),
+    url("assets/icons/bedeutungtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    80% auto !important;
+}
+
+
+/* ACTIVE CIRCLE FEEDBACK */
+.system-node[aria-pressed="true"] {
+  border-color: rgba(11,98,114,.62) !important;
+
+  box-shadow:
+    0 10px 34px rgba(6,52,66,.10) !important;
+}
+
+
+/* CENTER HUMAN — stronger on hover */
+.system-core:hover {
+  background-image:
+    linear-gradient(
+      rgba(244,247,243,.30),
+      rgba(244,247,243,.30)
+    ),
+    url("assets/icons/menschtransparent.png") !important;
+
+  background-size:
+    100% 100%,
+    90% auto !important;
+}
