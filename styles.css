@@ -1114,6 +1114,22 @@ p {
   background-repeat: no-repeat;
 }
 
+/* BODY & REGULATION */
+.entry-domain-selector > button:nth-child(2)::after {
+  background-image: url("assets/icons/VITRUVIANWOMAN.png");
+  background-size: 58%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* IDENTITY & TRANSITION */
+.entry-domain-selector > button:nth-child(3)::after {
+  background-image: url("assets/icons/COMPASSS.png");
+  background-size: 58%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .entry-domain-selector > button:hover,
 .entry-domain-selector > button:focus-visible,
 .entry-domain-selector > button.is-active,
