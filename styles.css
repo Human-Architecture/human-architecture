@@ -3368,79 +3368,59 @@ p:not(.eyebrow) {
 
 
 /* =========================================================
-   DOMAIN PANELS — UPPER BACKGROUND ART ONLY
+   DOMAIN PANELS — BACKGROUND ART
+   preserves original card geometry
    ========================================================= */
 
-.domain-panel {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* image layer only — DOES NOT change card size */
-.domain-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center top;
-
-  opacity: 0.22;
-
-  z-index: 0;
-  pointer-events: none;
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 34%,
-    rgba(0,0,0,.65) 48%,
-    transparent 66%
-  );
-
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 34%,
-    rgba(0,0,0,.65) 48%,
-    transparent 66%
-  );
-}
-
-/* keep all existing text/content above image */
-.domain-panel > * {
-  position: relative;
-  z-index: 2;
-}
-
 /* 01 — CODEX / BLUEPRINT */
-.domain-panel:nth-child(1)::before {
+.domain-panel:nth-child(1) {
   background-image:
     linear-gradient(
-      rgba(4,47,58,.20),
-      rgba(2,35,44,.32)
+      to bottom,
+      rgba(3, 44, 54, 0.10) 0%,
+      rgba(3, 44, 54, 0.30) 34%,
+      rgba(2, 34, 43, 0.88) 62%,
+      rgba(2, 34, 43, 1) 100%
     ),
     url("assets/BACKGROUNDS/CARD1BACKGROUNDHUMAN%20.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
+
 
 /* 02 — BODY & REGULATION */
-.domain-panel:nth-child(2)::before {
+.domain-panel:nth-child(2) {
   background-image:
     linear-gradient(
-      rgba(4,47,58,.16),
-      rgba(2,35,44,.30)
+      to bottom,
+      rgba(3, 44, 54, 0.10) 0%,
+      rgba(3, 44, 54, 0.30) 34%,
+      rgba(2, 34, 43, 0.88) 62%,
+      rgba(2, 34, 43, 1) 100%
     ),
     url("assets/BACKGROUNDS/CARD2BGHUMAN.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
-/* 03 — IDENTITY & TRANSITION */
-.domain-panel:nth-child(3)::before {
+
+/* 03 — MIHIRA / NAVIGATION */
+.domain-panel:nth-child(3) {
   background-image:
     linear-gradient(
-      rgba(4,47,58,.16),
-      rgba(2,35,44,.30)
+      to bottom,
+      rgba(3, 44, 54, 0.10) 0%,
+      rgba(3, 44, 54, 0.30) 34%,
+      rgba(2, 34, 43, 0.88) 62%,
+      rgba(2, 34, 43, 1) 100%
     ),
     url("assets/BACKGROUNDS/card3compassbg.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
