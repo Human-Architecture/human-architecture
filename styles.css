@@ -3365,3 +3365,55 @@ p:not(.eyebrow) {
   }
 
 }
+
+
+/* =========================================================
+   DOMAIN CARDS — BACKGROUND IMAGES
+   ========================================================= */
+
+/* CARD 01 — CODEX / BLUEPRINT */
+.domains__card:nth-child(1) {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 48, 59, 0.18) 0%,
+      rgba(2, 39, 49, 0.72) 100%
+    ),
+    url("assets/BACKGROUNDS/CARD1BACKGROUNDHUMAN%20.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* CARD 02 — HUMAN ARCHITECTURE / BODY */
+.domains__card:nth-child(2) {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 48, 59, 0.18) 0%,
+      rgba(2, 39, 49, 0.72) 100%
+    ),
+    url("assets/BACKGROUNDS/CARD2BGHUMAN.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* CARD 03 — MIHIRA / TRANSITION */
+.domains__card:nth-child(3) {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 48, 59, 0.18) 0%,
+      rgba(2, 39, 49, 0.72) 100%
+    ),
+    url("assets/BACKGROUNDS/card3compassbg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
