@@ -1109,11 +1109,9 @@ p {
 
 .entry-domain-selector > button[data-entry-domain="blueprint"]::after {
   background-image: url("assets/icons/FINGERPRINTCODEX.png");
-  background-size: cover;
+  background-size: 58%;
   background-position: center;
   background-repeat: no-repeat;
-
-  border-color: transparent;
 }
 
 .entry-domain-selector > button:hover,
