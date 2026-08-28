@@ -1107,9 +1107,10 @@ p {
     border-color 400ms ease;
 }
 
+/* BLUEPRINT */
 .entry-domain-selector > button[data-entry-domain="blueprint"]::after {
   background-image: url("assets/icons/FINGERPRINTCODEX.png");
-  background-size: 58%;
+  background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1117,7 +1118,7 @@ p {
 /* BODY & REGULATION */
 .entry-domain-selector > button:nth-child(2)::after {
   background-image: url("assets/icons/VITRUVIANWOMAN.png");
-  background-size: 58%;
+  background-size: 68%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1125,7 +1126,7 @@ p {
 /* IDENTITY & TRANSITION */
 .entry-domain-selector > button:nth-child(3)::after {
   background-image: url("assets/icons/COMPASSS.png");
-  background-size: 58%;
+  background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
 }
