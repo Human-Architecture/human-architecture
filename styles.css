@@ -3499,3 +3499,297 @@ p:not(.eyebrow) {
     display: none;
   }
 }
+
+
+/* =========================================================
+   HUMAN SYSTEM — DIMENSION ICON LAYER
+   Decorative icons inside existing circles.
+   No HTML changes required.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PREPARE ALL OUTER CIRCLES
+   --------------------------------------------------------- */
+
+.system-node {
+  position: absolute;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+
+/*
+   Decorative icon layer.
+   Extremely quiet when resting.
+*/
+.system-node::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 72%;
+  height: 72%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.96);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  opacity: 0.055;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  filter:
+    saturate(0.55)
+    contrast(0.90);
+
+  transition:
+    opacity 420ms ease,
+    transform 520ms ease,
+    filter 420ms ease;
+}
+
+
+/* ---------------------------------------------------------
+   2. MAP THE EIGHT DIMENSIONS
+   --------------------------------------------------------- */
+
+
+/* KÖRPER */
+.system-node[data-system-node="body"]::before {
+  background-image:
+    url("assets/icons/humansilhouettetransparent1.png");
+
+  width: 68%;
+  height: 68%;
+}
+
+
+/* NERVENSYSTEM */
+.system-node[data-system-node="nervous-system"]::before {
+  background-image:
+    url("assets/icons/NERVENSYSTEMTRANSPARENT.png");
+
+  width: 70%;
+  height: 70%;
+}
+
+
+/* EMOTION */
+.system-node[data-system-node="emotion"]::before {
+  background-image:
+    url("assets/icons/emotiontransparent.png");
+
+  width: 67%;
+  height: 67%;
+}
+
+
+/* WAHRNEHMUNG */
+.system-node[data-system-node="perception"]::before,
+.system-node[data-system-node="awareness"]::before {
+  background-image:
+    url("assets/icons/wahrnehmungtransparent.png");
+
+  width: 68%;
+  height: 68%;
+}
+
+
+/* IDENTITÄT */
+.system-node[data-system-node="identity"]::before {
+  background-image:
+    url("assets/icons/identitaettransparent.png");
+
+  width: 66%;
+  height: 66%;
+}
+
+
+/* BEZIEHUNG */
+.system-node[data-system-node="relationship"]::before {
+  background-image:
+    url("assets/icons/beyiehungtransparent.png");
+
+  width: 68%;
+  height: 68%;
+}
+
+
+/* UMFELD */
+.system-node[data-system-node="environment"]::before,
+.system-node[data-system-node="context"]::before {
+  background-image:
+    url("assets/icons/umwelttransparent.png");
+
+  width: 70%;
+  height: 70%;
+}
+
+
+/* BEDEUTUNG */
+.system-node[data-system-node="meaning"]::before {
+  background-image:
+    url("assets/icons/bedeutungtransparent.png");
+
+  width: 68%;
+  height: 68%;
+}
+
+
+
+/* ---------------------------------------------------------
+   3. HOVER / FOCUS
+   Icon quietly emerges.
+   --------------------------------------------------------- */
+
+.system-node:hover::before,
+.system-node:focus-visible::before {
+  opacity: 0.15;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.025);
+
+  filter:
+    saturate(0.72)
+    contrast(0.98);
+}
+
+
+
+/* ---------------------------------------------------------
+   4. CLICKED / ACTIVE
+   Your existing aria-pressed JS already controls this.
+   --------------------------------------------------------- */
+
+.system-node[aria-pressed="true"]::before,
+.system-node.is-active::before {
+  opacity: 0.20;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.045);
+
+  filter:
+    saturate(0.80)
+    contrast(1);
+}
+
+
+
+/* =========================================================
+   5. CENTRE — MENSCH
+   ========================================================= */
+
+.system-core {
+  position: absolute;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+
+/* Eightfold / Mensch symbol */
+.system-core::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 86%;
+  height: 86%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.97);
+
+  background-image:
+    url("assets/icons/menschtransparent.png");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  opacity: 0.075;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  filter:
+    saturate(0.55)
+    contrast(0.92);
+
+  transition:
+    opacity 480ms ease,
+    transform 600ms ease;
+}
+
+
+/* Centre interaction */
+.system-core:hover::before,
+.system-core:focus-visible::before,
+.system-core.is-active::before,
+.system-core[aria-pressed="true"]::before {
+  opacity: 0.14;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.02);
+}
+
+
+
+/* =========================================================
+   6. MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .system-node::before {
+    width: 64%;
+    height: 64%;
+    opacity: 0.065;
+  }
+
+  .system-node[aria-pressed="true"]::before,
+  .system-node.is-active::before {
+    opacity: 0.18;
+  }
+
+  .system-core::before {
+    width: 82%;
+    height: 82%;
+    opacity: 0.075;
+  }
+
+  .system-core[aria-pressed="true"]::before,
+  .system-core.is-active::before {
+    opacity: 0.14;
+  }
+}
+
+
+
+/* =========================================================
+   7. ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .system-node::before,
+  .system-core::before {
+    transition: opacity 180ms ease;
+  }
+}
