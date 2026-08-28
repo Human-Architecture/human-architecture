@@ -3368,52 +3368,91 @@ p:not(.eyebrow) {
 
 
 /* =========================================================
-   DOMAIN CARDS — BACKGROUND IMAGES
+   DOMAIN PANELS — BACKGROUND ART
    ========================================================= */
 
-/* CARD 01 — CODEX / BLUEPRINT */
-.domains__card:nth-child(1) {
+.domain-panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Artwork layer */
+.domain-panel::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.30;
+
+  z-index: 0;
+  pointer-events: none;
+
+  /* softly dissolve artwork into lower text area */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 64%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 64%,
+    transparent 100%
+  );
+}
+
+/* Keep all text above the artwork */
+.domain-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* 01 — CODEX / BLUEPRINT */
+.domain-panel:nth-child(1)::before {
   background-image:
     linear-gradient(
-      180deg,
-      rgba(3, 48, 59, 0.18) 0%,
-      rgba(2, 39, 49, 0.72) 100%
+      rgba(4, 47, 58, 0.22),
+      rgba(2, 35, 44, 0.38)
     ),
     url("assets/BACKGROUNDS/CARD1BACKGROUNDHUMAN%20.png");
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 
-/* CARD 02 — HUMAN ARCHITECTURE / BODY */
-.domains__card:nth-child(2) {
+/* 02 — BODY & REGULATION */
+.domain-panel:nth-child(2)::before {
   background-image:
     linear-gradient(
-      180deg,
-      rgba(3, 48, 59, 0.18) 0%,
-      rgba(2, 39, 49, 0.72) 100%
+      rgba(4, 47, 58, 0.18),
+      rgba(2, 35, 44, 0.36)
     ),
     url("assets/BACKGROUNDS/CARD2BGHUMAN.png");
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 
-/* CARD 03 — MIHIRA / TRANSITION */
-.domains__card:nth-child(3) {
+/* 03 — IDENTITY & TRANSITION */
+.domain-panel:nth-child(3)::before {
   background-image:
     linear-gradient(
-      180deg,
-      rgba(3, 48, 59, 0.18) 0%,
-      rgba(2, 39, 49, 0.72) 100%
+      rgba(4, 47, 58, 0.18),
+      rgba(2, 35, 44, 0.36)
     ),
     url("assets/BACKGROUNDS/card3compassbg.png");
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: center center;
 }
