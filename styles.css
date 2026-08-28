@@ -3368,11 +3368,11 @@ p:not(.eyebrow) {
 
 
 /* =========================================================
-   DOMAIN PANELS — BACKGROUND ART
-   preserves original card geometry
+   DOMAIN CARDS — FINAL BACKGROUND IMAGES
    ========================================================= */
 
-/* CARD 01 — BLUEPRINT */
+
+/* CARD 01 — CODEX / BLUEPRINT */
 .domain-panel:nth-child(1) {
   background-image:
     linear-gradient(
@@ -3385,12 +3385,12 @@ p:not(.eyebrow) {
     url("assets/BACKGROUNDS/FINGERPRINTCARDBG1.png");
 
   background-size: cover;
-  background-position: center top;
+  background-position: 46% top;
   background-repeat: no-repeat;
 }
 
 
-/* CARD 02 — BODY & REGULATION */
+/* CARD 02 — HUMAN ARCHITECTURE / BODY & REGULATION */
 .domain-panel:nth-child(2) {
   background-image:
     linear-gradient(
@@ -3408,7 +3408,7 @@ p:not(.eyebrow) {
 }
 
 
-/* CARD 03 — IDENTITY & TRANSITION */
+/* CARD 03 — MIHIRA / IDENTITY & TRANSITION */
 .domain-panel:nth-child(3) {
   background-image:
     linear-gradient(
@@ -3421,6 +3421,6 @@ p:not(.eyebrow) {
     url("assets/BACKGROUNDS/compassscardbg1.png");
 
   background-size: cover;
-  background-position: center top;
+  background-position: 48% 8%;
   background-repeat: no-repeat;
 }
