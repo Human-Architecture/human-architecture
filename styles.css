@@ -3420,7 +3420,7 @@ p:not(.eyebrow) {
     ),
     url("assets/BACKGROUNDS/card3compassbg.png");
 
-  background-size: cover;
-  background-position: center top;
+  background-size: 115% auto;
+  background-position: 68% top;
   background-repeat: no-repeat;
 }
