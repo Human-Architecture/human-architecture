@@ -3546,7 +3546,7 @@ p:not(.eyebrow) {
 
   pointer-events: none;
 
-  z-index: -1;
+  z-index: 0;
 
   filter:
     saturate(0.55)
@@ -3725,8 +3725,8 @@ p:not(.eyebrow) {
 
   pointer-events: none;
 
-  z-index: -1;
-
+  z-index: 0;
+   
   filter:
     saturate(0.55)
     contrast(0.92);
@@ -3792,4 +3792,17 @@ p:not(.eyebrow) {
   .system-core::before {
     transition: opacity 180ms ease;
   }
+}
+
+
+.system-node {
+  color: var(--atlantic-abyss);
+}
+
+.system-node::after {
+  z-index: 1;
+}
+
+.system-core::after {
+  z-index: 1;
 }
