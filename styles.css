@@ -3427,182 +3427,94 @@ p:not(.eyebrow) {
 
 
 /* =========================================================
-   PHILOSOPHY — SUBTLE HUMAN / STRUCTURAL FIELD
+   PHILOSOPHY — SUBTLE ARCHITECTURAL BACKLAY
    ========================================================= */
 
-/* Main section becomes the containing field */
 .philosophy {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-/* Keep all real content above the background artwork */
+/* Real content always stays above the atmospheric layer */
 .philosophy > * {
   position: relative;
   z-index: 2;
 }
 
+
 /* ---------------------------------------------------------
-   LARGE STRUCTURAL FIELD
-   Soft geometry / system relationships
+   BACKGROUND ONLY
+   No frame. No capsule. No object.
    --------------------------------------------------------- */
 
 .philosophy::before {
   content: "";
   position: absolute;
   z-index: 0;
-
-  width: clamp(420px, 39vw, 650px);
-  height: clamp(620px, 76vh, 900px);
-
-  right: -7%;
-  top: 50%;
-  transform: translateY(-48%);
-
   pointer-events: none;
 
+  /* intentionally much larger than the visible section */
+  width: 900px;
+  height: 900px;
+
+  right: -330px;
+  bottom: -430px;
+
+  border-radius: 50%;
+
   background:
-    /* central body / system axis */
-    linear-gradient(
-      90deg,
-      transparent 49.8%,
-      rgba(15, 72, 83, 0.09) 50%,
-      transparent 50.2%
-    ),
-
-    /* inner structural field */
     radial-gradient(
-      ellipse at 50% 42%,
-      transparent 0 24%,
-      rgba(15, 72, 83, 0.055) 24.2% 24.5%,
-      transparent 24.8% 39%,
-      rgba(15, 72, 83, 0.04) 39.2% 39.5%,
-      transparent 39.8%
-    ),
-
-    /* upper system node */
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(15, 72, 83, 0.075) 0 2px,
-      transparent 2.5px
-    ),
-
-    /* centre system node */
-    radial-gradient(
-      circle at 50% 43%,
-      rgba(15, 72, 83, 0.08) 0 2px,
-      transparent 2.5px
-    ),
-
-    /* lower system node */
-    radial-gradient(
-      circle at 50% 68%,
-      rgba(15, 72, 83, 0.065) 0 2px,
-      transparent 2.5px
+      ellipse at 42% 40%,
+      rgba(25, 91, 101, 0.10) 0%,
+      rgba(25, 91, 101, 0.055) 24%,
+      rgba(25, 91, 101, 0.022) 43%,
+      rgba(25, 91, 101, 0.008) 58%,
+      transparent 72%
     );
 
-  opacity: 0.75;
-
-  /* lets the construction dissolve naturally into the page */
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 14%,
-      #000 78%,
-      transparent 100%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 14%,
-      #000 78%,
-      transparent 100%
-    );
+  filter: blur(8px);
 }
 
 
-/* ---------------------------------------------------------
-   HUMAN FIELD
-   Abstract silhouette — deliberately NOT anatomical
-   --------------------------------------------------------- */
-
+/* Second extremely faint layer gives it depth */
 .philosophy::after {
   content: "";
   position: absolute;
-  z-index: 1;
-
-  width: clamp(210px, 18vw, 300px);
-  height: clamp(520px, 65vh, 720px);
-
-  right: 5%;
-  top: 50%;
-  transform: translateY(-47%);
-
+  z-index: 0;
   pointer-events: none;
 
+  width: 720px;
+  height: 520px;
+
+  right: -170px;
+  bottom: -170px;
+
   background:
-
-    /* head */
     radial-gradient(
-      ellipse at 50% 15%,
-      rgba(24, 92, 102, 0.065) 0 10%,
-      transparent 10.5%
-    ),
-
-    /* shoulders / upper field */
-    radial-gradient(
-      ellipse at 50% 34%,
-      rgba(24, 92, 102, 0.045) 0 28%,
-      transparent 28.5%
-    ),
-
-    /* central body field */
-    linear-gradient(
-      90deg,
-      transparent 34%,
-      rgba(24, 92, 102, 0.038) 42%,
-      rgba(24, 92, 102, 0.055) 50%,
-      rgba(24, 92, 102, 0.038) 58%,
-      transparent 66%
+      ellipse at center,
+      rgba(182, 157, 111, 0.055) 0%,
+      rgba(182, 157, 111, 0.025) 32%,
+      transparent 68%
     );
 
-  filter: blur(0.2px);
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 2%,
-      #000 18%,
-      #000 70%,
-      transparent 96%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 2%,
-      #000 18%,
-      #000 70%,
-      transparent 96%
-    );
+  filter: blur(18px);
 }
 
 
 /* ---------------------------------------------------------
-   MOBILE — remove rather than crowd the composition
+   MOBILE
+   Keep it quieter and push it further outside viewport
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
 
   .philosophy::before {
-    width: 420px;
-    height: 620px;
-    right: -210px;
-    opacity: 0.45;
+    width: 600px;
+    height: 600px;
+    right: -350px;
+    bottom: -280px;
+    opacity: 0.7;
   }
 
   .philosophy::after {
