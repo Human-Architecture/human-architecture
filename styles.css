@@ -650,30 +650,8 @@ p {
 }
 
 .philosophy__image-placeholder {
-  grid-column: 12 / -1;
-
-  min-height: 470px;
-  margin-top: 126px;
-
-  border-radius:
-    46% 46% 14% 14% /
-    22% 22% 10% 10%;
-
-  background:
-    radial-gradient(
-      circle at 52% 18%,
-      rgba(217,231,229,.32),
-      transparent 27%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(169,200,201,.40),
-      rgba(6,52,66,.92)
-    );
-
-  box-shadow: var(--shadow-soft);
+  display: none;
 }
-
 .philosophy-principles {
   margin-top: clamp(72px, 7vw, 112px);
 }
