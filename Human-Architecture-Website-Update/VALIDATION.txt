@@ -1,2 +1,0 @@
-PASS: 12 reference sections; one H1 per page; unique IDs; reference anchors and homepage return links; four homepage reference links; JSON-LD parsing; original homepage IDs/assets/hero preserved; script limited to menu breakpoint change; JavaScript syntax.
-NOT RUN: browser rendering, existing remote assets, contact API, live Vercel routing.
