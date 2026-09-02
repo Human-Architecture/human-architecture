@@ -1,0 +1,5 @@
+Add this entry inside the existing sitemap.xml <urlset>, preserving all existing entries, after the new page is live:
+
+<url>
+  <loc>https://www.human-architecture.info/what-is-human-architecture/</loc>
+</url>
