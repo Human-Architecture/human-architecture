@@ -2253,6 +2253,18 @@ if (activeEntryChoice) {
   });
 });
 
+const requestedLanguage =
+  new URLSearchParams(window.location.search).get("lang");
+
+if (requestedLanguage === "de" || requestedLanguage === "en") {
+  const requestedButton =
+    document.querySelector(`.lang-button[data-lang="${requestedLanguage}"]`);
+
+  if (requestedButton) {
+    requestedButton.click();
+  }
+}
+
 });
 
 
