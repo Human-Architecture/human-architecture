@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.human-architecture.info/</loc>
-  </url>
+  <url><loc>https://www.human-architecture.info/</loc></url>
+  <url><loc>https://www.human-architecture.info/what-is-human-architecture/</loc></url>
+  <url><loc>https://www.human-architecture.info/values/</loc></url>
+  <url><loc>https://www.human-architecture.info/babymesse/</loc></url>
+  <url><loc>https://www.human-architecture.info/codex/</loc></url>
+  <url><loc>https://www.human-architecture.info/sessions/</loc></url>
+  <url><loc>https://www.human-architecture.info/mihira-ceremonia/</loc></url>
+  <url><loc>https://www.human-architecture.info/familien/</loc></url>
+  <url><loc>https://www.human-architecture.info/gruender/</loc></url>
+  <url><loc>https://www.human-architecture.info/kooperationen/</loc></url>
+  <url><loc>https://www.human-architecture.info/gutscheine/</loc></url>
 </urlset>

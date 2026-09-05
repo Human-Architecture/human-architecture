@@ -32,31 +32,41 @@
   <meta property="og:url" content="https://www.human-architecture.info/" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.human-architecture.info/#website",
-        "url": "https://www.human-architecture.info/",
-        "name": "Human Architecture",
-        "publisher": {
-          "@id": "https://www.human-architecture.info/#organization"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://www.human-architecture.info/#organization",
-        "name": "Human Architecture",
-        "url": "https://www.human-architecture.info/",
-        "email": "hello@human-architecture.info",
-        "sameAs": [
-          "https://www.instagram.com/human_arch.itecture/"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.human-architecture.info/#website",
+      "url": "https://www.human-architecture.info/",
+      "name": "Human Architecture",
+      "publisher": {
+        "@id": "https://www.human-architecture.info/#organization"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.human-architecture.info/#organization",
+      "name": "Human Architecture",
+      "url": "https://www.human-architecture.info/",
+      "email": "hello@human-architecture.info",
+      "sameAs": [
+        "https://www.instagram.com/human_arch.itecture/"
+      ],
+      "founder": {
+        "@id": "https://www.human-architecture.info/#mel-mihira"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.human-architecture.info/#mel-mihira",
+      "name": "Mel Mihira",
+      "jobTitle": "Founder & System Architect",
+      "url": "https://www.human-architecture.info/what-is-human-architecture/#founder"
+    }
+  ]
+}
+</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,15 +116,13 @@
         class="desktop-nav"
         aria-label="Primary navigation"
       >
-        <a href="#philosophy" data-en="Philosophy" data-de="Philosophie">Philosophy</a>
-        <a href="#human-system">Human System</a>
-        <a href="#entry-point">Entry Point</a>
-        <a href="#domains">Domains</a>
-        <a href="#offerings">Offerings</a>
-        <a href="#partnerships">Partnerships</a>
+        <a href="#entry-point" data-en="Start Here" data-de="Hier starten">Start Here</a>
+        <a href="/what-is-human-architecture/" data-en="The Method" data-de="Die Methode" hreflang="en">The Method</a>
+        <a href="#offerings" data-en="Ways to Work" data-de="Angebote">Ways to Work</a>
+        <a href="/familien/" data-en="Families" data-de="Familien">Families</a>
+        <a href="/gutscheine/" data-en="Gift Vouchers" data-de="Gutscheine">Gift Vouchers</a>
         <a href="/babymesse/">Babymesse</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-en="About" data-de="Über uns">About</a>
       </nav>
 
 
@@ -148,15 +156,15 @@
       data-mobile-menu
       aria-hidden="true"
     >
-      <a href="#philosophy">Philosophy</a>
-      <a href="#human-system">Human System</a>
-      <a href="#entry-point">Entry Point</a>
-      <a href="#domains">Domains</a>
-      <a href="#offerings">Offerings</a>
-      <a href="#partnerships">Partnerships</a>
+      <a href="#entry-point" data-en="Start Here" data-de="Hier starten">Start Here</a>
+      <a href="/what-is-human-architecture/" data-en="The Method" data-de="Die Methode" hreflang="en">The Method</a>
+      <a href="#offerings" data-en="Ways to Work" data-de="Angebote">Ways to Work</a>
+      <a href="/familien/" data-en="Families" data-de="Familien">Families</a>
+      <a href="/gutscheine/" data-en="Gift Vouchers" data-de="Gutscheine">Gift Vouchers</a>
       <a href="/babymesse/">Babymesse</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="/values/" data-en="Values" data-de="Werte">Values</a>
+      <a href="#partnerships" data-en="Partnerships" data-de="Partnerschaften">Partnerships</a>
+      <a href="#about" data-en="About" data-de="Über uns">About</a>
 
       <a
         class="mobile-menu__conversation"
@@ -182,12 +190,6 @@
       id="top"
       aria-labelledby="hero-title"
     >
-      <audio
-  id="ocean-intro"
-  preload="auto"
-  src="assets/audio/assets-audio-ocean-intro.mp3.mp3"
-></audio>
-
       <!--
         Final hero image will be connected through CSS.
         Intended asset:
@@ -341,6 +343,8 @@
   The intention is not to impose a standard form upon a person. It is to understand more clearly the structure, context and relationships already present.
 </p>
 
+
+          <p class="method-link-block"><a class="line-link" href="/what-is-human-architecture/" hreflang="en" data-en="What is Human Architecture?" data-de="Was ist Human Architecture? (Englisch)">What is Human Architecture?</a><span class="method-link-description" data-en="Explore the method, its origin and three domains." data-de="Entdecke die Methode, ihre Entstehung und die drei Bereiche.">Explore the method, its origin and three domains.</span></p>
         </div>
 
 
@@ -732,10 +736,10 @@
 </h2>
 
           <p
-  data-en="You do not need to know which service you need. Begin with what is most present now."
-  data-de="Du musst nicht wissen, welches Angebot du brauchst. Beginne mit dem, was gerade am deutlichsten präsent ist."
+  data-en="If you are here, something is already asking for attention. You do not need to diagnose it or know the service: begin with the layer that is most present now."
+  data-de="Wenn du hier bist, verlangt etwas bereits nach Aufmerksamkeit. Du musst es weder diagnostizieren noch das passende Angebot kennen: Beginne mit der Ebene, die gerade am deutlichsten präsent ist."
 >
-  You do not need to know which service you need. Begin with what is most present now.
+  If you are here, something is already asking for attention. You do not need to diagnose it or know the service: begin with the layer that is most present now.
 </p>
 
         </div>
@@ -1145,6 +1149,7 @@
 <a
   class="line-link"
   href="#domains"
+  data-entry-result-link
   data-en="Continue into the three domains"
   data-de="Weiter zu den drei Bereichen"
 >
@@ -1251,7 +1256,7 @@
 
               <a
   class="line-link line-link--sand"
-  href="#offerings"
+  href="/codex/"
   data-en="Enter this domain"
   data-de="Diesen Bereich betreten"
 >
@@ -1315,7 +1320,7 @@
 
 <a
   class="line-link line-link--sand"
-  href="#offerings"
+  href="/sessions/"
   data-en="Enter this domain"
   data-de="Diesen Bereich betreten"
 >
@@ -1379,13 +1384,11 @@
 
 <a
   class="line-link line-link--sand"
-  href="https://wa.me/4915203131871?text=Hello%20Human%20Architecture%2C%20I%20would%20like%20to%20understand%20whether%20Mihira%20Ceremonia%20is%20the%20appropriate%20entry%20point%20for%20me."
-  target="_blank"
-  rel="noopener noreferrer"
-  data-en="Begin with a conversation"
-  data-de="Mit einem Gespräch beginnen"
+  href="/mihira-ceremonia/"
+  data-en="Enter this domain"
+  data-de="Diesen Bereich betreten"
 >
-  Begin with a conversation
+  Enter this domain
 </a>
 
             </div>
@@ -2503,14 +2506,14 @@
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--education ecosystem-group--clickable"
   data-partnership="education"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#bildung"
   aria-label="Explore Education and Youth partnerships"
 data-aria-en="Explore Education and Youth partnerships"
 data-aria-de="Partnerschaften für Bildung und Jugend erkunden"
+>
 
             <span>01</span>
 
@@ -2528,15 +2531,14 @@ data-aria-de="Partnerschaften für Bildung und Jugend erkunden"
   Schools · Educational institutions · Children · Teenagers
 </p>
 
-          </article>
+          </a>
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--women ecosystem-group--clickable"
   data-partnership="women"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#familien"
   aria-label="Explore Women and Families partnerships"
 data-aria-en="Explore Women and Families partnerships"
 data-aria-de="Partnerschaften für Frauen und Familien erkunden"
@@ -2558,15 +2560,14 @@ data-aria-de="Partnerschaften für Frauen und Familien erkunden"
   Families · Parents · Women · Young women
 </p>
 
-          </article>
+          </a>
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--movement ecosystem-group--clickable"
   data-partnership="movement"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#bewegung"
   aria-label="Explore Movement and Practice partnerships"
 data-aria-en="Explore Movement and Practice partnerships"
 data-aria-de="Partnerschaften für Bewegung und Praxis erkunden"
@@ -2588,15 +2589,14 @@ data-aria-de="Partnerschaften für Bewegung und Praxis erkunden"
   Gyms · Movement spaces · Martial arts · Practitioners
 </p>
 
-          </article>
+          </a>
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--health ecosystem-group--clickable"
   data-partnership="health"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#gesundheit"
   aria-label="Explore Health and Wellbeing partnerships"
 data-aria-en="Explore Health and Wellbeing partnerships"
 data-aria-de="Partnerschaften für Gesundheit und Wohlbefinden erkunden"
@@ -2618,15 +2618,14 @@ data-aria-de="Partnerschaften für Gesundheit und Wohlbefinden erkunden"
   Wellness environments · Human-centred wellbeing contexts
 </p>
 
-          </article>
+          </a>
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--work ecosystem-group--clickable"
   data-partnership="work"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#arbeit"
   aria-label="Explore Work and Leadership partnerships"
 data-aria-en="Explore Work and Leadership partnerships"
 data-aria-de="Partnerschaften für Arbeit und Führung erkunden"
@@ -2648,15 +2647,14 @@ data-aria-de="Partnerschaften für Arbeit und Führung erkunden"
   Companies · Founders · CEOs · Leadership teams
 </p>
 
-          </article>
+          </a>
 
 
 
-          <article
+          <a
   class="ecosystem-group ecosystem-group--institutions ecosystem-group--clickable"
   data-partnership="institutions"
-  tabindex="0"
-  role="button"
+  href="kooperationen/index.html#institutionen"
   aria-label="Explore Institutions and Culture partnerships"
 data-aria-en="Explore Institutions and Culture partnerships"
 data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
@@ -2677,14 +2675,14 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
 >
   Foundations · Community organisations · Cultural and research institutions · Bespoke collaborations
 </p>
-          </article>
+          </a>
 
         </div>
 
 
         <a
   class="line-link line-link--sand partnerships__link"
-  href="#contact"
+  href="kooperationen/index.html"
   data-en="Explore partnership possibilities"
   data-de="Partnerschaftsmöglichkeiten erkunden"
 >
@@ -2786,6 +2784,14 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
 
 
 
+
+          <div class="method-founder-intro">
+            <p data-en="Human Architecture began with a contradiction: the disciplines used to understand people are often separated, while the person living through body, regulation, identity, relationship and change remains one person." data-de="Human Architecture begann mit einem Widerspruch: Die Disziplinen, mit denen wir Menschen verstehen, werden häufig getrennt – während der Mensch, der Körper, Regulation, Identität, Beziehung und Veränderung erlebt, ein Mensch bleibt.">Human Architecture began with a contradiction: the disciplines used to understand people are often separated, while the person living through body, regulation, identity, relationship and change remains one person.</p>
+            <p data-en="Developed by Mel Mihira, the system begins with the human rather than the modality. It sees the whole, identifies the relevant layer and chooses the most purposeful point of entry." data-de="Das von Mel Mihira entwickelte System beginnt beim Menschen statt bei der Methode. Es sieht das Ganze, bestimmt die relevante Ebene und wählt den zweckmäßigsten Einstiegspunkt.">Developed by Mel Mihira, the system begins with the human rather than the modality. It sees the whole, identifies the relevant layer and chooses the most purposeful point of entry.</p>
+            <p data-en="The work does not intervene simply because something feels appealing. It works where attention is genuinely necessary, useful and within scope – directly, precisely and as efficiently as the human context allows." data-de="Die Arbeit greift nicht ein, nur weil sich etwas angenehm anhört. Sie arbeitet dort, wo Aufmerksamkeit tatsächlich notwendig, sinnvoll und fachlich verantwortbar ist – direkt, präzise und so effizient, wie es der menschliche Kontext erlaubt.">The work does not intervene simply because something feels appealing. It works where attention is genuinely necessary, useful and within scope – directly, precisely and as efficiently as the human context allows.</p>
+            <a class="line-link" href="/what-is-human-architecture/#founder" hreflang="en" data-en="Meet the founder and explore the origin" data-de="Die Gründerin und die Entstehung kennenlernen (Englisch)">Meet the founder and explore the origin</a>
+            <a class="line-link" href="/values/" data-en="Explore the values and practitioner standard" data-de="Werte und Practitioner-Standard entdecken">Explore the values and practitioner standard</a>
+          </div>
           <div class="about-principles">
 
   <div>
@@ -3060,7 +3066,7 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
             <label
   for="context"
   data-en="What brings you here?"
-  data-de="Was führt Sie zu uns?"
+  data-de="Was führt dich zu uns?"
 >
   What brings you here?
 </label>
@@ -3308,6 +3314,14 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
 
           <a href="#top">
             Back to top
+          </a>
+
+          <a href="impressum/">
+            Impressum
+          </a>
+
+          <a href="datenschutz/" data-en="Privacy" data-de="Datenschutz">
+            Privacy
           </a>
 
         </div>

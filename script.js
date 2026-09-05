@@ -5,6 +5,20 @@
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Local file previews use the same pages and assets without a web server.
+  // Hosted navigation keeps its existing clean URLs.
+  if (window.location.protocol === "file:") {
+    const localRoot = new URL(document.body.classList.contains("method-page") ? "../" : "./", document.baseURI);
+    document.querySelectorAll('a[href^="/"]').forEach((link) => {
+      const target = link.getAttribute("href");
+      if (target.startsWith("//")) return;
+      const parsed = new URL(target, "https://preview.invalid");
+      let relative = parsed.pathname.slice(1);
+      if (!relative || relative.endsWith("/")) relative += "index.html";
+      link.href = new URL(relative + parsed.search + parsed.hash, localRoot).href;
+    });
+  }
+
 
   /* =======================================================
      01 — GLOBAL SETTINGS
@@ -203,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "resize",
       () => {
 
-        if (window.innerWidth > 1180) {
+        if (window.innerWidth > 1440) {
           closeMenu();
         }
 
@@ -1002,6 +1016,7 @@ const content =
 
   "self-understanding": {
     context: "codex",
+    href: "/codex/",
 
     en: {
       classification: "Blueprint / Codex",
@@ -1021,6 +1036,7 @@ const content =
 
   patterns: {
     context: "codex",
+    href: "/codex/",
 
     en: {
       classification: "Blueprint / Codex",
@@ -1040,6 +1056,7 @@ const content =
 
   structural: {
     context: "structural",
+    href: "/sessions/",
 
     en: {
       classification: "Body & Regulation",
@@ -1059,6 +1076,7 @@ const content =
 
   regulation: {
     context: "regulation",
+    href: "/sessions/",
 
     en: {
       classification: "Body & Regulation",
@@ -1078,6 +1096,7 @@ const content =
 
   "chi-nei-tsang": {
     context: "chi-nei-tsang",
+    href: "/sessions/",
 
     en: {
       classification: "Body & Regulation",
@@ -1097,6 +1116,7 @@ const content =
 
   calamus: {
     context: "other",
+    href: "/sessions/",
 
     en: {
       classification: "Body & Regulation",
@@ -1116,6 +1136,7 @@ const content =
 
   intensive: {
     context: "intensive",
+    href: "/sessions/",
 
     en: {
       classification: "Full-System Immersion",
@@ -1135,6 +1156,7 @@ const content =
 
   mihira: {
     context: "mihira",
+    href: "/mihira-ceremonia/",
 
     en: {
       classification: "Identity & Transition",
@@ -1183,7 +1205,8 @@ const content =
 
 
   function updateEntryResult(
-    content
+    content,
+    entry
   ) {
 
     if (
@@ -1211,6 +1234,11 @@ const content =
         ".entry-result__copy"
       );
 
+    const resultLink =
+      entryResult.querySelector(
+        "[data-entry-result-link]"
+      );
+
 
     if (classification) {
       classification.textContent =
@@ -1227,6 +1255,17 @@ const content =
     if (copy) {
       copy.textContent =
         content.copy;
+    }
+
+    if (resultLink && entry && entry.href) {
+      resultLink.href =
+        window.location.protocol === "file:"
+          ? `.${entry.href}index.html`
+          : entry.href;
+      resultLink.textContent =
+        currentLanguage === "de"
+          ? `${content.title} genauer ansehen`
+          : `Explore ${content.title}`;
     }
 
 
@@ -1426,7 +1465,8 @@ const content =
 
 
           updateEntryResult(
-            content
+            content,
+            entry
           );
 
 
@@ -1595,6 +1635,21 @@ const content =
 
     }
   );
+
+
+  document.querySelectorAll(".domain-panel").forEach((panel) => {
+    const destination = panel.querySelector(".line-link");
+    if (!destination) return;
+
+    panel.setAttribute("role", "link");
+    panel.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      destination.click();
+    });
+    panel.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") destination.click();
+    });
+  });
 
 
 
@@ -1797,7 +1852,9 @@ const content =
 
       setFieldError(
         field,
-        "Please complete this field."
+        currentLanguage === "de"
+          ? "Bitte fülle dieses Feld aus."
+          : "Please complete this field."
       );
 
 
@@ -1813,7 +1870,9 @@ const content =
 
       setFieldError(
         field,
-        "Please enter a valid email address."
+        currentLanguage === "de"
+          ? "Bitte gib eine gültige E-Mail-Adresse ein."
+          : "Please enter a valid email address."
       );
 
 
@@ -1947,7 +2006,9 @@ const content =
           if (formStatus) {
 
             formStatus.textContent =
-              "Please review the highlighted fields.";
+              currentLanguage === "de"
+                ? "Bitte prüfe die markierten Felder."
+                : "Please review the highlighted fields.";
 
           }
 
@@ -1965,11 +2026,11 @@ const originalButtonText =
 
 if (submitButton) {
   submitButton.disabled = true;
-  submitButton.textContent = "Sending...";
+  submitButton.textContent = currentLanguage === "de" ? "Wird gesendet..." : "Sending...";
 }
 
 if (formStatus) {
-  formStatus.textContent = "Sending your message...";
+  formStatus.textContent = currentLanguage === "de" ? "Deine Nachricht wird gesendet..." : "Sending your message...";
 }
 
 const formData = new FormData(contactForm);
@@ -2174,6 +2235,21 @@ if (activeSystemNode) {
     activeSystemNode
   );
 }
+
+const activeEntryChoice =
+  document.querySelector("[data-entry-choice].is-active");
+
+if (activeEntryChoice) {
+  const activeEntry =
+    entryChoiceContent[activeEntryChoice.dataset.entryChoice];
+
+  if (activeEntry) {
+    updateEntryResult(
+      activeEntry[lang] || activeEntry.en,
+      activeEntry
+    );
+  }
+}
   });
 });
 
@@ -2290,3 +2366,24 @@ if (oceanIntro) {
   document.addEventListener("touchend", startOceanIntro);
   document.addEventListener("keydown", startOceanIntro);
 }
+
+/* Carry a chosen route or voucher into the existing contact form. */
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const context = params.get("context");
+  const offer = (params.get("offer") || "").replace(/[\r\n<>]/g, " ").slice(0, 120);
+  const source = (params.get("source") || "website").replace(/[^a-z0-9-]/gi, "").slice(0, 40);
+  const contextSelect = document.querySelector("[data-context-select]");
+  const message = document.getElementById("message");
+
+  if (contextSelect && context && Array.from(contextSelect.options).some((option) => option.value === context)) {
+    contextSelect.value = context;
+  }
+
+  if (message && offer && !message.value) {
+    const language = document.documentElement.lang === "de" ? "de" : "en";
+    message.value = language === "de"
+      ? `Ich interessiere mich für: ${offer}.\nBitte senden Sie mir Informationen zu Umfang, Preis und Verfügbarkeit.\n\nMein Anliegen:\n\nGefunden über: ${source}`
+      : `I am interested in: ${offer}.\nPlease share the scope, price and availability.\n\nMy enquiry:\n\nFound through: ${source}`;
+  }
+});

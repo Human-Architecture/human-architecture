@@ -170,6 +170,7 @@ function setText(selector, value, useHTML = false) {
 }
 
 function setLanguage(lang) {
+  document.querySelectorAll(".ha-fair-route [data-de][data-en]").forEach(el => { el.textContent = el.dataset[lang]; });
   const t = translations[lang];
 
   if (!t) return;
