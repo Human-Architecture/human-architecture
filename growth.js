@@ -7,6 +7,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',offen:'Beratung zur Gutscheinwahl'};
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
+
+  // Homepage Founder / About repair.
+  // The verified founder portrait already exists in the repository, so the homepage
+  // should never render the old empty placeholder.
+  const founderPlaceholder = document.querySelector('#about .about__portrait-placeholder');
+  if (founderPlaceholder) {
+    const figure = document.createElement('figure');
+    figure.className = 'about__portrait reveal is-visible';
+    figure.innerHTML = `
+      <img
+        src="/assets/founder/mel-mihira-founder.webp"
+        alt="Mel Mihira, Founder and System Architect of Human Architecture"
+        width="1551"
+        height="2000"
+        loading="lazy"
+      >
+      <figcaption data-en="Mel Mihira · Founder &amp; System Architect" data-de="Mel Mihira · Gründerin &amp; Systemarchitektin">Mel Mihira · Founder &amp; System Architect</figcaption>
+    `;
+    founderPlaceholder.replaceWith(figure);
+  }
+
+  const aboutSection = document.querySelector('#about');
+  if (aboutSection) {
+    const eyebrow = aboutSection.querySelector('.eyebrow');
+    const title = aboutSection.querySelector('#about-title');
+    const lead = aboutSection.querySelector('.lead');
+    if (eyebrow) {
+      eyebrow.dataset.en = 'Founder & Origin';
+      eyebrow.dataset.de = 'Gründerin & Entstehung';
+      eyebrow.textContent = language === 'de' ? eyebrow.dataset.de : eyebrow.dataset.en;
+    }
+    if (title) {
+      title.dataset.en = 'Human Architecture begins with the human — and was built by Mel Mihira around that principle.';
+      title.dataset.de = 'Human Architecture beginnt beim Menschen – und wurde von Mel Mihira genau um dieses Prinzip herum entwickelt.';
+      title.textContent = language === 'de' ? title.dataset.de : title.dataset.en;
+    }
+    if (lead) {
+      lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.';
+      lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.';
+      lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en;
+    }
+  }
+
   document.querySelectorAll('footer').forEach(footer => {
     if (footer.querySelector('a[href*="impressum"]')) return;
     const legal = document.createElement('nav');
