@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('method-page')) {
     const founderStyles = document.createElement('link');
     founderStyles.rel = 'stylesheet';
-    founderStyles.href = '/founder-update.css?v=4';
+    founderStyles.href = '/founder-update.css?v=7';
     document.head.appendChild(founderStyles);
   }
 
