@@ -8,65 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
 
-  // Founder page visual repair: turn the oversized raw image into a deliberate editorial portrait.
   if (document.body.classList.contains('method-page')) {
-    const style = document.createElement('style');
-    style.textContent = `
-      #founder .method-founder-figure{
-        width:min(100%,920px);
-        margin:38px 0 46px;
-        display:grid;
-        grid-template-columns:minmax(250px,360px) minmax(0,1fr);
-        align-items:end;
-        gap:34px;
-        padding:26px;
-        background:#ece4d8;
-        border:1px solid rgba(169,135,82,.48);
-      }
-      #founder .method-founder-figure img{
-        width:100%;
-        aspect-ratio:4/5;
-        height:auto;
-        object-fit:cover;
-        object-position:68% 58%;
-        border:0;
-        box-shadow:none;
-      }
-      #founder .method-founder-figure figcaption{
-        margin:0;
-        padding:0 0 10px;
-        color:#725c40;
-        font-size:.72rem;
-        letter-spacing:.16em;
-        line-height:1.5;
-        text-transform:uppercase;
-      }
-      #founder > p:first-of-type{
-        margin-top:6px;
-      }
-      @media (max-width:760px){
-        #founder .method-founder-figure{
-          grid-template-columns:1fr;
-          width:100%;
-          padding:16px;
-          gap:16px;
-          margin:28px 0 34px;
-        }
-        #founder .method-founder-figure img{
-          aspect-ratio:4/5;
-          object-position:68% 58%;
-        }
-        #founder .method-founder-figure figcaption{
-          padding:0 2px 4px;
-        }
-      }
-    `;
-    document.head.appendChild(style);
+    const founderStyles = document.createElement('link');
+    founderStyles.rel = 'stylesheet';
+    founderStyles.href = '/founder-update.css?v=4';
+    document.head.appendChild(founderStyles);
   }
 
-  // Homepage Founder / About repair.
-  // The verified founder portrait already exists in the repository, so the homepage
-  // should never render the old empty placeholder.
   const founderPlaceholder = document.querySelector('#about .about__portrait-placeholder');
   if (founderPlaceholder) {
     const figure = document.createElement('figure');
@@ -140,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if(isNewPage){
     document.querySelectorAll('[data-language]').forEach(el => el.addEventListener('click',()=>setLanguage(el.dataset.language)));
-    // Existing hosted routes stay clean; a downloaded preview opens directory index files.
     if(location.protocol==='file:')document.querySelectorAll('a[href]').forEach(el=>{
       const raw=el.getAttribute('href');
       if(!raw || raw.startsWith('#') || /^(https?:|mailto:|tel:)/.test(raw))return;
@@ -167,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.href=new URL(route+parsed.search+parsed.hash,root).href;
       });
     }
-    // Use the existing contact form and its server endpoint. No message is sent automatically.
     if(q.get('lang'))document.querySelector('.lang-button[data-lang="'+(q.get('lang')==='de'?'de':'en')+'"]')?.click();
     const select=document.getElementById('context');
     const message=document.getElementById('message');
