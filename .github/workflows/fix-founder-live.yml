@@ -1,0 +1,44 @@
+name: Fix founder live page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-founder-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Patch founder pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          paths = [Path('what-is-human-architecture/index.html')]
+          for p in paths:
+              s = p.read_text(encoding='utf-8')
+              s = s.replace('../assets/founder/mel-mihira-founder.JPG','../assets/founder/mel-mihira-founder.webp')
+              if '../founder-update.css' not in s:
+                  s = s.replace('<link rel="stylesheet" href="../growth.css">', '<link rel="stylesheet" href="../growth.css"><link rel="stylesheet" href="../founder-update.css?v=8">')
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit repaired page
+        shell: bash
+        run: |
+          git config user.name "Human Architecture Deploy"
+          git config user.email "hello@human-architecture.info"
+          git add what-is-human-architecture/index.html
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Fix founder page to FINAL-v4 layout"
+            git push origin main
+          fi
