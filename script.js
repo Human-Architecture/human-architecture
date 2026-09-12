@@ -1,1 +1,1 @@
-(()=>{const current=document.currentScript;const base=new URL('script-base.js?v=12',current.src).href;const founder=new URL('founder-final.js?v=12',current.src).href;document.write(`<script src="${base}"><\/script><script src="${founder}"><\/script>`);})();
+(()=>{const current=document.currentScript;const base=new URL('script-base.js?v=12',current.src).href;const founder=new URL('founder-final.js?v=15',current.src).href;document.write(`<script src="${base}"><\/script><script src="${founder}"><\/script>`);})();
