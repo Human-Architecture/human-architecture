@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const allowedSources = new Set(['familien','babymesse','gutscheine','codex','sessions','gruender','mihira-ceremonia','kooperationen']);
   const source = allowedSources.has(q.get('source')) ? q.get('source') : (document.body.dataset.page || 'website');
   let language = q.get('lang') === 'en' ? 'en' : (document.documentElement.lang || 'de');
+  document.querySelectorAll('.ha-menu nav').forEach(nav => {
+    if (nav.querySelector('a[href^="/angebote/"]')) return;
+    const entry = document.createElement('a');
+    entry.href = '/angebote/'; entry.className = 'ha-nav-link';
+    entry.dataset.de = 'Angebote & Orientierung'; entry.dataset.en = 'Offers & orientation';
+    entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
+    nav.prepend(entry);
+  });
   const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',offen:'Beratung zur Gutscheinwahl'};
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
@@ -128,3 +136,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
