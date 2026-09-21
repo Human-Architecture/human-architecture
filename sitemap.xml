@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.human-architecture.info/</loc></url>
-  <url><loc>https://www.human-architecture.info/what-is-human-architecture/</loc></url>
-  <url><loc>https://www.human-architecture.info/values/</loc></url>
+  <url><loc>https://www.human-architecture.info/angebote/</loc></url>
   <url><loc>https://www.human-architecture.info/babymesse/</loc></url>
   <url><loc>https://www.human-architecture.info/codex/</loc></url>
-  <url><loc>https://www.human-architecture.info/sessions/</loc></url>
-  <url><loc>https://www.human-architecture.info/mihira-ceremonia/</loc></url>
   <url><loc>https://www.human-architecture.info/familien/</loc></url>
   <url><loc>https://www.human-architecture.info/gruender/</loc></url>
-  <url><loc>https://www.human-architecture.info/kooperationen/</loc></url>
-  <url><loc>https://www.human-architecture.info/organizations/</loc></url>
-  <url><loc>https://www.human-architecture.info/organizations/hr-brief.html</loc></url>
   <url><loc>https://www.human-architecture.info/gutscheine/</loc></url>
-  <url><loc>https://www.human-architecture.info/sessions/koerperarbeit/</loc></url>
-  <url><loc>https://www.human-architecture.info/mensch-und-tier/</loc></url>
+  <url><loc>https://www.human-architecture.info/</loc></url>
+  <url><loc>https://www.human-architecture.info/kooperationen/familie/</loc></url>
+  <url><loc>https://www.human-architecture.info/kooperationen/</loc></url>
   <url><loc>https://www.human-architecture.info/mensch-und-tier/hunde/</loc></url>
+  <url><loc>https://www.human-architecture.info/mensch-und-tier/</loc></url>
   <url><loc>https://www.human-architecture.info/mensch-und-tier/katzen/</loc></url>
+  <url><loc>https://www.human-architecture.info/mihira-ceremonia/</loc></url>
+  <url><loc>https://www.human-architecture.info/organizations/hr-brief.html</loc></url>
+  <url><loc>https://www.human-architecture.info/organizations/</loc></url>
+  <url><loc>https://www.human-architecture.info/organizations/international/</loc></url>
   <url><loc>https://www.human-architecture.info/reitsport/</loc></url>
-<url><loc>https://www.human-architecture.info/angebote/</loc></url>
-<url><loc>https://www.human-architecture.info/reitsport/pferdekauf/</loc></url>
-<url><loc>https://www.human-architecture.info/reitsport/partnerschaft/</loc></url>
-<url><loc>https://www.human-architecture.info/organizations/international/</loc></url>
+  <url><loc>https://www.human-architecture.info/reitsport/partnerschaft/</loc></url>
+  <url><loc>https://www.human-architecture.info/reitsport/pferdekauf/</loc></url>
+  <url><loc>https://www.human-architecture.info/sessions/</loc></url>
+  <url><loc>https://www.human-architecture.info/sessions/koerperarbeit/</loc></url>
+  <url><loc>https://www.human-architecture.info/values/</loc></url>
+  <url><loc>https://www.human-architecture.info/what-is-human-architecture/</loc></url>
 </urlset>
-
-
