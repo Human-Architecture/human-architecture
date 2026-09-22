@@ -2053,7 +2053,7 @@ fetch("/api/contact", {
   .then(async (response) => {
     const data = await response.json().catch(() => ({}));
 
-    if (!response.ok) {
+    if (!response.ok || data.success !== true) {
       throw new Error(
         data.message || "Your message could not be delivered."
       );
