@@ -5,3 +5,5 @@
 
 /* Keep orientation links below the fixed site header; JS tracks its exact height. */
 .site-header + .ha-wayfinding{margin-top:88px}
+
+.site-header{background:#063442}
