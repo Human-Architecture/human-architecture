@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const roots=document.querySelectorAll('.ha-wayfinding,.ha-site-directory,.ha-entry');
+ const header=document.querySelector('.site-header');
+ const wayfinding=document.querySelector('.ha-wayfinding');
+ if(header&&wayfinding){
+  const placeNavigation=()=>{wayfinding.style.marginTop=getComputedStyle(header).position==='fixed'?header.getBoundingClientRect().height+'px':'';};
+  placeNavigation();
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(placeNavigation).observe(header);
+  else window.addEventListener('resize',placeNavigation);
+ }
  const normalize=p=>p.replace(/index\.html$/,'').replace(/\/$/,'')||'/';
  function sync(){
   const lang=document.documentElement.lang.toLowerCase().startsWith('en')?'en':'de';
