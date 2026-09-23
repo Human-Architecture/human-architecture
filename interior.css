@@ -1,0 +1,191 @@
+/* Human Architecture interior pages. The homepage keeps its own design. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap');
+
+body.ha-interior {
+  --ha-abyss: #063442;
+  --ha-current: #084b5a;
+  --ha-sea: #0b6272;
+  --ha-sand: #c8af8b;
+  --ha-ivory: #f5f0e7;
+  --ha-foam: #f4f7f3;
+  --ha-mist: #d9e7e5;
+  --ha-ink: #263235;
+  background: var(--ha-ivory);
+  color: var(--ha-ink);
+  font-family: Manrope, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.ha-interior h1,
+body.ha-interior h2,
+body.ha-interior h3,
+body.ha-interior .ha-site-directory h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+}
+
+body.ha-interior a:focus-visible,
+body.ha-interior button:focus-visible,
+body.ha-interior summary:focus-visible,
+body.ha-interior input:focus-visible,
+body.ha-interior select:focus-visible,
+body.ha-interior textarea:focus-visible {
+  outline: 3px solid var(--ha-sand);
+  outline-offset: 4px;
+}
+
+/* Deep-water entry, generous breathing room, and the same visual language as home. */
+body.ha-interior.ha-growth .ha-header,
+body.ha-interior.ha-growth .ha-footer { background: var(--ha-abyss); }
+body.ha-interior.ha-growth .ha-hero {
+  background:
+    linear-gradient(105deg, rgba(3, 35, 46, .9), rgba(6, 52, 66, .7)),
+    url('/assets/ocean/OCEAN%20BG.png') center / cover no-repeat;
+  padding-top: clamp(72px, 9vw, 135px);
+  padding-bottom: clamp(82px, 10vw, 150px);
+}
+body.ha-interior.ha-growth .ha-hero h1 {
+  max-width: 15ch;
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  letter-spacing: -.035em;
+  line-height: 1.02;
+}
+body.ha-interior.ha-growth .ha-hero .ha-lead { max-width: 680px; }
+body.ha-interior.ha-growth .ha-content { max-width: 1280px; }
+body.ha-interior.ha-growth .ha-section { padding-block: clamp(58px, 7vw, 108px); }
+body.ha-interior.ha-growth .ha-section h2 { letter-spacing: -.025em; }
+body.ha-interior.ha-growth .ha-card {
+  padding: clamp(25px, 3vw, 38px);
+  border: 1px solid rgba(6, 52, 66, .12);
+  border-top: 2px solid var(--ha-sand);
+  background: linear-gradient(145deg, #fffdf8, var(--ha-foam));
+  box-shadow: 0 18px 42px rgba(6, 52, 66, .045);
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+body.ha-interior.ha-growth .ha-card:hover,
+body.ha-interior.ha-growth .ha-card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(6, 52, 66, .11);
+}
+body.ha-interior.ha-growth .ha-button { border-radius: 999px; padding-inline: 27px; }
+body.ha-interior.ha-growth .ha-button:hover { background: var(--ha-sea); }
+
+/* Individual session catalogue: one shared price key, clear rows, calm rhythm. */
+.ha-session-menu > p:first-child { color: #806947; }
+.ha-session-menu > p:nth-child(3) { max-width: 75ch; }
+.ha-session-key {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(265px, 32%);
+  align-items: baseline;
+  gap: 32px;
+  margin: 48px 0 0;
+  padding: 20px 24px;
+  background: var(--ha-abyss);
+  color: var(--ha-ivory);
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+.ha-session-key-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: right; color: #dfc7a4; }
+.ha-session-group { border: 1px solid rgba(6, 52, 66, .18); border-top: 0; }
+.ha-session-group-heading {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  padding: 22px 26px;
+  background: var(--ha-mist);
+  color: var(--ha-abyss);
+}
+.ha-session-group-heading span { font-size: 12px; letter-spacing: .18em; color: #706043; }
+.ha-session-group-heading h3 { margin: 0 !important; font-size: clamp(1.5rem, 2.4vw, 2.2rem) !important; }
+.ha-session-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(265px, 32%);
+  gap: 32px;
+  align-items: start;
+  padding: 25px 26px;
+  background: #fffdf8;
+  border-top: 1px solid rgba(6, 52, 66, .13);
+}
+.ha-session-row:nth-child(odd) { background: var(--ha-foam); }
+.ha-session-row h4 { margin: 0 0 6px; color: var(--ha-abyss); font-size: 16px; line-height: 1.4; letter-spacing: .045em; }
+.ha-session-row p { margin: 0; max-width: 65ch; color: #3b555b; font-size: 14px; line-height: 1.65; }
+.ha-session-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; color: var(--ha-abyss); text-align: right; font-size: 15px; font-weight: 600; white-space: nowrap; }
+.ha-session-note { margin-top: 35px; padding: clamp(24px, 4vw, 42px); background: var(--ha-mist); }
+.ha-session-note p { margin-top: 0; font-size: 14px; }
+.ha-session-note .ha-text-link { margin-left: 20px; }
+
+body.ha-interior .ha-wayfinding {
+  background: var(--ha-foam);
+  border-bottom-color: rgba(6, 52, 66, .16);
+}
+body.ha-interior .ha-site-directory {
+  background:
+    linear-gradient(105deg, rgba(3, 35, 46, .96), rgba(6, 52, 66, .91)),
+    url('/assets/ocean/OCEAN%20BG.png') center / cover no-repeat;
+  color: var(--ha-ivory);
+  padding-block: clamp(60px, 7vw, 105px);
+}
+body.ha-interior .ha-site-directory h2 { color: var(--ha-ivory); }
+body.ha-interior .ha-site-directory p { color: #d9e7e5; }
+body.ha-interior .ha-directory-grid details,
+body.ha-interior .ha-related,
+body.ha-interior .ha-directory-contact { border-color: rgba(245, 240, 231, .26); }
+body.ha-interior .ha-related-links a { border-color: rgba(200, 175, 139, .65); }
+body.ha-interior .ha-site-directory a:hover { color: #e4cba5; }
+
+/* Independent BODY LANGUAGE workshop: related brand, distinct offer. */
+body.ha-interior.body-language-page .top,
+body.ha-interior.body-language-page footer { background-color: var(--ha-abyss); }
+body.ha-interior.body-language-page .top {
+  background-image: linear-gradient(100deg, rgba(2, 32, 41, .93), rgba(6, 52, 66, .75)), url('/assets/ocean/OCEAN%20BG.png');
+  background-position: center;
+  background-size: cover;
+}
+body.ha-interior.body-language-page .logo img { width: 166px; height: auto; display: block; }
+body.ha-interior.body-language-page .hero h1,
+body.ha-interior.body-language-page .section h2,
+body.ha-interior.body-language-page .card b,
+body.ha-interior.body-language-page .route h3,
+body.ha-interior.body-language-page .quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+body.ha-interior.body-language-page .section { padding-block: clamp(65px, 7vw, 110px); }
+body.ha-interior.body-language-page .card,
+body.ha-interior.body-language-page .route { background: #fffdf8; box-shadow: 0 18px 42px rgba(6, 52, 66, .06); }
+body.ha-interior.body-language-page .button { border-radius: 999px; padding-inline: 25px; }
+
+/* Bespoke pages share the same type, depth and restrained material palette. */
+body.ha-interior .site-header,
+body.ha-interior header:not(.ha-header) { background-color: var(--ha-abyss); }
+body.ha-interior .site-footer { background-color: var(--ha-abyss); }
+body.ha-interior .hero:not(.ha-hero) {
+  background-image: linear-gradient(100deg, rgba(2, 32, 41, .88), rgba(6, 52, 66, .62)), url('/assets/ocean/OCEAN%20BG.png');
+  background-size: cover;
+  background-position: center;
+}
+body.ha-interior .hero h1,
+body.ha-interior .hero h2 { font-family: 'Cormorant Garamond', Georgia, serif; }
+body.ha-interior .ha-entry { background: var(--ha-foam); }
+body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
+
+@media (max-width: 760px) {
+  body.ha-interior.ha-growth .ha-hero { padding-block: 65px 88px; }
+  body.ha-interior.ha-growth .ha-hero h1 { font-size: clamp(2.8rem, 10vw, 4.3rem); }
+  body.ha-interior.ha-growth .ha-card { padding: 25px; }
+  body.ha-interior .ha-site-directory { padding-block: 50px; }
+  .ha-session-key { margin-top: 35px; grid-template-columns: 1fr; gap: 6px; }
+  .ha-session-key-prices { text-align: center; }
+  .ha-session-row { grid-template-columns: 1fr; gap: 18px; padding: 23px 20px; }
+  .ha-session-prices { text-align: center; border-top: 1px solid rgba(6, 52, 66, .16); padding-top: 12px; }
+  .ha-session-group-heading { padding: 18px 20px; }
+  .ha-session-note .ha-text-link { display: block; margin: 12px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.ha-interior.ha-growth .ha-card { transition: none; }
+  body.ha-interior.ha-growth .ha-card:hover { transform: none; }
+}
+@media print {
+  body.ha-interior .ha-site-directory { background: white; color: #063442; }
+  body.ha-interior .ha-site-directory h2,
+  body.ha-interior .ha-site-directory p { color: #063442; }
+}
