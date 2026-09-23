@@ -79,6 +79,8 @@ body.ha-interior.ha-growth .ha-button:hover { background: var(--ha-sea); }
 .ha-session-chooser strong { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.55rem; font-weight: 500; line-height: 1.1; }
 .ha-session-chooser span { font-size: 13px; line-height: 1.5; }
 .ha-session-group { scroll-margin-top: 32px; }
+.ha-workshop-bridge { max-width: none !important; margin: 22px 0 0; padding: 18px 22px; border-left: 3px solid var(--ha-sand); background: var(--ha-foam); font-size: 14px; line-height: 1.65; }
+.ha-workshop-bridge a { font-weight: 600; white-space: nowrap; }
 .ha-session-key {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(265px, 32%);
@@ -159,6 +161,8 @@ body.ha-interior.body-language-page .section { padding-block: clamp(65px, 7vw, 1
 body.ha-interior.body-language-page .card,
 body.ha-interior.body-language-page .route { background: #fffdf8; box-shadow: 0 18px 42px rgba(6, 52, 66, .06); }
 body.ha-interior.body-language-page .button { border-radius: 999px; padding-inline: 25px; }
+body.ha-interior.body-language-page .session-crosslink { grid-column: 1 / -1; margin: 8px 0 0; padding: 18px 24px; border-left: 3px solid var(--ha-sand); background: var(--ha-foam); color: var(--ha-abyss); }
+body.ha-interior.body-language-page .session-crosslink a { font-weight: 700; }
 
 /* Bespoke pages share the same type, depth and restrained material palette. */
 body.ha-interior .site-header,
