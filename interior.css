@@ -41,12 +41,12 @@ body.ha-interior.ha-growth .ha-hero {
   background:
     linear-gradient(105deg, rgba(3, 35, 46, .9), rgba(6, 52, 66, .7)),
     url('/assets/ocean/OCEAN%20BG.png') center / cover no-repeat;
-  padding-top: clamp(72px, 9vw, 135px);
-  padding-bottom: clamp(82px, 10vw, 150px);
+  padding-top: clamp(66px, 7vw, 105px);
+  padding-bottom: clamp(72px, 7vw, 105px);
 }
 body.ha-interior.ha-growth .ha-hero h1 {
-  max-width: 15ch;
-  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  max-width: 19ch;
+  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
   letter-spacing: -.035em;
   line-height: 1.02;
 }
@@ -188,6 +188,10 @@ body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
   .ha-session-key-prices { text-align: center; }
   .ha-session-row { grid-template-columns: 1fr; gap: 18px; padding: 23px 20px; }
   .ha-session-prices { text-align: center; border-top: 1px solid rgba(6, 52, 66, .16); padding-top: 12px; }
+  .ha-session-prices span::before { display: block; margin-bottom: 3px; color: #536e72; font-size: 11px; font-weight: 500; letter-spacing: .04em; }
+  .ha-session-prices span:nth-child(1)::before { content: '30 min'; }
+  .ha-session-prices span:nth-child(2)::before { content: '60 min'; }
+  .ha-session-prices span:nth-child(3)::before { content: '90 min'; }
   .ha-session-group-heading { padding: 18px 20px; }
   .ha-session-note .ha-text-link { display: block; margin: 12px 0 0; }
 }
