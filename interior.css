@@ -208,3 +208,15 @@ body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
   body.ha-interior .ha-site-directory h2,
   body.ha-interior .ha-site-directory p { color: #063442; }
 }
+
+/* Codex and mentoring detail pages: restrained comparison, readable at mobile widths. */
+body.ha-interior .ha-price-notice { margin: 0 0 30px; padding: 20px 24px; border-left: 3px solid var(--ha-sand); background: var(--ha-mist); color: var(--ha-abyss); }
+body.ha-interior .ha-price-notice strong { display: block; font-size: 11px; line-height: 1.6; letter-spacing: .1em; text-transform: uppercase; }
+body.ha-interior .ha-price-notice p { margin: 8px 0 0; font-size: 13px; line-height: 1.65; }
+body.ha-interior .ha-offer-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+body.ha-interior .ha-offer-card { display: flex; flex-direction: column; gap: 12px; }
+body.ha-interior .ha-offer-card h3, body.ha-interior .ha-offer-card p { margin: 0; }
+body.ha-interior .ha-offer-card .ha-scope { color: #425a60; font-size: 13px; line-height: 1.65; }
+body.ha-interior .ha-offer-card .ha-proposed-price { margin-top: auto; padding-top: 22px; border-top: 1px solid rgba(6,52,66,.16); color: var(--ha-abyss); font-size: 17px; font-weight: 600; }
+body.ha-interior .ha-offer-card .ha-text-link { margin-top: 2px; }
+@media(max-width:850px) { body.ha-interior .ha-offer-grid { grid-template-columns: 1fr; } }
