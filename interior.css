@@ -73,6 +73,12 @@ body.ha-interior.ha-growth .ha-button:hover { background: var(--ha-sea); }
 /* Individual session catalogue: one shared price key, clear rows, calm rhythm. */
 .ha-session-menu > p:first-child { color: #806947; }
 .ha-session-menu > p:nth-child(3) { max-width: 75ch; }
+.ha-session-chooser { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 36px; }
+.ha-session-chooser a { display: flex; flex-direction: column; gap: 8px; min-height: 125px; padding: 22px; background: var(--ha-mist); border-top: 2px solid var(--ha-sand); color: var(--ha-abyss); text-decoration: none; }
+.ha-session-chooser a:hover, .ha-session-chooser a:focus-visible { background: #c9dedc; }
+.ha-session-chooser strong { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.55rem; font-weight: 500; line-height: 1.1; }
+.ha-session-chooser span { font-size: 13px; line-height: 1.5; }
+.ha-session-group { scroll-margin-top: 32px; }
 .ha-session-key {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(265px, 32%);
@@ -169,6 +175,7 @@ body.ha-interior .ha-entry { background: var(--ha-foam); }
 body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
 
 @media (max-width: 760px) {
+  .ha-session-chooser { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   body.ha-interior.ha-growth .ha-hero { padding-block: 65px 88px; }
   body.ha-interior.ha-growth .ha-hero h1 { font-size: clamp(2.8rem, 10vw, 4.3rem); }
   body.ha-interior.ha-growth .ha-card { padding: 25px; }
@@ -179,6 +186,10 @@ body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
   .ha-session-prices { text-align: center; border-top: 1px solid rgba(6, 52, 66, .16); padding-top: 12px; }
   .ha-session-group-heading { padding: 18px 20px; }
   .ha-session-note .ha-text-link { display: block; margin: 12px 0 0; }
+}
+@media (max-width: 460px) {
+  .ha-session-chooser { grid-template-columns: 1fr; }
+  .ha-session-chooser a { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   body.ha-interior.ha-growth .ha-card { transition: none; }
