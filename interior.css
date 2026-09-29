@@ -233,3 +233,16 @@ body.ha-interior .ha-three-paths .ha-card .ha-text-link { margin-top: auto; alig
 body.ha-interior .ha-path-number { color: #776344; font: 600 11px/1.5 Manrope, Arial, sans-serif; letter-spacing: .14em; }
 body.ha-interior .ha-offer-entry + .ha-section { padding-top: clamp(50px, 5vw, 75px); }
 @media(max-width: 900px) { body.ha-interior .ha-three-paths { grid-template-columns: 1fr; } body.ha-interior .ha-three-paths .ha-card { min-height: 0; } }
+
+/* Domain cues: one HA system with a warmer physical area and a quieter transition area. */
+body.ha-interior.ha-growth[data-page="sessions"]{background:#f3ecdf}
+body.ha-interior.ha-growth[data-page="sessions"] .ha-hero{
+  background:linear-gradient(105deg,rgba(11,48,55,.81),rgba(47,49,43,.58)),url('/assets/BACKGROUNDS/BODYBG2.jpeg') center 47% / cover no-repeat;
+}
+body.ha-interior.ha-growth[data-page="sessions"] .ha-section:nth-child(even){background:#f8f3e9}
+body.ha-interior.ha-growth[data-page="sessions"] .ha-card{background:#fffdfa;border-top-color:#bba17c}
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"]{background:#f2ede7}
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] .ha-hero{
+  background:linear-gradient(105deg,rgba(24,24,33,.89),rgba(36,38,47,.53)),url('/assets/BACKGROUNDS/TRANSITION%20BG2.jpeg') center 46% / cover no-repeat;
+}
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] .ha-card{border-top-color:#b9a17e;background:#faf6f0}
