@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-de][data-en]').forEach(el => {el.textContent=el.dataset[lang];});
     document.querySelectorAll('[data-language]').forEach(el => el.setAttribute('aria-pressed',String(el.dataset.language === lang)));
+    document.querySelectorAll('a[data-href-de][data-href-en]').forEach(el => { el.setAttribute('href', el.dataset['href'+(lang === 'en' ? 'En' : 'De')]); });
     document.querySelectorAll('a[href]').forEach(el=>{
       const raw=el.getAttribute('href');
       if(!raw || raw.startsWith('#') || /^(mailto:|tel:)/.test(raw))return;
