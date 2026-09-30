@@ -79,13 +79,13 @@ const translations = {
     togetherPoints: "Ähnlichkeiten · Unterschiede · Verbindung",
     togetherButton: "MAMA × BABY CODEX ANFRAGEN",
 
-    specialLabel: "MESSE-SPECIAL",
-    specialTitle: "Direkt auf der Babymesse buchen und 20 % erhalten.",
+    specialLabel: "BABYMESSE REGENSBURG · 13.09.2026",
+    specialTitle: "Die Messe ist vorbei. Die Angebote bleiben.",
     specialSecondary:
-      "Oder innerhalb von 7 Tagen entscheiden und 10 % erhalten.",
+      "Das damalige Messe-Special ist beendet. Mama Bodywork, Baby Codex und Familienangebote kannst du weiterhin in Ruhe entdecken und individuell anfragen.",
     specialNote:
-      "Das Angebot gilt für Buchungen im Zusammenhang mit der Babymesse und kann nicht mit anderen Vergünstigungen kombiniert werden.",
-    specialButton: "MESSE-SPECIAL PER WHATSAPP SICHERN",
+      "Die aktuellen Formate und Konditionen findest du auf der Familienseite.",
+    specialButton: "AKTUELLE FAMILIENANGEBOTE ANSEHEN",
 
     finalTitle: "FÜR MAMA.<br>FÜR BABY.<br>FÜR EUCH.",
     finalText:
@@ -139,13 +139,13 @@ const translations = {
     togetherPoints: "Similarities · Differences · Connection",
     togetherButton: "ENQUIRE ABOUT MAMA × BABY CODEX",
 
-    specialLabel: "FAIR SPECIAL",
-    specialTitle: "Book directly at the Baby Fair and receive 20% off.",
+    specialLabel: "REGENSBURG BABY FAIR · 13 SEPTEMBER 2026",
+    specialTitle: "The fair has ended. The offers remain.",
     specialSecondary:
-      "Or decide within 7 days and receive 10% off.",
+      "The fair discount has ended. Explore Mama Bodywork, Baby Codex and family offers at your own pace, then enquire about current availability.",
     specialNote:
-      "This offer applies to bookings connected with the Baby Fair and cannot be combined with other discounts.",
-    specialButton: "CLAIM THE FAIR SPECIAL VIA WHATSAPP",
+      "Current formats and terms are available on the family page.",
+    specialButton: "EXPLORE CURRENT FAMILY OFFERS",
 
     finalTitle: "FOR MAMA.<br>FOR BABY.<br>FOR YOU.",
     finalText:
