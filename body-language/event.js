@@ -19,19 +19,38 @@
   const friend = () => form.querySelector('input[name=friend]:checked')?.value;
   const friendMember = () => form.querySelector('input[name=friendMember]:checked')?.value;
   const euro = cents => new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(cents/100);
+  function row(label, value, className) {
+    const div=document.createElement('div');
+    if(className) div.className=className;
+    const name=document.createElement('span'); name.textContent=label;
+    div.append(name);
+    if(value!==undefined){const amount=document.createElement('strong'); amount.textContent=value; div.append(amount);}
+    summary.append(div);
+  }
   function update() {
     const together = friend() === 'yes';
     friendFields.hidden = !together;
     friendFields.querySelectorAll('[data-friend-required]').forEach(el => { el.required = together; if (!together && el.type === 'radio') el.checked = false; });
     if (!together) friendFields.querySelectorAll('input:not([type=radio])').forEach(el => { el.value = ''; });
+    summary.replaceChildren();
+    row('BODY LANGUAGE · 28. November 2026 · 15:00–17:00 Uhr · Clever Fit Kümmersbruck');
     try {
       const price = BodyLanguagePrice.calculate(member(),friend(),friendMember());
-      summary.innerHTML = `<div><span>BODY LANGUAGE · 28.11.2026 · 15:00–17:00<br>Clever Fit Kümmersbruck</span></div><div><span>Dein Preis${together?' · 10 % Rabatt':''}</span><strong>${euro(price.first)}</strong></div>${together?`<div><span>Preis Freund:in · 10 % Rabatt</span><strong>${euro(price.second)}</strong></div><div class="bl-total"><span>Gesamt für zwei Personen</span><strong>${euro(price.total)}</strong></div>`:''}<p>Dies ist eine Anfrage. Noch keine Zahlung und keine bestätigte Platzreservierung.</p>`;
+      const firstName=[form.elements.first.value.trim(),form.elements.last.value.trim()].filter(Boolean).join(' ');
+      row(`Teilnehmer 1${firstName?' · '+firstName:''} · ${member()==='yes'?'Clever Fit Mitglied':'Extern'}`,euro(price.first));
+      if(together){
+        const secondName=[form.elements.friendFirst.value.trim(),form.elements.friendLast.value.trim()].filter(Boolean).join(' ');
+        row(`Teilnehmer 2${secondName?' · '+secondName:''} · ${friendMember()==='yes'?'Clever Fit Mitglied':'Extern'}`,euro(price.second));
+        row('Bring-a-Friend Rabatt · –10 % je Teilnehmer');
+        row('GESAMT',euro(price.total),'bl-total');
+      }else row('GESAMT',euro(price.total),'bl-total');
     } catch (_) {
-      summary.innerHTML = '<p>Wähle deinen Mitgliedsstatus und ob du dich mit einer weiteren Person anmeldest. Danach siehst du den genauen Preis.</p>';
+      const prompt=document.createElement('p');prompt.textContent='Wähle deinen Mitgliedsstatus und ob du dich mit einer weiteren Person anmeldest. Danach siehst du den genauen Preis.';summary.append(prompt);
     }
+    const notice=document.createElement('p');notice.textContent='Dies ist eine Anfrage. Noch keine Zahlung und keine bestätigte Platzreservierung.';summary.append(notice);
   }
   form.addEventListener('change', update);
+  form.addEventListener('input', e => { if (['first','last','friendFirst','friendLast'].includes(e.target.name)) update(); });
   update();
   form.addEventListener('submit', async e => {
     e.preventDefault(); status.textContent = '';
