@@ -12,7 +12,7 @@
     return;
   }
   const friendFields = form.querySelector('#bl-friend-fields');
-  const summary = form.querySelector('#bl-price-summary');
+  const summary = document.querySelector('#bl-price-summary');
   const status = form.querySelector('#bl-form-status');
   const submit = form.querySelector('button[type=submit]');
   const member = () => form.querySelector('input[name=member]:checked')?.value;
