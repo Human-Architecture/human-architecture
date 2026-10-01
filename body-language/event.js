@@ -72,7 +72,7 @@
       success.hidden=false; success.focus();
     } catch (_) {
       status.textContent='Die Anfrage konnte nicht gesendet werden. Bitte schreibe an hello@human-architecture.info.';
-      submit.disabled=false; submit.textContent='Anmeldung anfragen';
+      submit.disabled=false; submit.textContent='Anfrage an Human Architecture senden';
     }
   });
 })();
