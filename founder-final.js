@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     portrait.decoding='async';
   }
 
-  // APPROVED IMAGE 2: banana portrait for the lighter perspective/quote block.
+  // Keep the reflection while the approved second portrait is unavailable.
   founder.querySelectorAll('.method-founder-lightness').forEach(el=>el.remove());
   const block=document.createElement('div');
-  block.className='method-founder-lightness';
-  block.innerHTML=`<figure><div class="method-founder-lightness__image"><img src="/assets/founder/mel-mihira-banana-preview.jpg?v=15" alt="Mel Mihira laughing while holding a banana like a telephone" loading="lazy" decoding="async"></div></figure><blockquote><p>There is more than one angle on every reality. Let’s explore the lens through which you experience yours.</p><footer>Human Architecture</footer></blockquote>`;
+  block.className='method-founder-lightness method-founder-lightness--quote';
+  block.innerHTML=`<blockquote><p>There is more than one angle on every reality. Let’s explore the lens through which you experience yours.</p><footer>Human Architecture</footer></blockquote>`;
 
   const valuesLink=[...founder.querySelectorAll(':scope > p')].find(p=>p.querySelector('a[href*="values"]'));
   founder.insertBefore(block,valuesLink||null);
