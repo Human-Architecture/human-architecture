@@ -18,6 +18,7 @@ const base={first:'Mel',last:'Test',email:'mel@example.org',member:'yes',friend:
   process.env.RESEND_API_KEY='test-key';
   let res=response();await handler({method:'POST',body:base},res);assert.equal(res.code,200);assert.equal(res.body.totalCents,2900);assert.equal(res.body.status,'request_received');assert.equal(sent.length,2);assert.equal(sent[0].to[0],'hello@human-architecture.info');assert.match(sent[0].text,/Keine Zahlung eingegangen/);assert.match(sent[1].text,/keine bestätigte Buchung/);
   res=response();await handler({method:'POST',body:{...base,friend:'yes',friendFirst:'Alex',friendLast:'Sample',friendEmail:'alex@example.org',friendMember:'no',friendConsent:true,expectedTotalCents:1}},res);assert.equal(res.code,200);assert.equal(res.body.totalCents,7020);assert.match(sent[2].text,/70,20/);
+  res=response();await handler({method:'POST',body:{...base,friend:'yes',friendFirst:'Alex',friendLast:'Sample',friendEmail:base.email,friendMember:'no',friendConsent:true}},res);assert.equal(res.code,200);assert.equal(res.body.totalCents,7020);
   res=response();await handler({method:'POST',body:{...base,friend:'yes',friendFirst:'Alex',friendLast:'Sample',friendEmail:'alex@example.org',friendMember:'no'}},res);assert.equal(res.code,400);
   res=response();await handler({method:'POST',body:{...base,first:'A'.repeat(181)}},res);assert.equal(res.code,400);
   res=response();await handler({method:'GET',body:{}},res);assert.equal(res.code,405);

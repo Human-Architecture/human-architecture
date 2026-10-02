@@ -14,7 +14,7 @@ module.exports=async function handler(req,res){
   const first=clean(b.first),last=clean(b.last),email=clean(b.email),phone=clean(b.phone);
   const friendFirst=clean(b.friendFirst),friendLast=clean(b.friendLast),friendEmail=clean(b.friendEmail);
   if(!first||!last||!emailPattern.test(email)||b.consent!==true||!['yes','no'].includes(b.member)||!['yes','no'].includes(b.friend))return res.status(400).json({ok:false,error:'Required fields missing'});
-  if(b.friend==='yes'&&(!friendFirst||!friendLast||!emailPattern.test(friendEmail)||friendEmail.toLowerCase()===email.toLowerCase()||b.friendConsent!==true))return res.status(400).json({ok:false,error:'Friend details missing'});
+  if(b.friend==='yes'&&(!friendFirst||!friendLast||!emailPattern.test(friendEmail)||b.friendConsent!==true))return res.status(400).json({ok:false,error:'Friend details missing'});
   let amount;
   try{amount=calculate(b.member,b.friend,b.friendMember);}catch(_){return res.status(400).json({ok:false,error:'Invalid price selection'});}
   if(!process.env.RESEND_API_KEY)return res.status(503).json({ok:false,error:'Delivery unavailable'});
@@ -37,5 +37,5 @@ module.exports=async function handler(req,res){
     const acknowledgement=await resend.emails.send({from:'Human Architecture <hello@human-architecture.info>',to:[email],replyTo:'hello@human-architecture.info',subject:'BODY LANGUAGE: Deine Anfrage ist eingegangen',text:`Hallo ${first},\n\nwir haben deine Anfrage für BODY LANGUAGE am 28. November 2026, 15:00–17:00 Uhr bei Clever Fit Kümmersbruck erhalten.\n\nVorgemerkte Personen: ${b.friend==='yes'?`${first} ${last} und ${friendFirst} ${friendLast}`:`${first} ${last}`}\nAngezeigter Gesamtbetrag: ${euro(amount.total)}. Es wurde noch nichts bezahlt. Deine Anfrage ist keine bestätigte Buchung oder Platzreservierung. Wir melden uns mit den nächsten Schritten. Du kannst deinen Platz auch direkt im clever fit Kümmersbruck durch Anmeldung und Zahlung im Studio sichern.\n\nHuman Architecture®\nhello@human-architecture.info`});
     if(acknowledgement.error)console.error('BODY LANGUAGE acknowledgement failed',acknowledgement.error);
     return res.status(200).json({ok:true,status:'request_received',totalCents:amount.total,acknowledgementSent:!acknowledgement.error});
-  }catch(error){console.error('BODY LANGUAGE registration delivery failed',error);return res.status(500).json({ok:false,error:'Delivery failed'});}
+  }catch(error){console.error('BODY LANGUAGE registration delivery failed',error);return res.status(503).json({ok:false,error:'Delivery unavailable'});}
 };
