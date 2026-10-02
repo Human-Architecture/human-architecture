@@ -66,12 +66,17 @@
     try {
       const response=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
       const result=await response.json();
-      if (!response.ok || !result.ok) throw new Error('Submission failed');
+      if (!response.ok || !result.ok) throw new Error(response.status===400 ? 'validation' : 'delivery');
       form.hidden=true;
       const success=document.querySelector('#bl-request-success');
       success.hidden=false; success.focus();
-    } catch (_) {
-      status.textContent='Die Anfrage konnte nicht gesendet werden. Bitte schreibe an hello@human-architecture.info.';
+    } catch (error) {
+      status.replaceChildren();
+      const message=document.createElement('span');
+      message.textContent=error.message==='validation' ? 'Bitte prüfe deine Angaben und versuche es erneut. ' : 'Die Anfrage wurde nicht bestätigt. Bitte versuche es erneut oder schreib uns direkt: ';
+      const link=document.createElement('a');link.href='mailto:hello@human-architecture.info?subject=BODY%20LANGUAGE%20%7C%2028.11.2026%20Anmeldung';link.textContent='hello@human-architecture.info';
+      status.append(message,link);
+      status.focus();
       submit.disabled=false; submit.textContent='Anfrage an Human Architecture senden';
     }
   });
