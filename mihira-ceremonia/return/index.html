@@ -17,8 +17,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/mihira-ceremonia/return/return.css">
+  <style>
+    .friend-fields{display:none;grid-column:1/-1;padding:24px;margin-top:2px;border:1px solid var(--line);background:var(--cream)}
+    .friend-fields.is-visible{display:grid;grid-template-columns:1fr 1fr;gap:22px}.friend-fields .full{grid-column:1/-1}
+    .price-preview{margin:26px 0;padding:22px 24px;color:var(--cream);background:var(--plum)}
+    .price-preview h3{margin:0 0 14px;font:500 23px var(--serif)}.price-preview-row{display:flex;justify-content:space-between;gap:20px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:13px}.price-preview-total{font-weight:600;color:var(--sand);border-bottom:0}.bring-note{margin:12px 0 0;color:var(--sand);font-size:11px}
+    @media(max-width:760px){.friend-fields.is-visible{grid-template-columns:1fr}.friend-fields .full{grid-column:auto}}
+  </style>
   <script defer src="/mihira-ceremonia/return/return.js"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","url":"https://www.human-architecture.info/mihira-ceremonia/return/","name":"RETURN · Breathwork, Yoga Nidra & Deep Rest","description":"A guided group experience combining conscious breathwork, body awareness, regulation, Yoga Nidra and deep rest.","inLanguage":["de","en"]},{"@type":"Event","name":"RETURN · November Session","startDate":"2026-11-07T17:30:00+01:00","endDate":"2026-11-07T19:30:00+01:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Sulzbach-Rosenberg","address":{"@type":"PostalAddress","addressLocality":"Sulzbach-Rosenberg","addressCountry":"DE"}},"organizer":{"@type":"Organization","name":"Mihira Ceremonia · Human Architecture","url":"https://www.human-architecture.info/mihira-ceremonia/return/"},"offers":[{"@type":"Offer","price":"22.00","priceCurrency":"EUR","availability":"https://schema.org/LimitedAvailability","url":"https://www.human-architecture.info/mihira-ceremonia/return/#booking"},{"@type":"Offer","name":"DALI Mitglieder","price":"18.00","priceCurrency":"EUR","availability":"https://schema.org/LimitedAvailability","url":"https://www.human-architecture.info/mihira-ceremonia/return/#booking"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","url":"https://www.human-architecture.info/mihira-ceremonia/return/","name":"RETURN · Breathwork, Yoga Nidra & Deep Rest","description":"A guided group experience combining conscious breathwork, body awareness, regulation, Yoga Nidra and deep rest.","inLanguage":["de","en"]},{"@type":"Event","name":"RETURN · November Session","startDate":"2026-11-14T18:00:00+01:00","endDate":"2026-11-14T19:30:00+01:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Sulzbach-Rosenberg","address":{"@type":"PostalAddress","addressLocality":"Sulzbach-Rosenberg","addressCountry":"DE"}},"organizer":{"@type":"Organization","name":"Mihira Ceremonia · Human Architecture","url":"https://www.human-architecture.info/mihira-ceremonia/return/"},"offers":[{"@type":"Offer","price":"28.00","priceCurrency":"EUR","availability":"https://schema.org/LimitedAvailability","url":"https://www.human-architecture.info/mihira-ceremonia/return/#booking"},{"@type":"Offer","name":"DALI Mitglieder","price":"25.00","priceCurrency":"EUR","availability":"https://schema.org/LimitedAvailability","url":"https://www.human-architecture.info/mihira-ceremonia/return/#booking"}]}]}</script>
 </head>
 <body>
   <a class="skip" href="#main" data-de="Zum Inhalt" data-en="Skip to content">Zum Inhalt</a>
@@ -118,12 +125,13 @@
         <a class="button button-primary" href="#booking" data-de="Platz sichern" data-en="Reserve your place">Platz sichern</a>
       </div>
       <div class="event-card">
-        <div><span data-de="SAMSTAG" data-en="SATURDAY">SAMSTAG</span><strong>07.11.2026</strong></div>
-        <div><span data-de="ZEIT" data-en="TIME">ZEIT</span><strong>17:30–19:30</strong></div>
+        <div><span data-de="SAMSTAG" data-en="SATURDAY">SAMSTAG</span><strong>14.11.2026</strong></div>
+        <div><span data-de="ZEIT" data-en="TIME">ZEIT</span><strong>18:00–19:30</strong></div>
         <div><span data-de="ORT" data-en="LOCATION">ORT</span><strong>Sulzbach-Rosenberg</strong></div>
-        <div><span data-de="DAUER" data-en="DURATION">DAUER</span><strong>120 MIN</strong></div>
-        <div class="prices"><span>22 € <small data-de="REGULÄR" data-en="REGULAR">REGULÄR</small></span><span>18 € <small data-de="DALI MITGLIEDER" data-en="DALI MEMBERS">DALI MITGLIEDER</small></span></div>
-        <p data-de="Begrenzte Gruppengröße." data-en="Limited group size.">Begrenzte Gruppengröße.</p>
+        <div><span data-de="DAUER" data-en="DURATION">DAUER</span><strong>CA. 90 MIN</strong></div>
+        <div class="prices"><span>28 € <small data-de="REGULÄR" data-en="REGULAR">REGULÄR</small></span><span>25 € <small data-de="DALI MITGLIEDER" data-en="DALI MEMBERS">DALI MITGLIEDER</small></span></div>
+        <p data-de="BRING A FRIEND · 10 % FÜR EUCH BEIDE" data-en="BRING A FRIEND · 10% FOR BOTH OF YOU">BRING A FRIEND · 10 % FÜR EUCH BEIDE</p>
+        <p data-de="Begrenzte Gruppengröße · bitte mit Puffer bis 20:00 Uhr planen." data-en="Limited group size · please allow time until 20:00.">Begrenzte Gruppengröße · bitte mit Puffer bis 20:00 Uhr planen.</p>
       </div>
     </section>
 
@@ -193,10 +201,10 @@
 
     <section class="booking-section" id="booking">
       <div class="form-intro">
-        <p class="section-index">PUBLIC SESSION · 07.11.2026</p>
+        <p class="section-index">PUBLIC SESSION · 14.11.2026</p>
         <h2 data-de="Jetzt Platz sichern." data-en="Reserve your place.">Jetzt Platz sichern.</h2>
         <p data-de="Sende deine Anmeldung für die RETURN November Session. Dein Platz ist nach erfolgreicher Zahlung bestätigt." data-en="Submit your registration for the RETURN November Session. Your place is confirmed after successful payment.">Sende deine Anmeldung für die RETURN November Session. Dein Platz ist nach erfolgreicher Zahlung bestätigt.</p>
-        <div class="booking-summary"><span>RETURN · 07.11.2026</span><strong>17:30–19:30 · Sulzbach-Rosenberg</strong><span data-de="22 € regulär · 18 € DALI Mitglieder" data-en="€22 regular · €18 DALI members">22 € regulär · 18 € DALI Mitglieder</span></div>
+        <div class="booking-summary"><span>RETURN · 14.11.2026</span><strong>18:00–19:30 · Sulzbach-Rosenberg</strong><span data-de="28 € regulär · 25 € DALI Mitglieder · Bring a Friend: 10 % für beide" data-en="€28 regular · €25 DALI members · Bring a Friend: 10% for both">28 € regulär · 25 € DALI Mitglieder · Bring a Friend: 10 % für beide</span><small data-de="Bitte plane für Ankommen und einen ruhigen Abschluss zeitlichen Puffer bis 20:00 Uhr ein." data-en="Please allow time until 20:00 for arrival and a calm close.">Bitte plane für Ankommen und einen ruhigen Abschluss zeitlichen Puffer bis 20:00 Uhr ein.</small></div>
       </div>
       <form class="return-form" id="public-booking-form" novalidate>
         <div class="form-grid">
@@ -204,8 +212,22 @@
           <label><span data-de="Nachname *" data-en="Last name *">Nachname *</span><input name="lastName" autocomplete="family-name" required maxlength="80"></label>
           <label class="full"><span data-de="E-Mail *" data-en="Email *">E-Mail *</span><input name="email" type="email" autocomplete="email" required maxlength="180"></label>
           <label><span data-de="Telefon · optional" data-en="Phone · optional">Telefon · optional</span><input name="phone" type="tel" autocomplete="tel" maxlength="80"></label>
-          <fieldset><legend data-de="Preisgruppe *" data-en="Price category *">Preisgruppe *</legend><label class="choice"><input type="radio" name="priceType" value="regular" required><span data-de="Regulär · 22 €" data-en="Regular · €22">Regulär · 22 €</span></label><label class="choice"><input type="radio" name="priceType" value="dali" required><span data-de="DALI Mitglied · 18 €" data-en="DALI member · €18">DALI Mitglied · 18 €</span></label></fieldset>
+          <fieldset><legend data-de="Deine Preisgruppe *" data-en="Your price category *">Deine Preisgruppe *</legend><label class="choice"><input type="radio" name="priceType" value="regular" required><span data-de="Regulär · 28 €" data-en="Regular · €28">Regulär · 28 €</span></label><label class="choice"><input type="radio" name="priceType" value="dali" required><span data-de="DALI Mitglied · 25 €" data-en="DALI member · €25">DALI Mitglied · 25 €</span></label></fieldset>
+          <fieldset><legend data-de="Bring a Friend? *" data-en="Bring a friend? *">Bring a Friend? *</legend><label class="choice"><input type="radio" name="bringFriend" value="no" required checked><span data-de="Nein" data-en="No">Nein</span></label><label class="choice"><input type="radio" name="bringFriend" value="yes" required><span data-de="Ja · 10 % für euch beide" data-en="Yes · 10% for both of you">Ja · 10 % für euch beide</span></label></fieldset>
+          <div class="friend-fields" id="friend-fields">
+            <label><span data-de="Vorname Freund/in *" data-en="Friend’s first name *">Vorname Freund/in *</span><input name="friendFirstName" autocomplete="off" maxlength="80"></label>
+            <label><span data-de="Nachname Freund/in *" data-en="Friend’s last name *">Nachname Freund/in *</span><input name="friendLastName" autocomplete="off" maxlength="80"></label>
+            <label class="full"><span data-de="E-Mail Freund/in *" data-en="Friend’s email *">E-Mail Freund/in *</span><input name="friendEmail" type="email" autocomplete="off" maxlength="180"></label>
+            <fieldset class="full"><legend data-de="Ist dein/e Freund/in DALI Mitglied? *" data-en="Is your friend a DALI member? *">Ist dein/e Freund/in DALI Mitglied? *</legend><label class="choice"><input type="radio" name="friendPriceType" value="dali"><span data-de="Ja · Basispreis 25 €" data-en="Yes · €25 base price">Ja · Basispreis 25 €</span></label><label class="choice"><input type="radio" name="friendPriceType" value="regular"><span data-de="Nein · Basispreis 28 €" data-en="No · €28 base price">Nein · Basispreis 28 €</span></label></fieldset>
+          </div>
           <label class="full"><span data-de="Teilnahmehinweis · optional" data-en="Participation note · optional">Teilnahmehinweis · optional</span><textarea name="safetyNote" rows="3" maxlength="600" data-de-placeholder="Nur was wir für eine sichere Anpassung der Session wissen sollten. Bitte keine ausführlichen Diagnosen senden." data-en-placeholder="Only what we should know to adapt the session safely. Please do not send detailed diagnoses."></textarea><small data-de="Gesundheitsbezogene Angaben sind freiwillig. Bei akuten Beschwerden oder medizinischer Unsicherheit kläre die Teilnahme bitte vorab mit einer geeigneten Fachperson." data-en="Health-related information is optional. If you have acute symptoms or medical uncertainty, please clarify participation with an appropriate professional first.">Gesundheitsbezogene Angaben sind freiwillig. Bei akuten Beschwerden oder medizinischer Unsicherheit kläre die Teilnahme bitte vorab mit einer geeigneten Fachperson.</small></label>
+        </div>
+        <div class="price-preview" id="price-preview" aria-live="polite">
+          <h3 data-de="Deine Buchung" data-en="Your booking">Deine Buchung</h3>
+          <div class="price-preview-row"><span data-de="Teilnehmer/in 1" data-en="Participant 1">Teilnehmer/in 1</span><strong id="primary-price">–</strong></div>
+          <div class="price-preview-row" id="friend-price-row" hidden><span data-de="Teilnehmer/in 2 · inkl. 10 %" data-en="Participant 2 · incl. 10%">Teilnehmer/in 2 · inkl. 10 %</span><strong id="friend-price">–</strong></div>
+          <div class="price-preview-row price-preview-total"><span data-de="Gesamt" data-en="Total">Gesamt</span><strong id="total-price">–</strong></div>
+          <p class="bring-note" id="discount-note" hidden data-de="Bring-a-Friend Rabatt: 10 % auf den jeweils passenden Preis für beide Teilnehmer/innen." data-en="Bring-a-Friend discount: 10% off each participant’s applicable price.">Bring-a-Friend Rabatt: 10 % auf den jeweils passenden Preis für beide Teilnehmer/innen.</p>
         </div>
         <div class="safety-panel">
           <h3 data-de="Teilnahme & Sicherheit" data-en="Participation & safety">Teilnahme & Sicherheit</h3>
