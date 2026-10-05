@@ -74,6 +74,42 @@
 
   const publicForm = document.querySelector('#public-booking-form');
   if (publicForm) {
+    const euro = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+    const friendFields = publicForm.querySelector('#friend-fields');
+    const friendInputs = [...friendFields.querySelectorAll('input')];
+    const primaryPrice = publicForm.querySelector('#primary-price');
+    const friendPriceRow = publicForm.querySelector('#friend-price-row');
+    const friendPrice = publicForm.querySelector('#friend-price');
+    const totalPrice = publicForm.querySelector('#total-price');
+    const discountNote = publicForm.querySelector('#discount-note');
+    const basePrice = (type) => type === 'dali' ? 25 : type === 'regular' ? 28 : null;
+
+    const syncBooking = () => {
+      const hasFriend = publicForm.elements.bringFriend.value === 'yes';
+      friendFields.classList.toggle('is-visible', hasFriend);
+      friendFields.setAttribute('aria-hidden', String(!hasFriend));
+      friendInputs.forEach((input) => { input.required = hasFriend; });
+      friendPriceRow.hidden = !hasFriend;
+      discountNote.hidden = !hasFriend;
+
+      const primaryBase = basePrice(publicForm.elements.priceType.value);
+      const secondaryBase = hasFriend ? basePrice(publicForm.elements.friendPriceType.value) : null;
+      const primaryAmount = primaryBase === null ? null : primaryBase * (hasFriend ? 0.9 : 1);
+      const secondaryAmount = secondaryBase === null ? null : secondaryBase * 0.9;
+      primaryPrice.textContent = primaryAmount === null ? '–' : euro.format(primaryAmount);
+      friendPrice.textContent = secondaryAmount === null ? '–' : euro.format(secondaryAmount);
+      const total = primaryAmount === null || (hasFriend && secondaryAmount === null)
+        ? null
+        : primaryAmount + (secondaryAmount || 0);
+      totalPrice.textContent = total === null ? '–' : euro.format(total);
+    };
+
+    publicForm.addEventListener('change', (event) => {
+      if (['priceType', 'bringFriend', 'friendPriceType'].includes(event.target.name)) syncBooking();
+    });
+    publicForm.addEventListener('reset', () => setTimeout(syncBooking, 0));
+    syncBooking();
+
     const safetyNote = publicForm.elements.safetyNote;
     const healthConsent = publicForm.elements.healthConsent;
     const syncHealthConsent = () => { healthConsent.required = Boolean(safetyNote.value.trim()); };
