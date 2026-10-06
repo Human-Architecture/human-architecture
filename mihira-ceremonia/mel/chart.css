@@ -1,0 +1,9 @@
+.chart-feature{display:grid;grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);gap:clamp(45px,8vw,120px);align-items:center;padding:clamp(90px,11vw,160px) 9vw;background:var(--cream)}
+.chart-copy h2{font:400 clamp(42px,5.4vw,78px)/1.03 var(--serif);letter-spacing:-.035em;margin:0 0 30px;color:var(--plum-dark)}
+.chart-copy p:not(.section-index){color:#504a44;max-width:62ch}
+.chart-course-link{display:inline-block;margin-top:22px;color:var(--plum-dark);border-bottom-color:rgba(57,36,46,.28)}
+.chart-visual{margin:0;padding:clamp(18px,3vw,34px);background:#f8f1e5;border:1px solid var(--line);box-shadow:0 26px 65px rgba(38,24,32,.12)}
+.chart-visual img{display:block;width:100%;height:auto}
+.chart-visual figcaption{margin-top:16px;color:#74675d;font-size:8px;line-height:1.55;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+@media(max-width:980px){.chart-feature{grid-template-columns:1fr}.chart-visual{max-width:720px}}
+@media(max-width:700px){.chart-feature{padding:80px 24px;gap:38px}.chart-visual{padding:12px}}
