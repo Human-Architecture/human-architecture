@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(u.origin===location.origin && normalize(u.pathname)===normalize(location.pathname)&&!u.hash)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
    });
   });
-  // Preserve language on every page link, including header menus and offer CTAs.
-  // Leave fragment-only links intact for the existing smooth-scroll handlers.
+  document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
+  document.querySelectorAll('a[data-en="Explore workshop (German)"]').forEach(link=>{link.dataset.en='Explore workshop';link.setAttribute('href',lang==='en'?'/body-language/en/':'/body-language/');});
   document.querySelectorAll('a[href]').forEach(a=>{
    const raw=a.getAttribute('href');
    if(!raw||raw.startsWith('#')||a.hasAttribute('download'))return;
