@@ -1,0 +1,35 @@
+const event = {
+  title: 'BODY LANGUAGE | KÖRPERSPRACHE',
+  date: 'Saturday, 28 November 2026',
+  dateDe: 'Samstag, 28. November 2026',
+  time: '15:00–17:00',
+  venue: 'Clever Fit Kümmersbruck',
+  contact: 'hello@human-architecture.info',
+  terms: 'https://www.human-architecture.info/body-language/terms/'
+};
+
+const participantName = booking => booking.participantName || booking.name || 'there';
+
+function received(booking) {
+  const english = booking.locale === 'en';
+  const name = participantName(booking);
+  return {
+    subject: english ? 'We received your BODY LANGUAGE booking details' : 'Deine BODY LANGUAGE Buchungsdaten sind eingegangen',
+    text: english
+      ? `Hello ${name},\n\nwe received your booking details for ${event.title}.\n\n${event.date} · ${event.time}\n${event.venue}\nSelected payment: ${booking.paymentLabel || '—'}${booking.amount ? ` · ${booking.amount}` : ''}\n\nThis is not yet a booking confirmation. Your place is confirmed only after PayPal reports a successful payment and we can match it to your booking.\n\nParticipation and cancellation information: ${event.terms}\n\nHuman Architecture®\n${event.contact}`
+      : `Hallo ${name},\n\nwir haben deine Buchungsdaten für ${event.title} erhalten.\n\n${event.dateDe} · ${event.time} Uhr\n${event.venue}\nGewählte Zahlungsoption: ${booking.paymentLabel || '—'}${booking.amount ? ` · ${booking.amount}` : ''}\n\nDies ist noch keine Buchungsbestätigung. Dein Platz ist erst bestätigt, wenn PayPal eine erfolgreiche Zahlung meldet und wir sie deiner Buchung zuordnen können.\n\nTeilnahme- und Stornoinformationen: ${event.terms}\n\nHuman Architecture®\n${event.contact}`
+  };
+}
+
+function confirmed(booking) {
+  const english = booking.locale === 'en';
+  const name = participantName(booking);
+  return {
+    subject: english ? 'Your BODY LANGUAGE place is confirmed' : 'Dein BODY LANGUAGE Platz ist bestätigt',
+    text: english
+      ? `Hello ${name},\n\nyour payment has been verified and your place is confirmed.\n\n${event.title}\n${event.date} · ${event.time}\n${event.venue}\nPayment: ${booking.paymentLabel || '—'}${booking.amount ? ` · ${booking.amount}` : ''}\n\nThe workshop includes guided, adaptable movement. You can adjust or skip any exercise and never have to perform for the group. Please arrive a few minutes early in comfortable clothes.\n\nNo refund is available for a personal cancellation. You may transfer your place to another person up to 7 calendar days before the workshop; email their name and address to ${event.contact}.\n\nParticipation and cancellation information: ${event.terms}\nQuestions: ${event.contact}\n\nHuman Architecture®`
+      : `Hallo ${name},\n\ndeine Zahlung wurde bestätigt und dein Platz ist verbindlich für dich reserviert.\n\n${event.title}\n${event.dateDe} · ${event.time} Uhr\n${event.venue}\nZahlungsoption: ${booking.paymentLabel || '—'}${booking.amount ? ` · ${booking.amount}` : ''}\n\nDer Workshop enthält angeleitete, anpassbare Bewegung. Du kannst jede Übung anpassen oder auslassen und musst nichts vor der Gruppe vorführen. Komm bitte ein paar Minuten früher in bequemer Kleidung.\n\nBei persönlicher Absage ist keine Erstattung möglich. Du kannst deinen Platz bis einschließlich 7 Kalendertage vor dem Workshop auf eine andere Person übertragen; sende dafür Name und E-Mail-Adresse an ${event.contact}.\n\nTeilnahme- und Stornoinformationen: ${event.terms}\nFragen: ${event.contact}\n\nHuman Architecture®`
+  };
+}
+
+module.exports = { received, confirmed };
