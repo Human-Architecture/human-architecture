@@ -21,8 +21,6 @@
   $('#event-date').textContent = eventDate;
   $('#event-venue').textContent = c.venue_name || copy.tbc;
   $('#event-duration').textContent = '90–120 min';
-  const availability = document.querySelector('#event-availability');
-  if (availability) availability.textContent = c.capacity ? (locale === 'de' ? `${c.capacity} Plätze verfügbar` : `${c.capacity} places available`) : copy.tbc;
   const money = value => new Intl.NumberFormat(locale,{style:'currency',currency:c.currency}).format(value);
   $('#event-price').textContent = c.prices ? `${money(c.prices.member_single)} ${locale==='de'?'Mitglied · ':'member · '}${money(c.prices.non_member_single)} ${locale==='de'?'regulär':'regular'}` : (c.price ? money(c.price) : copy.tbc);
   document.querySelectorAll('[data-payment-note]').forEach(el => { el.textContent = copy.payment; });
@@ -41,7 +39,8 @@
   Object.entries(saved).forEach(([key,value]) => form.querySelectorAll(`[name="${key}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = Array.isArray(value) ? value.includes(el.value) : Boolean(value); else el.value = value; }));
   function save(){ const data={}; new FormData(form).forEach((v,k)=>{ if(data[k]) data[k]=[].concat(data[k],v); else data[k]=v; }); form.querySelectorAll('input[type=checkbox]').forEach(el=>{ if(!el.checked && !data[el.name]) data[el.name]=[]; }); sessionStorage.setItem(storageKey,JSON.stringify(data)); }
   form.addEventListener('input',save); form.addEventListener('change',save);
-  function show(n){ document.querySelectorAll('.form-step').forEach((el,i)=>el.hidden=i!==n); document.querySelectorAll('.progress span').forEach((el,i)=>el.classList.toggle('active',i===n)); window.scrollTo({top:0,behavior:'smooth'}); }
+  // Preserve the visitor's reading position as they move through the form.
+  function show(n){ document.querySelectorAll('.form-step').forEach((el,i)=>el.hidden=i!==n); document.querySelectorAll('.progress span').forEach((el,i)=>el.classList.toggle('active',i===n)); }
   $('#to-intake').addEventListener('click',()=>show(1));
   $('#to-overview').addEventListener('click',()=>show(0));
   $('#to-review').addEventListener('click',()=>{ const chosen=form.querySelectorAll('input[name="exploration_areas"]:checked').length; const reasons=form.querySelectorAll('input[name="reasons"]:checked').length; if(!form.reportValidity() || !reasons || chosen<1 || chosen>3){ $('#form-error').textContent=copy.required; return; } $('#form-error').textContent=''; save(); const data=new FormData(form); $('#review-content').replaceChildren(...['name','email','movement_context'].map(key=>{const p=document.createElement('p');p.textContent=`${key.replace('_',' ')}: ${data.get(key)||'—'}`;return p;})); show(2); });
