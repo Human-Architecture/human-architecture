@@ -36,7 +36,7 @@
   const storageKey = 'body-language-booking-draft';
   const form = $('#intake');
   const saved = JSON.parse(sessionStorage.getItem(storageKey) || '{}');
-  Object.entries(saved).forEach(([key,value]) => form.querySelectorAll(`[name="${key}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = Array.isArray(value) ? value.includes(el.value) : Boolean(value); else el.value = value; }));
+  Object.entries(saved).forEach(([key,value]) => form.querySelectorAll(`[name="${key}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = Array.isArray(value) ? value.includes(el.value) : Boolean(value); else if (el.type === 'radio') el.checked = el.value === value; else el.value = value; }));
   function save(){ const data={}; new FormData(form).forEach((v,k)=>{ if(data[k]) data[k]=[].concat(data[k],v); else data[k]=v; }); form.querySelectorAll('input[type=checkbox]').forEach(el=>{ if(!el.checked && !data[el.name]) data[el.name]=[]; }); sessionStorage.setItem(storageKey,JSON.stringify(data)); }
   form.addEventListener('input',save); form.addEventListener('change',save);
   // Preserve the visitor's reading position as they move through the form.
