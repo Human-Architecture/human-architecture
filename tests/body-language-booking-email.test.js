@@ -6,5 +6,5 @@ assert.match(received(booking).subject, /Buchungsdaten/);
 assert.match(received(booking).text, /noch keine Buchungsbestätigung/);
 assert.match(confirmed(booking).subject, /bestätigt/);
 assert.match(confirmed(booking).text, /28\. November 2026/);
-assert.match(confirmed({...booking, locale: 'en'}).text, /payment has been verified/);
+assert.match(confirmed({...booking, locale: 'en'}).text, /payment has been matched/);
 console.log('BODY LANGUAGE booking email templates passed.');
