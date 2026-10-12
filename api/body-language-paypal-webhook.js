@@ -1,4 +1,5 @@
 const { ensureSchema, sql, paypalRequest, confirmBooking, sendConfirmationOnce } = require('../lib/body-language-booking');
+const { ensureSchema: ensureCodexSchema, confirmPayment: confirmCodexPayment, sendIntakeOnce, requestBase } = require('../lib/codex-booking');
 
 async function readWebhookBody(req) {
   const chunks = [];
@@ -33,9 +34,17 @@ async function handler(req, res) {
     const query = sql();
     const rows = await query`SELECT * FROM body_language_bookings WHERE paypal_order_id = ${orderId}`;
     const booking = rows[0];
-    if (!booking) return res.status(200).end();
-    const confirmed = await confirmBooking({ bookingId: booking.id, paypalOrderId: orderId, paypalCaptureId: captureId });
-    if (confirmed) { try { await sendConfirmationOnce(confirmed); } catch (error) { console.error('BODY LANGUAGE webhook email retry needed', error); } }
+    if (booking) {
+      const confirmed = await confirmBooking({ bookingId: booking.id, paypalOrderId: orderId, paypalCaptureId: captureId });
+      if (confirmed) { try { await sendConfirmationOnce(confirmed); } catch (error) { console.error('BODY LANGUAGE webhook email retry needed', error); } }
+      return res.status(200).end();
+    }
+    await ensureCodexSchema();
+    const codexRows = await query`SELECT * FROM codex_bookings WHERE paypal_order_id = ${orderId}`;
+    const codexBooking = codexRows[0];
+    if (!codexBooking) return res.status(200).end();
+    const confirmedCodex = await confirmCodexPayment({ bookingId: codexBooking.id, orderId, captureId });
+    if (confirmedCodex) { try { await sendIntakeOnce(confirmedCodex, requestBase(req)); } catch (error) { console.error('CODEX webhook intake email retry needed', error); } }
     return res.status(200).end();
   } catch (error) { console.error('BODY LANGUAGE PayPal webhook failed', error); return res.status(500).end(); }
 }
