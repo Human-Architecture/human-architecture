@@ -16,12 +16,7 @@ const validDate = value => {
 module.exports = async function handler(req, res) {
   const locale = req.body?.locale === 'en' ? 'en' : 'de';
   if (req.method === 'GET') {
-    try {
-      await ensureSchema();
-      const query = sql();
-      const rows = await query`SELECT COALESCE(SUM(seats) FILTER (WHERE status = 'confirmed'), 0)::int AS confirmed FROM body_language_bookings WHERE event_key = ${EVENT_KEY}`;
-      return res.status(200).json({ capacity: CAPACITY, confirmed: rows[0].confirmed, remaining: Math.max(0, CAPACITY - rows[0].confirmed) });
-    } catch (_) { return res.status(503).json({ message: 'Booking service unavailable' }); }
+    return res.status(200).json({ available: true });
   }
   if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return res.status(405).json({ message: 'Method not allowed' }); }
   try {
