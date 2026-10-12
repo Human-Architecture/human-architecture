@@ -1,6 +1,13 @@
-const { EVENT_KEY, CAPACITY, OPTIONS, sql, ensureSchema, clean, validEmail, array, option, requestBase, paypalRequest, crypto } = require('../lib/body-language-booking');
+const { EVENT_KEY, CAPACITY, OPTIONS, sql, ensureSchema, clean, validEmail, array, option, requestBase, paypalRequest, sendEmail, crypto } = require('../lib/body-language-booking');
 
 const message = (locale, de, en) => locale === 'en' ? en : de;
+const MANUAL_PAYMENT_LINKS = Object.freeze({
+  member_single: 'https://www.paypal.com/ncp/payment/922D49UUV5ERJ',
+  member_pair: 'https://www.paypal.com/ncp/payment/TST9KXP2UAW92',
+  non_member_single: 'https://www.paypal.com/ncp/payment/HQBWX8D68LUSL',
+  member_plus_non_member: 'https://www.paypal.com/ncp/payment/X8Y68TRRR3W5A',
+  non_member_pair: 'https://www.paypal.com/ncp/payment/DV5E9YUFTCRLG'
+});
 const validDate = value => {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return false;
   const date = new Date(`${value}T00:00:00Z`);
@@ -32,13 +39,30 @@ module.exports = async function handler(req, res) {
     const bookingId = crypto.randomUUID();
     const intake = { birth_date: birthDate, reasons, reason_other: clean(body.reason_other), movement_context: clean(body.movement_context, 60), current_movement: clean(body.current_movement), exploration_areas: areas, health_notes: healthNotes, health_detail: healthDetail, health_consent: healthRelevant ? 'yes' : '', adjustment: clean(body.adjustment, 60), adjustment_detail: clean(body.adjustment_detail), group_participation: clean(body.group_participation, 60), personal_focus: clean(body.personal_focus) };
     const query = sql();
+    const manualPayment = body.payment_mode === 'manual_verification';
     const reserved = await query`
       WITH locked AS (SELECT pg_advisory_xact_lock(hashtext(${EVENT_KEY}))),
       used AS (SELECT COALESCE(SUM(seats) FILTER (WHERE status = 'confirmed' OR (status = 'pending' AND reservation_expires_at > now())), 0)::int AS seats FROM body_language_bookings, locked WHERE event_key = ${EVENT_KEY})
       INSERT INTO body_language_bookings (id,event_key,locale,participant_name,email,phone,intake,payment_option,amount_cents,seats,status,reservation_expires_at)
-      SELECT ${bookingId}::uuid,${EVENT_KEY},${locale},${participantName},${email},${phone},${JSON.stringify(intake)}::jsonb,${body.payment_option},${selected.cents},${selected.seats},'pending',now() + interval '20 minutes'
+      SELECT ${bookingId}::uuid,${EVENT_KEY},${locale},${participantName},${email},${phone},${JSON.stringify(intake)}::jsonb,${body.payment_option},${selected.cents},${selected.seats},${manualPayment ? 'payment_pending' : 'pending'},${manualPayment ? null : new Date(Date.now() + 20 * 60 * 1000)}
       FROM used WHERE used.seats + ${selected.seats} <= ${CAPACITY} RETURNING id`;
     if (!reserved[0]) return res.status(409).json({ message: message(locale, 'Dieser Workshop ist leider ausgebucht.', 'This workshop is now sold out.') });
+    if (manualPayment) {
+      const paymentUrl = MANUAL_PAYMENT_LINKS[body.payment_option];
+      if (!paymentUrl) throw new Error('Manual payment link unavailable');
+      const label = selected[locale === 'en' ? 'en' : 'de'];
+      const amount = new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(selected.cents / 100);
+      const reference = bookingId.slice(0, 8).toUpperCase();
+      const customerText = locale === 'en'
+        ? `Hello ${participantName},\n\nwe received your BODY LANGUAGE booking details.\n\nNext step: complete payment via PayPal: ${paymentUrl}\n\nBooking reference: ${reference}\nSelected option: ${label}\nAmount: ${amount}\n\nThis is not yet a confirmation of a place. We will manually match the completed payment to your booking and email you once your place is confirmed. Payment alone does not guarantee a place if the workshop becomes full in the meantime.\n\nHuman Architecture®\nhello@human-architecture.info`
+        : `Hallo ${participantName},\n\nwir haben deine Buchungsdaten für BODY LANGUAGE erhalten.\n\nNächster Schritt: Bitte schließe die Zahlung über PayPal ab: ${paymentUrl}\n\nBuchungsreferenz: ${reference}\nGewählte Option: ${label}\nBetrag: ${amount}\n\nDies ist noch keine Platzbestätigung. Wir ordnen die abgeschlossene Zahlung manuell deiner Anmeldung zu und senden dir anschließend die Bestätigung per E-Mail. Eine Zahlung allein garantiert keinen Platz, wenn der Workshop zwischenzeitlich ausgebucht ist.\n\nHuman Architecture®\nhello@human-architecture.info`;
+      const staffText = `BODY LANGUAGE manual-payment booking\n\nReference: ${reference}\nName: ${participantName}\nEmail: ${email}\nPhone / WhatsApp: ${phone}\nOption: ${label}\nAmount: ${amount}\nSeats: ${selected.seats}\nStatus: payment pending — manually match the PayPal payment before confirming.`;
+      await Promise.all([
+        sendEmail({ to: email, subject: locale === 'en' ? 'BODY LANGUAGE: complete your PayPal payment' : 'BODY LANGUAGE: Bitte schließe deine PayPal-Zahlung ab', text: customerText }),
+        sendEmail({ to: 'hello@human-architecture.info', subject: `BODY LANGUAGE · payment pending · ${participantName} · ${amount}`, text: staffText })
+      ]);
+      return res.status(201).json({ bookingId, approvalUrl: paymentUrl, manualVerification: true });
+    }
     const base = requestBase(req);
     const order = await paypalRequest('/v2/checkout/orders', { method: 'POST', headers: { 'PayPal-Request-Id': bookingId }, body: JSON.stringify({ intent: 'CAPTURE', purchase_units: [{ reference_id: bookingId, custom_id: bookingId, description: 'BODY LANGUAGE | KÖRPERSPRACHE · 28 November 2026', amount: { currency_code: 'EUR', value: (selected.cents / 100).toFixed(2) } }], application_context: { brand_name: 'Human Architecture', landing_page: 'LOGIN', user_action: 'PAY_NOW', return_url: `${base}/api/body-language-paypal-return?booking=${bookingId}`, cancel_url: `${base}/${locale === 'en' ? 'body-language/en/book/' : 'body-language/book/'}?payment=cancelled` } }) });
     const approvalUrl = order.links?.find(link => link.rel === 'approve')?.href;

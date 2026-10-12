@@ -34,6 +34,7 @@ window.BodyLanguageBooking = {
   cancellation_policy_url: '/body-language/terms/#cancellation',
   privacy_policy_url: '/datenschutz/',
   terms_url: '/body-language/terms/',
-  // Turned on only after the secure payment credentials are connected in Vercel.
-  status: 'configuration_required'
+  // Temporary operational route: payment is collected through PayPal's hosted links,
+  // then matched and confirmed manually. Automatic confirmation remains off.
+  status: 'manual_verification'
 };
