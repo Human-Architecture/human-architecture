@@ -38,12 +38,29 @@
   const saved = JSON.parse(sessionStorage.getItem(storageKey) || '{}');
   Object.entries(saved).forEach(([key,value]) => form.querySelectorAll(`[name="${key}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = Array.isArray(value) ? value.includes(el.value) : Boolean(value); else if (el.type === 'radio') el.checked = el.value === value; else el.value = value; }));
   function save(){ const data={}; new FormData(form).forEach((v,k)=>{ if(data[k]) data[k]=[].concat(data[k],v); else data[k]=v; }); form.querySelectorAll('input[type=checkbox]').forEach(el=>{ if(!el.checked && !data[el.name]) data[el.name]=[]; }); sessionStorage.setItem(storageKey,JSON.stringify(data)); }
-  form.addEventListener('input',save); form.addEventListener('change',save);
+  const healthInputs = () => [...form.querySelectorAll('input[name="health_notes"]:checked')];
+  const healthConsentRow = $('#health-consent-row');
+  const healthConsent = form.elements.health_consent;
+  function updateHealthConsent(){
+    const relevant = healthInputs().some(input => input.value !== 'none') || form.elements.health_detail.value.trim();
+    healthConsentRow.hidden = !relevant;
+    if (!relevant) healthConsent.checked = false;
+  }
+  form.addEventListener('input',()=>{ updateHealthConsent(); save(); });
+  form.addEventListener('change',event=>{
+    if (event.target.name === 'health_notes') {
+      const none = form.querySelector('input[name="health_notes"][value="none"]');
+      if (event.target.value === 'none' && event.target.checked) healthInputs().filter(input => input !== event.target).forEach(input => input.checked = false);
+      if (event.target.value !== 'none' && event.target.checked) none.checked = false;
+    }
+    updateHealthConsent(); save();
+  });
+  updateHealthConsent();
   // Preserve the visitor's reading position as they move through the form.
   function show(n){ document.querySelectorAll('.form-step').forEach((el,i)=>el.hidden=i!==n); document.querySelectorAll('.progress span').forEach((el,i)=>el.classList.toggle('active',i===n)); }
   $('#to-intake').addEventListener('click',()=>show(1));
   $('#to-overview').addEventListener('click',()=>show(0));
-  $('#to-review').addEventListener('click',()=>{ const chosen=form.querySelectorAll('input[name="exploration_areas"]:checked').length; const reasons=form.querySelectorAll('input[name="reasons"]:checked').length; if(!form.reportValidity() || !reasons || chosen<1 || chosen>3){ $('#form-error').textContent=copy.required; return; } $('#form-error').textContent=''; save(); const data=new FormData(form); $('#review-content').replaceChildren(...['name','email','movement_context'].map(key=>{const p=document.createElement('p');p.textContent=`${key.replace('_',' ')}: ${data.get(key)||'—'}`;return p;})); show(2); });
+  $('#to-review').addEventListener('click',()=>{ const chosen=form.querySelectorAll('input[name="exploration_areas"]:checked').length; const reasons=form.querySelectorAll('input[name="reasons"]:checked').length; const healthRelevant=healthInputs().some(input=>input.value!=='none') || form.elements.health_detail.value.trim(); if(!form.reportValidity() || !reasons || chosen<1 || chosen>3 || (healthRelevant && !healthConsent.checked)){ $('#form-error').textContent=copy.required; return; } $('#form-error').textContent=''; save(); const data=new FormData(form); const labels=locale==='de'?{name:'Name',email:'E-Mail',phone:'Telefon / WhatsApp',birth_date:'Geburtsdatum',movement_context:'Bewegung / Training'}:{name:'Name',email:'Email',phone:'Phone / WhatsApp',birth_date:'Date of birth',movement_context:'Movement / training'}; $('#review-content').replaceChildren(...Object.keys(labels).map(key=>{const p=document.createElement('p');p.textContent=`${labels[key]}: ${data.get(key)||'—'}`;return p;})); show(2); });
   $('#to-intake-back').addEventListener('click',()=>show(1));
   const paymentOptions = locale === 'de' ? [
     ['member_single','Clever Fit Mitglied · 1 Person'], ['member_pair','Zwei Clever Fit Mitglieder · gemeinsam'],
@@ -71,6 +88,7 @@
       const payload=Object.fromEntries(new FormData(form).entries());
       payload.reasons=[...form.querySelectorAll('input[name="reasons"]:checked')].map(input=>input.value);
       payload.exploration_areas=[...form.querySelectorAll('input[name="exploration_areas"]:checked')].map(input=>input.value);
+      payload.health_notes=healthInputs().map(input=>input.value);
       payload.payment_option=option.value;
       payload.locale=locale;
       const response=await fetch('/api/body-language-booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
