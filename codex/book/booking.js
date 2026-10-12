@@ -10,7 +10,7 @@
     event.preventDefault(); message.textContent = 'Opening secure payment…';
     const submit = form.querySelector('button'); submit.disabled = true;
     try {
-      const data = new FormData(form); const response = await fetch('/api/codex-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), email: data.get('email'), privacy: data.get('privacy') === 'on', offer: key }) });
+      const data = new FormData(form); const response = await fetch('/api/body-language-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ codex_booking: true, name: data.get('name'), email: data.get('email'), privacy: data.get('privacy') === 'on', offer: key }) });
       const result = await response.json(); if (!response.ok || !result.approvalUrl) throw new Error(result.message || 'Payment could not be opened.');
       location.assign(result.approvalUrl);
     } catch (error) { message.textContent = error.message; submit.disabled = false; }
