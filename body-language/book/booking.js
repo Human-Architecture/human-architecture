@@ -3,15 +3,15 @@
   const c = window.BodyLanguageBooking;
   const copy = locale === 'de' ? {
     tbc: 'Wird noch bestätigt', date: 'Termin', venue: 'Ort', duration: 'Dauer', price: 'Preis',
-    select: 'Weiter zur Anmeldung', back: 'Zurück', review: 'Angaben prüfen', pay: 'Weiter zur Zahlung',
-    payment: 'Dein Platz wird erst nach erfolgreich verifizierter Zahlung bestätigt. Eine Zahlung allein garantiert keinen Platz, wenn das Event zwischenzeitlich ausgebucht ist.',
+    select: 'Weiter zur Anmeldung', back: 'Zurück', review: 'Angaben prüfen', pay: 'Weiter zu PayPal',
+    payment: 'Du zahlst direkt über PayPal. Dein Platz wird erst bestätigt, nachdem wir die Zahlung manuell deiner Anmeldung zugeordnet haben. Eine Zahlung allein garantiert keinen Platz, wenn das Event zwischenzeitlich ausgebucht ist.',
     required: 'Bitte fülle die markierten Pflichtfelder aus und wähle maximal drei Fokusbereiche.',
     privacy: 'Ich habe die Datenschutzhinweise gelesen. *', terms: 'Ich akzeptiere die Teilnahmebedingungen. *',
     unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung'
   } : {
     tbc: 'To be configured', date: 'Date & time', venue: 'Venue', duration: 'Duration', price: 'Price',
-    select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue to payment',
-    payment: 'Your place is confirmed only after payment has been successfully verified. Payment alone does not guarantee a place if the event becomes sold out in the meantime.',
+    select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue to PayPal',
+    payment: 'You pay directly through PayPal. Your place is confirmed only after we manually match the payment to your booking. Payment alone does not guarantee a place if the event becomes sold out in the meantime.',
     required: 'Please complete the required fields and choose no more than three focus areas.',
     privacy: 'I have read the privacy information. *', terms: 'I accept the participation terms. *',
     unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking'
@@ -80,10 +80,10 @@
     if(!$('#privacy').checked || !$('#terms').checked){ $('#review-error').textContent=copy.required; return; }
     const option=choice.querySelector('input:checked');
     if(!option){ $('#review-error').textContent=locale==='de'?'Bitte wähle eine verfügbare Zahlungsoption.':'Please select an available payment option.'; return; }
-    if(c.status!=='booking_open'){ $('#review-error').textContent=locale==='de'?'Die sichere Buchung wird gerade freigeschaltet.':'Secure booking is being activated.'; return; }
+    if(!['booking_open','manual_verification'].includes(c.status)){ $('#review-error').textContent=locale==='de'?'Die Buchung wird gerade vorbereitet.':'Booking is being prepared.'; return; }
     const button=$('#payment');
     button.disabled=true;
-    button.textContent=locale==='de'?'Sichere Zahlung wird vorbereitet …':'Preparing secure payment …';
+    button.textContent=locale==='de'?'PayPal wird geöffnet …':'Opening PayPal …';
     try{
       const payload=Object.fromEntries(new FormData(form).entries());
       payload.reasons=[...form.querySelectorAll('input[name="reasons"]:checked')].map(input=>input.value);
@@ -91,6 +91,7 @@
       payload.health_notes=healthInputs().map(input=>input.value);
       payload.payment_option=option.value;
       payload.locale=locale;
+      payload.payment_mode=c.status;
       const response=await fetch('/api/body-language-booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       const result=await response.json().catch(()=>({}));
       if(!response.ok || !result.approvalUrl) throw new Error(result.message||'payment_unavailable');

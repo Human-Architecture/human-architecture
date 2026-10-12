@@ -8,7 +8,7 @@ const context = {window: {}};
 vm.runInNewContext(fs.readFileSync(path.join(root, 'body-language/booking-config.js'), 'utf8'), context);
 const config = context.window.BodyLanguageBooking;
 
-assert.equal(config.status, 'configuration_required');
+assert.equal(config.status, 'manual_verification');
 assert.equal(config.payment_provider, 'PayPal');
 assert.equal(config.booking_confirmation_email, 'hello@human-architecture.info');
 assert.equal(config.terms_url, '/body-language/terms/');
@@ -45,5 +45,12 @@ for (const page of ['body-language/book/index.html', 'body-language/en/book/inde
 
 const bookingScript = fs.readFileSync(path.join(root, 'body-language/book/booking.js'), 'utf8');
 assert.doesNotMatch(bookingScript, /window\.scrollTo/);
+assert.match(bookingScript, /manual_verification/);
+assert.match(bookingScript, /Continue to PayPal/);
+
+const bookingApi = fs.readFileSync(path.join(root, 'api/body-language-booking.js'), 'utf8');
+assert.match(bookingApi, /MANUAL_PAYMENT_LINKS/);
+assert.match(bookingApi, /payment_pending/);
+assert.match(bookingApi, /manualVerification: true/);
 
 console.log('BODY LANGUAGE booking routes and payment-link configuration tests passed.');
