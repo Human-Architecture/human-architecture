@@ -1,4 +1,10 @@
 (() => {
+  const testimonial = document.querySelector('.body-language-page .section.deep .quote');
+  if (testimonial) {
+    testimonial.textContent = '„Ich kann den Workshop sehr empfehlen. Ich habe besser verstanden, warum ich in meinem Training an bestimmten Punkten nicht weiterkam und warum sich manche Belastungen wiederholt gezeigt haben. Mel hat sehr klar herausgearbeitet, worauf ich meinen Fokus legen kann. Ich bin mit konkreten, umsetzbaren Schritten für mein weiteres Training nach Hause gegangen.“';
+    const note = testimonial.nextElementSibling;
+    if (note) note.textContent = 'Anonymisierte Rückmeldung einer Teilnehmerin · redaktionell gekürzt';
+  }
   const event = document.querySelector('[data-body-language-event]');
   const form = document.querySelector('#bl-registration');
   if (!event || !form) return;

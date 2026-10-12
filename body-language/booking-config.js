@@ -23,6 +23,8 @@ window.BodyLanguageBooking = {
   },
   currency: 'EUR',
   payment_provider: 'PayPal',
+  booking_closes_at: '2026-11-14T23:59:59+01:00',
+  studio_payment_venue: 'Clever Fit Amberg-Kümmersbruck',
   payment_links: {
     member_single: 'https://www.paypal.com/ncp/payment/922D49UUV5ERJ',
     member_pair: 'https://www.paypal.com/ncp/payment/TST9KXP2UAW92',
