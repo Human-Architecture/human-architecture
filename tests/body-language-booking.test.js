@@ -31,9 +31,19 @@ for (const page of ['body-language/book/index.html', 'body-language/en/book/inde
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.match(html, /<form id="intake"/);
   assert.match(html, /name="exploration_areas"/);
+  assert.match(html, /type="radio" name="reasons"/);
+  assert.match(html, /name="birth_date"/);
+  assert.match(html, /name="health_notes"/);
+  assert.match(html, /name="health_consent"/);
+  assert.match(html, /name="phone"[^>]*required/);
+  assert.doesNotMatch(html, /event-availability/);
+  assert.doesNotMatch(html, /name="group_participation"/);
   assert.match(html, /id="privacy"/);
   assert.match(html, /id="terms"/);
   assert.match(html, /booking\.js/);
 }
+
+const bookingScript = fs.readFileSync(path.join(root, 'body-language/book/booking.js'), 'utf8');
+assert.doesNotMatch(bookingScript, /window\.scrollTo/);
 
 console.log('BODY LANGUAGE booking routes and payment-link configuration tests passed.');
