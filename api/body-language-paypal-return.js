@@ -12,7 +12,13 @@ module.exports = async function handler(req, res) {
     const booking = rows[0];
     if (!booking) return redirect(res, '/body-language/book/?payment=error');
     let order = await paypalRequest(`/v2/checkout/orders/${orderId}`);
-    if (order.purchase_units?.[0]?.custom_id !== bookingId) return redirect(res, '/body-language/book/?payment=error');
+    const unit = order.purchase_units?.[0];
+    const expectedValue = (booking.amount_cents / 100).toFixed(2);
+    if (
+      unit?.custom_id !== bookingId ||
+      unit?.amount?.currency_code !== 'EUR' ||
+      unit?.amount?.value !== expectedValue
+    ) return redirect(res, '/body-language/book/?payment=error');
     if (order.status === 'APPROVED') order = await paypalRequest(`/v2/checkout/orders/${orderId}/capture`, { method: 'POST', body: '{}' });
     const captureId = order.purchase_units?.[0]?.payments?.captures?.[0]?.id;
     if (order.status !== 'COMPLETED' || !captureId) return redirect(res, '/body-language/book/?payment=error');
