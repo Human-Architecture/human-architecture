@@ -3,18 +3,18 @@
   const c = window.BodyLanguageBooking;
   const copy = locale === 'de' ? {
     tbc: 'Wird noch bestätigt', date: 'Termin', venue: 'Ort', duration: 'Dauer', price: 'Preis',
-    select: 'Weiter zur Anmeldung', back: 'Zurück', review: 'Angaben prüfen', pay: 'Weiter zu PayPal',
-    payment: 'Du zahlst direkt über PayPal. Dein Platz wird erst bestätigt, nachdem wir die Zahlung manuell deiner Anmeldung zugeordnet haben. Eine Zahlung allein garantiert keinen Platz, wenn das Event zwischenzeitlich ausgebucht ist.',
+    select: 'Weiter zur Anmeldung', back: 'Zurück', review: 'Angaben prüfen', pay: 'Zahlungsweg fortsetzen',
+    payment: 'Wähle nach deiner Anmeldung, ob du online über PayPal oder Karte zahlst oder bar im Clever Fit Amberg-Kümmersbruck. Dein Platz wird bestätigt, sobald wir die Zahlung deiner Anmeldung zugeordnet haben.',
     required: 'Bitte fülle die markierten Pflichtfelder aus und wähle maximal drei Fokusbereiche.',
     privacy: 'Ich habe die Datenschutzhinweise gelesen. *', terms: 'Ich akzeptiere die Teilnahmebedingungen. *',
-    unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung'
+    unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung', close: 'Anmeldungen und Zahlungen sind bis einschließlich 14. November 2026 möglich. Danach schließen die Buchungen – zwei Wochen vor dem Workshop.'
   } : {
     tbc: 'To be configured', date: 'Date & time', venue: 'Venue', duration: 'Duration', price: 'Price',
-    select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue to PayPal',
-    payment: 'You pay directly through PayPal. Your place is confirmed only after we manually match the payment to your booking. Payment alone does not guarantee a place if the event becomes sold out in the meantime.',
+    select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue with payment',
+    payment: 'After registering, choose whether to pay online via PayPal or card, or in cash at Clever Fit Amberg-Kümmersbruck. Your place is confirmed once we match the payment to your booking.',
     required: 'Please complete the required fields and choose no more than three focus areas.',
     privacy: 'I have read the privacy information. *', terms: 'I accept the participation terms. *',
-    unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking'
+    unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking', close: 'Bookings and payments are open through 14 November 2026. They close two weeks before the workshop.'
   };
   const $ = s => document.querySelector(s);
   const eventDate = c.date && c.start_time ? `${new Intl.DateTimeFormat(locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(`${c.date}T12:00:00`))} · ${c.start_time}${c.end_time ? `–${c.end_time}` : ''}` : copy.tbc;
@@ -24,6 +24,11 @@
   const money = value => new Intl.NumberFormat(locale,{style:'currency',currency:c.currency}).format(value);
   $('#event-price').textContent = c.prices ? `${money(c.prices.member_single)} ${locale==='de'?'Mitglied · ':'member · '}${money(c.prices.non_member_single)} ${locale==='de'?'regulär':'regular'}` : (c.price ? money(c.price) : copy.tbc);
   document.querySelectorAll('[data-payment-note]').forEach(el => { el.textContent = copy.payment; });
+  document.querySelectorAll('[data-booking-close]').forEach(el => { el.textContent = copy.close; });
+  if (!document.querySelector('[data-booking-close]')) {
+    const notice = document.createElement('p'); notice.className = 'notice'; notice.dataset.bookingClose = ''; notice.textContent = copy.close;
+    document.querySelector('.booking-card').querySelector('[data-payment-note]').before(notice);
+  }
   $('#privacy-label').textContent = copy.privacy;
   $('#terms-label').textContent = copy.terms;
   if (c.terms_url) {
@@ -75,28 +80,44 @@
   const legend=document.createElement('legend'); legend.textContent=locale==='de'?'Wähle deine Zahlungsoption':'Choose your payment option'; choice.append(legend);
   paymentOptions.forEach(([key,label])=>{ const item=document.createElement('label');item.className='option'; const input=document.createElement('input');input.type='radio';input.name='payment_option';input.value=key;input.disabled=!c.payment_links?.[key]; const text=document.createElement('span');text.textContent= c.payment_links?.[key] ? `${label} · ${c.prices?.[key] ? money(c.prices[key]) : copy.tbc}` : `${label} · ${copy.tbc}`; item.append(input,text);choice.append(item); });
   $('#payment').before(choice);
+  const paymentRoute = document.createElement('fieldset'); paymentRoute.className='group';
+  const routeLegend=document.createElement('legend'); routeLegend.textContent=locale==='de'?'Wie möchtest du bezahlen?':'How would you like to pay?'; paymentRoute.append(routeLegend);
+  const routes = locale === 'de' ? [
+    ['paypal_link','Online über PayPal oder Karte','Apple Pay wird angezeigt, wenn PayPal es für deine Zahlung anbieten kann.'],
+    ['studio_cash','Bar im Clever Fit Amberg-Kümmersbruck','Bitte nenne im Studio deinen vollständigen Namen und deine Buchungsreferenz.']
+  ] : [
+    ['paypal_link','Online via PayPal or card','Apple Pay is shown only when PayPal can offer it for your payment.'],
+    ['studio_cash','Cash at Clever Fit Amberg-Kümmersbruck','Please give your full name and booking reference at the studio.']
+  ];
+  routes.forEach(([value,label,hint])=>{ const item=document.createElement('label');item.className='option'; const input=document.createElement('input');input.type='radio';input.name='payment_method';input.value=value;input.required=true; const text=document.createElement('span');text.textContent=label; const detail=document.createElement('small');detail.textContent=hint; detail.style.display='block'; detail.style.margin='4px 0 0 26px'; item.append(input,text,detail);paymentRoute.append(item); });
+  $('#payment').before(paymentRoute);
+  const closed = c.booking_closes_at && new Date() > new Date(c.booking_closes_at);
+  if (closed) { $('#to-intake').disabled=true; $('#to-intake').textContent=locale==='de'?'Buchung geschlossen':'Booking closed'; }
   $('#payment').disabled=false;
   $('#payment').addEventListener('click',async()=>{ 
     if(!$('#privacy').checked || !$('#terms').checked){ $('#review-error').textContent=copy.required; return; }
     const option=choice.querySelector('input:checked');
-    if(!option){ $('#review-error').textContent=locale==='de'?'Bitte wähle eine verfügbare Zahlungsoption.':'Please select an available payment option.'; return; }
+    const route=paymentRoute.querySelector('input:checked');
+    if(!option || !route){ $('#review-error').textContent=locale==='de'?'Bitte wähle Preisoption und Zahlungsweg.':'Please select a price option and payment route.'; return; }
     if(!['booking_open','manual_verification'].includes(c.status)){ $('#review-error').textContent=locale==='de'?'Die Buchung wird gerade vorbereitet.':'Booking is being prepared.'; return; }
     const button=$('#payment');
     button.disabled=true;
-    button.textContent=locale==='de'?'PayPal wird geöffnet …':'Opening PayPal …';
+    button.textContent=route.value==='studio_cash' ? (locale==='de'?'Buchung wird vorbereitet …':'Preparing booking …') : (locale==='de'?'PayPal wird geöffnet …':'Opening PayPal …');
     try{
       const payload=Object.fromEntries(new FormData(form).entries());
       payload.reasons=[...form.querySelectorAll('input[name="reasons"]:checked')].map(input=>input.value);
       payload.exploration_areas=[...form.querySelectorAll('input[name="exploration_areas"]:checked')].map(input=>input.value);
       payload.health_notes=healthInputs().map(input=>input.value);
       payload.payment_option=option.value;
+      payload.payment_method=route.value;
       payload.locale=locale;
       payload.payment_mode=c.status;
       const response=await fetch('/api/body-language-booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       const result=await response.json().catch(()=>({}));
-      if(!response.ok || !result.approvalUrl) throw new Error(result.message||'payment_unavailable');
+      if(!response.ok) throw new Error(result.message||'payment_unavailable');
       sessionStorage.setItem('body-language-booking-id',result.bookingId||'');
-      window.location.assign(result.approvalUrl);
+      if (result.approvalUrl) window.location.assign(result.approvalUrl);
+      else { $('#review-error').textContent=locale==='de'?'Danke. Wir haben dir die Hinweise zur Barzahlung im Studio per E-Mail gesendet. Dein Platz wird nach Zuordnung der Zahlung bestätigt.':'Thank you. We have emailed your cash-payment instructions for the studio. Your place is confirmed once payment is matched.'; button.hidden=true; }
     }catch(error){
       $('#review-error').textContent=locale==='de'?'Die Zahlung konnte gerade nicht sicher vorbereitet werden. Bitte versuche es erneut oder schreibe uns an hello@human-architecture.info.':'Secure payment could not be prepared right now. Please try again or contact hello@human-architecture.info.';
       button.disabled=false;
