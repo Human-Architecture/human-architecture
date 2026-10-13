@@ -1,5 +1,5 @@
 const { EVENT_KEY, CAPACITY, BOOKING_CLOSES_AT, OPTIONS, sql, ensureSchema, clean, validEmail, array, option, formatAmount, requestBase, paypalRequest, sendEmail, bookingNotificationText, crypto } = require('../lib/body-language-booking');
-const { paymentEnabled, ensureSchema: ensureCodexSchema, createBooking: createCodexBooking, offer: codexOffer } = require('../lib/codex-booking');
+const { paymentEnabled, secureIntakeConfigured, ensureSchema: ensureCodexSchema, createBooking: createCodexBooking, offer: codexOffer } = require('../lib/codex-booking');
 
 const message = (locale, de, en) => locale === 'en' ? en : de;
 const MANUAL_PAYMENT_LINKS = Object.freeze({
@@ -17,6 +17,10 @@ const validDate = value => {
 module.exports = async function handler(req, res) {
   const locale = req.body?.locale === 'en' ? 'en' : 'de';
   if (req.method === 'GET') {
+    if (req.query?.codex === 'status') {
+      const available = paymentEnabled() && secureIntakeConfigured() && Boolean(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET && (process.env.HA_POSTGRES_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL));
+      return res.status(200).json({ available });
+    }
     return res.status(200).json({ available: true });
   }
   if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return res.status(405).json({ message: 'Method not allowed' }); }
