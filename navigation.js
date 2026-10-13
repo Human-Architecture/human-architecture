@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded',()=>{
  const roots=document.querySelectorAll('.ha-wayfinding,.ha-site-directory,.ha-entry');
  const header=document.querySelector('.site-header');
  const wayfinding=document.querySelector('.ha-wayfinding');
+ const primaryNav=header&&header.querySelector('nav[aria-label="Primary navigation"]');
+ if(primaryNav&&!primaryNav.querySelector('[data-site-search-link]')){
+  const searchLink=document.createElement('a');
+  searchLink.href='/search/';
+  searchLink.dataset.siteSearchLink='';
+  primaryNav.append(searchLink);
+ }
  if(header&&wayfinding){
   const placeNavigation=()=>{wayfinding.style.marginTop=getComputedStyle(header).position==='fixed'?header.getBoundingClientRect().height+'px':'';};
   placeNavigation();
@@ -18,7 +25,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(u.origin===location.origin && normalize(u.pathname)===normalize(location.pathname)&&!u.hash)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
    });
   });
-  document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
+   document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
+   document.querySelectorAll('[data-site-search-link]').forEach(link=>{link.textContent=lang==='en'?'Search':'Suche';link.setAttribute('aria-label',lang==='en'?'Search the Human Architecture site':'Human-Architecture-Website durchsuchen');});
   document.querySelectorAll('a[data-en="Explore workshop (German)"]').forEach(link=>{link.dataset.en='Explore workshop';link.textContent=link.dataset[lang];link.setAttribute('href',lang==='en'?'/body-language/en/':'/body-language/');});
   document.querySelectorAll('[data-de*="90-minütige Workshop"]').forEach(el=>{el.dataset.de=el.dataset.de.replace('90-minütige','90–120-minütige');el.dataset.en=el.dataset.en.replace('90-minute','90–120 minute').replace(' The workshop page is in German.','');el.textContent=el.dataset[lang];});
   document.querySelectorAll('a[href]').forEach(a=>{
