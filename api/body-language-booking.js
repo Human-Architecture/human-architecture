@@ -1,4 +1,4 @@
-const { EVENT_KEY, CAPACITY, BOOKING_CLOSES_AT, OPTIONS, sql, ensureSchema, clean, validEmail, array, option, requestBase, paypalRequest, sendEmail, crypto } = require('../lib/body-language-booking');
+const { EVENT_KEY, CAPACITY, BOOKING_CLOSES_AT, OPTIONS, sql, ensureSchema, clean, validEmail, array, option, formatAmount, requestBase, paypalRequest, sendEmail, bookingNotificationText, crypto } = require('../lib/body-language-booking');
 const { paymentEnabled, ensureSchema: ensureCodexSchema, createBooking: createCodexBooking, offer: codexOffer } = require('../lib/codex-booking');
 
 const message = (locale, de, en) => locale === 'en' ? en : de;
@@ -79,7 +79,7 @@ module.exports = async function handler(req, res) {
         ? `Hello ${participantName},\n\nwe received your BODY LANGUAGE booking details.\n\n${route}\n\nBooking reference: ${reference}\nSelected option: ${label}\nAmount: ${amount}\n\nBookings and payments close on 14 November 2026. This is not yet a confirmation of a place. We will match the payment to your booking and email you once your place is confirmed.\n\nHuman Architecture®\nhello@human-architecture.info`
         : `Hallo ${participantName},\n\nwir haben deine Buchungsdaten für BODY LANGUAGE erhalten.\n\n${route}\n\nBuchungsreferenz: ${reference}\nGewählte Option: ${label}\nBetrag: ${amount}\n\nAnmeldungen und Zahlungen sind bis einschließlich 14. November 2026 möglich. Dies ist noch keine Platzbestätigung. Wir ordnen die Zahlung deiner Anmeldung zu und senden dir anschließend die Bestätigung per E-Mail.\n\nHuman Architecture®\nhello@human-architecture.info`;
       const confirmationUrl = `${requestBase(req)}/api/body-language-manual-confirm?booking=${bookingId}&token=${confirmationToken}`;
-      const staffText = `BODY LANGUAGE payment pending\n\nReference: ${reference}\nPayment route: ${paymentMethod === 'studio_cash' ? 'Cash at Clever Fit Amberg-Kümmersbruck' : 'Online PayPal / card'}\nName: ${participantName}\nEmail: ${email}\nPhone / WhatsApp: ${phone}\nOption: ${label}\nAmount: ${amount}\nSeats: ${selected.seats}\n\nAfter matching payment, review and confirm here:\n${confirmationUrl}`;
+      const staffText = bookingNotificationText({ bookingId, participantName, email, phone, intake, label, amount, seats: selected.seats, paymentRoute: paymentMethod === 'studio_cash' ? 'Barzahlung im Clever Fit Amberg-Kümmersbruck' : 'Online PayPal / Karte', confirmationUrl });
       await Promise.all([
         sendEmail({ to: email, subject: paymentMethod === 'studio_cash' ? (locale === 'en' ? 'BODY LANGUAGE: cash payment at Clever Fit' : 'BODY LANGUAGE: Barzahlung im Clever Fit') : (locale === 'en' ? 'BODY LANGUAGE: complete your online payment' : 'BODY LANGUAGE: Bitte schließe deine Online-Zahlung ab'), text: customerText }),
         sendEmail({ to: 'hello@human-architecture.info', subject: `BODY LANGUAGE · payment pending · ${participantName} · ${amount}`, text: staffText })
@@ -91,6 +91,14 @@ module.exports = async function handler(req, res) {
     const approvalUrl = order.links?.find(link => link.rel === 'approve')?.href;
     if (!approvalUrl) throw new Error('PayPal approval link unavailable');
     await query`UPDATE body_language_bookings SET paypal_order_id=${order.id},updated_at=now() WHERE id=${bookingId}`;
+    const label = selected[locale === 'en' ? 'en' : 'de'];
+    const amount = formatAmount(selected.cents, locale);
+    const staffText = bookingNotificationText({ bookingId, participantName, email, phone, intake, label, amount, seats: selected.seats, paymentRoute: 'Online PayPal / Karte · Zahlung noch offen' });
+    try {
+      await sendEmail({ to: 'hello@human-architecture.info', subject: `BODY LANGUAGE · neue Anmeldung · ${participantName} · ${amount}`, text: staffText });
+    } catch (emailError) {
+      console.error('BODY LANGUAGE staff booking email failed', emailError);
+    }
     return res.status(201).json({ bookingId, approvalUrl });
   } catch (error) {
     console.error('BODY LANGUAGE booking creation failed', error);
