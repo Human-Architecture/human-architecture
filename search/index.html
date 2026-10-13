@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#063442">
+  <title>Search | Human Architecture</title>
+  <meta name="description" content="Find Human Architecture programmes, partnership proposals, workshops and resources.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="stylesheet" href="/interior.css">
+  <link rel="stylesheet" href="/navigation.css">
+  <style>
+    .search-page{min-height:100vh;background:#f5f0e7;color:#063442}.search-wrap{max-width:960px;margin:0 auto;padding:clamp(52px,8vw,112px) 24px 90px}.search-eyebrow{font:600 12px/1.5 Arial,sans-serif;letter-spacing:.17em;margin:0 0 18px}.search-wrap h1{font:400 clamp(42px,6vw,76px)/1.03 Georgia,serif;letter-spacing:-.03em;margin:0 0 20px}.search-intro{max-width:62ch;font:400 18px/1.65 Manrope,Arial,sans-serif;margin:0 0 32px}.search-form{display:flex;gap:12px;padding:12px;background:#fff;border:1px solid #06344242;box-shadow:0 12px 32px #06344212}.search-form input{min-width:0;flex:1;padding:14px 16px;border:1px solid #06344252;background:#fff;color:#063442;font:400 17px/1.4 Manrope,Arial,sans-serif}.search-form button{border:0;background:#063442;color:#fff;padding:14px 22px;font:600 15px/1.4 Manrope,Arial,sans-serif;cursor:pointer}.search-form input:focus-visible,.search-form button:focus-visible,.search-card:focus-visible{outline:3px solid #a78d6e;outline-offset:4px}.search-suggestions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 42px}.search-suggestions button{border:1px solid #a78d6e;background:transparent;color:#063442;padding:8px 13px;font:500 14px/1.4 Manrope,Arial,sans-serif;cursor:pointer}.search-results{display:grid;gap:14px}.search-status{font:500 15px/1.6 Manrope,Arial,sans-serif;margin:0 0 16px}.search-card{display:block;padding:26px;background:#fff;border-top:2px solid #a78d6e;color:#063442;text-decoration:none;transition:transform .18s,box-shadow .18s}.search-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px #06344218}.search-card small{display:block;color:#6d5129;font:600 11px/1.5 Arial,sans-serif;letter-spacing:.14em;margin-bottom:10px}.search-card h2{font:400 clamp(25px,3vw,34px)/1.18 Georgia,serif;margin:0 0 10px}.search-card p{max-width:66ch;font:400 16px/1.6 Manrope,Arial,sans-serif;margin:0}.search-empty{padding:28px;background:#e7efed;border-left:3px solid #a78d6e;font:400 16px/1.65 Manrope,Arial,sans-serif}.search-empty a{color:inherit}.search-footer{margin-top:52px;font:500 14px/1.6 Manrope,Arial,sans-serif}.search-footer a{color:inherit}@media(max-width:540px){.search-form{display:grid}.search-form button{width:100%}}
+  </style>
+</head>
+<body class="ha-interior">
+  <a class="skip" href="#results">Skip to results</a>
+  <header class="site-header"><div class="shell topbar"><a class="brand" href="/" aria-label="Human Architecture home"><img src="/assets/logo/logo-white.png" width="600" height="220" alt="Human Architecture"></a><nav aria-label="Primary navigation"><a href="/kooperationen/performance/">Partnerships</a><a href="/body-language/en/">BODY LANGUAGE</a><a href="/search/" aria-current="page">Search</a></nav></div></header>
+  <main class="search-page"><div class="search-wrap">
+    <p class="search-eyebrow">HUMAN ARCHITECTURE® / WAYFINDING</p>
+    <h1>Find the right place to begin.</h1>
+    <p class="search-intro">Search by a person, partner, programme or topic. Try <strong>Makahiya</strong>, <strong>HYROX</strong>, <strong>workshop</strong>, <strong>Codex</strong> or <strong>sessions</strong>.</p>
+    <form class="search-form" id="site-search" role="search"><label class="sr-only" for="search-input">Search Human Architecture</label><input id="search-input" name="q" type="search" autocomplete="off" placeholder="What are you looking for?"><button type="submit">Search</button></form>
+    <div class="search-suggestions" aria-label="Suggested searches"><button type="button" data-search="Makahiya">Makahiya</button><button type="button" data-search="Workshop">Workshop</button><button type="button" data-search="HYROX">HYROX</button><button type="button" data-search="Codex">Codex</button><button type="button" data-search="Sessions">Sessions</button></div>
+    <section id="results" aria-live="polite"><p class="search-status" id="search-status">Choose a topic above or enter a search.</p><div class="search-results" id="search-results"></div></section>
+    <p class="search-footer">Need a more specific direction? <a href="mailto:hello@human-architecture.info?subject=Website%20search%20help">Email Human Architecture</a>.</p>
+  </div></main>
+  <script src="/search/search.js"></script>
+</body>
+</html>
