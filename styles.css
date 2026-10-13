@@ -162,6 +162,29 @@ p {
   transform: none;
 }
 
+.upcoming-events-bar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px var(--page-x);
+  background: var(--ocean-mist);
+  color: var(--atlantic-abyss);
+  border-bottom: 1px solid rgba(6, 52, 66, .16);
+  font-size: .82rem;
+}
+
+.upcoming-events-bar div { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.upcoming-events-bar span { font-weight: 700; font-size: .72rem; letter-spacing: .13em; color: var(--aged-brass); }
+.upcoming-events-bar strong { font-weight: 600; }
+.upcoming-events-bar a { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
+
+@media (max-width: 640px) {
+  .upcoming-events-bar { align-items: flex-start; flex-direction: column; gap: 7px; padding-block: 12px; }
+}
+
 
 /* =========================================================
    04 — GLOBAL LAYOUT
