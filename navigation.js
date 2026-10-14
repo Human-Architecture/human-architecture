@@ -17,12 +17,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   eventsLink.dataset.siteEventsLink='';
   primaryNav.append(eventsLink);
  }
- if(primaryNav&&!primaryNav.querySelector('[data-site-search-link]')){
+ const addSearchControl=siteHeader=>{
+  if(!siteHeader||siteHeader.querySelector('[data-site-search-link]'))return;
+  const nav=siteHeader.querySelector('nav[aria-label="Primary navigation"]');
+  const controls=siteHeader.querySelector('.ha-controls');
   const searchLink=document.createElement('a');
   searchLink.href='/search/';
   searchLink.dataset.siteSearchLink='';
-  primaryNav.append(searchLink);
- }
+  searchLink.className='site-search-control';
+  searchLink.setAttribute('aria-label','Search the Human Architecture site');
+  searchLink.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m15.2 15.2 5 5"></path></svg><span class="site-search-control__label">Search</span>';
+  if(controls)controls.insertBefore(searchLink,controls.querySelector('.ha-menu')||null); else if(nav)nav.append(searchLink); else siteHeader.append(searchLink);
+ };
+ document.querySelectorAll('header.site-header,header.ha-header').forEach(addSearchControl);
  if(header&&wayfinding){
   const placeNavigation=()=>{wayfinding.style.marginTop=getComputedStyle(header).position==='fixed'?header.getBoundingClientRect().height+'px':'';};
   placeNavigation();
@@ -41,7 +48,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
    document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
    document.querySelectorAll('[data-site-events-link]').forEach(link=>{link.textContent=lang==='en'?'Upcoming events':'Nächste Termine';link.setAttribute('aria-label',lang==='en'?'View upcoming events':'Nächste Veranstaltungen ansehen');});
-   document.querySelectorAll('[data-site-search-link]').forEach(link=>{link.textContent=lang==='en'?'Search':'Suche';link.setAttribute('aria-label',lang==='en'?'Search the Human Architecture site':'Human-Architecture-Website durchsuchen');});
+   document.querySelectorAll('[data-site-search-link]').forEach(link=>{const label=lang==='en'?'Search':'Suche';const labelNode=link.querySelector('.site-search-control__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',lang==='en'?'Search the Human Architecture site':'Human-Architecture-Website durchsuchen');});
   document.querySelectorAll('a[data-en="Explore workshop (German)"]').forEach(link=>{link.dataset.en='Explore workshop';link.textContent=link.dataset[lang];link.setAttribute('href',lang==='en'?'/body-language/en/':'/body-language/');});
   document.querySelectorAll('[data-de*="90-minütige Workshop"]').forEach(el=>{el.dataset.de=el.dataset.de.replace('90-minütige','90–120-minütige');el.dataset.en=el.dataset.en.replace('90-minute','90–120 minute').replace(' The workshop page is in German.','');el.textContent=el.dataset[lang];});
   document.querySelectorAll('a[href]').forEach(a=>{
