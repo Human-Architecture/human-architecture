@@ -50,7 +50,7 @@ Each payment URL must be the final HTTPS PayPal checkout link for its precise pr
 ## Safe release check
 
 1. Save the production settings in Vercel and redeploy the current production branch.
-2. Open `https://www.human-architecture.info/api/body-language-booking?codex=status` in a browser. It must show `{"available":true}` before Codex checkout is announced.
+2. Open `https://www.human-architecture.info/api/payment-readiness` in a browser. It reports only availability—not secret values, payment URLs, or customer information. Confirm that Codex, RETURN and Astrology are all available before announcing direct checkout.
 3. Open each offer page and confirm the primary booking button reaches its own form:
    - `/body-language/`
    - `/codex/current-sky/`
@@ -69,4 +69,3 @@ Each payment URL must be the final HTTPS PayPal checkout link for its precise pr
 - A ticket choice opens a different price or an unrelated PayPal page.
 - The confirmation email does not arrive.
 - A Codex intake link is sent before payment confirmation.
-
