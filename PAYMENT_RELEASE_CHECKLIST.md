@@ -50,7 +50,7 @@ Each payment URL must be the final HTTPS PayPal checkout link for its precise pr
 ## Safe release check
 
 1. Save the production settings in Vercel and redeploy the current production branch.
-2. Open `https://www.human-architecture.info/api/payment-readiness` in a browser. It reports only availability—not secret values, payment URLs, or customer information. Confirm that Codex, RETURN and Astrology are all available before announcing direct checkout.
+2. In Vercel, confirm the required production variables are present for the relevant offer. Then complete one controlled test booking per enabled payment route before announcing direct checkout.
 3. Open each offer page and confirm the primary booking button reaches its own form:
    - `/body-language/`
    - `/codex/current-sky/`
