@@ -181,6 +181,29 @@ p {
 .upcoming-events-bar strong { font-weight: 600; }
 .upcoming-events-bar a { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
 
+/* Event notice sits as a composed invitation, not a third competing navigation row. */
+.upcoming-events-bar {
+  min-height: 66px;
+  padding-block: 12px;
+  background: linear-gradient(90deg, #dce9e6, #e7efed);
+  border-bottom-color: rgba(6, 52, 66, .12);
+  font-size: .8rem;
+}
+.upcoming-events-bar div { gap: 10px 20px; }
+.upcoming-events-bar span { color: #8a704d; }
+.upcoming-events-bar strong { letter-spacing: -.01em; }
+.upcoming-events-bar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(6, 52, 66, .24);
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.upcoming-events-bar a:hover,
+.upcoming-events-bar a:focus-visible { background: var(--atlantic-abyss); color: var(--warm-ivory); }
+
 @media (max-width: 640px) {
   .upcoming-events-bar { align-items: flex-start; flex-direction: column; gap: 7px; padding-block: 12px; }
 }
