@@ -99,7 +99,9 @@ module.exports = async function handler(req, res) {
     });
     if (confirmationError) console.error('RETURN acknowledgement failed', confirmationError);
 
-    const paymentUrl = safePaymentUrl(process.env[paymentEnv] || (hasFriend ? hostedPaymentUrls.friendRegular : hostedPaymentUrls.regular));
+    const paymentUrl = cashOnArrival
+      ? ''
+      : safePaymentUrl(process.env[paymentEnv] || (hasFriend ? hostedPaymentUrls.friendRegular : hostedPaymentUrls.regular));
     return res.status(200).json({
       ok: true,
       cashOnArrival,
