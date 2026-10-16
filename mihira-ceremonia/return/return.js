@@ -57,7 +57,11 @@
         status.className = 'form-status success';
         status.textContent = root.lang === 'en' ? messages.en : messages.de;
         form.reset();
-        if (result.paymentUrl) {
+        if (result.cashOnArrival) {
+          status.textContent = root.lang === 'en'
+            ? `Registration received. Please bring ${result.cashAmount} in cash to RETURN on the evening.`
+            : `Anmeldung erhalten. Bitte bringe ${result.cashAmount} zur RETURN Session am Abend passend in bar mit.`;
+        } else if (result.paymentUrl) {
           status.textContent = root.lang === 'en' ? 'Registration received. Opening secure payment…' : 'Anmeldung erhalten. Sichere Zahlung wird geöffnet…';
           setTimeout(() => { window.location.assign(result.paymentUrl); }, 900);
         }
@@ -82,6 +86,7 @@
     const friendPrice = publicForm.querySelector('#friend-price');
     const totalPrice = publicForm.querySelector('#total-price');
     const discountNote = publicForm.querySelector('#discount-note');
+    const paymentNote = publicForm.querySelector('#payment-route-note');
     const basePrice = (type) => type === 'dali' ? 25 : type === 'regular' ? 28 : null;
 
     const syncBooking = () => {
@@ -102,11 +107,24 @@
         ? null
         : primaryAmount + (secondaryAmount || 0);
       totalPrice.textContent = total === null ? '–' : euro.format(total);
+      const containsDali = publicForm.elements.priceType.value === 'dali'
+        || (hasFriend && publicForm.elements.friendPriceType.value === 'dali');
+      if (paymentNote) {
+        paymentNote.hidden = total === null;
+        paymentNote.textContent = containsDali
+          ? (root.lang === 'en'
+            ? 'This booking includes a DALI ticket: please pay the full amount in cash on the evening.'
+            : 'Diese Buchung enthält ein DALI Ticket: Bitte bezahle den Gesamtbetrag am Abend passend in bar.')
+          : (root.lang === 'en'
+            ? 'After registration, secure online payment opens for this booking.'
+            : 'Nach der Anmeldung öffnet sich die sichere Online-Zahlung für diese Buchung.');
+      }
     };
 
     publicForm.addEventListener('change', (event) => {
       if (['priceType', 'bringFriend', 'friendPriceType'].includes(event.target.name)) syncBooking();
     });
+    languageButtons.forEach((button) => button.addEventListener('click', syncBooking));
     publicForm.addEventListener('reset', () => setTimeout(syncBooking, 0));
     syncBooking();
 
