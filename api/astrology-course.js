@@ -13,7 +13,7 @@ const safePaymentUrl = (value) => {
 // until its dedicated checkout is created.
 const PAYMENT_LINKS = Object.freeze({
   solo: 'https://www.paypal.com/ncp/payment/9LG55FQ3NJX7C',
-  pair: ''
+  pair: 'https://www.paypal.com/ncp/payment/368JA4HXQE2QE'
 });
 
 module.exports = async function handler(req, res) {
