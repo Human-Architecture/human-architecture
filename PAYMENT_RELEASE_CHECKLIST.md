@@ -8,6 +8,7 @@ Use this checklist before announcing that every Human Architecture booking can b
 | --- | --- | --- |
 | BODY LANGUAGE | Booking form → choose ticket and payment method | Hosted PayPal/card checkout or cash at Clever Fit |
 | The Codex introductory readings | Offer page → secure booking → private intake after payment | PayPal order checkout |
+| Codex 2027 entry offer | 2027 offer page → secure booking → private intake after payment | PayPal order checkout; `MELMIHIRA27` changes €222 to €111 through 31 October 2026 |
 | RETURN public session | Registration form → secure payment opens | Hosted URL selected by ticket type |
 | Advent of Astrology | Registration form → secure payment opens | Hosted URL selected by solo or pair booking |
 
@@ -56,6 +57,7 @@ Each payment URL must be the final HTTPS PayPal checkout link for its precise pr
    - `/codex/current-sky/`
    - `/codex/personal-pattern/`
    - `/codex/astrological-foundations/`
+   - `/codex/2027/`
    - `/mihira-ceremonia/return/`
    - `/kurse/westliche-astrologie/`
 4. On each form, complete only the non-submitting navigation and confirm the price, language, privacy notice, and payment wording are correct.
