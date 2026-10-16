@@ -38,12 +38,9 @@ Do not enable `CODEX_BOOKING_ENABLED` until all six items above are present. The
 - `RETURN_PAYMENT_URL_REGULAR`
 - `RETURN_PAYMENT_URL_FRIEND_RR`
 
-### Required for Advent of Astrology
+### Advent of Astrology
 
-- `ASTROLOGY_PAYMENT_URL_SOLO`
-- `ASTROLOGY_PAYMENT_URL_PAIR`
-
-Each payment URL must be the final HTTPS PayPal checkout link for its precise price option.
+No Vercel payment variable is needed. The verified solo and pair PayPal checkout URLs are already connected to the course booking flow. Replace them in the site code only if PayPal issues new final checkout URLs.
 
 ## Safe release check
 
