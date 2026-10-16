@@ -1,5 +1,11 @@
 /* Lightweight search control for public pages with bespoke headers. */
 document.addEventListener('DOMContentLoaded', () => {
+  const octoberEntry = document.querySelector('a[href^="/codex/book/?offer=codex_2027_entry"]');
+  if (octoberEntry) {
+    octoberEntry.href = 'https://www.paypal.com/ncp/payment/JPQF7Y4QTZX3G';
+    octoberEntry.setAttribute('aria-label', 'Secure the Codex 2027 October entry for €111');
+  }
+
   if (document.querySelector('[data-site-search-link], a[href="/search/"]')) return;
 
   const header = document.querySelector('header');
