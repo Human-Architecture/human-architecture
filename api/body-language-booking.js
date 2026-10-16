@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
     if (!name || !validEmail(email) || !codexOffer(offerKey) || req.body?.privacy !== true) return res.status(400).json({ message: 'Please complete your name, email, offer and privacy consent.' });
     try {
       await ensureCodexSchema();
-      const booking = await createCodexBooking({ name, email, offerKey, base: requestBase(req) });
+      const booking = await createCodexBooking({ name, email, offerKey, promoCode: clean(req.body?.promo_code, 40), base: requestBase(req) });
       return res.status(201).json({ approvalUrl: booking.approvalUrl });
     } catch (error) {
       console.error('CODEX booking failed', error);
