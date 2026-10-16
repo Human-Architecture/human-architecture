@@ -9,6 +9,13 @@ const safePaymentUrl = (value) => {
   try { const url = new URL(value); return url.protocol === 'https:' ? url.toString() : ''; } catch { return ''; }
 };
 
+// Public hosted checkout links. The pair link remains separately configurable
+// until its dedicated checkout is created.
+const PAYMENT_LINKS = Object.freeze({
+  solo: 'https://www.paypal.com/ncp/payment/9LG55FQ3NJX7C',
+  pair: ''
+});
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return res.status(405).json({ok:false,error:'Method not allowed'}); }
   const body = req.body || {};
@@ -104,7 +111,11 @@ module.exports = async function handler(req, res) {
       if (friendError) console.error('Astrology course friend acknowledgement failed', friendError);
     }
 
-    const paymentUrl = safePaymentUrl(pair ? process.env.ASTROLOGY_PAYMENT_URL_PAIR : process.env.ASTROLOGY_PAYMENT_URL_SOLO);
+    const paymentUrl = safePaymentUrl(
+      pair
+        ? (process.env.ASTROLOGY_PAYMENT_URL_PAIR || PAYMENT_LINKS.pair)
+        : (process.env.ASTROLOGY_PAYMENT_URL_SOLO || PAYMENT_LINKS.solo)
+    );
     return res.status(200).json({ok:true,paymentUrl:paymentUrl || undefined,paymentConfigured:Boolean(paymentUrl)});
   } catch (error) {
     console.error('Astrology course registration failed', error);
