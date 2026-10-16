@@ -7,6 +7,13 @@ const safePaymentUrl = (value) => {
   try { const url = new URL(value); return url.protocol === 'https:' ? url.toString() : ''; } catch { return ''; }
 };
 
+// Hosted checkout links are public payment destinations, not credentials. Vercel
+// variables may still override them if a link needs to be replaced later.
+const hostedPaymentUrls = Object.freeze({
+  regular: 'https://www.paypal.com/ncp/payment/AYQQX4J3ZKZGJ',
+  friendRegular: 'https://www.paypal.com/ncp/payment/P27E9UYS3Z2JA'
+});
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return res.status(405).json({ ok: false, error: 'Method not allowed' }); }
   const body = req.body || {};
@@ -92,7 +99,7 @@ module.exports = async function handler(req, res) {
     });
     if (confirmationError) console.error('RETURN acknowledgement failed', confirmationError);
 
-    const paymentUrl = safePaymentUrl(process.env[paymentEnv]);
+    const paymentUrl = safePaymentUrl(process.env[paymentEnv] || (hasFriend ? hostedPaymentUrls.friendRegular : hostedPaymentUrls.regular));
     return res.status(200).json({
       ok: true,
       cashOnArrival,
