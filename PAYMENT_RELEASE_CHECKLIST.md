@@ -8,7 +8,8 @@ Use this checklist before announcing that every Human Architecture booking can b
 | --- | --- | --- |
 | BODY LANGUAGE | Booking form → choose ticket and payment method | Hosted PayPal/card checkout or cash at Clever Fit |
 | The Codex introductory readings | Offer page → secure booking → private intake after payment | PayPal order checkout |
-| RETURN public session | Registration form → secure payment opens | Hosted URL selected by ticket type |
+| Codex 2027 entry offer | 2027 offer page → secure booking → private intake after payment | PayPal order checkout; `MELMIHIRA27` changes €222 to €111 through 31 October 2026 |
+| RETURN public session | Registration form → secure payment opens for regular tickets | DALI tickets are paid in cash at the evening |
 | Advent of Astrology | Registration form → secure payment opens | Hosted URL selected by solo or pair booking |
 
 The five BODY LANGUAGE hosted PayPal URLs were checked for reachability on 15 October 2026. They returned a successful response. That check did not create an order or a payment.
@@ -34,11 +35,8 @@ Do not enable `CODEX_BOOKING_ENABLED` until all six items above are present. The
 
 ### Required for RETURN
 
-- `RETURN_PAYMENT_URL_DALI`
 - `RETURN_PAYMENT_URL_REGULAR`
-- `RETURN_PAYMENT_URL_FRIEND_DD`
 - `RETURN_PAYMENT_URL_FRIEND_RR`
-- `RETURN_PAYMENT_URL_FRIEND_RD`
 
 ### Required for Advent of Astrology
 
@@ -56,6 +54,7 @@ Each payment URL must be the final HTTPS PayPal checkout link for its precise pr
    - `/codex/current-sky/`
    - `/codex/personal-pattern/`
    - `/codex/astrological-foundations/`
+   - `/codex/2027/`
    - `/mihira-ceremonia/return/`
    - `/kurse/westliche-astrologie/`
 4. On each form, complete only the non-submitting navigation and confirm the price, language, privacy notice, and payment wording are correct.
