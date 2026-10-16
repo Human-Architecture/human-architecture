@@ -10,6 +10,22 @@ document.addEventListener('DOMContentLoaded',()=>{
   eventsLink.dataset.en='Upcoming events';
   wayfinding.append(eventsLink);
  }
+ const retainEquestrianRoute=()=>{
+  document.querySelectorAll('.ha-domain-menu a[href="/mensch-und-tier/"]').forEach(link=>{
+   link.href='/reitsport/';
+   link.dataset.de='Pferde & Reitsport';
+   link.dataset.en='Horses & equestrian';
+  });
+  document.querySelectorAll('.ha-site-directory details').forEach(section=>{
+   const summary=section.querySelector('summary');
+   if(!summary||summary.dataset.de!=='Mensch & Tier')return;
+   summary.dataset.de='Pferde & Reitsport';
+   summary.dataset.en='Horses & equestrian';
+   const list=section.querySelector('ul');
+   if(list)list.innerHTML='<li><a href="/reitsport/" data-de="Pferde &amp; Reitsport" data-en="Horses &amp; equestrian life">Pferde &amp; Reitsport</a></li><li><a href="/reitsport/pferdekauf/" data-de="Pferdekauf vorbereiten" data-en="Prepare a horse purchase">Pferdekauf vorbereiten</a></li><li><a href="/reitsport/partnerschaft/" data-de="Bestehende Partnerschaft" data-en="Existing partnership">Bestehende Partnerschaft</a></li>';
+  });
+ };
+ retainEquestrianRoute();
  const primaryNav=header&&header.querySelector('nav[aria-label="Primary navigation"]');
  if(primaryNav&&!primaryNav.querySelector('[data-site-events-link]')){
   const eventsLink=document.createElement('a');
