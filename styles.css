@@ -4218,3 +4218,49 @@ p:not(.eyebrow) {
 
 /* Keep the reference menu aligned when its language label is hidden. */
 .method-page .menu-button { margin-left: auto; }
+
+/* The method page carries more header labels than the main site. Move to the
+   composed menu before those labels begin to compete for horizontal space. */
+@media (max-width: 1680px) and (min-width: 1441px) {
+  .method-page .desktop-nav { display: none; }
+  .method-page .nav-conversation { margin-left: auto; }
+  .method-page .menu-button {
+    display: block;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .method-page .menu-button span {
+    display: block;
+    width: 23px;
+    height: 1px;
+    margin: 6px auto;
+    background: var(--white);
+  }
+  .method-page .mobile-menu {
+    position: fixed;
+    z-index: 999;
+    inset: 88px 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - 88px);
+    overflow-y: auto;
+    padding: 25px var(--page-x) 36px;
+    background: rgba(6,52,66,.98);
+    backdrop-filter: blur(18px);
+    transform: translateY(-130%);
+    visibility: hidden;
+    transition: transform 430ms var(--ease), visibility 430ms;
+  }
+  .method-page .mobile-menu.is-open { transform: none; visibility: visible; }
+  .method-page .mobile-menu a {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    color: var(--white);
+    font-size: .70rem;
+    letter-spacing: .05em;
+  }
+}
