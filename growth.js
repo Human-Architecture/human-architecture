@@ -68,6 +68,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
   }
 
+  // The sessions overview has many valid formats. Make the first decision about
+  // the visitor's intention, then keep each individual choice connected to a
+  // prepared enquiry rather than asking them to decode the entire price list.
+  if (document.body.dataset.page === 'sessions') {
+    const sessionOverview = document.getElementById('schwerpunkte');
+    if (sessionOverview && !document.querySelector('.ha-session-decision-guide')) {
+      const guide = document.createElement('section');
+      guide.className = 'ha-session-decision-guide';
+      guide.setAttribute('aria-labelledby', 'session-decision-title');
+      guide.innerHTML = `
+        <p class="ha-eyebrow" data-de="DEIN AUSGANGSPUNKT" data-en="YOUR STARTING POINT">DEIN AUSGANGSPUNKT</p>
+        <h2 id="session-decision-title" data-de="Du musst die Methode nicht selbst auswählen." data-en="You do not need to choose the method yourself.">Du musst die Methode nicht selbst auswählen.</h2>
+        <p data-de="Beginne bei dem, was du gerade brauchst. In der Anfrage klären wir gemeinsam, welcher Rahmen, welche Dauer und welche Session wirklich passen." data-en="Begin with what you need right now. In your enquiry, we clarify together which scope, duration and session genuinely fit.">Beginne bei dem, was du gerade brauchst. In der Anfrage klären wir gemeinsam, welcher Rahmen, welche Dauer und welche Session wirklich passen.</p>
+        <div class="ha-session-decision-grid">
+          <a href="#struktur"><strong data-de="Klarheit über deinen Fokus" data-en="Clarity about your focus">Klarheit über deinen Fokus</strong><span data-de="Für Orientierung und einen strukturierten Blick auf dein Anliegen." data-en="For orientation and a structured view of what brings you here.">Für Orientierung und einen strukturierten Blick auf dein Anliegen.</span></a>
+          <a href="#koerperarbeit"><strong data-de="Hands-on Körperarbeit" data-en="Hands-on bodywork">Hands-on Körperarbeit</strong><span data-de="Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper." data-en="For agreed touch, massage or manual work with the body.">Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper.</span></a>
+          <a href="#regulation"><strong data-de="Ruhe, Atem &amp; Wahrnehmung" data-en="Rest, breath &amp; awareness">Ruhe, Atem &amp; Wahrnehmung</strong><span data-de="Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck." data-en="For a calmer guided setting without performance pressure.">Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck.</span></a>
+          <a href="#bewegung"><strong data-de="Bewegung integrieren" data-en="Integrate movement">Bewegung integrieren</strong><span data-de="Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag." data-en="For individual guided movement, coordination and everyday practice.">Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag.</span></a>
+        </div>
+        <p class="ha-session-decision-note" data-de="Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt." data-en="Not sure yet? That is completely fine: simply describe your situation — the right session is agreed before any booking.">Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt.</p>
+      `;
+      sessionOverview.before(guide);
+    }
+
+    document.querySelectorAll('.ha-session-row').forEach(row => {
+      if (row.querySelector('.ha-session-request')) return;
+      const title = row.querySelector('h4');
+      if (!title) return;
+      const name = title.textContent.trim();
+      const link = document.createElement('a');
+      link.className = 'ha-session-request ha-text-link';
+      link.href = `mailto:hello@human-architecture.info?subject=${encodeURIComponent(`Anfrage: ${name}`)}&body=${encodeURIComponent(`Ich interessiere mich für ${name}.\n\nMein Anliegen / meine Frage:\n\nGewünschter Zeitraum:\n\n` )}`;
+      link.dataset.de = 'Diese Session anfragen';
+      link.dataset.en = 'Enquire about this session';
+      link.textContent = language === 'en' ? link.dataset.en : link.dataset.de;
+      row.querySelector('div')?.appendChild(link);
+    });
+  }
+
   document.querySelectorAll('footer').forEach(footer => {
     if (footer.querySelector('a[href*="impressum"]')) return;
     const legal = document.createElement('nav');
