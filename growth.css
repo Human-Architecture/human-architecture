@@ -27,4 +27,5 @@ a.ha-linked{color:inherit;text-decoration:none}a.ha-linked:hover h3{text-decorat
 .ha-session-decision-grid strong{font-size:1.05rem;font-weight:600}.ha-session-decision-grid span{font-size:.92rem;line-height:1.55;opacity:.82}
 .ha-session-decision-note{max-width:46rem;margin:1.4rem 0 0;font-size:.92rem;line-height:1.55;color:#31515b}
 .ha-session-request{display:inline-block;margin-top:.85rem;font-size:.88rem;font-weight:600}
+.ha-session-calendar{display:grid;gap:1rem;max-width:46rem;margin:2.25rem 0 0;padding:clamp(1.4rem,3vw,2.2rem);background:#063442;color:#f7f3ec}.ha-session-calendar .ha-eyebrow{margin:0;color:#ceb98d}.ha-session-calendar h3{max-width:20ch;margin:0;font:500 clamp(1.8rem,3vw,2.7rem)/1 "Cormorant Garamond",serif}.ha-session-calendar p:not(.ha-eyebrow){max-width:42rem;margin:0;line-height:1.6;color:#e5e6df}.ha-session-calendar .ha-button{justify-self:start;background:#f7f3ec;color:#063442}.ha-session-calendar .ha-button:hover,.ha-session-calendar .ha-button:focus-visible{background:#ceb98d}
 @media(max-width:700px){.ha-session-decision-grid{grid-template-columns:1fr}.ha-session-decision-grid a{min-height:auto}}

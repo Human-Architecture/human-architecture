@@ -88,6 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="#bewegung"><strong data-de="Bewegung integrieren" data-en="Integrate movement">Bewegung integrieren</strong><span data-de="Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag." data-en="For individual guided movement, coordination and everyday practice.">Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag.</span></a>
         </div>
         <p class="ha-session-decision-note" data-de="Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt." data-en="Not sure yet? That is completely fine: simply describe your situation — the right session is agreed before any booking.">Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt.</p>
+        <aside class="ha-session-calendar" aria-label="Dezember-Termine / December appointments">
+          <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
+          <h3 data-de="Mittwochs Zeit für deinen Körper reservieren." data-en="Reserve dedicated time for your body on Wednesdays.">Mittwochs Zeit für deinen Körper reservieren.</h3>
+          <p data-de="Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben." data-en="In December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. Choose a suitable time; we clarify the exact focus through your booking details.">Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben.</p>
+          <a class="ha-button" href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+        </aside>
       `;
       sessionOverview.before(guide);
     }
@@ -105,6 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
       link.textContent = language === 'en' ? link.dataset.en : link.dataset.de;
       row.querySelector('div')?.appendChild(link);
     });
+  }
+
+  if (location.pathname.includes('/sessions/koerperarbeit/') && !document.querySelector('.ha-session-calendar')) {
+    const enquiry = document.getElementById('anfragen');
+    if (enquiry) {
+      const calendar = document.createElement('aside');
+      calendar.className = 'ha-session-calendar';
+      calendar.innerHTML = `
+        <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
+        <h3 data-de="Direkt einen 60-Minuten-Termin wählen." data-en="Choose a 60-minute appointment directly.">Direkt einen 60-Minuten-Termin wählen.</h3>
+        <p data-de="Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab." data-en="For December, you can reserve a Wednesday appointment between 14:00 and 20:00 directly. Please select your preferred focus in the booking form; we then agree the specific session scope together.">Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab.</p>
+        <a class="ha-button" href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+      `;
+      enquiry.querySelector('p')?.after(calendar);
+    }
   }
 
   document.querySelectorAll('footer').forEach(footer => {
