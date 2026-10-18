@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
     nav.prepend(entry);
   });
-  const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',offen:'Beratung zur Gutscheinwahl'};
+  const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',body_language:'BODY LANGUAGE Workshop',return:'RETURN · November Session',deep_rest:'DEEP REST · Sound Journey & Handpan',codex_2027:'Codex 2027 annual compass',offen:'Beratung zur Gutscheinwahl'};
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
 
@@ -137,4 +137,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-
