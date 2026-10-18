@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
     nav.prepend(entry);
   });
-  const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',offen:'Beratung zur Gutscheinwahl'};
+  const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',body_language:'BODY LANGUAGE Workshop',return:'RETURN · November Session',deep_rest:'DEEP REST · Sound Journey & Handpan',codex_2027:'Codex 2027 annual compass',offen:'Beratung zur Gutscheinwahl'};
+  const voucherPayments = {body_language:'https://www.paypal.com/ncp/payment/3KLLWQT9J7SWC',return:'https://www.paypal.com/ncp/payment/JUWR5VTDJ5Z74',deep_rest:'https://www.paypal.com/ncp/payment/VUK9C4886BGCG',codex_2027:'https://www.paypal.com/ncp/payment/726WVHHFGVKRA',codex_2027_october:'https://www.paypal.com/ncp/payment/3JYEWHJDKD58G'};
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
 
@@ -67,6 +68,106 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
   }
 
+  // The sessions overview has many valid formats. Make the first decision about
+  // the visitor's intention, then keep each individual choice connected to a
+  // prepared enquiry rather than asking them to decode the entire price list.
+  if (document.body.dataset.page === 'sessions') {
+    const sessionOverview = document.getElementById('schwerpunkte');
+    if (sessionOverview && !document.querySelector('.ha-session-decision-guide')) {
+      const guide = document.createElement('section');
+      guide.className = 'ha-session-decision-guide';
+      guide.setAttribute('aria-labelledby', 'session-decision-title');
+      guide.innerHTML = `
+        <p class="ha-eyebrow" data-de="DEIN AUSGANGSPUNKT" data-en="YOUR STARTING POINT">DEIN AUSGANGSPUNKT</p>
+        <h2 id="session-decision-title" data-de="Du musst die Methode nicht selbst auswählen." data-en="You do not need to choose the method yourself.">Du musst die Methode nicht selbst auswählen.</h2>
+        <p data-de="Beginne bei dem, was du gerade brauchst. In der Anfrage klären wir gemeinsam, welcher Rahmen, welche Dauer und welche Session wirklich passen." data-en="Begin with what you need right now. In your enquiry, we clarify together which scope, duration and session genuinely fit.">Beginne bei dem, was du gerade brauchst. In der Anfrage klären wir gemeinsam, welcher Rahmen, welche Dauer und welche Session wirklich passen.</p>
+        <div class="ha-session-decision-grid">
+          <a href="#struktur"><strong data-de="Klarheit über deinen Fokus" data-en="Clarity about your focus">Klarheit über deinen Fokus</strong><span data-de="Für Orientierung und einen strukturierten Blick auf dein Anliegen." data-en="For orientation and a structured view of what brings you here.">Für Orientierung und einen strukturierten Blick auf dein Anliegen.</span></a>
+          <a href="#koerperarbeit"><strong data-de="Hands-on Körperarbeit" data-en="Hands-on bodywork">Hands-on Körperarbeit</strong><span data-de="Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper." data-en="For agreed touch, massage or manual work with the body.">Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper.</span></a>
+          <a href="#regulation"><strong data-de="Ruhe, Atem &amp; Wahrnehmung" data-en="Rest, breath &amp; awareness">Ruhe, Atem &amp; Wahrnehmung</strong><span data-de="Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck." data-en="For a calmer guided setting without performance pressure.">Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck.</span></a>
+          <a href="#bewegung"><strong data-de="Bewegung integrieren" data-en="Integrate movement">Bewegung integrieren</strong><span data-de="Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag." data-en="For individual guided movement, coordination and everyday practice.">Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag.</span></a>
+        </div>
+        <p class="ha-session-decision-note" data-de="Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt." data-en="Not sure yet? That is completely fine: simply describe your situation — the right session is agreed before any booking.">Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt.</p>
+        <aside class="ha-session-calendar" aria-label="Dezember-Termine / December appointments">
+          <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
+          <h3 data-de="Mittwochs Zeit für deinen Körper reservieren." data-en="Reserve dedicated time for your body on Wednesdays.">Mittwochs Zeit für deinen Körper reservieren.</h3>
+          <p data-de="Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben." data-en="In December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. Choose a suitable time; we clarify the exact focus through your booking details.">Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben.</p>
+          <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
+          <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+        </aside>
+      `;
+      sessionOverview.before(guide);
+    }
+
+    document.querySelectorAll('.ha-session-row').forEach(row => {
+      if (row.querySelector('.ha-session-request')) return;
+      const title = row.querySelector('h4');
+      if (!title) return;
+      const name = title.textContent.trim();
+      const link = document.createElement('a');
+      link.className = 'ha-session-request ha-text-link';
+      link.href = `mailto:hello@human-architecture.info?subject=${encodeURIComponent(`Anfrage: ${name}`)}&body=${encodeURIComponent(`Ich interessiere mich für ${name}.\n\nMein Anliegen / meine Frage:\n\nGewünschter Zeitraum:\n\n` )}`;
+      link.dataset.de = 'Diese Session anfragen';
+      link.dataset.en = 'Enquire about this session';
+      link.textContent = language === 'en' ? link.dataset.en : link.dataset.de;
+      row.querySelector('div')?.appendChild(link);
+    });
+  }
+
+  if (location.pathname.includes('/sessions/koerperarbeit/') && !document.querySelector('.ha-session-calendar')) {
+    const enquiry = document.getElementById('anfragen');
+    if (enquiry) {
+      const calendar = document.createElement('aside');
+      calendar.className = 'ha-session-calendar';
+      calendar.innerHTML = `
+        <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
+        <h3 data-de="Direkt einen 60-Minuten-Termin wählen." data-en="Choose a 60-minute appointment directly.">Direkt einen 60-Minuten-Termin wählen.</h3>
+        <p data-de="Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab." data-en="For December, you can reserve a Wednesday appointment between 14:00 and 20:00 directly. Please select your preferred focus in the booking form; we then agree the specific session scope together.">Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab.</p>
+        <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
+        <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+      `;
+      enquiry.querySelector('p')?.after(calendar);
+    }
+  }
+
+  // Google Calendar's approved appointment-scheduling popup. The normal link
+  // remains in the markup as a reliable fallback if a visitor blocks third-party scripts.
+  const calendarTargets = [...document.querySelectorAll('[data-google-calendar-button]')];
+  if (calendarTargets.length) {
+    const calendarUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uorW7EkFDVLcQXqHF1__AJDN6SlfsK9mhFuL4yCyPJ47yKL45NXYh_YO_ILd8hKs6PHIDy30V?gv=true';
+    const renderCalendarButtons = () => {
+      if (!window.calendar?.schedulingButton?.load) return;
+      calendarTargets.forEach(target => {
+        if (target.dataset.calendarLoaded) return;
+        window.calendar.schedulingButton.load({
+          url: calendarUrl,
+          color: '#063442',
+          label: 'Termin reservieren / Reserve appointment',
+          target
+        });
+        target.dataset.calendarLoaded = 'true';
+        const fallback = target.parentElement?.querySelector('[data-calendar-fallback]');
+        if (fallback) fallback.hidden = true;
+      });
+    };
+
+    if (window.calendar?.schedulingButton?.load) {
+      renderCalendarButtons();
+    } else if (!document.getElementById('google-calendar-scheduling-script')) {
+      const calendarStyle = document.createElement('link');
+      calendarStyle.rel = 'stylesheet';
+      calendarStyle.href = 'https://calendar.google.com/calendar/scheduling-button-script.css';
+      document.head.appendChild(calendarStyle);
+
+      const calendarScript = document.createElement('script');
+      calendarScript.id = 'google-calendar-scheduling-script';
+      calendarScript.src = 'https://calendar.google.com/calendar/scheduling-button-script.js';
+      calendarScript.async = true;
+      calendarScript.addEventListener('load', renderCalendarButtons);
+      document.head.appendChild(calendarScript);
+    }
+  }
+
   document.querySelectorAll('footer').forEach(footer => {
     if (footer.querySelector('a[href*="impressum"]')) return;
     const legal = document.createElement('nav');
@@ -84,7 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
     target.hash = 'contact';
     return target.href;
   }
-  function updateVoucher(){ if(voucher && voucherLink) voucherLink.href = enquiryUrl('voucher',choices[voucher.value]); }
+  function updateVoucher(){
+    if(!voucher || !voucherLink) return;
+    const paymentUrl = voucherPayments[voucher.value];
+    voucherLink.href = paymentUrl || enquiryUrl('voucher',choices[voucher.value]);
+    voucherLink.dataset.de = paymentUrl ? 'Sicher bezahlen & Gutschein anfordern' : 'Unverbindlich anfragen';
+    voucherLink.dataset.en = paymentUrl ? 'Pay securely & request voucher' : 'Send a non-binding enquiry';
+    voucherLink.textContent = language === 'en' ? voucherLink.dataset.en : voucherLink.dataset.de;
+  }
   function setLanguage(lang){
     language = lang;
     document.documentElement.lang = lang;
@@ -137,4 +245,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-
