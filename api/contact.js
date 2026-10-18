@@ -1,4 +1,5 @@
 const { Resend } = require("resend");
+const { getOrientation } = require("../lib/orientation-guide");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -10,6 +11,10 @@ module.exports = async function handler(req, res) {
       success: false,
       message: "Method not allowed."
     });
+  }
+
+  if (req.query?.orientation === "1") {
+    return getOrientation(req, res);
   }
 
   try {
