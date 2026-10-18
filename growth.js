@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
           <h3 data-de="Mittwochs Zeit für deinen Körper reservieren." data-en="Reserve dedicated time for your body on Wednesdays.">Mittwochs Zeit für deinen Körper reservieren.</h3>
           <p data-de="Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben." data-en="In December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. Choose a suitable time; we clarify the exact focus through your booking details.">Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben.</p>
-          <a class="ha-button" href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+          <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
+          <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
         </aside>
       `;
       sessionOverview.before(guide);
@@ -122,9 +123,48 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
         <h3 data-de="Direkt einen 60-Minuten-Termin wählen." data-en="Choose a 60-minute appointment directly.">Direkt einen 60-Minuten-Termin wählen.</h3>
         <p data-de="Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab." data-en="For December, you can reserve a Wednesday appointment between 14:00 and 20:00 directly. Please select your preferred focus in the booking form; we then agree the specific session scope together.">Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab.</p>
-        <a class="ha-button" href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+        <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
+        <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
       `;
       enquiry.querySelector('p')?.after(calendar);
+    }
+  }
+
+  // Google Calendar's approved appointment-scheduling popup. The normal link
+  // remains in the markup as a reliable fallback if a visitor blocks third-party scripts.
+  const calendarTargets = [...document.querySelectorAll('[data-google-calendar-button]')];
+  if (calendarTargets.length) {
+    const calendarUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uorW7EkFDVLcQXqHF1__AJDN6SlfsK9mhFuL4yCyPJ47yKL45NXYh_YO_ILd8hKs6PHIDy30V?gv=true';
+    const renderCalendarButtons = () => {
+      if (!window.calendar?.schedulingButton?.load) return;
+      calendarTargets.forEach(target => {
+        if (target.dataset.calendarLoaded) return;
+        window.calendar.schedulingButton.load({
+          url: calendarUrl,
+          color: '#063442',
+          label: 'Termin reservieren / Reserve appointment',
+          target
+        });
+        target.dataset.calendarLoaded = 'true';
+        const fallback = target.parentElement?.querySelector('[data-calendar-fallback]');
+        if (fallback) fallback.hidden = true;
+      });
+    };
+
+    if (window.calendar?.schedulingButton?.load) {
+      renderCalendarButtons();
+    } else if (!document.getElementById('google-calendar-scheduling-script')) {
+      const calendarStyle = document.createElement('link');
+      calendarStyle.rel = 'stylesheet';
+      calendarStyle.href = 'https://calendar.google.com/calendar/scheduling-button-script.css';
+      document.head.appendChild(calendarStyle);
+
+      const calendarScript = document.createElement('script');
+      calendarScript.id = 'google-calendar-scheduling-script';
+      calendarScript.src = 'https://calendar.google.com/calendar/scheduling-button-script.js';
+      calendarScript.async = true;
+      calendarScript.addEventListener('load', renderCalendarButtons);
+      document.head.appendChild(calendarScript);
     }
   }
 
