@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.prepend(entry);
   });
   const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',body_language:'BODY LANGUAGE Workshop',return:'RETURN · November Session',deep_rest:'DEEP REST · Sound Journey & Handpan',codex_2027:'Codex 2027 annual compass',offen:'Beratung zur Gutscheinwahl'};
+  const voucherPayments = {body_language:'https://www.paypal.com/ncp/payment/3KLLWQT9J7SWC',return:'https://www.paypal.com/ncp/payment/JUWR5VTDJ5Z74',deep_rest:'https://www.paypal.com/ncp/payment/VUK9C4886BGCG',codex_2027:'https://www.paypal.com/ncp/payment/726WVHHFGVKRA',codex_2027_october:'https://www.paypal.com/ncp/payment/3JYEWHJDKD58G'};
   const voucher = document.getElementById('voucher-choice');
   const voucherLink = document.querySelector('.ha-voucher-link');
 
@@ -84,7 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     target.hash = 'contact';
     return target.href;
   }
-  function updateVoucher(){ if(voucher && voucherLink) voucherLink.href = enquiryUrl('voucher',choices[voucher.value]); }
+  function updateVoucher(){
+    if(!voucher || !voucherLink) return;
+    const paymentUrl = voucherPayments[voucher.value];
+    voucherLink.href = paymentUrl || enquiryUrl('voucher',choices[voucher.value]);
+    voucherLink.dataset.de = paymentUrl ? 'Sicher bezahlen & Gutschein anfordern' : 'Unverbindlich anfragen';
+    voucherLink.dataset.en = paymentUrl ? 'Pay securely & request voucher' : 'Send a non-binding enquiry';
+    voucherLink.textContent = language === 'en' ? voucherLink.dataset.en : voucherLink.dataset.de;
+  }
   function setLanguage(lang){
     language = lang;
     document.documentElement.lang = lang;
