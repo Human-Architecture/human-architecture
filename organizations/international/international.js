@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded',()=>{
+ const hero=document.querySelector('.hero');
+ if(hero&&!document.querySelector('.international-at-a-glance')){
+  const style=document.createElement('style');
+  style.textContent='.international-at-a-glance-wrap{background:#061f28;padding:0 0 58px}.international-at-a-glance{max-width:1000px;margin:0 auto;padding:0 6vw;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#dfc59d55}.international-at-a-glance>div{padding:22px 24px;background:#082d35;color:#f5f0e7}.international-at-a-glance strong{display:block;color:#dfc59d;font-size:10px;letter-spacing:.16em;margin-bottom:8px}.international-at-a-glance span{display:block;font-size:14px;line-height:1.55;color:#bbccc9}@media(max-width:650px){.international-at-a-glance{grid-template-columns:1fr;padding:0 24px}.international-at-a-glance-wrap{padding-bottom:36px}}';
+  document.head.append(style);
+  const wrap=document.createElement('div');
+  wrap.className='international-at-a-glance-wrap';
+  wrap.innerHTML='<section class="international-at-a-glance" aria-label="Programme at a glance"><div><strong>FOR</strong><span>Founders, leadership teams, People &amp; Culture leaders and organizational hosts.</span></div><div><strong>STARTS WITH</strong><span>A focused scoping conversation about your working context and practical requirements.</span></div><div><strong>YOU RECEIVE</strong><span>A written scope and fee proposal before you decide whether to book.</span></div></section>';
+  hero.insertAdjacentElement('afterend',wrap);
+ }
  const form=document.getElementById('international-enquiry');
  const format=document.getElementById('format');
  const status=document.getElementById('form-status');
