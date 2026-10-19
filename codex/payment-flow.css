@@ -1,0 +1,15 @@
+.cr-card--session .cr-card-note{
+  margin:0 0 16px;
+  padding-top:14px;
+  border-top:1px solid var(--cr-line);
+  color:var(--cr-muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.cr-card--session .cr-card-note + .cr-card-link{margin-top:auto}
+
+.cr-card--session .cr-card-link + .cr-card-link{
+  margin-top:14px;
+  color:var(--cr-muted);
+}
