@@ -30,6 +30,36 @@
   const requestedLanguage = new URLSearchParams(location.search).get('lang');
   setLanguage(requestedLanguage === 'en' ? 'en' : 'de', false);
 
+  const sound = document.querySelector('#return-sound');
+  const soundToggle = document.querySelector('[data-sound-toggle]');
+  const soundLabel = document.querySelector('[data-sound-label]');
+  if (sound && soundToggle && soundLabel) {
+    // Intentionally subtle: sound is always opt-in and begins at a near-imperceptible level.
+    sound.volume = 0.08;
+    const syncSoundToggle = (isPlaying) => {
+      soundToggle.setAttribute('aria-pressed', String(isPlaying));
+      soundToggle.classList.toggle('is-playing', isPlaying);
+      soundLabel.textContent = isPlaying
+        ? (root.lang === 'en' ? 'Sound off' : 'Klang aus')
+        : (root.lang === 'en' ? 'Begin with sound' : 'Mit Klang beginnen');
+    };
+
+    soundToggle.addEventListener('click', async () => {
+      if (sound.paused) {
+        try {
+          await sound.play();
+          syncSoundToggle(true);
+        } catch {
+          syncSoundToggle(false);
+        }
+      } else {
+        sound.pause();
+        syncSoundToggle(false);
+      }
+    });
+    languageButtons.forEach((button) => button.addEventListener('click', () => syncSoundToggle(!sound.paused)));
+  }
+
   const serialize = (form) => {
     const data = Object.fromEntries(new FormData(form).entries());
     form.querySelectorAll('input[type="checkbox"]').forEach((input) => { data[input.name] = input.checked; });
