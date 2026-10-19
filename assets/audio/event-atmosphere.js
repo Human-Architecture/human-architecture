@@ -16,6 +16,35 @@
       label.textContent = playing ? copy.off : copy.begin;
     };
 
+    let interactionHandled = false;
+    const belongsToControl = (target) => target instanceof Element
+      && target.closest('[data-event-sound]') === control;
+    const removeArrivalListeners = () => {
+      window.removeEventListener('pointerdown', beginFromArrival);
+      window.removeEventListener('keydown', beginFromArrival);
+    };
+    const beginSound = async () => {
+      if (interactionHandled || !audio.paused) return;
+      interactionHandled = true;
+      removeArrivalListeners();
+      try {
+        await audio.play();
+        setState(true);
+      } catch {
+        setState(false);
+      }
+    };
+    const beginFromArrival = (event) => {
+      if (belongsToControl(event.target)) return;
+      beginSound();
+    };
+    window.addEventListener('pointerdown', beginFromArrival);
+    window.addEventListener('keydown', beginFromArrival);
+
+    control.addEventListener('pointerdown', () => {
+      interactionHandled = true;
+      removeArrivalListeners();
+    });
     control.addEventListener('click', async () => {
       if (audio.paused) {
         try {
