@@ -34,8 +34,9 @@
   const soundToggle = document.querySelector('[data-sound-toggle]');
   const soundLabel = document.querySelector('[data-sound-label]');
   if (sound && soundToggle && soundLabel) {
-    // Intentionally subtle: sound is always opt-in and begins at a near-imperceptible level.
-    sound.volume = 0.08;
+    // Browsers require an interaction before sound can start. After the first intentional
+    // page interaction, the atmosphere begins softly; the control remains an immediate off switch.
+    sound.volume = 0.13;
     const syncSoundToggle = (isPlaying) => {
       soundToggle.setAttribute('aria-pressed', String(isPlaying));
       soundToggle.classList.toggle('is-playing', isPlaying);
@@ -44,6 +45,33 @@
         : (root.lang === 'en' ? 'Begin with sound' : 'Mit Klang beginnen');
     };
 
+    let interactionHandled = false;
+    const removeArrivalListeners = () => {
+      window.removeEventListener('pointerdown', beginFromArrival);
+      window.removeEventListener('keydown', beginFromArrival);
+    };
+    const beginSound = async () => {
+      if (interactionHandled || !sound.paused) return;
+      interactionHandled = true;
+      removeArrivalListeners();
+      try {
+        await sound.play();
+        syncSoundToggle(true);
+      } catch {
+        syncSoundToggle(false);
+      }
+    };
+    const beginFromArrival = (event) => {
+      if (event.target instanceof Element && event.target.closest('[data-sound-toggle]')) return;
+      beginSound();
+    };
+    window.addEventListener('pointerdown', beginFromArrival);
+    window.addEventListener('keydown', beginFromArrival);
+
+    soundToggle.addEventListener('pointerdown', () => {
+      interactionHandled = true;
+      removeArrivalListeners();
+    });
     soundToggle.addEventListener('click', async () => {
       if (sound.paused) {
         try {
