@@ -35,7 +35,7 @@
   const soundLabel = document.querySelector('[data-sound-label]');
   if (sound && soundToggle && soundLabel) {
     // Intentionally subtle: sound is always opt-in and begins at a near-imperceptible level.
-    sound.volume = 0.08;
+    sound.volume = 0.13;
     const syncSoundToggle = (isPlaying) => {
       soundToggle.setAttribute('aria-pressed', String(isPlaying));
       soundToggle.classList.toggle('is-playing', isPlaying);
