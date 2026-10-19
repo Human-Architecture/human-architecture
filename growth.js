@@ -91,9 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <aside class="ha-session-calendar" aria-label="Dezember-Termine / December appointments">
           <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
           <h3 data-de="Mittwochs Zeit für deinen Körper reservieren." data-en="Reserve dedicated time for your body on Wednesdays.">Mittwochs Zeit für deinen Körper reservieren.</h3>
-          <p data-de="Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben." data-en="In December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. Choose a suitable time; we clarify the exact focus through your booking details.">Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Wähle deinen passenden Zeitpunkt; den konkreten Schwerpunkt klären wir über deine Buchungsangaben.</p>
+          <p data-de="Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Sichere zuerst deine Terminreservierung mit der Anzahlung von 50 €. Danach wählst du deinen passenden Zeitpunkt; den konkreten Schwerpunkt und Gesamtpreis stimmen wir vorab transparent mit dir ab." data-en="In December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. First secure your appointment reservation with the €50 deposit. Then choose a suitable time; we agree the exact focus and total price transparently with you in advance.">Im Dezember sind persönliche 60-Minuten-Sessions mittwochs von 14:00 bis 20:00 Uhr geöffnet. Sichere zuerst deine Terminreservierung mit der Anzahlung von 50 €. Danach wählst du deinen passenden Zeitpunkt; den konkreten Schwerpunkt und Gesamtpreis stimmen wir vorab transparent mit dir ab.</p>
+          <a class="ha-button" href="https://www.paypal.com/ncp/payment/VUNMZJSTF7RKL" target="_blank" rel="noopener noreferrer" data-de="50-€-Anzahlung sicher bezahlen" data-en="Pay €50 reservation deposit securely">50-€-Anzahlung sicher bezahlen</a>
+          <p class="ha-session-calendar__step" data-de="Nach der Zahlung: Wähle unten deinen Termin im Kalender." data-en="After payment: choose your appointment below in the calendar.">Nach der Zahlung: Wähle unten deinen Termin im Kalender.</p>
           <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
-          <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+          <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="Nach Anzahlung: 60-Minuten-Termin wählen" data-en="After deposit: choose a 60-minute appointment">Nach Anzahlung: 60-Minuten-Termin wählen</a>
         </aside>
       `;
       sessionOverview.before(guide);
@@ -122,9 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
       calendar.innerHTML = `
         <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
         <h3 data-de="Direkt einen 60-Minuten-Termin wählen." data-en="Choose a 60-minute appointment directly.">Direkt einen 60-Minuten-Termin wählen.</h3>
-        <p data-de="Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab." data-en="For December, you can reserve a Wednesday appointment between 14:00 and 20:00 directly. Please select your preferred focus in the booking form; we then agree the specific session scope together.">Für Dezember kannst du deinen Termin mittwochs zwischen 14:00 und 20:00 Uhr direkt reservieren. Bitte wähle im Buchungsformular deinen gewünschten Fokus; wir stimmen den konkreten Session-Rahmen dann gemeinsam ab.</p>
+        <p data-de="Für Dezember sind persönliche 60-Minuten-Sessions mittwochs zwischen 14:00 und 20:00 Uhr geöffnet. Sichere zuerst deine Terminreservierung mit der Anzahlung von 50 €. Danach wählst du deinen Termin; Fokus und Gesamtpreis stimmen wir vorab transparent mit dir ab." data-en="For December, personal 60-minute sessions are open on Wednesdays from 14:00 to 20:00. First secure your appointment reservation with the €50 deposit. Then choose your time; we agree the focus and total price transparently with you in advance.">Für Dezember sind persönliche 60-Minuten-Sessions mittwochs zwischen 14:00 und 20:00 Uhr geöffnet. Sichere zuerst deine Terminreservierung mit der Anzahlung von 50 €. Danach wählst du deinen Termin; Fokus und Gesamtpreis stimmen wir vorab transparent mit dir ab.</p>
+        <a class="ha-button" href="https://www.paypal.com/ncp/payment/VUNMZJSTF7RKL" target="_blank" rel="noopener noreferrer" data-de="50-€-Anzahlung sicher bezahlen" data-en="Pay €50 reservation deposit securely">50-€-Anzahlung sicher bezahlen</a>
+        <p class="ha-session-calendar__step" data-de="Nach der Zahlung: Wähle unten deinen Termin im Kalender." data-en="After payment: choose your appointment below in the calendar.">Nach der Zahlung: Wähle unten deinen Termin im Kalender.</p>
         <span class="ha-calendar-button" data-google-calendar-button aria-live="polite"></span>
-        <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="60-Minuten-Termin reservieren" data-en="Reserve a 60-minute appointment">60-Minuten-Termin reservieren</a>
+        <a class="ha-button" data-calendar-fallback href="https://calendar.app.google/gEQVX4PvnKgXKvE7A" target="_blank" rel="noopener noreferrer" data-de="Nach Anzahlung: 60-Minuten-Termin wählen" data-en="After deposit: choose a 60-minute appointment">Nach Anzahlung: 60-Minuten-Termin wählen</a>
       `;
       enquiry.querySelector('p')?.after(calendar);
     }
@@ -142,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.calendar.schedulingButton.load({
           url: calendarUrl,
           color: '#063442',
-          label: 'Termin reservieren / Reserve appointment',
+          label: 'Nach Anzahlung Termin wählen / Choose time after deposit',
           target
         });
         target.dataset.calendarLoaded = 'true';
