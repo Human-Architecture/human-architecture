@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     card.querySelectorAll('.event-meta li').forEach((item, i) => { item.textContent = copy[5][i] || ''; });
     const actions = card.querySelectorAll('.event-action'); if (actions[0]) actions[0].textContent = copy[6]; if (actions[1]) actions[1].textContent = copy[7];
   });
+  document.querySelectorAll('.event-image figcaption').forEach((caption, index) => {
+    caption.textContent = ['RETURN · Begleitung', 'BODY LANGUAGE · Workshop', 'Advent of Astrology · Live online', 'DEEP REST · Sound Journey'][index] || '';
+  });
   const deepRestDate = document.querySelectorAll('.event-card')[3]?.querySelector('.event-date strong');
   if (deepRestDate) deepRestDate.innerHTML = '11<br>Dez';
   const note = document.querySelector('.events-note');
