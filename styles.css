@@ -4310,6 +4310,8 @@ p:not(.eyebrow) {
 .mobile-menu { max-height: calc(100dvh - 88px); overflow-y: auto; overscroll-behavior: contain; }
 .method-page .site-header { background: var(--atlantic-abyss); }
 .method-language-note { color: var(--sea-glass); font-size: .875rem; margin-left: auto; white-space: nowrap; }
+.method-language-note--translate { border-bottom: 1px solid rgba(197, 218, 215, .45); padding-bottom: .22rem; text-decoration: none; transition: color .18s ease, border-color .18s ease; }
+.method-language-note--translate:hover, .method-language-note--translate:focus-visible { color: var(--warm-ivory); border-color: currentColor; }
 .method-hero { padding: clamp(150px, 15vw, 210px) var(--page-x) 70px; background: var(--atlantic-abyss); color: var(--warm-ivory); }
 .method-hero__inner { width: min(100%, 1040px); margin: auto; }
 .method-hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: 1.05; max-width: 17ch; margin: 1.5rem 0 2rem; }
