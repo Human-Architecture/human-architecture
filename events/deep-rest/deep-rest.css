@@ -1,0 +1,10 @@
+.tickets{align-content:start}
+.tickets-intro{padding:4px 0 12px}
+.tickets-intro h2{max-width:11ch;font:400 clamp(30px,3.2vw,42px)/1.06 Georgia,serif;letter-spacing:-.025em;margin:9px 0 12px}
+.tickets-intro p:not(.eyebrow){max-width:42ch;margin:0;color:#47616a;font-size:15px;line-height:1.65}
+.ticket{position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.ticket:before{content:'';position:absolute;top:0;right:0;width:72px;height:72px;background:radial-gradient(circle at 100% 0,rgba(167,141,110,.2),transparent 66%);pointer-events:none}
+.ticket:hover{transform:translateY(-3px);box-shadow:0 20px 38px #0634421a}
+.ticket .button{width:100%;justify-content:center;box-sizing:border-box;margin-top:7px}
+.participation-policy{margin-top:0}
+@media (prefers-reduced-motion:reduce){.ticket{transition:none}.ticket:hover{transform:none}}
