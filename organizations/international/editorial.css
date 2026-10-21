@@ -1,6 +1,0 @@
-.international-editorial{max-width:1280px;margin:0 auto;padding:0 6vw 78px;display:grid;grid-template-columns:1.3fr .7fr;gap:0;align-items:stretch;background:var(--cream)}
-.international-editorial img{display:block;width:100%;height:clamp(270px,33vw,460px);object-fit:cover;object-position:center}
-.international-editorial figcaption{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,4vw,54px);background:#e8e0d2;color:var(--ink)}
-.international-editorial figcaption span{color:#785a32;font-size:10px;letter-spacing:.15em;font-weight:700}
-.international-editorial figcaption p{max-width:27ch;margin:14px 0 0;font:400 clamp(24px,2.4vw,35px)/1.2 Georgia,serif;letter-spacing:-.03em}
-@media(max-width:760px){.international-editorial{grid-template-columns:1fr;padding:0 24px 52px}.international-editorial img{height:260px}.international-editorial figcaption{min-height:180px;padding:28px}}
