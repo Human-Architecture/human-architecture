@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     language.innerHTML = `<a href="/events/"${german ? '' : ' aria-current="page"'}>EN</a><a href="/events/?lang=de"${german ? ' aria-current="page"' : ''}>DE</a>`;
     header.appendChild(language);
   }
+  const deepRestVenue = document.querySelectorAll('.event-card')[3]?.querySelector('.event-meta li');
+  if (deepRestVenue) deepRestVenue.textContent = 'ZEN CENTER, Regensburg';
   if (!german) {
     const deepRestDescription = document.querySelectorAll('.event-card')[3]?.querySelector('.event-detail > p');
     if (deepRestDescription) deepRestDescription.textContent = 'Guided breathwork, Yoga Nidra and live handpan sound in a small, held group setting.';
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ['KOMMENDE SESSION','Samstag · 2026','MIHIRA CEREMONIA · RETURN','Atem, Yoga Nidra & tiefe Ruhe.','Ein geführter Abend für bewusstes Atmen, Körperwahrnehmung und die bewusste Rückkehr aus Aktivität in Ruhe.',['18:00–19:30','Sulzbach-Rosenberg','Bitte plane Zeit bis 20:00 ein','Ab 25 €'],'RETURN ansehen & Platz reservieren','RETURN als Gutschein verschenken'],
     ['KOMMENDER WORKSHOP','Samstag · 2026','BODY LANGUAGE | KÖRPERSPRACHE','Verstehe, was dein Training wirklich braucht.','Ein geführter Gruppenworkshop für Bewegung, Training und Körperbewusstsein. Du gehst mit drei persönlichen Fokusbereichen für deine nächsten Trainingsschritte.',['15:00–17:00','Clever Fit Kümmersbruck','90–120 Minuten','Ab 29 €'],'BODY LANGUAGE vor der Buchung entdecken','BODY LANGUAGE als Gutschein verschenken'],
     ['KOMMENDER ONLINEKURS','Sonntag · 2026','ADVENT OF ASTROLOGY','Vier Sonntage, um westliche Astrologie zu verstehen.','Ein Live-Onlinekurs mit vier 90-minütigen Sessions, digitalem Workbook und einer klaren, geerdeten Einführung in die westliche Astrologie.',['29. November · 6., 13. & 20. Dezember','Live online','4 × 90 Minuten','220 € · 360 € für zwei'],'Platz wählen & direkt zahlen','Den Kurs als Gutschein verschenken'],
-    ['KOMMENDER ABEND','Freitag · 2026','DEEP REST · BREATHWORK · YOGA NIDRA · HANDPAN','Drei Elemente. Ein unbeschwerter Abend.','Geführtes Breathwork, Yoga Nidra und Live-Handpan-Sound in einer kleinen, gehaltenen Gruppe.',['Zen Space, Regensburg','Nur 18 Plätze','28 € pro Person','25 € pro Person bei Bring a Friend'],'DEEP REST entdecken & Ticket wählen','DEEP REST als Gutschein verschenken']
+    ['KOMMENDER ABEND','Freitag · 2026','DEEP REST · BREATHWORK · YOGA NIDRA · HANDPAN','Drei Elemente. Ein unbeschwerter Abend.','Geführtes Breathwork, Yoga Nidra und Live-Handpan-Sound in einer kleinen, gehaltenen Gruppe.',['ZEN CENTER, Regensburg','Nur 18 Plätze','28 € pro Person','25 € pro Person bei Bring a Friend'],'DEEP REST entdecken & Ticket wählen','DEEP REST als Gutschein verschenken']
   ];
   document.querySelectorAll('.event-card').forEach((card, index) => {
     const copy = content[index]; if (!copy) return;

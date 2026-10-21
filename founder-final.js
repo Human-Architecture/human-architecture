@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.homepage-event__details span').forEach((element)=>{
+    if(element.textContent.includes('Zen Space')) element.textContent=element.textContent.replace('Zen Space','ZEN CENTER');
+  });
   const founder=document.querySelector('body.method-page #founder');
   if(!founder)return;
 

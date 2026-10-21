@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#063442">
   <title>DEEP REST · Breathwork, Yoga Nidra & Handpan | Human Architecture</title>
-  <meta name="description" content="Reserve your place for DEEP REST: an intimate breathwork, Yoga Nidra and live handpan experience at Zen Space, Regensburg, on 11 December 2026.">
+  <meta name="description" content="Reserve your place for DEEP REST: an intimate breathwork, Yoga Nidra and live handpan experience at ZEN CENTER, Regensburg, on 11 December 2026.">
   <link rel="canonical" href="https://www.human-architecture.info/events/deep-rest/">
   <link rel="stylesheet" href="/interior.css">
   <link rel="stylesheet" href="/assets/audio/event-atmosphere.css">
+  <link rel="stylesheet" href="/events/deep-rest/deep-rest.css">
   <script defer src="/assets/audio/event-atmosphere.js"></script>
   <style>
     body{margin:0;background:#f5f0e7;color:#063442;font-family:Manrope,Arial,sans-serif}.shell{width:min(1080px,calc(100% - 48px));margin:auto}.top{background:#063442;color:#f5f0e7;padding:24px 0}.top .shell{display:flex;justify-content:space-between;align-items:center;gap:20px}.top a{color:inherit;text-decoration:none;font-size:14px}.language{display:flex;gap:10px}.language button{border:0;background:transparent;color:#d9bf94;padding:4px;font:700 11px/1 Manrope,Arial,sans-serif;letter-spacing:.14em;cursor:pointer}.language button[aria-pressed="true"]{color:#fff;border-bottom:1px solid #d9bf94}.hero{padding:clamp(64px,10vw,140px) 0 56px;background:#063442;color:#f5f0e7}.eyebrow{font-size:12px;letter-spacing:.17em;font-weight:700;color:#d9bf94}.hero h1{font:400 clamp(52px,9vw,100px)/.94 Georgia,serif;letter-spacing:-.05em;margin:18px 0}.lead{max-width:610px;font-size:clamp(18px,2vw,23px);line-height:1.55;color:#e4e8e2}.facts{display:flex;gap:18px 36px;flex-wrap:wrap;padding:30px 0;border-top:1px solid #ffffff44;font-size:14px}.handpan-visual{width:min(760px,calc(100% - 48px));margin:clamp(40px,6vw,76px) auto 0;position:relative}.handpan-visual:before{content:'';position:absolute;inset:-14px 14px 14px -14px;border:1px solid #a78d6e66;pointer-events:none}.handpan-visual img{display:block;width:100%;aspect-ratio:1.65/1;object-fit:cover}.handpan-visual figcaption{max-width:300px;padding:15px 18px;position:absolute;bottom:0;left:0;background:#063442;color:#f5f0e7;font-size:11px;line-height:1.6}.content{padding:clamp(56px,9vw,104px) 0}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:52px}.content h2{font:400 clamp(34px,5vw,56px)/1.05 Georgia,serif;margin:0 0 18px}.content p{max-width:62ch;line-height:1.75}.experience{padding:0 0 clamp(56px,9vw,104px)}.experience-intro{max-width:680px;margin-bottom:34px}.experience-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #b9c8c5}.experience-card{padding:26px 26px 28px 0;margin-right:26px;border-bottom:1px solid #b9c8c5}.experience-card h3{font:400 27px/1.1 Georgia,serif;margin:10px 0}.experience-card p{margin:0;line-height:1.65;font-size:15px}.tickets{display:grid;gap:14px}.ticket{padding:28px;background:#fff;border-top:3px solid #a78d6e;box-shadow:0 14px 30px #06344212}.ticket h3{font:400 30px/1.1 Georgia,serif;margin:0 0 12px}.price{font:600 19px/1.4 Manrope,Arial,sans-serif}.button{display:inline-flex;align-items:center;min-height:50px;padding:13px 20px;background:#063442;color:#fff;text-decoration:none;font-weight:700;font-size:14px}.note{margin-top:36px;padding:22px;border-left:3px solid #a78d6e;background:#e7efed;font-size:14px;line-height:1.65}@media(max-width:760px){.shell{width:min(100% - 40px,1080px)}.grid,.experience-grid{grid-template-columns:1fr;gap:36px}.experience-card{margin-right:0;padding-right:0}.handpan-visual{width:calc(100% - 40px);margin-top:38px}.handpan-visual img{aspect-ratio:1.25/1}.handpan-visual figcaption{position:static;max-width:none}.handpan-visual:before{inset:-9px 9px 9px -9px}}
@@ -27,6 +28,24 @@
     (() => {
       const buttons = document.querySelectorAll('[data-language]');
       const soundButton = document.querySelector('[data-event-sound]');
+      const ticketPanel = document.querySelector('.tickets');
+      if (ticketPanel) {
+        const ticketIntro = document.createElement('div');
+        ticketIntro.className = 'tickets-intro';
+        ticketIntro.innerHTML = '<p class="eyebrow" data-en="RESERVE YOUR PLACE" data-de="DEINEN PLATZ SICHERN">RESERVE YOUR PLACE</p><h2 data-en="Choose the way you would like to arrive." data-de="Wähle, wie du ankommen möchtest.">Choose the way you would like to arrive.</h2><p data-en="Two clear options. Your place is confirmed directly through secure payment." data-de="Zwei klare Optionen. Dein Platz ist direkt über die sichere Zahlung bestätigt.">Two clear options. Your place is confirmed directly through secure payment.</p>';
+        ticketPanel.prepend(ticketIntro);
+        const policy = document.createElement('div');
+        policy.className = 'note participation-policy';
+        policy.innerHTML = '<strong data-en="Flexible participation" data-de="Flexible Teilnahme">Flexible participation</strong><br><span data-en="You may transfer your ticket to another person. If you cancel in writing at least 7 calendar days before the evening begins, we refund 70% of the amount paid. After that deadline, refunds are not possible." data-de="Du kannst dein Ticket an eine andere Person übertragen. Bei schriftlicher Absage bis spätestens 7 Kalendertage vor Beginn des Abends erstatten wir 70 % des gezahlten Betrags. Danach ist keine Rückerstattung möglich.">You may transfer your ticket to another person. If you cancel in writing at least 7 calendar days before the evening begins, we refund 70% of the amount paid. After that deadline, refunds are not possible.</span>';
+        ticketPanel.querySelector('.note').before(policy);
+      }
+      document.querySelectorAll('[data-en], [data-de]').forEach((element) => {
+        if (element.dataset.en) element.dataset.en = element.dataset.en.replaceAll('Zen Space', 'ZEN CENTER');
+        if (element.dataset.de) element.dataset.de = element.dataset.de.replaceAll('Zen Space', 'ZEN CENTER');
+      });
+      document.querySelectorAll('p, span').forEach((element) => {
+        if (element.childElementCount === 0) element.textContent = element.textContent.replaceAll('Zen Space', 'ZEN CENTER');
+      });
       const setLanguage = (language) => {
         document.documentElement.lang = language;
         document.querySelectorAll('[data-en][data-de]').forEach((element) => {
