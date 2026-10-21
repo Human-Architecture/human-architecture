@@ -254,21 +254,26 @@ p {
   height: 112px;
   margin: 0;
   position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  background: var(--ocean-mist);
-  box-shadow: 10px 12px 0 rgba(6, 52, 66, .07);
+  border: 1px solid rgba(6, 52, 66, .19);
+  background: linear-gradient(145deg, #e5efec, #cadbd8);
 }
 .homepage-event__visual::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, rgba(6,52,66,.02), rgba(6,52,66,.28));
+  width: 58px;
+  height: 58px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: .42;
 }
-.homepage-event__visual img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.76) contrast(.97); }
-.homepage-event__visual--return img { object-position: 50% 26%; }
-.homepage-event__visual--body-language img { object-position: 49% 40%; }
-.homepage-event__visual--astrology img { object-position: 50% 30%; }
-.homepage-event__visual--deep-rest img { object-position: center; }
+.homepage-event__symbol { position: relative; z-index: 1; color: var(--atlantic-abyss); font-family: Georgia, serif; font-size: 2.2rem; font-weight: 400; line-height: 1; }
+.homepage-event__visual--return { color: #76633f; background: linear-gradient(145deg, #eee8d9, #d9ceb9); }
+.homepage-event__visual--body-language { color: #1e5862; background: linear-gradient(145deg, #e2eeec, #c6dbd7); }
+.homepage-event__visual--astrology { color: #765976; background: linear-gradient(145deg, #eee8ed, #dcd0dc); }
+.homepage-event__visual--deep-rest { color: #315d68; background: linear-gradient(145deg, #dfecef, #bdd5da); }
 .homepage-event__date { display: flex; flex-direction: column; gap: 3px; margin: 0; color: var(--aged-brass); }
 .homepage-event__date span { font-family: var(--display); font-size: 2.75rem; line-height: .82; }
 .homepage-event__date small { font-size: .65rem; font-weight: 700; letter-spacing: .16em; }
@@ -300,7 +305,9 @@ p {
   .homepage-events__layout { display: block; }
   .homepage-events__intro { position: static; margin-bottom: 46px; }
   .homepage-event { grid-template-columns: 50px 64px minmax(0, 1fr); gap: 13px; padding-block: 24px; }
-  .homepage-event__visual { width: 64px; height: 78px; box-shadow: 7px 8px 0 rgba(6, 52, 66, .07); }
+  .homepage-event__visual { width: 64px; height: 78px; }
+  .homepage-event__visual::after { width: 42px; height: 42px; }
+  .homepage-event__symbol { font-size: 1.75rem; }
   .homepage-event__date span { font-size: 2.1rem; }
   .homepage-event__details h3 { font-size: 1.55rem; }
   .homepage-event > a { grid-column: 3; width: fit-content; min-width: 0; margin-top: 3px; }

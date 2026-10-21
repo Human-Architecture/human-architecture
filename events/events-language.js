@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const deepRestVenue = document.querySelectorAll('.event-card')[3]?.querySelector('.event-meta li');
   if (deepRestVenue) deepRestVenue.textContent = 'ZEN CENTER, Regensburg';
+  const eventMetadata = [...document.querySelectorAll('script[type="application/ld+json"]')]
+    .find((script) => script.textContent.includes('Zen Space'));
+  if (eventMetadata) eventMetadata.textContent = eventMetadata.textContent.replace('Zen Space', 'ZEN CENTER');
   if (!german) {
     const deepRestDescription = document.querySelectorAll('.event-card')[3]?.querySelector('.event-detail > p');
     if (deepRestDescription) deepRestDescription.textContent = 'Guided breathwork, Yoga Nidra and live handpan sound in a small, held group setting.';

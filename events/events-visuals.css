@@ -1,0 +1,10 @@
+/* Each event is recognised by its supplied visual, without becoming a wall of imagery. */
+.event-card .event-date:before{background-image:none!important;opacity:1!important;mix-blend-mode:normal!important}
+.event-card .event-date:after{background:radial-gradient(circle at 74% 21%,rgba(228,203,165,.18),transparent 25%),repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.055) 19px 20px,transparent 21px 38px)!important}
+.event-image.event-poster{display:grid;place-items:center;min-height:360px;padding:18px;margin:0;position:relative;overflow:hidden;background:linear-gradient(145deg,#123d49,#062f3c)}
+.event-image.event-poster img{display:block;width:100%;height:100%;min-height:0;max-height:420px;object-fit:contain;object-position:center;filter:none;box-shadow:0 18px 38px rgba(0,0,0,.27)}
+.event-image.event-poster figcaption{position:absolute;right:0;bottom:0;left:0;padding:11px 14px;color:#f5f0e7;background:linear-gradient(transparent,rgba(3,52,66,.86));font:600 9px/1.35 Manrope,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.event-card--return .event-poster{background:linear-gradient(145deg,#7d4e2a,#e2a35f 48%,#54351f)}
+.event-card--body-language .event-poster{background:linear-gradient(145deg,#082f3a,#517a80 52%,#152f34)}
+.event-card--astrology .event-poster{background:linear-gradient(145deg,#473229,#a45c2b 52%,#2d221d)}
+@media(max-width:680px){.event-image.event-poster{min-height:0;height:430px;padding:16px}.event-image.event-poster img{height:100%;max-height:none}}
