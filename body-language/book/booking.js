@@ -5,6 +5,7 @@
     tbc: 'Wird noch bestätigt', date: 'Termin', venue: 'Ort', duration: 'Dauer', price: 'Preis',
     select: 'Weiter zur Anmeldung', back: 'Zurück', review: 'Angaben prüfen', pay: 'Zahlungsweg fortsetzen',
     payment: 'Wähle nach deiner Anmeldung, ob du online über PayPal oder Karte zahlst oder bar im Clever Fit Amberg-Kümmersbruck. Dein Platz wird bestätigt, sobald wir die Zahlung deiner Anmeldung zugeordnet haben.',
+    policy: 'Flexible Teilnahme: Du kannst deinen Platz an eine andere Person übertragen. Bei schriftlicher Absage bis spätestens 7 Kalendertage vor Workshopbeginn erhältst du 70 % des gezahlten Betrags zurück. Danach ist keine Rückerstattung möglich.',
     required: 'Bitte fülle die markierten Pflichtfelder aus und wähle maximal drei Fokusbereiche.',
     privacy: 'Ich habe die Datenschutzhinweise gelesen. *', terms: 'Ich akzeptiere die Teilnahmebedingungen. *',
     unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung', close: 'Anmeldungen und Zahlungen sind bis einschließlich 14. November 2026 möglich. Danach schließen die Buchungen – zwei Wochen vor dem Workshop.'
@@ -12,6 +13,7 @@
     tbc: 'To be configured', date: 'Date & time', venue: 'Venue', duration: 'Duration', price: 'Price',
     select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue with payment',
     payment: 'After registering, choose whether to pay online via PayPal or card, or in cash at Clever Fit Amberg-Kümmersbruck. Your place is confirmed once we match the payment to your booking.',
+    policy: 'Flexible participation: You may transfer your place to another person. If you cancel in writing at least 7 calendar days before the workshop begins, we refund 70% of the amount paid. After that deadline, refunds are not possible.',
     required: 'Please complete the required fields and choose no more than three focus areas.',
     privacy: 'I have read the privacy information. *', terms: 'I accept the participation terms. *',
     unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking', close: 'Bookings and payments are open through 14 November 2026. They close two weeks before the workshop.'
@@ -24,6 +26,12 @@
   const money = value => new Intl.NumberFormat(locale,{style:'currency',currency:c.currency}).format(value);
   $('#event-price').textContent = c.prices ? `${money(c.prices.member_single)} ${locale==='de'?'Mitglied · ':'member · '}${money(c.prices.non_member_single)} ${locale==='de'?'regulär':'regular'}` : (c.price ? money(c.price) : copy.tbc);
   document.querySelectorAll('[data-payment-note]').forEach(el => { el.textContent = copy.payment; });
+  document.querySelectorAll('[data-payment-note]').forEach(el => {
+    const policy = document.createElement('p');
+    policy.className = 'notice participation-policy';
+    policy.textContent = copy.policy;
+    el.after(policy);
+  });
   document.querySelectorAll('[data-booking-close]').forEach(el => { el.textContent = copy.close; });
   if (!document.querySelector('[data-booking-close]')) {
     const notice = document.createElement('p'); notice.className = 'notice'; notice.dataset.bookingClose = ''; notice.textContent = copy.close;

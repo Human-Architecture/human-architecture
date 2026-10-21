@@ -27,6 +27,13 @@
     (() => {
       const buttons = document.querySelectorAll('[data-language]');
       const soundButton = document.querySelector('[data-event-sound]');
+      const ticketPanel = document.querySelector('.tickets');
+      if (ticketPanel) {
+        const policy = document.createElement('div');
+        policy.className = 'note participation-policy';
+        policy.innerHTML = '<strong data-en="Flexible participation" data-de="Flexible Teilnahme">Flexible participation</strong><br><span data-en="You may transfer your ticket to another person. If you cancel in writing at least 7 calendar days before the evening begins, we refund 70% of the amount paid. After that deadline, refunds are not possible." data-de="Du kannst dein Ticket an eine andere Person übertragen. Bei schriftlicher Absage bis spätestens 7 Kalendertage vor Beginn des Abends erstatten wir 70 % des gezahlten Betrags. Danach ist keine Rückerstattung möglich.">You may transfer your ticket to another person. If you cancel in writing at least 7 calendar days before the evening begins, we refund 70% of the amount paid. After that deadline, refunds are not possible.</span>';
+        ticketPanel.querySelector('.note').before(policy);
+      }
       const setLanguage = (language) => {
         document.documentElement.lang = language;
         document.querySelectorAll('[data-en][data-de]').forEach((element) => {
