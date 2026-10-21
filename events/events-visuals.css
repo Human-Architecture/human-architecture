@@ -1,0 +1,11 @@
+/* A quiet visual language: each event is recognised by date, colour and symbol. */
+.event-card .event-date:before{background-image:none!important;opacity:1!important;mix-blend-mode:normal!important}
+.event-card .event-date:after{background:radial-gradient(circle at 74% 21%,rgba(228,203,165,.18),transparent 25%),repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.055) 19px 20px,transparent 21px 38px)!important}
+.event-symbol{display:grid;place-items:center;min-height:270px;margin:0;background:linear-gradient(145deg,#e6eeec,#c6d9d5);color:#063442;font:400 clamp(4.2rem,9vw,7rem)/1 Georgia,serif}
+.event-symbol::before{content:'';position:absolute;width:112px;height:112px;border:1px solid currentColor;border-radius:50%;opacity:.35}
+.event-symbol span{position:relative;z-index:1}.event-symbol figcaption{position:absolute;right:0;bottom:0;left:0;padding:12px 14px;color:#063442;background:#f5f0e7e8;font:600 9px/1.35 Manrope,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.event-symbol--return{color:#756139;background:linear-gradient(145deg,#eee8d9,#d9ceb9)}
+.event-symbol--body{color:#1e5862;background:linear-gradient(145deg,#e2eeec,#c6dbd7)}
+.event-symbol--astrology{color:#765976;background:linear-gradient(145deg,#eee8ed,#dcd0dc)}
+.event-symbol--rest{color:#315d68;background:linear-gradient(145deg,#dfecef,#bdd5da)}
+@media(max-width:680px){.event-symbol{min-height:180px;font-size:4.2rem}.event-symbol::before{width:82px;height:82px}}
