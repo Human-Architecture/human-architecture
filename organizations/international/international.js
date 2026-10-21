@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const hero=document.querySelector('.hero');
  const clarityStyles=document.createElement('link');
  clarityStyles.rel='stylesheet';clarityStyles.href='clarity.css';document.head.append(clarityStyles);
+ const editorialStyles=document.createElement('link');
+ editorialStyles.rel='stylesheet';editorialStyles.href='editorial.css';document.head.append(editorialStyles);
  const heroLead=hero&&hero.querySelector('.lead');
  const heroDetail=hero&&hero.querySelector('.hero-detail');
  if(heroLead)heroLead.textContent='For leadership teams and organizational hosts who need clearer roles, decisions and collaboration—without a generic training programme.';
@@ -12,6 +14,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   clarity.setAttribute('aria-label','How international programmes begin');
   clarity.innerHTML='<div><strong>WHAT THIS IS</strong><span>A scoped workshop, mentoring or hosted programme for one defined organizational context.</span></div><div><strong>WHAT YOU RECEIVE</strong><span>A written recommendation, proposed scope and fee before you make a commitment.</span></div><div><strong>START HERE</strong><span>Tell us who the work is for, where it takes place and what needs to become clearer.</span></div>';
   heroDetail&&heroDetail.insertAdjacentElement('afterend',clarity);
+ }
+ const intro=document.querySelector('.intro');
+ if(intro&&!document.querySelector('.international-editorial')){
+  const editorial=document.createElement('figure');
+  editorial.className='international-editorial';
+  editorial.innerHTML='<img src="/assets/organizations/international-working-context.png" alt="A calm working conversation in a considered hospitality setting" width="1672" height="941"><figcaption><span>THE WORK BEGINS WITH A REAL CONTEXT</span><p>A considered conversation creates the conditions for a programme that fits the people, place and purpose.</p></figcaption>';
+  intro.insertAdjacentElement('afterend',editorial);
  }
  if(hero&&!document.querySelector('.international-at-a-glance')){
   const style=document.createElement('style');
