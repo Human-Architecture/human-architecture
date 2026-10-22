@@ -16,6 +16,7 @@
     <text x="540" y="1270" fill="#e6c990" font-size="21" font-weight="700" letter-spacing="2">ZEN CENTER · REGENSBURG</text>
     <line x1="192" y1="1310" x2="888" y2="1310" stroke="#e6c990" stroke-opacity=".65" stroke-width="1"/>
     <text x="540" y="1360" font-size="18" font-weight="700" letter-spacing="2.4">18 PLÄTZE · 28 € · 25 € ZU ZWEIT</text>
-    <text x="540" y="1460" fill="#e6c990" font-size="16" letter-spacing="2.3">ANKOMMEN · LOSLASSEN · RUHEN</text>
+    <text x="540" y="1412" font-size="15" letter-spacing="1.2">MITBRINGEN: YOGAMATTE · SCHAL ODER KLEINE, WEICHE DECKE</text>
+    <text x="540" y="1480" fill="#e6c990" font-size="16" letter-spacing="2.3">ANKOMMEN · LOSLASSEN · RUHEN</text>
   </g>
 </svg>
