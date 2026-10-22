@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1620" viewBox="0 0 1080 1620" role="img" aria-labelledby="title description">
+  <title id="title">DEEP REST — Event poster</title>
+  <desc id="description">Poster for a Breathwork, Yoga Nidra and Live-Handpan event at ZEN CENTER Regensburg on 11 December 2026.</desc>
+  <image href="../deep-rest-poster-background.png" width="1080" height="1620" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1080" height="1620" fill="#062f3c" opacity=".18"/>
+  <rect x="56" y="54" width="968" height="1512" fill="none" stroke="#e6c990" stroke-opacity=".58" stroke-width="1"/>
+  <g fill="#f6f0e6" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="540" y="140" font-size="19" font-weight="700" letter-spacing="5">HUMAN ARCHITECTURE®</text>
+    <line x1="446" y1="177" x2="634" y2="177" stroke="#e6c990" stroke-width="1"/>
+    <text x="540" y="400" font-family="Georgia, serif" font-size="142" letter-spacing="-7">DEEP</text>
+    <text x="540" y="532" font-family="Georgia, serif" font-size="142" letter-spacing="-7">REST</text>
+    <text x="540" y="585" fill="#e6c990" font-size="17" font-weight="700" letter-spacing="3">BREATHWORK · YOGA NIDRA · LIVE-HANDPAN</text>
+    <line x1="192" y1="1117" x2="888" y2="1117" stroke="#e6c990" stroke-opacity=".65" stroke-width="1"/>
+    <text x="540" y="1170" font-size="23" font-weight="700" letter-spacing="2">FREITAG · 11. DEZEMBER 2026</text>
+    <text x="540" y="1215" font-size="21" letter-spacing="1.2">18:00–19:30 UHR · MIT PUFFER BIS 20:00 UHR</text>
+    <text x="540" y="1270" fill="#e6c990" font-size="21" font-weight="700" letter-spacing="2">ZEN CENTER · REGENSBURG</text>
+    <line x1="192" y1="1310" x2="888" y2="1310" stroke="#e6c990" stroke-opacity=".65" stroke-width="1"/>
+    <text x="540" y="1360" font-size="18" font-weight="700" letter-spacing="2.4">18 PLÄTZE · 28 € · 25 € ZU ZWEIT</text>
+    <text x="540" y="1460" fill="#e6c990" font-size="16" letter-spacing="2.3">ANKOMMEN · LOSLASSEN · RUHEN</text>
+  </g>
+</svg>

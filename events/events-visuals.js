@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const posters = [
     ['/assets/events/posters/return-poster.jpg', 'RETURN poster', german ? 'RETURN · Begleitung' : 'RETURN · Facilitation'],
     ['/assets/events/posters/body-language-poster.jpg', 'BODY LANGUAGE workshop poster', 'BODY LANGUAGE · Workshop'],
-    ['/assets/events/posters/astrology-poster.jpg', 'Advent of Astrology course poster', 'Advent of Astrology · Live online']
+    ['/assets/events/posters/astrology-poster.jpg', 'Advent of Astrology course poster', 'Advent of Astrology · Live online'],
+    ['/assets/events/posters/deep-rest-poster.svg', 'DEEP REST event poster', german ? 'DEEP REST · Atem, Ruhe & Klang' : 'DEEP REST · Breath, rest & sound']
   ];
   document.querySelectorAll('.event-card').forEach((card, index) => {
     const image = card.querySelector('.event-image');
