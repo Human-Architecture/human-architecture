@@ -265,7 +265,11 @@ p {
 .homepage-event__visual--return img { object-position: 50% 27%; }
 .homepage-event__visual--body-language img { object-position: 49% 38%; }
 .homepage-event__visual--astrology img { object-position: 49% 28%; }
-.homepage-event__visual--deep-rest img { object-position: center; }
+.homepage-event__visual--deep-rest { padding: 0; background: #062f3c; }
+.homepage-event__visual--deep-rest img { object-fit: cover; object-position: 54% center; filter: saturate(.76) contrast(.92) brightness(.72); }
+.homepage-event__deep-rest-poster { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; padding: 12px 10px; box-sizing: border-box; color: #f7f0e6; background: linear-gradient(180deg, rgba(3,47,60,.08) 18%, rgba(3,47,60,.84) 100%); text-align: left; }
+.homepage-event__deep-rest-poster b { font: 400 1.65rem/.76 var(--display); letter-spacing: -.06em; }
+.homepage-event__deep-rest-poster small { font-size: .37rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; color: #e6c990; }
 .homepage-event__date { display: flex; flex-direction: column; gap: 3px; margin: 0; color: var(--aged-brass); }
 .homepage-event__date span { font-family: var(--display); font-size: 2.75rem; line-height: .82; }
 .homepage-event__date small { font-size: .65rem; font-weight: 700; letter-spacing: .16em; }
