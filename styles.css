@@ -1632,11 +1632,48 @@ p {
   grid-column: 4 / span 6;
 
   margin-top: clamp(54px, 6vw, 78px);
-  padding-top: 30px;
+  padding: clamp(42px, 5vw, 64px) clamp(30px, 5vw, 68px);
 
-  border-top: 1px solid var(--line-dark);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  border: 1px solid rgba(6, 52, 66, .18);
+
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.54), rgba(244,247,243,.26));
+
+  box-shadow:
+    0 20px 48px rgba(6, 52, 66, .045);
 
   text-align: center;
+}
+
+.entry-result::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+  inset: 9px;
+
+  border: 1px solid rgba(169, 135, 82, .30);
+
+  pointer-events: none;
+}
+
+.entry-result::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 64px;
+  height: 1px;
+
+  background: var(--aged-brass);
+
+  transform: translateX(-50%);
 }
 
 .entry-result__eyebrow {
@@ -3361,7 +3398,14 @@ p:not(.eyebrow) {
   }
 
   .entry-result {
+    grid-column: 1 / -1;
+
     margin-top: 44px;
+    padding: 38px 25px;
+  }
+
+  .entry-result::before {
+    inset: 7px;
   }
 
 
