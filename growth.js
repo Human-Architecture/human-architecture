@@ -71,6 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep the organisation pathway explicit: a tailored yoga option belongs
   // alongside BODY LANGUAGE, RETURN and DEEP REST, not hidden inside Yoga Nidra.
   if (document.body.dataset.page === 'organizations') {
+    const founderImage = document.querySelector('#begleitung .org-founder');
+    if (founderImage) {
+      founderImage.src = '/assets/portraits/mel-organizations-founder-v2.png';
+      founderImage.alt = 'Mel Mihira, Founder and System Architect of Human Architecture';
+      founderImage.width = 1122;
+      founderImage.height = 1402;
+      founderImage.style.objectPosition = 'center center';
+    }
+    const heroActions = document.querySelector('.org-hero .org-actions');
+    if (heroActions && !heroActions.querySelector('[href="#erlebnisformate"]')) {
+      const experienceRoute = document.createElement('a');
+      experienceRoute.className = 'org-button org-button--ghost';
+      experienceRoute.href = '#erlebnisformate';
+      experienceRoute.dataset.de = 'Eventformate für Teamtage';
+      experienceRoute.dataset.en = 'Hosted formats for team days';
+      experienceRoute.textContent = language === 'en' ? experienceRoute.dataset.en : experienceRoute.dataset.de;
+      heroActions.append(experienceRoute);
+    }
     const experienceCard = document.querySelector('#erlebnisformate .org-card:nth-child(3)');
     const number = experienceCard?.querySelector('.org-card__num');
     const title = experienceCard?.querySelector('h3');
