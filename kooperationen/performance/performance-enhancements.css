@@ -1,0 +1,58 @@
+/* International collaboration signal — clear, composed and intentionally discreet. */
+.partnership-signal {
+  position: relative;
+  z-index: 2;
+  margin: -37px 0 0;
+  color: var(--ivory);
+}
+
+.partnership-signal__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #0a4d5c;
+  border: 1px solid rgba(200, 175, 139, .46);
+  box-shadow: 0 20px 45px rgba(3, 35, 46, .2);
+}
+
+.partnership-signal__grid > div {
+  min-height: 166px;
+  padding: 27px 30px;
+  border-right: 1px solid rgba(217, 231, 229, .2);
+}
+
+.partnership-signal__grid > div:last-child { border-right: 0; }
+
+.partnership-signal span {
+  display: block;
+  margin-bottom: 19px;
+  color: #e4cba5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .17em;
+}
+
+.partnership-signal strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.partnership-signal p {
+  margin: 10px 0 0;
+  color: rgba(244, 247, 243, .73);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .partnership-signal { margin: 0; background: var(--deep); }
+  .partnership-signal__grid { width: min(100% - 48px, 1180px); grid-template-columns: 1fr; box-shadow: none; }
+  .partnership-signal__grid > div { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(217, 231, 229, .2); }
+  .partnership-signal__grid > div:last-child { border-bottom: 0; }
+}
+
+@media (max-width: 600px) {
+  .partnership-signal__grid { width: min(100% - 36px, 1180px); }
+  .partnership-signal__grid > div { padding: 25px 22px; }
+}
