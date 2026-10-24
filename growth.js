@@ -68,6 +68,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
   }
 
+  // Keep the organisation pathway explicit: a tailored yoga option belongs
+  // alongside BODY LANGUAGE, RETURN and DEEP REST, not hidden inside Yoga Nidra.
+  if (document.body.dataset.page === 'organizations') {
+    const experienceCard = document.querySelector('#erlebnisformate .org-card:nth-child(3)');
+    const number = experienceCard?.querySelector('.org-card__num');
+    const title = experienceCard?.querySelector('h3');
+    const copy = experienceCard?.querySelector('p');
+    const link = experienceCard?.querySelector('a');
+    if (number && title && copy && link) {
+      number.dataset.de = '03 · YOGA, NIDRA & KLANG';
+      number.dataset.en = '03 · YOGA, NIDRA & SOUND';
+      title.dataset.de = 'YOGA & DEEP REST';
+      title.dataset.en = 'YOGA & DEEP REST';
+      copy.dataset.de = 'Ein ruhig geführtes Gruppenformat mit Yoga oder angeleiteter Bewegung, Yoga Nidra und auf Wunsch Live-Handpan-Klang. Für interne Veranstaltungen, Retreats oder Räume, die einen entschleunigten Abschluss oder einen bewussten Übergang ermöglichen möchten.';
+      copy.dataset.en = 'A calmly guided group format with yoga or guided movement, Yoga Nidra and optional live handpan sound. For internal events, retreats or spaces that want to offer an unhurried close or a deliberate transition.';
+      link.dataset.de = 'YOGA & DEEP REST kennenlernen';
+      link.dataset.en = 'Explore YOGA & DEEP REST';
+      [number, title, copy, link].forEach(element => {
+        element.textContent = language === 'en' ? element.dataset.en : element.dataset.de;
+      });
+    }
+    const enquiry = document.querySelector('#erlebnisformate .org-actions a');
+    if (enquiry) {
+      const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      enquiry.dataset.hrefDe = makeMailto(
+        'Anfrage · Eventformat für Organisationen',
+        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\n'
+      );
+      enquiry.dataset.hrefEn = makeMailto(
+        'Enquiry · Hosted experience for an organisation',
+        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\n'
+      );
+      enquiry.href = language === 'en' ? enquiry.dataset.hrefEn : enquiry.dataset.hrefDe;
+    }
+  }
+
   // The sessions overview has many valid formats. Make the first decision about
   // the visitor's intention, then keep each individual choice connected to a
   // prepared enquiry rather than asking them to decode the entire price list.
