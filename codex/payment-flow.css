@@ -13,3 +13,7 @@
   margin-top:14px;
   color:var(--cr-muted);
 }
+
+.cr-card-link--sample + .cr-card-link{
+  margin-top:14px;
+}

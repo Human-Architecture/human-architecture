@@ -21,11 +21,9 @@
 
     const link = document.createElement("a");
     link.href = germanTranslationUrl();
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
     link.lang = "de";
     link.dataset.codexLanguageLink = "true";
-    link.setAttribute("aria-label", "Diese Seite auf Deutsch lesen (öffnet Google Übersetzer in einem neuen Tab)");
+    link.setAttribute("aria-label", "Diese Seite auf Deutsch lesen");
     link.textContent = "Deutsch lesen ↗";
     navigation.append(link);
   });
