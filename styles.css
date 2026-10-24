@@ -1016,6 +1016,53 @@ p {
   stroke-dashoffset: 0;
 }
 
+/* A quiet horizon between the introductory philosophy and the system view. */
+.home-intro-divider {
+  padding-inline: var(--page-x);
+  background: linear-gradient(90deg, var(--warm-ivory) 0 50%, var(--ocean-foam) 50% 100%);
+}
+
+.home-intro-divider__line {
+  width: min(100%, var(--content-max));
+  height: 138px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 58px 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-intro-divider__line > span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(11,98,114,.3));
+}
+
+.home-intro-divider__line > span:last-child {
+  background: linear-gradient(90deg, rgba(11,98,114,.3), transparent);
+}
+
+.home-intro-divider__line i {
+  position: relative;
+  width: 58px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(167,141,110,.58);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217,231,229,.7) 0 3px, transparent 4px 100%);
+}
+
+.home-intro-divider__line i::before,
+.home-intro-divider__line i::after {
+  content: "";
+  position: absolute;
+  inset: 9px 50%;
+  width: 1px;
+  background: rgba(167,141,110,.62);
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.home-intro-divider__line i::after { transform: rotate(-45deg); }
+
 
 /* =========================================================
    10 — HUMAN SYSTEM
@@ -1585,11 +1632,48 @@ p {
   grid-column: 4 / span 6;
 
   margin-top: clamp(54px, 6vw, 78px);
-  padding-top: 30px;
+  padding: clamp(42px, 5vw, 64px) clamp(30px, 5vw, 68px);
 
-  border-top: 1px solid var(--line-dark);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  border: 1px solid rgba(6, 52, 66, .18);
+
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.54), rgba(244,247,243,.26));
+
+  box-shadow:
+    0 20px 48px rgba(6, 52, 66, .045);
 
   text-align: center;
+}
+
+.entry-result::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+  inset: 9px;
+
+  border: 1px solid rgba(169, 135, 82, .30);
+
+  pointer-events: none;
+}
+
+.entry-result::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 64px;
+  height: 1px;
+
+  background: var(--aged-brass);
+
+  transform: translateX(-50%);
 }
 
 .entry-result__eyebrow {
@@ -3048,6 +3132,14 @@ p:not(.eyebrow) {
     margin-bottom: 36px;
   }
 
+  .home-intro-divider__line {
+    height: 96px;
+    grid-template-columns: 1fr 44px 1fr;
+    gap: 14px;
+  }
+
+  .home-intro-divider__line i { width: 44px; }
+
 
   /* hero */
 
@@ -3306,7 +3398,14 @@ p:not(.eyebrow) {
   }
 
   .entry-result {
+    grid-column: 1 / -1;
+
     margin-top: 44px;
+    padding: 38px 25px;
+  }
+
+  .entry-result::before {
+    inset: 7px;
   }
 
 
