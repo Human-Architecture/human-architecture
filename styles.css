@@ -1546,6 +1546,45 @@ p {
     clamp(38px, 5vw, 76px);
 }
 
+/* The transition route is a deliberate pause between orientation and action.
+   Its ocean-blue field gives this singular path its own visual weight without
+   turning the wider entry system into a collection of competing cards. */
+.entry-domain-detail[data-entry-detail="transition"] {
+  border-color: rgba(200, 175, 139, .56);
+
+  background:
+    radial-gradient(circle at 88% 12%, rgba(169, 200, 201, .18), transparent 31%),
+    linear-gradient(135deg, #073d4b 0%, #0a5363 56%, #063442 100%);
+
+  box-shadow:
+    0 30px 66px rgba(6, 52, 66, .18);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .eyebrow,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice > small {
+  color: #e4c99a;
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-domain-detail__intro h3,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice {
+  color: var(--ocean-foam);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-domain-detail__intro > p:not(.eyebrow) {
+  color: rgba(244, 247, 243, .76);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice-grid,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice {
+  border-color: rgba(217, 231, 229, .28);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice:hover,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice:focus-visible,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice.is-active {
+  color: #f0d8aa;
+}
+
 .entry-domain-detail__intro h3 {
   margin: 0 0 18px;
 
