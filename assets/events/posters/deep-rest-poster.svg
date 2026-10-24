@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1620" viewBox="0 0 1080 1620" role="img" aria-labelledby="title description">
   <title id="title">DEEP REST — Event poster</title>
   <desc id="description">Poster for a Breathwork, Yoga Nidra and Live-Handpan event at ZEN CENTER Regensburg on 11 December 2026.</desc>
-  <image href="../deep-rest-handpan.png" x="-810" y="0" width="2700" height="1620" preserveAspectRatio="xMidYMid slice"/>
-  <rect width="1080" height="1620" fill="#062f3c" opacity=".38"/>
-  <rect y="1080" width="1080" height="540" fill="#062f3c" opacity=".74"/>
+  <image href="../deep-rest-handpan-poster.png" x="0" y="0" width="1080" height="1620" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1080" height="1620" fill="#062f3c" opacity=".34"/>
+  <rect y="1080" width="1080" height="540" fill="#062f3c" opacity=".76"/>
   <rect x="56" y="54" width="968" height="1512" fill="none" stroke="#e6c990" stroke-opacity=".58" stroke-width="1"/>
   <g fill="#f6f0e6" font-family="Arial, sans-serif" text-anchor="middle">
     <text x="540" y="140" font-size="19" font-weight="700" letter-spacing="5">HUMAN ARCHITECTURE®</text>
