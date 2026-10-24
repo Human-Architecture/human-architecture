@@ -4457,20 +4457,11 @@ p:not(.eyebrow) {
   .method-page .desktop-nav { display: none; }
   .method-page .nav-conversation { margin-left: auto; }
   .method-page .menu-button {
-    display: block;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
+    display: grid;
+    gap: 5px;
   }
   .method-page .menu-button span {
-    display: block;
-    width: 23px;
-    height: 1px;
-    margin: 6px auto;
-    background: var(--white);
+    margin: 0 auto;
   }
   .method-page .mobile-menu {
     position: fixed;
@@ -4487,7 +4478,7 @@ p:not(.eyebrow) {
     visibility: hidden;
     transition: transform 430ms var(--ease), visibility 430ms;
   }
-  .method-page .mobile-menu.is-open { transform: none; visibility: visible; }
+  .method-page .mobile-menu.is-open { transform: none; opacity: 1; pointer-events: auto; visibility: visible; }
   .method-page .mobile-menu a {
     padding: 13px 0;
     border-bottom: 1px solid rgba(255,255,255,.10);
