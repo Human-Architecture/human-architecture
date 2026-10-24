@@ -265,7 +265,11 @@ p {
 .homepage-event__visual--return img { object-position: 50% 27%; }
 .homepage-event__visual--body-language img { object-position: 49% 38%; }
 .homepage-event__visual--astrology img { object-position: 49% 28%; }
-.homepage-event__visual--deep-rest img { object-position: center; }
+.homepage-event__visual--deep-rest { padding: 0; background: #062f3c; }
+.homepage-event__visual--deep-rest img { object-fit: cover; object-position: 54% center; filter: saturate(.76) contrast(.92) brightness(.72); }
+.homepage-event__deep-rest-poster { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; padding: 12px 10px; box-sizing: border-box; color: #f7f0e6; background: linear-gradient(180deg, rgba(3,47,60,.08) 18%, rgba(3,47,60,.84) 100%); text-align: left; }
+.homepage-event__deep-rest-poster b { font: 400 1.65rem/.76 var(--display); letter-spacing: -.06em; }
+.homepage-event__deep-rest-poster small { font-size: .37rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; color: #e6c990; }
 .homepage-event__date { display: flex; flex-direction: column; gap: 3px; margin: 0; color: var(--aged-brass); }
 .homepage-event__date span { font-family: var(--display); font-size: 2.75rem; line-height: .82; }
 .homepage-event__date small { font-size: .65rem; font-weight: 700; letter-spacing: .16em; }
@@ -1540,6 +1544,45 @@ p {
 
   gap:
     clamp(38px, 5vw, 76px);
+}
+
+/* The transition route is a deliberate pause between orientation and action.
+   Its ocean-blue field gives this singular path its own visual weight without
+   turning the wider entry system into a collection of competing cards. */
+.entry-domain-detail[data-entry-detail="transition"] {
+  border-color: rgba(200, 175, 139, .56);
+
+  background:
+    radial-gradient(circle at 88% 12%, rgba(169, 200, 201, .18), transparent 31%),
+    linear-gradient(135deg, #073d4b 0%, #0a5363 56%, #063442 100%);
+
+  box-shadow:
+    0 30px 66px rgba(6, 52, 66, .18);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .eyebrow,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice > small {
+  color: #e4c99a;
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-domain-detail__intro h3,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice {
+  color: var(--ocean-foam);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-domain-detail__intro > p:not(.eyebrow) {
+  color: rgba(244, 247, 243, .76);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice-grid,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice {
+  border-color: rgba(217, 231, 229, .28);
+}
+
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice:hover,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice:focus-visible,
+.entry-domain-detail[data-entry-detail="transition"] .entry-choice.is-active {
+  color: #f0d8aa;
 }
 
 .entry-domain-detail__intro h3 {
