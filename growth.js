@@ -89,6 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
         element.textContent = language === 'en' ? element.dataset.en : element.dataset.de;
       });
     }
+    const enquiry = document.querySelector('#erlebnisformate .org-actions a');
+    if (enquiry) {
+      const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      enquiry.dataset.hrefDe = makeMailto(
+        'Anfrage · Eventformat für Organisationen',
+        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\n'
+      );
+      enquiry.dataset.hrefEn = makeMailto(
+        'Enquiry · Hosted experience for an organisation',
+        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\n'
+      );
+      enquiry.href = language === 'en' ? enquiry.dataset.hrefEn : enquiry.dataset.hrefDe;
+    }
   }
 
   // The sessions overview has many valid formats. Make the first decision about
