@@ -155,18 +155,81 @@ document.addEventListener('DOMContentLoaded', () => {
       sessionOverview.before(guide);
     }
 
+    const sessionExplanations = {
+      'Strukturelle Analyse': {
+        de: 'Eine orientierende Session, wenn du zuerst verstehen möchtest, was du im Alltag oder beim Bewegen wahrnimmst. Wir halten fest, welcher Schwerpunkt für dich sinnvoll ist; daraus entsteht keine medizinische Diagnose.',
+        en: 'An orienting session for when you first want to understand what you notice in everyday life or movement. We identify a useful focus together; this is not a medical diagnosis.'
+      },
+      'Strukturelle manuelle Körperarbeit': {
+        de: 'Für vereinbarte Berührung und sanfte Mobilisation. Vor Beginn klären wir Bereiche, Position, Druck und dein Einverständnis; währenddessen kannst du alles jederzeit verändern.',
+        en: 'For agreed touch and gentle mobilisation. Before starting, we clarify areas, position, pressure and consent; you can change any of these at any time.'
+      },
+      'Fasziales Scraping': {
+        de: 'Eine instrumentengestützte Form der Körperarbeit. Ablauf, mögliche vorübergehende Hautspuren und die Frage, ob dieser Ansatz gerade passend ist, werden vorher transparent besprochen.',
+        en: 'A tool-assisted form of bodywork. The process, possible temporary skin marks and whether this approach fits your situation are discussed transparently beforehand.'
+      },
+      'Chi Nei Tsang': {
+        de: 'Eine körperorientierte Session mit Fokus auf den Bauchraum. Wir sprechen vorab über Berührung, Intensität und mögliche Gründe, diesen Bereich nicht einzubeziehen.',
+        en: 'A body-focused session centred on the abdominal area. We discuss touch, intensity and any reason not to include this area beforehand.'
+      },
+      'Craniosacrale Körperarbeit': {
+        de: 'Ein ruhiger, sanfter Berührungsrahmen mit Raum für Wahrnehmung und Entspannung. Er dient nicht der Behandlung neurologischer oder anderer Erkrankungen.',
+        en: 'A calm, gentle touch-based setting with room for awareness and rest. It is not treatment for neurological or other conditions.'
+      },
+      'Massage': {
+        de: 'Manuelle Körperarbeit für einen gemeinsam gewählten Bereich. Du bestimmst mit, welche Intensität sich stimmig anfühlt und welche Bereiche nicht einbezogen werden sollen.',
+        en: 'Hands-on bodywork for an area chosen together. You help determine the intensity that feels right and any areas that should not be included.'
+      },
+      'Cupping': {
+        de: 'Eine Anwendung an vorab vereinbarten Bereichen. Wir besprechen Ablauf, mögliche Hautspuren und ob die Anwendung für dich gerade in Frage kommt.',
+        en: 'An application to areas agreed in advance. We discuss the process, possible skin marks and whether it is appropriate for you at this time.'
+      },
+      'Breathwork': {
+        de: 'Angeleitete Atem- und Wahrnehmungsübungen in einem abgestimmten Tempo. Vorher wird geklärt, welche Technik und welcher Rahmen zu dir passen.',
+        en: 'Guided breathing and awareness practices at an agreed pace. We clarify beforehand which technique and scope fit you.'
+      },
+      'Yoga Nidra': {
+        de: 'Eine angeleitete Ruhepraxis im Liegen oder einer anderen passenden Position. Du musst nichts leisten; wir finden eine Lagerung, in der du gut bleiben kannst.',
+        en: 'A guided rest practice lying down or in another suitable position. There is nothing to perform; we find a position you can comfortably stay in.'
+      },
+      'Klangsession': {
+        de: 'Ein ruhiger Raum für Klang und Wahrnehmung. Instrumente, Lautstärke, Position und der gewünschte Rahmen werden vorab gemeinsam abgestimmt.',
+        en: 'A calm space for sound and awareness. Instruments, volume, position and the desired scope are agreed together beforehand.'
+      },
+      'Strukturelle Yoga-Integration': {
+        de: 'Individuell angeleitete Bewegung mit Fokus auf Mobilität, Koordination und alltagstaugliche Praxis. Übungen werden an deinen aktuellen Rahmen angepasst.',
+        en: 'Individually guided movement focused on mobility, coordination and practical everyday use. Movements are adapted to your current context.'
+      },
+      'Calamus Ceremony': {
+        de: 'Ein eigener, bewusst abgegrenzter Rahmen mit äußerlicher botanischer Anwendung. Bestandteile, Hautkontakt, Ablauf und Eignung werden vor einer Buchung ausführlich erklärt.',
+        en: 'A separate, deliberately bounded format involving external botanical application. Components, skin contact, process and suitability are explained in detail before booking.'
+      },
+      'Human Architecture® Intensive': {
+        de: 'Ein längerer Termin für ein Anliegen, das mehr Zeit und einen klar abgestimmten Rahmen braucht. Welche Ansätze verbunden werden und ob ein Codex sinnvoll ist, klären wir im Vorgespräch.',
+        en: 'An extended appointment for a situation that needs more time and a clearly agreed scope. We clarify in advance which approaches may be combined and whether a Codex is useful.'
+      }
+    };
+
     document.querySelectorAll('.ha-session-row').forEach(row => {
       if (row.querySelector('.ha-session-request')) return;
       const title = row.querySelector('h4');
       if (!title) return;
       const name = title.textContent.trim();
+      const content = sessionExplanations[name];
+      const copy = row.querySelector('div');
+      if (content && copy) {
+        const details = document.createElement('details');
+        details.className = 'ha-session-more';
+        details.innerHTML = `<summary data-de="Mehr über diese Session" data-en="More about this session">Mehr über diese Session</summary><p data-de="${content.de}" data-en="${content.en}">${language === 'en' ? content.en : content.de}</p>${row.closest('#koerperarbeit') ? '<a class="ha-session-info-link" href="/sessions/koerperarbeit/" data-de="Ablauf, Einverständnis &amp; praktische Informationen" data-en="Process, consent &amp; practical information">Ablauf, Einverständnis &amp; praktische Informationen</a>' : ''}`;
+        copy.appendChild(details);
+      }
       const link = document.createElement('a');
       link.className = 'ha-session-request ha-text-link';
       link.href = `mailto:hello@human-architecture.info?subject=${encodeURIComponent(`Anfrage: ${name}`)}&body=${encodeURIComponent(`Ich interessiere mich für ${name}.\n\nMein Anliegen / meine Frage:\n\nGewünschter Zeitraum:\n\n` )}`;
       link.dataset.de = 'Diese Session anfragen';
       link.dataset.en = 'Enquire about this session';
       link.textContent = language === 'en' ? link.dataset.en : link.dataset.de;
-      row.querySelector('div')?.appendChild(link);
+      copy?.appendChild(link);
     });
   }
 

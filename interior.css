@@ -118,6 +118,12 @@ body.ha-interior.ha-growth .ha-button:hover { background: var(--ha-sea); }
 .ha-session-row h4 { margin: 0 0 6px; color: var(--ha-abyss); font-size: 16px; line-height: 1.4; letter-spacing: .045em; }
 .ha-session-row p { margin: 0; max-width: 65ch; color: #3b555b; font-size: 14px; line-height: 1.65; }
 .ha-session-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; color: var(--ha-abyss); text-align: right; font-size: 15px; font-weight: 600; white-space: nowrap; }
+.ha-session-more { margin-top: 15px; max-width: 65ch; }
+.ha-session-more summary { width: fit-content; cursor: pointer; color: var(--ha-abyss); font-size: 12px; font-weight: 700; letter-spacing: .045em; }
+.ha-session-more summary::marker { color: var(--ha-sand); }
+.ha-session-more p { margin: 10px 0 0; }
+.ha-session-info-link { display: inline-block; margin-top: 10px; color: var(--ha-abyss); font-size: 12px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--ha-sand); text-underline-offset: 4px; }
+.ha-session-request { display: inline-block; margin-top: 18px; font-size: 12px; font-weight: 700; }
 .ha-session-note { margin-top: 35px; padding: clamp(24px, 4vw, 42px); background: var(--ha-mist); }
 .ha-session-note p { margin-top: 0; font-size: 14px; }
 .ha-session-note .ha-text-link { margin-left: 20px; }
