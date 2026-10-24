@@ -5,5 +5,9 @@
 .chart-visual{margin:0;padding:clamp(18px,3vw,34px);background:#f8f1e5;border:1px solid var(--line);box-shadow:0 26px 65px rgba(38,24,32,.12)}
 .chart-visual img{display:block;width:100%;height:auto}
 .chart-visual figcaption{margin-top:16px;color:#74675d;font-size:8px;line-height:1.55;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.chart-feature--foundation{background:#f7f0e8}
+.chart-visual--foundation{background:#fff;max-width:980px;justify-self:end}
+.chart-visual--foundation img{aspect-ratio:1733/1239;object-fit:contain}
 @media(max-width:980px){.chart-feature{grid-template-columns:1fr}.chart-visual{max-width:720px}}
-@media(max-width:700px){.chart-feature{padding:80px 24px;gap:38px}.chart-visual{padding:12px}}
+@media(max-width:980px){.chart-visual--foundation{max-width:900px;justify-self:start}}
+@media(max-width:700px){.chart-feature{padding:80px 24px;gap:38px}.chart-visual{padding:12px}.chart-visual--foundation figcaption{font-size:7px}}
