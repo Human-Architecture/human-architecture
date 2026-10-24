@@ -291,11 +291,67 @@ p {
 .homepage-events__all:hover,
 .homepage-events__all:focus-visible { padding-inline: 5px; }
 
+/* Gift vouchers are a quiet secondary entry: visible, but never competing with the main journey. */
+.homepage-voucher {
+  padding: clamp(64px, 8vw, 112px) var(--page-x);
+  background: var(--atlantic-abyss);
+  color: var(--warm-ivory);
+}
+.homepage-voucher__inner {
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .74fr);
+  gap: clamp(36px, 8vw, 130px);
+  align-items: center;
+}
+.homepage-voucher__copy { max-width: 650px; }
+.homepage-voucher .eyebrow { color: var(--human-sand); }
+.homepage-voucher h2 {
+  max-width: 12ch;
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-size: clamp(2.45rem, 4vw, 4.45rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+.homepage-voucher__copy > p:not(.eyebrow) {
+  max-width: 50ch;
+  margin: 0;
+  color: rgba(245,240,231,.8);
+  line-height: 1.7;
+}
+.homepage-voucher__link {
+  display: inline-block;
+  margin-top: 28px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--human-sand);
+  color: var(--human-sand);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.homepage-voucher__link:hover,
+.homepage-voucher__link:focus-visible { color: var(--warm-ivory); border-color: currentColor; }
+.homepage-voucher__visual { margin: 0; }
+.homepage-voucher__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(245,240,231,.28);
+  box-shadow: 0 20px 42px rgba(0,0,0,.22);
+}
+
 @media (max-width: 640px) {
   .upcoming-events-bar { align-items: flex-start; flex-direction: column; gap: 7px; padding-block: 12px; }
   .homepage-events { padding-block: 70px; }
   .homepage-events__layout { display: block; }
   .homepage-events__intro { position: static; margin-bottom: 46px; }
+  .homepage-voucher__inner { grid-template-columns: 1fr; }
+  .homepage-voucher h2 { max-width: 15ch; }
+  .homepage-voucher__visual { max-width: 540px; }
   .homepage-event { grid-template-columns: 50px 72px minmax(0, 1fr); gap: 13px; padding-block: 24px; }
   .homepage-event__visual { width: 72px; height: 102px; }
   .homepage-event__date span { font-size: 2.1rem; }
@@ -592,10 +648,52 @@ p {
   border-color: var(--warm-ivory);
 }
 
-.menu-button,
-.mobile-menu {
-  display: none;
+.menu-button {
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
+
+.menu-button span {
+  display: block;
+  width: 23px;
+  height: 1px;
+  background: var(--white);
+  transition: transform 340ms var(--ease), opacity 180ms ease;
+}
+
+.menu-button[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+.menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.4); }
+.menu-button[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  z-index: 999;
+  top: 88px;
+  right: max(var(--page-x), calc((100vw - var(--content-max)) / 2));
+  width: min(410px, calc(100vw - (var(--page-x) * 2)));
+  display: flex;
+  flex-direction: column;
+  padding: 18px 26px 24px;
+  background: rgba(6,52,66,.98);
+  box-shadow: 0 20px 45px rgba(3, 28, 36, .26);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-14px);
+  visibility: hidden;
+  transition: transform 300ms var(--ease), opacity 220ms ease, visibility 300ms;
+}
+
+.mobile-menu.is-open { opacity: 1; pointer-events: auto; transform: none; visibility: visible; }
+.mobile-menu a { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.10); color: var(--white); font-size: .70rem; letter-spacing: .05em; }
+.mobile-menu__conversation { margin-top: 12px; color: var(--human-sand) !important; }
 
 
 /* =========================================================
@@ -2740,18 +2838,8 @@ p:not(.eyebrow) {
   }
 
   .menu-button {
-    display: block;
-
-    width: 42px;
-    height: 42px;
-
-    padding: 0;
-
-    border: 0;
-
-    background: transparent;
-
-    cursor: pointer;
+    display: grid;
+    gap: 5px;
   }
 
   .menu-button span {
@@ -2760,27 +2848,35 @@ p:not(.eyebrow) {
     width: 23px;
     height: 1px;
 
-    margin: 6px auto;
+    margin: 0 auto;
 
     background: var(--white);
 
     transition:
-      transform 340ms var(--ease);
+      transform 340ms var(--ease),
+      opacity 180ms ease;
   }
 
   .menu-button[
     aria-expanded="true"
   ] span:first-child {
     transform:
-      translateY(3.5px)
+      translateY(6px)
       rotate(45deg);
+  }
+
+  .menu-button[
+    aria-expanded="true"
+  ] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(.4);
   }
 
   .menu-button[
     aria-expanded="true"
   ] span:last-child {
     transform:
-      translateY(-3.5px)
+      translateY(-6px)
       rotate(-45deg);
   }
 
@@ -2817,7 +2913,8 @@ p:not(.eyebrow) {
 
   .mobile-menu.is-open {
     transform: none;
-
+    opacity: 1;
+    pointer-events: auto;
     visibility: visible;
   }
 
