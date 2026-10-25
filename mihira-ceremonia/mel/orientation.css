@@ -1,0 +1,13 @@
+.page-orientation{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(45px,8vw,125px);padding:clamp(82px,10vw,140px) 9vw;background:linear-gradient(135deg,#f9f4eb 0%,#f1e9dc 100%);border-bottom:1px solid var(--mist)}
+.orientation-intro h2{margin:0;font:400 clamp(42px,5vw,72px)/1.03 var(--serif);letter-spacing:-.035em}
+.orientation-intro>p:not(.section-index){max-width:52ch;color:#504a44;margin:28px 0 0}
+.orientation-routes{border-top:1px solid rgba(182,149,88,.55)}
+.orientation-route{display:grid;grid-template-columns:38px minmax(0,1fr) 24px;gap:18px;padding:25px 0 27px;border-bottom:1px solid rgba(182,149,88,.42);text-decoration:none;transition:padding .2s ease,color .2s ease}
+.orientation-route:hover{padding-left:10px;color:var(--plum)}
+.orientation-route>span{color:var(--gold);font:500 16px var(--serif)}
+.orientation-route small{display:block;color:#806a49;font-size:8px;font-weight:600;letter-spacing:.16em}
+.orientation-route h3{margin:9px 0 8px;font:400 clamp(22px,2.25vw,32px)/1.1 var(--serif)}
+.orientation-route p{margin:0;color:#625950;font-size:13px;line-height:1.65}
+.orientation-route b{align-self:center;color:var(--gold);font:400 24px var(--serif)}
+@media(max-width:980px){.page-orientation{grid-template-columns:1fr;gap:45px}}
+@media(max-width:700px){.page-orientation{padding:80px 26px}.orientation-route{grid-template-columns:30px minmax(0,1fr) 18px;gap:12px}.orientation-route:hover{padding-left:0}}
