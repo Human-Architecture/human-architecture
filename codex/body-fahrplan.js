@@ -12,6 +12,6 @@
   document.title = lang === 'de' ? 'Body Fahrplan | Der Codex' : 'Body Fahrplan | The Codex';
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = lang === 'de'
-    ? 'Body Fahrplan ist ein nicht-medizinischer Reflexions- und Strukturraum für wiederkehrende Routine-Reibung, auf Anfrage.'
-    : 'Body Fahrplan is a non-clinical reflection and planning format for recurring routine friction, delivered by enquiry.';
+    ? 'Body Fahrplan ist eine 12-wöchige, nicht-medizinische Kleingruppe für wiederkehrende Routine-Reibung und einen tragfähigen persönlichen Rahmen.'
+    : 'Body Fahrplan is a 12-week, non-clinical small-group Codex for recurring routine friction and a more workable personal structure.';
 })();
