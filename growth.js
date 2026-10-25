@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!figure) {
         figure = document.createElement('figure');
         figure.className = 'method-founder-figure';
-        figure.innerHTML = '<img src="/assets/founder/mel-mihira-founder.webp" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1551" height="2000" loading="lazy"><figcaption>Mel Mihira · Founder &amp; System Architect</figcaption>';
+        figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-v2.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1122" height="1402" loading="lazy"><figcaption>Mel Mihira · Founder &amp; System Architect</figcaption>';
         founder.querySelector('h2')?.after(figure);
       }
       const founderImg = figure.querySelector('img');
-      if (founderImg) founderImg.src = '/assets/founder/mel-mihira-founder.webp';
+      if (founderImg) founderImg.src = '/assets/portraits/mel-organizations-founder-v2.png';
 
       if (!founder.querySelector('.method-founder-lightness')) {
         const panel = document.createElement('div');
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (founderPlaceholder) {
     const figure = document.createElement('figure');
     figure.className = 'about__portrait reveal is-visible';
-    figure.innerHTML = '<img src="/assets/founder/mel-mihira-founder.webp" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1551" height="2000" loading="lazy"><figcaption data-en="Mel Mihira · Founder &amp; System Architect" data-de="Mel Mihira · Gründerin &amp; Systemarchitektin">Mel Mihira · Founder &amp; System Architect</figcaption>';
+    figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-v2.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1122" height="1402" loading="lazy"><figcaption data-en="Mel Mihira · Founder &amp; System Architect" data-de="Mel Mihira · Gründerin &amp; Systemarchitektin">Mel Mihira · Founder &amp; System Architect</figcaption>';
     founderPlaceholder.replaceWith(figure);
   }
 

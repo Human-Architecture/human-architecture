@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const freshStyles=document.createElement('link');
   freshStyles.rel='stylesheet';
-  freshStyles.href='/founder-update.css?v=15';
+  freshStyles.href='/founder-update.css?v=16';
   document.head.appendChild(freshStyles);
 
-  // APPROVED IMAGE 1: leaning-forward black-dress founder portrait.
+  // Use the composed founder portrait wherever the page establishes authority.
   const portrait=founder.querySelector('.method-founder-figure img');
   if(portrait){
-    portrait.src='/assets/founder/mel-mihira-founder.webp?v=15';
+    portrait.src='/assets/portraits/mel-organizations-founder-v2.png?v=16';
     portrait.alt='Mel Mihira — Founder and System Architect of Human Architecture';
     portrait.loading='eager';
     portrait.decoding='async';

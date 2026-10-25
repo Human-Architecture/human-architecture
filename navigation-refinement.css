@@ -1,0 +1,4 @@
+/* Keep the appointment route a single, legible control instead of a stacked label. */
+.ha-wayfinding > a[data-site-events-wayfinding]{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;line-height:1.2}
+.ha-wayfinding > a[data-site-events-wayfinding]::before{content:none}
+@media(max-width:640px){.ha-wayfinding > a[data-site-events-wayfinding]{width:auto;margin-left:auto;padding:0;border:0}.ha-wayfinding > a[data-site-events-wayfinding]::before{content:none}}
