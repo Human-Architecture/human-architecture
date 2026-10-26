@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded',()=>{
+ if(location.pathname.replace(/\/$/,'')==='/orientierung'){
+  const refinement=document.createElement('link');
+  refinement.rel='stylesheet';
+  refinement.href='/orientierung/orientation-refinement.css';
+  document.head.append(refinement);
+ }
  const roots=document.querySelectorAll('.ha-wayfinding,.ha-site-directory,.ha-entry');
  const header=document.querySelector('.site-header');
  const wayfinding=document.querySelector('.ha-wayfinding');
