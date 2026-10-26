@@ -81,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep the organisation pathway explicit: a tailored yoga option belongs
   // alongside BODY LANGUAGE, RETURN and DEEP REST, not hidden inside Yoga Nidra.
   if (document.body.dataset.page === 'organizations') {
+    if (!document.getElementById('corporate-hosted-layout')) {
+      const hostedLayout = document.createElement('style');
+      hostedLayout.id = 'corporate-hosted-layout';
+      hostedLayout.textContent = '@media (min-width:901px){.org-page #erlebnisformate .org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-page #erlebnisformate .org-card{min-height:17rem}}';
+      document.head.appendChild(hostedLayout);
+    }
     const founderImage = document.querySelector('#begleitung .org-founder');
     if (founderImage) {
       founderImage.src = '/assets/portraits/mel-organizations-founder-v2.png';
