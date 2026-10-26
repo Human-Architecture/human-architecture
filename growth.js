@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (document.body.classList.contains('method-page')) {
     const existingFounderCss = [...document.querySelectorAll('link[rel="stylesheet"]')].find(link => link.href.includes('founder-update.css'));
-    if (existingFounderCss) existingFounderCss.href = '/founder-update.css?v=10';
+    if (existingFounderCss) existingFounderCss.href = '/founder-update.css?v=11';
     else {
       const founderStyles = document.createElement('link');
       founderStyles.rel = 'stylesheet';
-      founderStyles.href = '/founder-update.css?v=10';
+      founderStyles.href = '/founder-update.css?v=11';
       document.head.appendChild(founderStyles);
     }
 
@@ -49,6 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (valuesLink) valuesLink.before(panel);
         else founder.appendChild(panel);
       }
+
+      if (!founder.querySelector('.method-founder-links')) {
+        const nextSteps = document.createElement('nav');
+        nextSteps.className = 'method-founder-links';
+        nextSteps.setAttribute('aria-label', 'Continue exploring Mel Mihira’s work');
+        nextSteps.innerHTML = '<span class="method-founder-links__label">Continue exploring</span><a href="/mihira-ceremonia/">Explore Mihira Ceremonia <span aria-hidden="true">→</span></a><a href="/mihira-ceremonia/mel/#western-chart">View Mel’s personal chart <span aria-hidden="true">→</span></a>';
+        founder.appendChild(nextSteps);
+      }
     }
   }
 
@@ -73,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep the organisation pathway explicit: a tailored yoga option belongs
   // alongside BODY LANGUAGE, RETURN and DEEP REST, not hidden inside Yoga Nidra.
   if (document.body.dataset.page === 'organizations') {
+    if (!document.getElementById('corporate-hosted-layout')) {
+      const hostedLayout = document.createElement('style');
+      hostedLayout.id = 'corporate-hosted-layout';
+      hostedLayout.textContent = '@media (min-width:901px){.org-page #erlebnisformate .org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-page #erlebnisformate .org-card{min-height:17rem}}';
+      document.head.appendChild(hostedLayout);
+    }
     const founderImage = document.querySelector('#begleitung .org-founder');
     if (founderImage) {
       founderImage.src = '/assets/portraits/mel-organizations-founder-v2.png';
@@ -91,34 +105,59 @@ document.addEventListener('DOMContentLoaded', () => {
       experienceRoute.textContent = language === 'en' ? experienceRoute.dataset.en : experienceRoute.dataset.de;
       heroActions.append(experienceRoute);
     }
-    const experienceCard = document.querySelector('#erlebnisformate .org-card:nth-child(3)');
+    const experienceGrid = document.querySelector('#erlebnisformate .org-grid');
+    const experienceHeading = document.querySelector('#erlebnisformate h2');
+    const experienceIntro = document.querySelector('#erlebnisformate .org-intro');
+    if (experienceHeading) {
+      experienceHeading.dataset.de = 'Vier klar unterscheidbare Formate für Teamtage, Offsites und interne Events.';
+      experienceHeading.dataset.en = 'Four distinct formats for team days, offsites and hosted events.';
+      experienceHeading.textContent = language === 'en' ? experienceHeading.dataset.en : experienceHeading.dataset.de;
+    }
+    if (experienceIntro) {
+      experienceIntro.dataset.de = 'Wählt BODY LANGUAGE für Bewegung und persönliche Trainingspraxis, RETURN für Atemarbeit und Yoga Nidra, DEEP REST für Yoga Nidra mit optional Live-Handpan oder Yoga für Teams für eine aktive, angepasste Gruppenstunde. Diese Formate sind keine HR-Analyse und keine Leistungsbewertung: Teilnahme, Bewegung und persönliche Reflexion bleiben freiwillig. Wir klären Ziel, Gruppe, Raum, Zugänglichkeit und Ablauf vorab schriftlich.';
+      experienceIntro.dataset.en = 'Choose BODY LANGUAGE for movement and personal practice, RETURN for breathwork and Yoga Nidra, DEEP REST for Yoga Nidra with optional live handpan, or Yoga for Teams for an active session adapted to the group. These formats are not HR analysis or performance assessment: participation, movement and personal reflection remain voluntary. We agree purpose, group, space, accessibility and delivery in writing before booking.';
+      experienceIntro.textContent = language === 'en' ? experienceIntro.dataset.en : experienceIntro.dataset.de;
+    }
+    const experienceCard = experienceGrid?.querySelector('.org-card:nth-child(3)');
     const number = experienceCard?.querySelector('.org-card__num');
     const title = experienceCard?.querySelector('h3');
     const copy = experienceCard?.querySelector('p');
     const link = experienceCard?.querySelector('a');
     if (number && title && copy && link) {
-      number.dataset.de = '03 · YOGA, NIDRA & KLANG';
-      number.dataset.en = '03 · YOGA, NIDRA & SOUND';
-      title.dataset.de = 'YOGA & DEEP REST';
-      title.dataset.en = 'YOGA & DEEP REST';
-      copy.dataset.de = 'Ein ruhig geführtes Gruppenformat mit Yoga oder angeleiteter Bewegung, Yoga Nidra und auf Wunsch Live-Handpan-Klang. Für interne Veranstaltungen, Retreats oder Räume, die einen entschleunigten Abschluss oder einen bewussten Übergang ermöglichen möchten.';
-      copy.dataset.en = 'A calmly guided group format with yoga or guided movement, Yoga Nidra and optional live handpan sound. For internal events, retreats or spaces that want to offer an unhurried close or a deliberate transition.';
-      link.dataset.de = 'YOGA & DEEP REST kennenlernen';
-      link.dataset.en = 'Explore YOGA & DEEP REST';
+      number.dataset.de = '03 · YOGA NIDRA & KLANG';
+      number.dataset.en = '03 · YOGA NIDRA & SOUND';
+      title.dataset.de = 'DEEP REST';
+      title.dataset.en = 'DEEP REST';
+      copy.dataset.de = 'Eine ruhige Gruppenerfahrung mit Yoga Nidra und optional Live-Handpan-Klang. Geeignet als bewusster Abschluss, Ankommen oder Übergang innerhalb eines Teamtags, Offsites oder Retreats.';
+      copy.dataset.en = 'A calm group experience with Yoga Nidra and optional live handpan sound. Suitable as a deliberate close, arrival or transition within a team day, offsite or retreat.';
+      link.href = '/events/deep-rest/';
+      link.dataset.de = 'DEEP REST kennenlernen';
+      link.dataset.en = 'Explore DEEP REST';
       [number, title, copy, link].forEach(element => {
         element.textContent = language === 'en' ? element.dataset.en : element.dataset.de;
       });
+    }
+    if (experienceGrid && !experienceGrid.querySelector('.org-card--yoga')) {
+      const yogaCard = document.createElement('article');
+      yogaCard.className = 'org-card org-card--yoga';
+      yogaCard.innerHTML = '<span class="org-card__num" data-de="04 · YOGA & BEWEGUNG" data-en="04 · YOGA & MOVEMENT">04 · YOGA &amp; BEWEGUNG</span><h3 data-de="YOGA FÜR TEAMS" data-en="YOGA FOR TEAMS">YOGA FÜR TEAMS</h3><p data-de="Eine an die Gruppe und den Raum angepasste Yoga- oder Bewegungssequenz. Auf Wunsch mit einem kurzen Yoga-Nidra-Ausklang. Geeignet für Gesundheitstage, aktive Pausen, Retreats oder als körperlich präsenter Auftakt eines Teamtags." data-en="A yoga or movement sequence adapted to the group and venue, with an optional short Yoga Nidra close. Suitable for wellbeing days, active pauses, retreats or a grounded start to a team day.">Eine an die Gruppe und den Raum angepasste Yoga- oder Bewegungssequenz. Auf Wunsch mit einem kurzen Yoga-Nidra-Ausklang. Geeignet für Gesundheitstage, aktive Pausen, Retreats oder als körperlich präsenter Auftakt eines Teamtags.</p><a class="ha-text-link" data-de="Yogaformat anfragen" data-en="Enquire about a yoga format">Yogaformat anfragen</a>';
+      const yogaLink = yogaCard.querySelector('a');
+      const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      yogaLink.dataset.hrefDe = makeMailto('Anfrage · Yogaformat für Organisationen', 'Organisation:\nFormat: Yoga für Teams\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nBewegungserfahrung / Zugänglichkeit:\n');
+      yogaLink.dataset.hrefEn = makeMailto('Enquiry · Yoga format for an organisation', 'Organisation:\nFormat: Yoga for teams\nGroup and occasion:\nLocation and preferred timeframe:\nMovement experience / accessibility:\n');
+      yogaLink.href = language === 'en' ? yogaLink.dataset.hrefEn : yogaLink.dataset.hrefDe;
+      experienceGrid.append(yogaCard);
     }
     const enquiry = document.querySelector('#erlebnisformate .org-actions a');
     if (enquiry) {
       const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       enquiry.dataset.hrefDe = makeMailto(
         'Anfrage · Eventformat für Organisationen',
-        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\n'
+        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / DEEP REST / YOGA FÜR TEAMS / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\n'
       );
       enquiry.dataset.hrefEn = makeMailto(
         'Enquiry · Hosted experience for an organisation',
-        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / YOGA & DEEP REST / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\n'
+        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / DEEP REST / YOGA FOR TEAMS / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\n'
       );
       enquiry.href = language === 'en' ? enquiry.dataset.hrefEn : enquiry.dataset.hrefDe;
     }

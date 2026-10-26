@@ -24,6 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     image.innerHTML = `<img src="${poster[0]}" alt="${poster[1]}" loading="lazy"><figcaption>${poster[2]}</figcaption>`;
   });
-  const deepRestVenue = document.querySelectorAll('.event-card')[3]?.querySelector('.event-meta li');
-  if (deepRestVenue) deepRestVenue.textContent = 'ZEN CENTER, Regensburg';
 });
