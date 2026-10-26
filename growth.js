@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (document.body.classList.contains('method-page')) {
     const existingFounderCss = [...document.querySelectorAll('link[rel="stylesheet"]')].find(link => link.href.includes('founder-update.css'));
-    if (existingFounderCss) existingFounderCss.href = '/founder-update.css?v=10';
+    if (existingFounderCss) existingFounderCss.href = '/founder-update.css?v=11';
     else {
       const founderStyles = document.createElement('link');
       founderStyles.rel = 'stylesheet';
-      founderStyles.href = '/founder-update.css?v=10';
+      founderStyles.href = '/founder-update.css?v=11';
       document.head.appendChild(founderStyles);
     }
 
@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const valuesLink = founder.querySelector('a[href*="values"]')?.closest('p');
         if (valuesLink) valuesLink.before(panel);
         else founder.appendChild(panel);
+      }
+
+      if (!founder.querySelector('.method-founder-links')) {
+        const nextSteps = document.createElement('nav');
+        nextSteps.className = 'method-founder-links';
+        nextSteps.setAttribute('aria-label', 'Continue exploring Mel Mihira’s work');
+        nextSteps.innerHTML = '<span class="method-founder-links__label">Continue exploring</span><a href="/mihira-ceremonia/">Explore Mihira Ceremonia <span aria-hidden="true">→</span></a><a href="/mihira-ceremonia/mel/#western-chart">View Mel’s personal chart <span aria-hidden="true">→</span></a>';
+        founder.appendChild(nextSteps);
       }
     }
   }
