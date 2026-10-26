@@ -1,0 +1,43 @@
+/* Complete-map refinements for the orientation route. */
+body.orientation-page .orientation-paths__lead {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--ink-soft);
+}
+
+body.orientation-page .orientation-paths__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+body.orientation-page .orientation-paths__grid a {
+  min-height: 250px;
+}
+
+body.orientation-page .orientation-paths__all {
+  margin: 25px 0 0;
+}
+
+body.orientation-page .orientation-paths__all a {
+  display: inline-flex;
+  padding: 12px 0;
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+body.orientation-page .orientation-paths__all a:hover,
+body.orientation-page .orientation-paths__all a:focus-visible {
+  color: var(--gold);
+}
+
+@media (max-width: 800px) {
+  body.orientation-page .orientation-paths__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 520px) {
+  body.orientation-page .orientation-paths__grid { grid-template-columns: 1fr; }
+}
