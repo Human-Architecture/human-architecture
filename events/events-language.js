@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     language.innerHTML = `<a href="/events/"${german ? '' : ' aria-current="page"'}>EN</a><a href="/events/?lang=de"${german ? ' aria-current="page"' : ''}>DE</a>`;
     header.appendChild(language);
   }
+  const bodyLanguageBooking = document.querySelectorAll('.event-card--body-language .event-action')[0];
+  if (bodyLanguageBooking) bodyLanguageBooking.href = german ? '/body-language/book/' : '/body-language/en/book/';
   if (!german) {
     const deepRestDescription = document.querySelectorAll('.event-card')[3]?.querySelector('.event-detail > p');
     if (deepRestDescription) deepRestDescription.textContent = 'Guided breathwork, Yoga Nidra and live handpan sound in a small, held group setting.';

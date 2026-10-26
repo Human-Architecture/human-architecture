@@ -85,7 +85,10 @@ document.addEventListener('DOMContentLoaded',()=>{
    const u=new URL(raw,location.href);
    if(u.origin!==location.origin || !/\/$|\.html$/.test(u.pathname))return;
    const fixedLanguage=['/organizations/international/','/what-is-human-architecture/','/performance/intake/','/impressum/','/datenschutz/','/organizations/hr-brief.html'];
-   if(fixedLanguage.some(path=>u.pathname.startsWith(path)))u.searchParams.delete('lang');else u.searchParams.set('lang',lang);
+   if(u.pathname==='/body-language/book/'){
+    u.pathname=lang==='en'?'/body-language/en/book/':'/body-language/book/';
+    u.searchParams.delete('lang');
+   }else if(fixedLanguage.some(path=>u.pathname.startsWith(path)))u.searchParams.delete('lang');else u.searchParams.set('lang',lang);
    a.href=u.href;
   });
  }
