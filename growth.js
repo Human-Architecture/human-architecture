@@ -78,13 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
   }
 
-  // Keep the organisation pathway explicit: a tailored yoga option belongs
-  // alongside BODY LANGUAGE, RETURN and DEEP REST, not hidden inside Yoga Nidra.
+  // Keep the organisation pathway simple: three flagship experiences lead the
+  // decision. Yoga or guided movement can be tailored inside the agreed
+  // experience, rather than creating a fourth competing route.
   if (document.body.dataset.page === 'organizations') {
     if (!document.getElementById('corporate-hosted-layout')) {
       const hostedLayout = document.createElement('style');
       hostedLayout.id = 'corporate-hosted-layout';
-      hostedLayout.textContent = '@media (min-width:901px){.org-page #erlebnisformate .org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-page #erlebnisformate .org-card{min-height:17rem}}';
+      hostedLayout.textContent = '@media (min-width:901px){.org-page #erlebnisformate .org-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.org-page #erlebnisformate .org-card{min-height:17rem}}';
       document.head.appendChild(hostedLayout);
     }
     const founderImage = document.querySelector('#begleitung .org-founder');
@@ -109,13 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const experienceHeading = document.querySelector('#erlebnisformate h2');
     const experienceIntro = document.querySelector('#erlebnisformate .org-intro');
     if (experienceHeading) {
-      experienceHeading.dataset.de = 'Vier klar unterscheidbare Formate für Teamtage, Offsites und interne Events.';
-      experienceHeading.dataset.en = 'Four distinct formats for team days, offsites and hosted events.';
+      experienceHeading.dataset.de = 'Drei klar unterscheidbare Formate für Teamtage, Offsites und interne Events.';
+      experienceHeading.dataset.en = 'Three distinct formats for team days, offsites and hosted events.';
       experienceHeading.textContent = language === 'en' ? experienceHeading.dataset.en : experienceHeading.dataset.de;
     }
     if (experienceIntro) {
-      experienceIntro.dataset.de = 'Wählt BODY LANGUAGE für Bewegung und persönliche Trainingspraxis, RETURN für Atemarbeit und Yoga Nidra, DEEP REST für Yoga Nidra mit optional Live-Handpan oder Yoga für Teams für eine aktive, angepasste Gruppenstunde. Diese Formate sind keine HR-Analyse und keine Leistungsbewertung: Teilnahme, Bewegung und persönliche Reflexion bleiben freiwillig. Wir klären Ziel, Gruppe, Raum, Zugänglichkeit und Ablauf vorab schriftlich.';
-      experienceIntro.dataset.en = 'Choose BODY LANGUAGE for movement and personal practice, RETURN for breathwork and Yoga Nidra, DEEP REST for Yoga Nidra with optional live handpan, or Yoga for Teams for an active session adapted to the group. These formats are not HR analysis or performance assessment: participation, movement and personal reflection remain voluntary. We agree purpose, group, space, accessibility and delivery in writing before booking.';
+      experienceIntro.dataset.de = 'Wählt BODY LANGUAGE für Bewegung und persönliche Trainingspraxis, RETURN für Atemarbeit und Yoga Nidra oder DEEP REST für Yoga Nidra mit optional Live-Handpan. Yoga und angeleitete Bewegung können dort, wo sie dem Anlass dienen, als passender Baustein integriert werden. Diese Formate sind keine HR-Analyse und keine Leistungsbewertung: Teilnahme, Bewegung und persönliche Reflexion bleiben freiwillig. Wir klären Ziel, Gruppe, Raum, Zugänglichkeit und Ablauf vorab schriftlich.';
+      experienceIntro.dataset.en = 'Choose BODY LANGUAGE for movement and personal practice, RETURN for breathwork and Yoga Nidra, or DEEP REST for Yoga Nidra with optional live handpan. Yoga and guided movement can be included where they serve the occasion. These formats are not HR analysis or performance assessment: participation, movement and personal reflection remain voluntary. We agree purpose, group, space, accessibility and delivery in writing before booking.';
       experienceIntro.textContent = language === 'en' ? experienceIntro.dataset.en : experienceIntro.dataset.de;
     }
     const experienceCard = experienceGrid?.querySelector('.org-card:nth-child(3)');
@@ -137,27 +138,16 @@ document.addEventListener('DOMContentLoaded', () => {
         element.textContent = language === 'en' ? element.dataset.en : element.dataset.de;
       });
     }
-    if (experienceGrid && !experienceGrid.querySelector('.org-card--yoga')) {
-      const yogaCard = document.createElement('article');
-      yogaCard.className = 'org-card org-card--yoga';
-      yogaCard.innerHTML = '<span class="org-card__num" data-de="04 · YOGA & BEWEGUNG" data-en="04 · YOGA & MOVEMENT">04 · YOGA &amp; BEWEGUNG</span><h3 data-de="YOGA FÜR TEAMS" data-en="YOGA FOR TEAMS">YOGA FÜR TEAMS</h3><p data-de="Eine an die Gruppe und den Raum angepasste Yoga- oder Bewegungssequenz. Auf Wunsch mit einem kurzen Yoga-Nidra-Ausklang. Geeignet für Gesundheitstage, aktive Pausen, Retreats oder als körperlich präsenter Auftakt eines Teamtags." data-en="A yoga or movement sequence adapted to the group and venue, with an optional short Yoga Nidra close. Suitable for wellbeing days, active pauses, retreats or a grounded start to a team day.">Eine an die Gruppe und den Raum angepasste Yoga- oder Bewegungssequenz. Auf Wunsch mit einem kurzen Yoga-Nidra-Ausklang. Geeignet für Gesundheitstage, aktive Pausen, Retreats oder als körperlich präsenter Auftakt eines Teamtags.</p><a class="ha-text-link" data-de="Yogaformat anfragen" data-en="Enquire about a yoga format">Yogaformat anfragen</a>';
-      const yogaLink = yogaCard.querySelector('a');
-      const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      yogaLink.dataset.hrefDe = makeMailto('Anfrage · Yogaformat für Organisationen', 'Organisation:\nFormat: Yoga für Teams\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nBewegungserfahrung / Zugänglichkeit:\n');
-      yogaLink.dataset.hrefEn = makeMailto('Enquiry · Yoga format for an organisation', 'Organisation:\nFormat: Yoga for teams\nGroup and occasion:\nLocation and preferred timeframe:\nMovement experience / accessibility:\n');
-      yogaLink.href = language === 'en' ? yogaLink.dataset.hrefEn : yogaLink.dataset.hrefDe;
-      experienceGrid.append(yogaCard);
-    }
     const enquiry = document.querySelector('#erlebnisformate .org-actions a');
     if (enquiry) {
       const makeMailto = (subject, body) => `mailto:hello@human-architecture.info?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       enquiry.dataset.hrefDe = makeMailto(
         'Anfrage · Eventformat für Organisationen',
-        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / DEEP REST / YOGA FÜR TEAMS / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\n'
+        'Organisation:\nGewünschtes Format (BODY LANGUAGE / RETURN / DEEP REST / noch offen):\nGruppe und Anlass:\nOrt und gewünschter Zeitraum:\nErwarteter Rahmen (z. B. Teamtag, Offsite, internes Event):\nOptional: Bewegung oder Yoga als Baustein erwünscht?\n'
       );
       enquiry.dataset.hrefEn = makeMailto(
         'Enquiry · Hosted experience for an organisation',
-        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / DEEP REST / YOGA FOR TEAMS / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\n'
+        'Organisation:\nPreferred format (BODY LANGUAGE / RETURN / DEEP REST / not yet decided):\nGroup and occasion:\nLocation and preferred timeframe:\nExpected setting (e.g. team day, offsite, internal event):\nOptional: Would movement or yoga be helpful within the format?\n'
       );
       enquiry.href = language === 'en' ? enquiry.dataset.hrefEn : enquiry.dataset.hrefDe;
     }
