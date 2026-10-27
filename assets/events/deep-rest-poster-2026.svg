@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title description">
+  <title id="title">DEEP REST — 11 December 2026, Zen Center Regensburg</title>
+  <desc id="description">An event poster for a guided evening of breathwork, Yoga Nidra and live handpan sound.</desc>
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#031e29" stop-opacity=".9"/>
+      <stop offset=".48" stop-color="#042b38" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#031d27" stop-opacity=".15"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061d28" stop-opacity="0"/>
+      <stop offset="1" stop-color="#061d28" stop-opacity=".86"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <image href="deep-rest-handpan-background-v2.png" xlink:href="deep-rest-handpan-background-v2.png" width="1080" height="1350" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1080" height="1350" fill="url(#shade)"/>
+  <rect y="720" width="1080" height="630" fill="url(#fade)"/>
+
+  <g fill="#f6f1e7" font-family="Arial, Helvetica, sans-serif" letter-spacing="5">
+    <text x="82" y="91" font-size="17">HUMAN ARCHITECTURE</text>
+    <line x1="82" y1="122" x2="998" y2="122" stroke="#d6b785" stroke-opacity=".75"/>
+    <text x="82" y="181" fill="#ddbd89" font-size="17">BREATHWORK · YOGA NIDRA · LIVE-HANDPAN-KLANG</text>
+  </g>
+
+  <g fill="#fffaf1" filter="url(#shadow)">
+    <text x="78" y="367" font-family="Georgia, 'Times New Roman', serif" font-size="161" letter-spacing="-7">DEEP</text>
+    <text x="78" y="505" font-family="Georgia, 'Times New Roman', serif" font-size="161" letter-spacing="-7">REST</text>
+  </g>
+  <text x="84" y="563" fill="#f7f0e3" font-family="Arial, Helvetica, sans-serif" font-size="26" letter-spacing="1.3">EIN ABEND, UM ANZUKOMMEN, LOSZULASSEN UND ZU RUHEN.</text>
+
+  <g transform="translate(82 814)" fill="#f9f3e8">
+    <text x="0" y="0" font-family="Georgia, 'Times New Roman', serif" font-size="73">Freitag · 11. Dezember 2026</text>
+    <line x1="0" y1="39" x2="916" y2="39" stroke="#d6b785" stroke-width="2" stroke-opacity=".85"/>
+    <text x="0" y="112" font-family="Arial, Helvetica, sans-serif" font-size="27" letter-spacing="1.3">18:00–19:30 UHR · BITTE PLANE BIS 20:00 UHR</text>
+    <text x="0" y="162" font-family="Arial, Helvetica, sans-serif" font-size="27" letter-spacing="1.3">ZEN CENTER · REGENSBURG</text>
+    <text x="0" y="244" font-family="Arial, Helvetica, sans-serif" font-size="25" letter-spacing=".8">GEFÜHRTES BREATHWORK, YOGA NIDRA</text>
+    <text x="0" y="283" font-family="Arial, Helvetica, sans-serif" font-size="25" letter-spacing=".8">UND LIVE-HANDPAN-SOUND IN KLEINER GRUPPE.</text>
+  </g>
+
+  <g transform="translate(82 1170)" fill="#f7f0e3" font-family="Arial, Helvetica, sans-serif">
+    <text x="0" y="0" font-size="22" letter-spacing="2">18 PLÄTZE · 28 € · 25 € PRO PERSON BEI BRING A FRIEND</text>
+    <text x="0" y="43" font-size="19" letter-spacing=".8">BITTE MITBRINGEN: YOGAMATTE + SCHAL ODER KLEINE, WEICHE DECKE</text>
+    <text x="0" y="105" fill="#ddbd89" font-size="18" letter-spacing="2.4">HUMAN-ARCHITECTURE.INFO/EVENTS/DEEP-REST</text>
+  </g>
+</svg>
