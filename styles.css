@@ -2752,6 +2752,19 @@ p:not(.eyebrow) {
   font-size: .65rem;
 }
 
+.form-privacy-note {
+  margin: 14px 0 0;
+  color: var(--mineral-grey);
+  font-size: .7rem;
+  line-height: 1.55;
+}
+
+.form-privacy-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .conversation-button {
   width: 100%;
 

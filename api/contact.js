@@ -28,10 +28,15 @@ module.exports = async function handler(req, res) {
 
     // Basic server-side validation.
     if (
-      !name?.trim() ||
-      !email?.trim() ||
-      !context?.trim() ||
-      !message?.trim()
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof organisation !== "string" ||
+      typeof context !== "string" ||
+      typeof message !== "string" ||
+      !name.trim() ||
+      !email.trim() ||
+      !context.trim() ||
+      !message.trim()
     ) {
       return res.status(400).json({
         success: false,
@@ -39,8 +44,21 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const emailPattern =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const fieldsExceedLimit =
+      name.trim().length > 100 ||
+      email.trim().length > 254 ||
+      organisation.trim().length > 200 ||
+      context.trim().length > 100 ||
+      message.trim().length > 5000;
+
+    if (fieldsExceedLimit) {
+      return res.status(400).json({
+        success: false,
+        message: "One or more fields are too long."
+      });
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email.trim())) {
       return res.status(400).json({
