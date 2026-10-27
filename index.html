@@ -501,17 +501,6 @@
 </span>
           </div>
 
-          <div class="form-field">
-            <label for="sensitive-data-choice" data-de="Bevor du sendest" data-en="Before you send">Before you send</label>
-            <select id="sensitive-data-choice" name="sensitiveDataChoice" required>
-              <option value="" data-de="Bitte auswählen" data-en="Choose one">Choose one</option>
-              <option value="no-special-category" data-de="Ich teile keine Gesundheitsdaten oder anderen besonders sensiblen Angaben." data-en="I am not sharing health information or other special-category data.">I am not sharing health information or other special-category data.</option>
-              <option value="voluntary-health-consent" data-de="Ich möchte freiwillig gesundheitsbezogene Angaben teilen und willige ein, dass sie ausschließlich zur Bearbeitung meiner Anfrage verarbeitet werden. Die Einwilligung kann ich jederzeit für die Zukunft widerrufen." data-en="I choose to share voluntary health-related information and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.">I choose to share voluntary health-related information and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.</option>
-            </select>
-            <span class="field-error" data-error-for="sensitive-data-choice"></span>
-          </div>
-
-
           <button
               class="system-node system-node--body"
               type="button"
@@ -3235,6 +3224,17 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
               data-error-for="message"
             ></span>
 
+          </div>
+
+
+          <div class="form-field">
+            <label for="sensitive-data-choice" data-de="Bevor du sendest" data-en="Before you send">Before you send</label>
+            <select id="sensitive-data-choice" name="sensitiveDataChoice" required>
+              <option value="" data-de="Bitte auswählen" data-en="Choose one">Choose one</option>
+              <option value="no-special-category" data-de="Ich sende eine allgemeine Anfrage und teile keine gesundheitsbezogenen Angaben." data-en="I am sending a general enquiry and am not including health-related information.">I am sending a general enquiry and am not including health-related information.</option>
+              <option value="voluntary-health-consent" data-de="Ich möchte freiwillig einen kurzen gesundheitsbezogenen Hinweis teilen und willige ein, dass er ausschließlich zur Bearbeitung meiner Anfrage verarbeitet wird. Die Einwilligung kann ich jederzeit für die Zukunft widerrufen." data-en="I choose to share a brief health-related note and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.">I choose to share a brief health-related note and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.</option>
+            </select>
+            <span class="field-error" data-error-for="sensitive-data-choice"></span>
           </div>
 
 
