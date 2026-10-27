@@ -23,7 +23,8 @@ module.exports = async function handler(req, res) {
       email,
       organisation = "",
       context,
-      message
+      message,
+      sensitiveDataChoice
     } = req.body || {};
 
     // Basic server-side validation.
@@ -33,10 +34,12 @@ module.exports = async function handler(req, res) {
       typeof organisation !== "string" ||
       typeof context !== "string" ||
       typeof message !== "string" ||
+      typeof sensitiveDataChoice !== "string" ||
       !name.trim() ||
       !email.trim() ||
       !context.trim() ||
-      !message.trim()
+      !message.trim() ||
+      !sensitiveDataChoice.trim()
     ) {
       return res.status(400).json({
         success: false,
@@ -58,6 +61,18 @@ module.exports = async function handler(req, res) {
       });
     }
 
+    const allowedSensitiveDataChoices = new Set([
+      "no-special-category",
+      "voluntary-health-consent"
+    ]);
+
+    if (!allowedSensitiveDataChoices.has(sensitiveDataChoice)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please choose how you would like us to handle sensitive information."
+      });
+    }
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email.trim())) {
@@ -72,6 +87,7 @@ module.exports = async function handler(req, res) {
     const cleanOrganisation = organisation.trim();
     const cleanContext = context.trim();
     const cleanMessage = message.trim();
+    const cleanSensitiveDataChoice = sensitiveDataChoice;
 
     // -----------------------------------------------------
     // 1. PRIVATE NOTIFICATION TO HUMAN ARCHITECTURE
@@ -97,6 +113,9 @@ ${cleanOrganisation || "Not provided"}
 
 Context:
 ${cleanContext}
+
+Sensitive-data choice:
+${cleanSensitiveDataChoice}
 
 Message:
 ${cleanMessage}

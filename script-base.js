@@ -2040,7 +2040,8 @@ const payload = {
   email: formData.get("email") || "",
   organisation: formData.get("organisation") || "",
   context: formData.get("context") || "",
-  message: formData.get("message") || ""
+  message: formData.get("message") || "",
+  sensitiveDataChoice: formData.get("sensitiveDataChoice") || ""
 };
 
 fetch("/api/contact", {

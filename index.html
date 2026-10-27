@@ -499,10 +499,20 @@
 >
   Human
 </span>
-            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="sensitive-data-choice" data-de="Bevor du sendest" data-en="Before you send">Before you send</label>
+            <select id="sensitive-data-choice" name="sensitiveDataChoice" required>
+              <option value="" data-de="Bitte auswählen" data-en="Choose one">Choose one</option>
+              <option value="no-special-category" data-de="Ich teile keine Gesundheitsdaten oder anderen besonders sensiblen Angaben." data-en="I am not sharing health information or other special-category data.">I am not sharing health information or other special-category data.</option>
+              <option value="voluntary-health-consent" data-de="Ich möchte freiwillig gesundheitsbezogene Angaben teilen und willige ein, dass sie ausschließlich zur Bearbeitung meiner Anfrage verarbeitet werden. Die Einwilligung kann ich jederzeit für die Zukunft widerrufen." data-en="I choose to share voluntary health-related information and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.">I choose to share voluntary health-related information and consent to its use only for handling my enquiry. I can withdraw this consent at any time for the future.</option>
+            </select>
+            <span class="field-error" data-error-for="sensitive-data-choice"></span>
+          </div>
 
 
-            <button
+          <button
               class="system-node system-node--body"
               type="button"
               data-system-node="body"
@@ -3238,7 +3248,7 @@ data-aria-de="Partnerschaften mit Institutionen und im Kulturbereich erkunden"
   Start a Conversation
 </button>
 
-          <p class="form-privacy-note" data-de="Mit dem Absenden verarbeitest du die Angaben zur Bearbeitung deiner Anfrage. Bitte übermittle im Erstkontakt keine Gesundheitsdaten, ausführlichen Geburtsdaten oder sensiblen Angaben über andere Personen. Details: <a href=\"/datenschutz/\">Datenschutz</a>." data-en="By submitting, you provide the details needed to handle your enquiry. Please do not include health information, detailed birth data or sensitive information about other people in an initial enquiry. Details: <a href=\"/datenschutz/\">Privacy</a>.">By submitting, you provide the details needed to handle your enquiry. Please do not include health information, detailed birth data or sensitive information about other people in an initial enquiry. Details: <a href="/datenschutz/">Privacy</a>.</p>
+          <p class="form-privacy-note" data-de="Teile nur das, was sich für dich stimmig anfühlt. Bitte sende keine ausführlichen Diagnosen, detaillierten Geburtsdaten oder sensiblen Angaben über andere Personen. Details: <a href=\"/datenschutz/\">Datenschutz</a>." data-en="Share only what feels right for you. Please do not send detailed diagnoses, detailed birth data or sensitive information about other people. Details: <a href=\"/datenschutz/\">Privacy</a>.">Share only what feels right for you. Please do not send detailed diagnoses, detailed birth data or sensitive information about other people. Details: <a href="/datenschutz/">Privacy</a>.</p>
 
 
 
