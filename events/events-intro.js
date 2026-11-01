@@ -15,6 +15,58 @@ document.addEventListener('DOMContentLoaded', () => {
     : '<div><strong>01 / CHOOSE</strong><span>Find the format that fits your present question, body or curiosity.</span></div><div><strong>02 / REVIEW</strong><span>Open the event page for the full introduction, timing, place and participation details.</span></div><div><strong>03 / RESERVE</strong><span>Book directly where a payment route is available, or give the experience as a voucher.</span></div>';
   lead.insertAdjacentElement('afterend', orientation);
 
+  const eventJourneys = [
+    {
+      selector: '.event-card--return',
+      info: '/mihira-ceremonia/return/',
+      book: '/mihira-ceremonia/return/#booking',
+      voucher: '/gutscheine/?voucher=return#anfrage',
+      labels: german
+        ? ['RETURN entdecken', 'Platz reservieren', 'RETURN als Gutschein schenken']
+        : ['Explore RETURN', 'Reserve a place', 'Give RETURN as a voucher']
+    },
+    {
+      selector: '.event-card--body-language',
+      info: '/body-language/',
+      book: '/body-language/book/',
+      voucher: '/gutscheine/?voucher=body_language#anfrage',
+      labels: german
+        ? ['BODY LANGUAGE entdecken', 'Platz wählen & bezahlen', 'BODY LANGUAGE als Gutschein schenken']
+        : ['Explore BODY LANGUAGE', 'Choose a place & pay', 'Give BODY LANGUAGE as a voucher']
+    },
+    {
+      selector: '.event-card--astrology',
+      info: '/kurse/westliche-astrologie/',
+      book: '/kurse/westliche-astrologie/#anmeldung',
+      voucher: '/gutscheine/?voucher=astrology#anfrage',
+      labels: german
+        ? ['Kurs entdecken', 'Platz wählen & bezahlen', 'Kurs als Gutschein schenken']
+        : ['Explore the course', 'Choose a place & pay', 'Give the course as a voucher']
+    },
+    {
+      selector: '.event-card--deep-rest',
+      info: '/events/deep-rest/',
+      book: '/events/deep-rest/#tickets',
+      voucher: '/gutscheine/?voucher=deep_rest#anfrage',
+      labels: german
+        ? ['DEEP REST entdecken', 'Ticket wählen & bezahlen', 'DEEP REST als Gutschein schenken']
+        : ['Explore DEEP REST', 'Choose a ticket & pay', 'Give DEEP REST as a voucher']
+    }
+  ];
+
+  eventJourneys.forEach(({ selector, info, book, voucher, labels }) => {
+    const actions = document.querySelector(`${selector} .event-actions`);
+    if (!actions) return;
+    actions.replaceChildren();
+    [[info, labels[0], 'secondary'], [book, labels[1], ''], [voucher, labels[2], 'secondary']].forEach(([href, label, variant]) => {
+      const link = document.createElement('a');
+      link.className = `event-action ${variant}`.trim();
+      link.href = href;
+      link.textContent = label;
+      actions.append(link);
+    });
+  });
+
   const eventList = document.querySelector('.events-list');
   if (eventList && !document.querySelector('.events-participation-policy')) {
     const policy = document.createElement('aside');

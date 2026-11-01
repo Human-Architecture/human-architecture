@@ -297,6 +297,7 @@ p {
 }
 .homepage-event__learn { color: var(--atlantic-abyss); background: transparent; }
 .homepage-event__book { color: var(--warm-ivory); background: var(--atlantic-abyss); }
+.homepage-event__voucher { color: var(--atlantic-abyss); border-style: dashed!important; }
 .homepage-event > a:hover,
 .homepage-event > a:focus-visible,
 .homepage-event__journey a:hover,
