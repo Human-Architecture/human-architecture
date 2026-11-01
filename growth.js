@@ -12,6 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
     nav.prepend(entry);
   });
+  if (document.body.dataset.page === 'kooperationen') {
+    const heroLinks = document.querySelector('.partnership-hero .ha-hero-links');
+    if (heroLinks && !heroLinks.querySelector('[href="/kooperationen/coaches/"]')) {
+      const coachEnquiry = document.createElement('a');
+      coachEnquiry.className = 'ha-text-link';
+      coachEnquiry.href = '/kooperationen/coaches/';
+      coachEnquiry.dataset.de = 'Für Coaches & Praktiker:innen';
+      coachEnquiry.dataset.en = 'For coaches & practitioners';
+      coachEnquiry.textContent = language === 'en' ? coachEnquiry.dataset.en : coachEnquiry.dataset.de;
+      heroLinks.append(coachEnquiry);
+    }
+  }
   const choices = {mama:'Mama Bodywork',baby:'Baby Codex — 189 €',familie:'Mama × Baby / Familien-Codex',codex:'Persönlicher Codex',persoenlich:'Persönliche Session',body_language:'BODY LANGUAGE Workshop',return:'RETURN · November Session',deep_rest:'DEEP REST · Sound Journey & Handpan',codex_2027:'Codex 2027 annual compass',offen:'Beratung zur Gutscheinwahl'};
   const voucherPayments = {body_language:'https://www.paypal.com/ncp/payment/3KLLWQT9J7SWC',return:'https://www.paypal.com/ncp/payment/JUWR5VTDJ5Z74',deep_rest:'https://www.paypal.com/ncp/payment/VUK9C4886BGCG',codex_2027:'https://www.paypal.com/ncp/payment/726WVHHFGVKRA',codex_2027_october:'https://www.paypal.com/ncp/payment/3JYEWHJDKD58G'};
   const voucher = document.getElementById('voucher-choice');
