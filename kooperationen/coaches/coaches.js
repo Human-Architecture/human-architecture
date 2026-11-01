@@ -23,7 +23,8 @@
       const data = Object.fromEntries(new FormData(form).entries());
       data.chartAcknowledgement = form.elements.chartAcknowledgement.checked;
       data.locale = document.documentElement.lang;
-      const response = await fetch("/api/coach-collaboration", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      data.formType = "coach-collaboration";
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error);
       form.innerHTML = `<div class="coach-card"><p class="coach-step">HUMAN ARCHITECTURE · KOOPERATIONEN</p><h2>${document.documentElement.lang === "en" ? "Thank you. Your enquiry has arrived." : "Danke. Deine Anfrage ist eingegangen."}</h2><p>${result.message}</p></div>`;
