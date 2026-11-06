@@ -18,7 +18,7 @@ module.exports = async function handler(req, res) {
   const locale = req.body?.locale === 'en' ? 'en' : 'de';
   if (req.method === 'GET') {
     if (req.query?.codex === 'status') {
-      const available = paymentEnabled() && secureIntakeConfigured() && Boolean(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET && (process.env.HA_POSTGRES_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL));
+      const available = paymentEnabled() && secureIntakeConfigured() && Boolean(process.env.RESEND_API_KEY && process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET && (process.env.HA_POSTGRES_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL));
       return res.status(200).json({ available });
     }
     return res.status(200).json({ available: true });
