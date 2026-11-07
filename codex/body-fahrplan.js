@@ -50,8 +50,8 @@
       'not-sure': lang === 'de' ? 'Noch nicht sicher' : 'Not sure yet'
     }[form.elements.availability.value];
     const message = [
-      `${lang === 'de' ? 'Wiederkehrende Reibung' : 'Recurring friction'}: ${form.elements.friction.value.trim()}`,
-      `${lang === 'de' ? 'Gewünschte Veränderung' : 'Desired shift'}: ${form.elements.intention.value.trim()}`,
+      `${lang === 'de' ? 'Was gerade präsent ist' : 'What is present now'}: ${form.elements.friction.value.trim()}`,
+      `${lang === 'de' ? 'Gewünschte Klarheit nach 12 Wochen' : 'Desired clarity after 12 weeks'}: ${form.elements.intention.value.trim()}`,
       `${lang === 'de' ? 'Gruppenrhythmus' : 'Group rhythm'}: ${availability}`,
       `${lang === 'de' ? 'Zeitzone / mögliche Zeiten' : 'Time zone / workable times'}: ${form.elements.timing.value.trim() || (lang === 'de' ? 'Nicht angegeben' : 'Not provided')}`
     ].join('\n\n');
