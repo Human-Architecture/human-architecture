@@ -8,6 +8,7 @@
 
   const de = {
     "The Codex": "Der Codex",
+    "Find your Codex": "Finde deinen Codex",
     "Go deeper": "Vertiefen",
     "Deeper work": "Vertiefende Arbeit",
     "Introductory readings": "Einstiegslesungen",
