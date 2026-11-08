@@ -114,6 +114,30 @@ body:has(form#intake) {
   --ha-space-4: clamp(38px, 5vw, 72px);
 }
 
+/* Private Codex booking: a clear, discretionary request rather than a promise. */
+.codex-reading .cr-priority {
+  max-width: 730px;
+  margin: 28px 0 0;
+  padding: 18px;
+  border: 1px solid var(--cr-line);
+  background: var(--cr-panel);
+}
+
+.codex-reading .cr-priority strong {
+  display: block;
+  color: #826540;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.codex-reading .cr-priority p {
+  margin: 8px 0 13px;
+  color: var(--cr-muted);
+  font-size: 14px;
+  line-height: 1.58;
+}
+
 @media (max-width: 800px) {
   body.ha-growth .ha-section {
     padding-block: clamp(48px, 13vw, 76px);
