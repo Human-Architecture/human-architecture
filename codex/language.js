@@ -113,6 +113,13 @@
     replaceText();
   }
 
+  document.querySelectorAll('a[href^="/codex/book/"], a[href^="/codex/anfrage/"]').forEach((link) => {
+    const destination = new URL(link.href, window.location.origin);
+    if (german) destination.searchParams.set('lang', 'de');
+    else destination.searchParams.delete('lang');
+    link.href = destination.pathname + destination.search;
+  });
+
   const navigation = document.querySelector(".cr-nav");
   if (!navigation) return;
   if (!navigation.querySelector('a[href="/codex/orientierung/"]')) {

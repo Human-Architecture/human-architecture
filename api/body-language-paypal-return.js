@@ -12,8 +12,8 @@ module.exports = async function handler(req, res) {
     if (!bookingId || !orderId) return redirect(res, '/codex/book/?payment=error');
     try {
       await ensureCodexSchema();
-      await captureReturn({ bookingId, orderId, base: requestBase(req) });
-      return redirect(res, '/codex/payment/confirmed/');
+      const confirmed = await captureReturn({ bookingId, orderId, base: requestBase(req) });
+      return redirect(res, `/codex/payment/confirmed/?lang=${confirmed.locale === 'de' ? 'de' : 'en'}`);
     } catch (error) { console.error('CODEX PayPal return failed', error); return redirect(res, '/codex/book/?payment=error'); }
   }
   if (req.query?.codex === 'intake') {
