@@ -13,6 +13,8 @@
   document.querySelectorAll('[data-de][data-en]').forEach(element => { render(element, element.dataset[lang]); });
   document.querySelectorAll('[data-language-link]').forEach(link => { link.href = `?lang=${lang === 'de' ? 'en' : 'de'}`; link.textContent = lang === 'de' ? 'EN' : 'DE'; });
   document.title = lang === 'de' ? 'Finde deinen Codex | Human Architecture' : 'Find your Codex | Human Architecture';
+  const withLanguage = (href) => lang === 'de' ? `${href}?lang=de` : href;
+  document.querySelectorAll('.cr-nav a[href="/codex/angebote/"]').forEach(link => { link.href = withLanguage('/codex/angebote/'); });
   const choices = {};
   const result = document.querySelector('.codex-orientation-result');
   const resultTitle = result.querySelector('h2');
@@ -33,9 +35,13 @@
     if (choices.depth === 'conversation' && !['year', 'routine'].includes(choices.focus)) recommendation = choices.scope === 'one' ? 'conversation' : 'connected';
     if (choices.scope === 'several' && !['year', 'routine'].includes(choices.focus)) recommendation = 'connected';
     const option = copy[recommendation];
-    resultTitle.textContent = option.title[lang === 'de' ? 0 : 1]; resultCopy.textContent = option.text[lang === 'de' ? 0 : 1]; resultLink.href = option.href; resultLink.textContent = option.link[lang === 'de' ? 0 : 1]; result.hidden = false;
+    resultTitle.textContent = option.title[lang === 'de' ? 0 : 1]; resultCopy.textContent = option.text[lang === 'de' ? 0 : 1]; resultLink.href = withLanguage(option.href); resultLink.textContent = option.link[lang === 'de' ? 0 : 1]; result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   };
-  document.querySelectorAll('[data-question] button').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-question] button').forEach(button => {
+    button.setAttribute('aria-pressed', 'false');
+    button.addEventListener('click', () => {
     const group = button.closest('[data-question]'); group.querySelectorAll('button').forEach(choice => choice.setAttribute('aria-pressed', 'false')); button.setAttribute('aria-pressed', 'true'); choices[group.dataset.question] = button.dataset.value; renderRecommendation();
-  }));
+    });
+  });
 })();
