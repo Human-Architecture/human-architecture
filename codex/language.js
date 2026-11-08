@@ -114,7 +114,14 @@
   }
 
   const navigation = document.querySelector(".cr-nav");
-  if (!navigation || navigation.querySelector("[data-codex-language-link]")) return;
+  if (!navigation) return;
+  if (!navigation.querySelector('a[href="/codex/orientierung/"]')) {
+    const orientation = document.createElement("a");
+    orientation.href = "/codex/orientierung/";
+    orientation.textContent = german ? "Finde deinen Codex" : "Find your Codex";
+    navigation.append(orientation);
+  }
+  if (navigation.querySelector("[data-codex-language-link]")) return;
   const link = document.createElement("a");
   link.dataset.codexLanguageLink = "true";
   link.href = german ? englishUrl.href : germanUrl.href;
