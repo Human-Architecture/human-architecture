@@ -11,6 +11,11 @@ body[data-page="codex-examples"] .ha-hero h1 { max-width: 15ch; }
 .example-card blockquote { margin: 8px 0 22px; padding: 22px 0 22px 24px; border-left: 2px solid var(--ha-sand); color: var(--ha-abyss); font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.25rem, 2vw, 1.65rem); line-height: 1.42; }
 .example-card .example-boundary { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(6, 52, 66, .13); font-size: 12px; line-height: 1.65; }
 .example-card--wide { grid-column: 1 / -1; }
+.family-codex-map { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+.family-codex-map div { padding: 18px; background: var(--ha-mist); border-top: 2px solid var(--ha-sand); }
+.family-codex-map span { display: block; margin-bottom: 7px; color: #806947; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.family-codex-map strong { display: block; color: var(--ha-abyss); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; font-weight: 500; line-height: 1.18; }
+.family-codex-map p { margin: 10px 0 0; color: #425a60; font-size: .9rem; line-height: 1.55; }
 .compass-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0 18px; }
 .compass-steps div { padding: 18px; background: var(--ha-foam); border-top: 2px solid var(--ha-sand); }
 .compass-steps span { display: block; margin-bottom: 7px; color: #806947; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
@@ -22,5 +27,5 @@ body[data-page="codex-examples"] .ha-hero h1 { max-width: 15ch; }
 .example-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 @media (max-width: 760px) {
   .example-intro, .example-grid { grid-template-columns: 1fr; }
-  .year-map, .compass-steps { grid-template-columns: 1fr; }
+  .year-map, .compass-steps, .family-codex-map { grid-template-columns: 1fr; }
 }
