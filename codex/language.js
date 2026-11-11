@@ -1,8 +1,8 @@
 (() => {
   const url = new URL(window.location.href);
-  const german = url.searchParams.get("lang") === "de";
+  const german = url.searchParams.get("lang") !== "en";
   const englishUrl = new URL(window.location.href);
-  englishUrl.searchParams.delete("lang");
+  englishUrl.searchParams.set("lang", "en");
   const germanUrl = new URL(window.location.href);
   germanUrl.searchParams.set("lang", "de");
 
@@ -82,19 +82,48 @@
     "CODEX 2027 · PRIVATE DEEP DIVE": "CODEX 2027 · PRIVATER DEEP DIVE",
     "A private year of guidance.": "Ein privates Jahr mit Begleitung.",
     "CHOOSE YOUR 2027 ENTRY": "DEIN 2027-EINSTIEG"
+    ,"PAYMENT RECEIVED": "ZAHLUNG EINGEGANGEN"
+    ,"YOUR PRIVATE LINK": "DEIN PRIVATER LINK"
+    ,"IS ON ITS WAY.": "IST UNTERWEGS."
+    ,"Please check your inbox for the personal intake link. The link contains the only place to enter your birth details—please do not send them by email.": "Bitte prüfe dein E-Mail-Postfach auf deinen persönlichen Intake-Link. Nur dort gibst du deine Geburtsdaten an – bitte sende sie nicht per E-Mail."
+    ,"If it is not there shortly, check spam or contact": "Falls er nicht in Kürze erscheint, prüfe bitte auch den Spam-Ordner oder kontaktiere"
+    ,"from the email address used for payment.": "über die E-Mail-Adresse, die du für die Zahlung verwendet hast."
+    ,"Return to The Codex": "Zurück zum Codex"
   };
 
-  const replaceText = () => {
+  const en = Object.fromEntries(Object.entries(de).map(([english, germanText]) => [germanText, english]));
+  Object.assign(en, {
+    "HUMAN ARCHITECTURE · DER CODEX": "HUMAN ARCHITECTURE · THE CODEX",
+    "Codex-Übersicht": "Codex overview",
+    "Vertiefende Formate": "Deeper formats",
+    "← Zur Codex-Übersicht": "← Back to The Codex",
+    "KURZE PERSÖNLICHE AUSARBEITUNG · €29": "SHORT PERSONAL REFLECTION · €29",
+    "FOKUS-AUSARBEITUNG · €49": "FOCUSED PERSONAL REFLECTION · €49",
+    "SIGNATURE-EINSTIEG · €59": "SIGNATURE INTRODUCTION · €59",
+    "Sicher buchen · €29": "Book securely · €29",
+    "Sicher buchen · €49": "Book securely · €49",
+    "Sicher buchen · €59": "Book securely · €59",
+    "Nach der Zahlung erhältst du deinen privaten Intake-Link. Bitte sende Geburtsdaten nicht per E-Mail.": "After payment, you will receive your private intake link. Please do not send birth information by email.",
+    "Beispielseiten ansehen (DE/EN PDF) ↗": "View sample pages (DE/EN PDF) ↗",
+    "Benötigt werden": "What is needed",
+    "Preis": "Price",
+    "Format": "Format",
+    "Enthalten": "Includes",
+    "Lieferzeit": "Delivery",
+    "Nicht enthalten": "Does not include"
+  });
+
+  const replaceText = (dictionary) => {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(node => {
       const original = node.nodeValue;
       const key = original.trim();
-      if (!de[key]) return;
+      if (!dictionary[key]) return;
       const prefix = original.match(/^\s*/)[0];
       const suffix = original.match(/\s*$/)[0];
-      node.nodeValue = prefix + de[key] + suffix;
+      node.nodeValue = prefix + dictionary[key] + suffix;
     });
   };
 
@@ -106,11 +135,46 @@
       "/codex/astrological-foundations/": "Astrologische Grundlagen | The Codex",
       "/codex/private-introduction/": "Private Codex-Einführung | The Codex",
       "/codex/angebote/": "Vertiefende Codex-Arbeit | Mihira Ceremonia",
+      "/codex/blind-spot/": "Blind Spot Codex | Human Architecture",
+      "/codex/overview/": "Codex-Überblick | Human Architecture",
       "/codex/2027/": "Codex 2027 | Mihira Ceremonia"
     };
     if (titles[url.pathname]) document.title = titles[url.pathname];
-    replaceText();
+    replaceText(de);
+  } else {
+    document.documentElement.lang = "en";
+    const englishTitles = {
+      "/codex/angebote/": "Deeper Codex formats | Human Architecture",
+      "/codex/blind-spot/": "Blind Spot Codex | Human Architecture",
+      "/codex/overview/": "Complete Codex overview | Human Architecture"
+    };
+    if (englishTitles[url.pathname]) document.title = englishTitles[url.pathname];
+    replaceText(en);
   }
+
+  // Newer Codex pages carry their complete German and English copy directly.
+  // Apply these explicit strings after the legacy dictionary so both languages
+  // remain clear even when a phrase has not been added to the shared glossary.
+  document.querySelectorAll('[data-de][data-en]').forEach((element) => {
+    const copy = german ? element.dataset.de : element.dataset.en;
+    if (copy) element.textContent = copy;
+  });
+
+  document.querySelectorAll('a[data-href-de][data-href-en]').forEach((anchor) => {
+    anchor.href = german ? anchor.dataset.hrefDe : anchor.dataset.hrefEn;
+  });
+
+  document.querySelectorAll('a[href^="/codex/"]').forEach((anchor) => {
+    const linkUrl = new URL(anchor.getAttribute('href'), window.location.origin);
+    linkUrl.searchParams.set('lang', german ? 'de' : 'en');
+    anchor.setAttribute('href', `${linkUrl.pathname}${linkUrl.search}${linkUrl.hash}`);
+  });
+
+  // All Codex purchases pass through the same secure booking and private-intake flow.
+  // This prevents the annual offer from bypassing the privacy-protected next step.
+  document.querySelectorAll('a[href="https://www.paypal.com/ncp/payment/UQ43GXAP6FQTU"]').forEach((anchor) => {
+    anchor.href = `/codex/book/?offer=codex_2027_entry&lang=${german ? 'de' : 'en'}`;
+  });
 
   const navigation = document.querySelector(".cr-nav");
   if (!navigation || navigation.querySelector("[data-codex-language-link]")) return;
