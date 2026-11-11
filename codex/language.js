@@ -170,6 +170,19 @@
     anchor.setAttribute('href', `${linkUrl.pathname}${linkUrl.search}${linkUrl.hash}`);
   });
 
+  const orientationHref = `/orientierung/?lang=${german ? 'de' : 'en'}`;
+  document.querySelectorAll('.cr-nav').forEach((navigation) => {
+    if (navigation.querySelector('[data-codex-orientation-link], a[href*="/orientierung/"]')) return;
+    const orientationLink = document.createElement('a');
+    orientationLink.dataset.codexOrientationLink = 'true';
+    orientationLink.href = orientationHref;
+    orientationLink.textContent = german ? 'Orientierungfragebogen' : 'Orientation questionnaire';
+    orientationLink.setAttribute('aria-label', german ? 'Orientierungfragebogen öffnen' : 'Open the orientation questionnaire');
+    const firstLink = navigation.querySelector('a');
+    if (firstLink) firstLink.after(orientationLink);
+    else navigation.prepend(orientationLink);
+  });
+
   // All Codex purchases pass through the same secure booking and private-intake flow.
   // This prevents the annual offer from bypassing the privacy-protected next step.
   document.querySelectorAll('a[href="https://www.paypal.com/ncp/payment/UQ43GXAP6FQTU"]').forEach((anchor) => {

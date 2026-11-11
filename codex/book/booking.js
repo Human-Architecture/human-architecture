@@ -31,6 +31,7 @@
     document.querySelector('.cr-kicker').textContent = 'SICHERE BUCHUNG';
     document.querySelector('h1').innerHTML = 'BEGINNE MIT DER<br>PASSENDEN INFORMATIONSTIEFE.';
     document.querySelectorAll('.cr-offer-grid > div > p')[1].textContent = 'Nach erfolgreicher Zahlung erhältst du deinen privaten Intake-Link. Bitte sende Geburtsdaten nicht per E-Mail.';
+    document.querySelectorAll('.cr-offer-grid > div > p')[2].innerHTML = 'Noch unsicher, welches Format passt? <a href="/orientierung/?lang=de">Nutze zuerst den kurzen Orientierungfragebogen.</a> Er fragt nicht nach Geburtsdaten.';
     const labels = form.querySelectorAll('label');
     labels[0].childNodes[0].nodeValue = 'Vollständiger Name';
     labels[1].childNodes[0].nodeValue = 'E-Mail-Adresse';
