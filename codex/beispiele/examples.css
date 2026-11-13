@@ -25,7 +25,23 @@ body[data-page="codex-examples"] .ha-hero h1 { max-width: 15ch; }
 .year-map span { display: block; margin-bottom: 7px; color: #806947; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
 .year-map strong { color: var(--ha-abyss); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.35rem; font-weight: 500; }
 .example-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.example-library { padding-top: clamp(64px, 10vw, 136px); }
+.example-library__heading { max-width: 760px; }
+.example-library__heading > p:last-child { max-width: 680px; color: #425a60; }
+.example-library__group { margin-top: clamp(54px, 8vw, 96px); padding-top: clamp(30px, 4vw, 48px); border-top: 1px solid rgba(6, 52, 66, .18); }
+.example-library__group-heading { display: grid; grid-template-columns: minmax(150px, .4fr) minmax(0, 1fr); gap: 24px; align-items: baseline; margin-bottom: 28px; }
+.example-library__group-heading p { margin: 0; color: #806947; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.example-library__group-heading h3 { margin: 0; }
+.example-library__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.example-library__grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.codex-format-example { display: flex; flex-direction: column; padding: clamp(24px, 3.5vw, 36px); background: #fffdf8; border: 1px solid rgba(6, 52, 66, .14); border-top: 2px solid var(--ha-sand); }
+.codex-format-example .example-type { margin: 0 0 14px; color: #806947; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.codex-format-example h4 { margin: 0 0 14px; color: var(--ha-abyss); font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.55rem, 2.4vw, 2rem); font-weight: 500; line-height: 1.08; }
+.codex-format-example blockquote { margin: 0 0 18px; padding: 0 0 0 18px; border-left: 2px solid var(--ha-sand); color: var(--ha-abyss); font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.14rem, 1.7vw, 1.35rem); line-height: 1.4; }
+.codex-format-example > p:not(.example-type) { margin: 0 0 20px; color: #425a60; font-size: .94rem; line-height: 1.65; }
+.codex-format-example .ha-text-link { margin-top: auto; }
 @media (max-width: 760px) {
-  .example-intro, .example-grid { grid-template-columns: 1fr; }
+  .example-intro, .example-grid, .example-library__grid, .example-library__grid--two { grid-template-columns: 1fr; }
   .year-map, .compass-steps, .family-codex-map { grid-template-columns: 1fr; }
+  .example-library__group-heading { grid-template-columns: 1fr; gap: 10px; }
 }

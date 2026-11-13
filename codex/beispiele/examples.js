@@ -8,11 +8,11 @@
   const metadata = {
     de: {
       title: 'Codex-Beispiele ohne persönliche Daten | Human Architecture®',
-      description: 'Anonymisierte Human Architecture Codex-Beispiele: persönlicher Codex, Baby Codex, Beziehungs-Codex, Familien-Codex, Leadership Codex und Jahres-Codex transparent kennenlernen.'
+      description: 'Anonymisierte Human Architecture Codex-Beispiele: alle Formate transparent kennenlernen.'
     },
     en: {
       title: 'Codex examples without personal data | Human Architecture®',
-      description: 'Explore anonymised Human Architecture Codex examples: Personal, Baby, Relationship, Family, Leadership and Year Codex.'
+      description: 'Explore anonymised examples of every Human Architecture Codex format.'
     }
   };
 
