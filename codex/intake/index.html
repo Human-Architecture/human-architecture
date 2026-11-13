@@ -1,1 +1,151 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Private Codex intake | Human Architecture</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><link rel="stylesheet" href="../codex-readings.css"><link rel="stylesheet" href="../secure-form.css"></head><body class="codex-reading"><header class="cr-top"><div class="cr-shell"><span class="cr-brand">Mihira Ceremonia · The Codex</span></div></header><main class="cr-shell cr-offer"><p class="cr-kicker">PRIVATE INTAKE</p><h1>YOUR DETAILS,<br>IN ONE PLACE.</h1><p class="cr-lead" id="status">Loading your private intake…</p><div id="intake-area" hidden><div class="cr-note"><strong>Confidential intake</strong><br>These details are used only to prepare your selected Codex reading. They are encrypted before storage and are not sent by email. Please do not include health, medical or urgent personal information here.</div><form id="intake-form" class="cr-form"><label>Date of birth<input name="birthDate" type="date" required></label><label>Place of birth<input name="birthPlace" autocomplete="address-level2" required maxlength="120"></label><label>Time of birth <small>(leave blank if unknown)</small><input name="birthTime" type="time"></label><fieldset id="theme-field" hidden><legend>What would you like to explore?</legend><label class="cr-check"><input type="radio" name="theme" value="Love &amp; Relationships"> Love &amp; Relationships</label><label class="cr-check"><input type="radio" name="theme" value="Identity &amp; Expression"> Identity &amp; Expression</label><label class="cr-check"><input type="radio" name="theme" value="Direction &amp; Responsibility"> Direction &amp; Responsibility</label></fieldset><label id="question-field" hidden>Your question<textarea name="question" rows="5" maxlength="700"></textarea></label><label class="cr-check"><input name="dataConsent" type="checkbox" required> I consent to the use of these details to prepare and deliver my selected Codex reading, as described in the <a href="/datenschutz/" target="_blank" rel="noopener">privacy information</a>.</label><button class="cr-button" type="submit">Send private intake</button><p id="form-message" class="cr-draft" role="status"></p></form></div></main><script src="intake.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Private Codex Intake | Human Architecture</title>
+  <meta name="description" content="Private intake for a selected Human Architecture Codex reading.">
+  <link rel="stylesheet" href="/codex/codex-readings.css">
+  <link rel="stylesheet" href="/codex/secure-form.css">
+</head>
+<body class="codex-reading">
+  <header class="cr-header">
+    <a class="cr-logo" href="/codex/" aria-label="Human Architecture Codex">
+      <img src="/assets/logo/logo-white.png" alt="Human Architecture" width="1264" height="456">
+    </a>
+  </header>
+
+  <main class="cr-page cr-intake">
+    <p class="cr-kicker">PRIVATE INTAKE</p>
+    <h1>THE DETAILS THAT<br>MAKE THIS READING PERSONAL.</h1>
+    <p class="cr-lead" id="intake-status">Loading your private intake…</p>
+
+    <section id="intake-area" hidden>
+      <div class="cr-note">
+        <strong>Private handling, clear purpose.</strong><br>
+        We ask only for information used to prepare your selected reading. Your details are encrypted before storage and are not sent by email. Please do not include medical, urgent, legal or financial information here.
+      </div>
+
+      <form id="intake-form" class="cr-form" novalidate>
+        <fieldset>
+          <legend>Birth details</legend>
+          <p class="cr-form-intro">These details are used to prepare the reading. If a recorded birth time is unavailable, simply tell us rather than estimating one.</p>
+
+          <label>
+            Date of birth
+            <input name="birthDate" type="date" required autocomplete="bday">
+          </label>
+
+          <label>
+            Place of birth
+            <small>City or town and country</small>
+            <input name="birthPlace" type="text" required maxlength="120" autocomplete="bday-place" placeholder="e.g. Regensburg, Germany">
+          </label>
+
+          <label>
+            Time of birth
+            <small>Use the recorded time where known</small>
+            <input name="birthTime" type="time" autocomplete="off">
+          </label>
+
+          <label class="cr-check">
+            <input name="birthTimeUnknown" type="checkbox">
+            My birth time is unknown.
+          </label>
+        </fieldset>
+
+        <fieldset id="current-sky-fields" data-offer-fields hidden>
+          <legend>Your present context</legend>
+          <p class="cr-form-intro">A little context keeps the Current Sky reading close to the moment you are living.</p>
+
+          <label>
+            What is most present?
+            <select name="currentSkyContext">
+              <option value="">Choose one</option>
+              <option value="A current decision or turning point">A current decision or turning point</option>
+              <option value="A change in work, direction or responsibility">A change in work, direction or responsibility</option>
+              <option value="A relationship or relational pattern">A relationship or relational pattern</option>
+              <option value="A wider transition or period of change">A wider transition or period of change</option>
+              <option value="Another present theme">Another present theme</option>
+            </select>
+          </label>
+
+          <label>
+            What would you like this reading to help you reflect on?
+            <small>One or two sentences are enough.</small>
+            <textarea name="currentSkyFocus" rows="5" maxlength="500"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset id="personal-pattern-fields" data-offer-fields hidden>
+          <legend>Your chosen pattern</legend>
+          <p class="cr-form-intro">Choose the one area you would like to place at the centre of this reading.</p>
+
+          <label>
+            Focus
+            <select name="personalPatternTheme">
+              <option value="">Choose one</option>
+              <option value="Love & Relationships">Love &amp; Relationships</option>
+              <option value="Identity & Expression">Identity &amp; Expression</option>
+              <option value="Direction & Responsibility">Direction &amp; Responsibility</option>
+            </select>
+          </label>
+
+          <label>
+            What repeats, or what would you like to understand more clearly?
+            <small>Please keep this to your own experience.</small>
+            <textarea name="personalPatternQuestion" rows="5" maxlength="700"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset id="foundations-fields" data-offer-fields hidden>
+          <legend>Your reading focus</legend>
+          <p class="cr-form-intro">Choose the balance that would be most useful, then name the question or context you are bringing.</p>
+
+          <label>
+            Primary focus
+            <select name="foundationsFocus">
+              <option value="">Choose one</option>
+              <option value="Natal-chart foundations">Natal-chart foundations</option>
+              <option value="Current transits in context">Current transits in context</option>
+              <option value="Both, as one connected picture">Both, as one connected picture</option>
+            </select>
+          </label>
+
+          <label>
+            What question or present context would make this reading useful?
+            <textarea name="foundationsQuestion" rows="5" maxlength="700"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset id="annual-fields" data-offer-fields hidden>
+          <legend>Your 2027 intention</legend>
+          <p class="cr-form-intro">This is not a goal-setting exercise. A few honest words help us place the annual reading in the life you are actually meeting.</p>
+
+          <label>
+            What would you like to meet more consciously in 2027?
+            <textarea name="annualIntention" rows="5" maxlength="700"></textarea>
+          </label>
+
+          <label>
+            Is there a transition, responsibility or timing context already known?
+            <small>Optional</small>
+            <textarea name="annualContext" rows="4" maxlength="500"></textarea>
+          </label>
+        </fieldset>
+
+        <label class="cr-check cr-consent">
+          <input name="dataConsent" type="checkbox" required>
+          I understand that these details are used to prepare my selected reading and agree to their private handling as described in the <a href="/datenschutz/" target="_blank" rel="noopener">Privacy Notice</a>.
+        </label>
+
+        <button class="cr-button" type="submit">Send private intake</button>
+        <p id="form-message" class="cr-form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/codex/intake/intake.js"></script>
+</body>
+</html>

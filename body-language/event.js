@@ -1,4 +1,14 @@
 (() => {
+  const heroActions = document.querySelector('.body-language-page .hero .actions');
+  if (heroActions && !heroActions.querySelector('[data-body-language-voucher]')) {
+    const voucher = document.createElement('a');
+    voucher.className = 'button alt';
+    voucher.href = '/gutscheine/?voucher=body_language#anfrage';
+    voucher.dataset.bodyLanguageVoucher = '';
+    voucher.textContent = 'Als Gutschein schenken';
+    heroActions.append(voucher);
+  }
+
   const testimonial = document.querySelector('.body-language-page .section.deep .quote');
   if (testimonial) {
     testimonial.textContent = '„Ich kann den Workshop sehr empfehlen. Ich habe besser verstanden, warum ich in meinem Training an bestimmten Punkten nicht weiterkam und warum sich manche Belastungen wiederholt gezeigt haben. Mel hat sehr klar herausgearbeitet, worauf ich meinen Fokus legen kann. Ich bin mit konkreten, umsetzbaren Schritten für mein weiteres Training nach Hause gegangen.“';

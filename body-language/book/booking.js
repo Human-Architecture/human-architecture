@@ -50,7 +50,8 @@
   const form = $('#intake');
   const saved = JSON.parse(sessionStorage.getItem(storageKey) || '{}');
   Object.entries(saved).forEach(([key,value]) => form.querySelectorAll(`[name="${key}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = Array.isArray(value) ? value.includes(el.value) : Boolean(value); else if (el.type === 'radio') el.checked = el.value === value; else el.value = value; }));
-  function save(){ const data={}; new FormData(form).forEach((v,k)=>{ if(data[k]) data[k]=[].concat(data[k],v); else data[k]=v; }); form.querySelectorAll('input[type=checkbox]').forEach(el=>{ if(!el.checked && !data[el.name]) data[el.name]=[]; }); sessionStorage.setItem(storageKey,JSON.stringify(data)); }
+  const privateDraftFields = new Set(['health_notes','health_detail','health_consent']);
+  function save(){ const data={}; new FormData(form).forEach((v,k)=>{ if(privateDraftFields.has(k)) return; if(data[k]) data[k]=[].concat(data[k],v); else data[k]=v; }); form.querySelectorAll('input[type=checkbox]').forEach(el=>{ if(!privateDraftFields.has(el.name) && !el.checked && !data[el.name]) data[el.name]=[]; }); sessionStorage.setItem(storageKey,JSON.stringify(data)); }
   const healthInputs = () => [...form.querySelectorAll('input[name="health_notes"]:checked')];
   const healthConsentRow = $('#health-consent-row');
   const healthConsent = form.elements.health_consent;
@@ -123,6 +124,9 @@
       const response=await fetch('/api/body-language-booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       const result=await response.json().catch(()=>({}));
       if(!response.ok) throw new Error(result.message||'payment_unavailable');
+      // The local draft can contain optional health-related participation notes.
+      // Once the server has accepted the booking, it no longer needs to remain in this browser.
+      sessionStorage.removeItem(storageKey);
       sessionStorage.setItem('body-language-booking-id',result.bookingId||'');
       if (result.approvalUrl) window.location.assign(result.approvalUrl);
       else { $('#review-error').textContent=locale==='de'?'Danke. Wir haben dir die Hinweise zur Barzahlung im Studio per E-Mail gesendet. Dein Platz wird nach Zuordnung der Zahlung bestätigt.':'Thank you. We have emailed your cash-payment instructions for the studio. Your place is confirmed once payment is matched.'; button.hidden=true; }

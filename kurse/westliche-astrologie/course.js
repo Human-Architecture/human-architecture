@@ -22,6 +22,17 @@
       history.replaceState(null, '', url);
     }
   };
+  const heroActions = document.querySelector('.hero-actions');
+  if (heroActions && !heroActions.querySelector('[data-course-voucher]')) {
+    const voucher = document.createElement('a');
+    voucher.className = 'button button-outline';
+    voucher.href = '/gutscheine/?voucher=astrology#anfrage';
+    voucher.dataset.courseVoucher = '';
+    voucher.dataset.de = 'Als Gutschein schenken';
+    voucher.dataset.en = 'Give as a voucher';
+    voucher.textContent = voucher.dataset[language];
+    heroActions.append(voucher);
+  }
   languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
   setLanguage(language, false);
 
