@@ -64,7 +64,7 @@
   };
 
   document.querySelectorAll(".cr-card h3, .ha-card h3").forEach((heading) => {
-    const key = heading.dataset.de || heading.textContent.trim();
+    const key = (heading.dataset.de || heading.textContent).trim().replace(/\s*·.*$/, "");
     const example = examples[key];
     const card = heading.closest(".cr-card, .ha-card");
     if (!example || !card || card.querySelector("[data-codex-example]")) return;
