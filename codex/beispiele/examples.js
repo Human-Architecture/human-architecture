@@ -1,5 +1,9 @@
 (() => {
   const labels = [
+    ['.example-grid > .example-card:nth-child(1) .example-type', '01 · PERSÖNLICHER CODEX', '01 · PERSONAL CODEX'],
+    ['.example-grid > .example-card:nth-child(2) .example-type', '02 · BABY CODEX', '02 · BABY CODEX'],
+    ['.example-grid > .example-card:nth-child(3) .example-type', '03 · BEZIEHUNGS-CODEX', '03 · RELATIONSHIP CODEX'],
+    ['.example-grid > .example-card:nth-child(4) .example-type', '04 · LEADERSHIP CODEX', '04 · LEADERSHIP CODEX'],
     ['.example-grid > .example-card:nth-child(5) .example-type', '05 · JAHRES-CODEX', '05 · YEAR CODEX'],
     ['.example-grid > .example-card:nth-child(6) > .example-type', '06 · FAMILIEN-CODEX · FAMILY COMPASS', '06 · FAMILY CODEX · FAMILY COMPASS'],
     ['.family-codex-map > div:nth-child(3) span', '03 · BABY CODEX', '03 · BABY CODEX']
