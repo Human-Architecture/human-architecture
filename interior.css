@@ -70,6 +70,14 @@ body.ha-interior.ha-growth .ha-card:focus-within {
 body.ha-interior.ha-growth .ha-button { border-radius: 999px; padding-inline: 27px; }
 body.ha-interior.ha-growth .ha-button:hover { background: var(--ha-sea); }
 
+/* Keep the shared editorial surfaces spacious and decisive across page families. */
+body.ha-interior.ha-growth .ha-section > h2 { max-width: 20ch; }
+body.ha-interior.ha-growth .ha-section > p:not(.ha-eyebrow):not(.ha-card-kicker),
+body.ha-interior.ha-growth .ha-section > .ha-entry-intro { max-width: 68ch; }
+body.ha-interior.ha-growth .ha-grid > .ha-card { height: 100%; }
+body.ha-interior.ha-growth .ha-card .ha-text-link,
+body.ha-interior.ha-growth .ha-card .ha-button { margin-top: auto; }
+
 /* Individual session catalogue: one shared price key, clear rows, calm rhythm. */
 .ha-session-menu > p:first-child { color: #806947; }
 .ha-session-menu > p:nth-child(3) { max-width: 75ch; }

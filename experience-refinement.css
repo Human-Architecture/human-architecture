@@ -83,6 +83,31 @@ body.ha-growth .ha-button {
   padding-inline: 1.45rem;
 }
 
+/* Shared public-page rhythm: clear hierarchy, short reading measures and
+   enough room for a considered decision without creating visual emptiness. */
+body.ha-growth .ha-section > h2 {
+  max-width: 20ch;
+}
+
+body.ha-growth .ha-section > p:not(.ha-eyebrow):not(.ha-card-kicker),
+body.ha-growth .ha-section > .ha-entry-intro {
+  max-width: 68ch;
+}
+
+body.ha-growth .ha-grid > .ha-card {
+  height: 100%;
+}
+
+body.ha-growth .ha-card .ha-text-link,
+body.ha-growth .ha-card .ha-button {
+  margin-top: auto;
+}
+
+body.ha-growth .ha-section > .ha-button,
+body.ha-growth .ha-section > p > .ha-button {
+  margin-top: 1.25rem;
+}
+
 /* The organisation route carries a denser information load: keep it clear. */
 body.org-page .org-section {
   padding-block: clamp(68px, 9vw, 132px);

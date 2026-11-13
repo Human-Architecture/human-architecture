@@ -42,3 +42,12 @@ body.ha-growth[data-page="codex"] .ha-codex-card:before{content:"";position:abso
 body.ha-growth[data-page="codex"] .ha-codex-card--sky{background-image:url('/assets/images/codex/codex-entry-hero-v1.png')}
 body.ha-growth[data-page="codex"] .ha-codex-card--pattern{background-image:url('/assets/images/codex/codex-pattern-v1.png')}
 body.ha-growth[data-page="codex"] .ha-codex-card--body{background-image:url('/assets/images/codex/codex-body-routine-v1.png')}
+
+/* Codex overview: generous rhythm without making the decision path feel empty. */
+body.ha-growth[data-page="codex"] .ha-section{padding-block:clamp(72px,9vw,116px)}
+body.ha-growth[data-page="codex"] .ha-codex-group{margin-top:clamp(52px,7vw,76px)}
+body.ha-growth[data-page="codex"] .ha-codex-group .ha-grid{margin-top:22px;gap:22px 28px}
+body.ha-growth[data-page="codex"] .ha-codex-group .ha-card{min-height:250px;padding:30px 0 8px}
+body.ha-growth[data-page="codex"] .ha-codex-group .ha-card h3{max-width:20ch}
+body.ha-growth[data-page="codex"] .ha-codex-group .ha-card p:not(.ha-card-kicker){max-width:34ch}
+@media(max-width:760px){body.ha-growth[data-page="codex"] .ha-section{padding-block:54px}body.ha-growth[data-page="codex"] .ha-codex-group{margin-top:42px}body.ha-growth[data-page="codex"] .ha-codex-group .ha-card{min-height:auto;padding:25px 0 6px}}

@@ -165,9 +165,10 @@
   if (german) {
     document.documentElement.lang = "de";
     const titles = {
+      "/codex/": "Der Codex: klare persönliche Orientierung | Human Architecture",
       "/codex/current-sky/": "Current Sky | Der Codex",
       "/codex/personal-pattern/": "Personal Pattern | Der Codex",
-      "/codex/astrological-foundations/": "Astrologische Grundlagen | The Codex",
+      "/codex/astrological-foundations/": "Astrologische Grundlagen | Der Codex",
       "/codex/private-introduction/": "Private Codex-Einführung | The Codex",
       "/codex/angebote/": "Vertiefende Codex-Arbeit | Mihira Ceremonia",
       "/codex/blind-spot/": "Blind Spot Codex | Human Architecture",
@@ -179,6 +180,7 @@
   } else {
     document.documentElement.lang = "en";
     const englishTitles = {
+      "/codex/": "The Codex: clear personal orientation | Human Architecture",
       "/codex/current-sky/": "Current Sky | The Codex",
       "/codex/personal-pattern/": "Personal Pattern | The Codex",
       "/codex/astrological-foundations/": "Astrological Foundations | The Codex",
@@ -188,6 +190,26 @@
     };
     if (englishTitles[url.pathname]) document.title = englishTitles[url.pathname];
     replaceText(en);
+  }
+
+  // Keep the browser and shared-page description aligned with the selected
+  // language on the Codex overview. The visual copy is already bilingual;
+  // this completes the same clarity in the browser chrome and link previews.
+  if (url.pathname === "/codex/") {
+    const metadata = german
+      ? {
+          description: "Der Codex verbindet deine konkrete Frage mit ausgewählten astrologischen Grundlagen. Wähle den passenden Umfang, sieh Preis und Ablauf und starte vertraulich.",
+          title: "Der Codex: klare persönliche Orientierung | Human Architecture"
+        }
+      : {
+          description: "The Codex connects your concrete question with selected astrological foundations. Choose the depth that fits, see price and process, and begin privately.",
+          title: "The Codex: clear personal orientation | Human Architecture"
+        };
+    document.querySelector('meta[name="description"]')?.setAttribute("content", metadata.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", metadata.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", metadata.description);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", metadata.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", metadata.description);
   }
 
   // Newer Codex pages carry their complete German and English copy directly.
