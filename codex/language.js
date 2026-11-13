@@ -110,7 +110,42 @@
     "Format": "Format",
     "Enthalten": "Includes",
     "Lieferzeit": "Delivery",
-    "Nicht enthalten": "Does not include"
+    "Nicht enthalten": "Does not include",
+    "DER HIMMEL IST KOLLEKTIV.": "THE SKY IS COLLECTIVE.",
+    "DEINE FRAGE IST PERSÖNLICH.": "YOUR QUESTION IS PERSONAL.",
+    "Was rückt gerade in den Vordergrund, wenn wir diesen Moment über dein Geburtshoroskop betrachten?": "What comes into focus when we consider this moment through your birth chart?",
+    "Current Sky ist eine fokussierte schriftliche Einordnung zu ein oder zwei Themen, die gerade präsent sind. Aktuelle Transite werden mit ausgewählten Punkten deines Geburtshoroskops in Beziehung gesetzt.": "Current Sky is a focused written perspective on one or two themes that are present now. Current transits are considered alongside selected points in your birth chart.",
+    "Du erhältst keine Vorhersage und keine fertige Antwort. Sondern eine persönliche Perspektive, mit der du deine eigene Erfahrung klarer einordnen kannst.": "You receive neither a prediction nor a final answer, but a personal perspective through which you can place your own experience more clearly.",
+    "Geburtsdatum, Geburtsort und – wenn bekannt – Geburtszeit. Wenn deine Geburtszeit nicht bekannt ist, sagst du das einfach an; es wird nichts angenommen.": "Your date and place of birth, and your birth time where known. If your birth time is unknown, simply say so—nothing will be assumed.",
+    "Persönliches PDF · 1–2 Seiten": "Personal PDF · 1–2 pages",
+    "Ein oder zwei symbolische Themen, relevante Chart-Punkte und persönliche Reflexion": "One or two symbolic themes, relevant chart points and personal reflection",
+    "Innerhalb von fünf Werktagen": "Within five working days",
+    "Medizinische, psychologische, rechtliche, finanzielle oder deterministische Beratung": "Medical, psychological, legal, financial or deterministic advice",
+    "Du kannst die Ausarbeitung trotzdem anfragen. Wir benennen transparent, was ohne Geburtszeit zuverlässig einbezogen werden kann und was nicht.": "You can still request the reading. We will state transparently what can and cannot be responsibly included without a birth time.",
+    "Nein. Es ist eine symbolische Einordnung aktueller Themen in Bezug auf dein Geburtshoroskop, keine Vorhersage von Ereignissen oder Ergebnissen.": "No. It is a symbolic perspective on current themes in relation to your birth chart, not a prediction of events or outcomes.",
+    "WARUM FÜHLT SICH DAS": "WHY DOES THIS FEEL",
+    "SO VERTRAUT AN?": "SO FAMILIAR?",
+    "Eine symbolische Ausarbeitung zu einem Thema, das wiederholt deine Aufmerksamkeit sucht.": "A symbolic exploration of one theme that repeatedly asks for your attention.",
+    "Du wählst einen Fokus: Liebe & Beziehungen, Identität & Ausdruck oder Richtung & Verantwortung. Die Ausarbeitung verbindet relevante Platzierungen, ausgewählte Aspekte und Häuserthemen zu einer sorgfältigen persönlichen Perspektive.": "You choose one focus: love and relationships, identity and expression, or direction and responsibility. The reading connects relevant placements, selected aspects and house themes into a considered personal perspective.",
+    "Sie soll dich nicht erklären oder festlegen. Sie gibt einer wiederkehrenden Frage einen klareren Rahmen.": "It is not intended to explain or define you. It gives a recurring question a clearer frame.",
+    "Geburtsdatum, Geburtsort und – wenn bekannt – Geburtszeit sowie das eine Thema, das du betrachten möchtest.": "Your date and place of birth, your birth time where known, and the one theme you want to explore.",
+    "Persönliches PDF · 3–4 Seiten": "Personal PDF · 3–4 pages",
+    "Relevante Platzierungen, ausgewählte Aspekte und Häuserthemen, Synthese und drei Reflexionsfragen": "Relevant placements, selected aspects and house themes, a synthesis and three reflection questions",
+    "Innerhalb von sieben Werktagen": "Within seven working days",
+    "Diagnose, Vorhersage oder eine vollständige Codex-Ausarbeitung": "Diagnosis, prediction or a complete Codex exploration",
+    "Dieses Format ist bewusst für einen Fokus angelegt. Wenn mehrere Fragen zusammenhängen, kann ein vertiefendes Codex-Format passender sein.": "This format is intentionally designed for one focus. If several questions are connected, a deeper Codex format may fit better.",
+    "Nein. Du erhältst eine interpretierende Perspektive und Reflexionsfragen. Deine Erfahrung und deine Entscheidungen bleiben bei dir.": "No. You receive an interpretive perspective and reflection questions. Your experience and decisions remain yours.",
+    "DEIN HOROSKOP IST MEHR": "YOUR CHART IS MORE",
+    "ALS DEIN SONNENZEICHEN.": "THAN YOUR SUN SIGN.",
+    "Erfahre, wie ausgewählte Platzierungen, Häuser und Aspekte ein zusammenhängenderes Bild ergeben.": "Explore how selected placements, houses and aspects form a more connected picture.",
+    "Astrologische Grundlagen ist eine persönliche schriftliche Einführung in dein Geburtshoroskop. Sie betrachtet Sonne, Mond und Aszendent – sofern die Geburtszeit es zulässt –, ausgewählte Platzierungen und Aspekte, ein zentrales Chart-Thema sowie relevante aktuelle Transite.": "Astrological Foundations is a personal written introduction to your birth chart. It considers the Sun, Moon and Ascendant where birth time permits, selected placements and aspects, one central chart theme and relevant current transits.",
+    "Es ist eine astrologische Einstiegsausarbeitung, kein vollständiger Human-Architecture-Codex.": "It is an introductory astrological reading, not a complete Human Architecture Codex.",
+    "Geburtsdatum, Geburtsort und möglichst die genaue Geburtszeit. Wenn die Zeit unbekannt ist, arbeiten wir nur mit dem, was verantwortungsvoll einbezogen werden kann.": "Your date and place of birth, plus the exact birth time where possible. If it is unknown, we work only with what can be responsibly included.",
+    "Persönliches PDF · 4–6 Seiten": "Personal PDF · 4–6 pages",
+    "Ausgewählte Horoskop-Grundlagen, ein zentrales Thema, aktuelle Transite und drei Reflexionsfragen": "Selected chart foundations, one central theme, current transits and three reflection questions",
+    "Vollständiger Codex, Diagnose, deterministische Vorhersage oder professionelle Beratung": "A complete Codex, diagnosis, deterministic prediction or professional advice",
+    "Sie kann Achsen und Häuser beeinflussen. Ohne Geburtszeit werden diese Elemente nicht als sicher dargestellt.": "It can affect the angles and houses. Without a birth time, these elements are not presented as certain.",
+    "Nein. Dies ist die umfangreichste Einstiegsausarbeitung. Vertiefende Codex-Formate bleiben separat verfügbar.": "No. This is the most substantial introductory reading. Deeper Codex formats remain available separately."
   });
 
   const replaceText = (dictionary) => {
@@ -130,8 +165,8 @@
   if (german) {
     document.documentElement.lang = "de";
     const titles = {
-      "/codex/current-sky/": "Current Sky | The Codex",
-      "/codex/personal-pattern/": "Personal Pattern | The Codex",
+      "/codex/current-sky/": "Current Sky | Der Codex",
+      "/codex/personal-pattern/": "Personal Pattern | Der Codex",
       "/codex/astrological-foundations/": "Astrologische Grundlagen | The Codex",
       "/codex/private-introduction/": "Private Codex-Einführung | The Codex",
       "/codex/angebote/": "Vertiefende Codex-Arbeit | Mihira Ceremonia",
@@ -144,6 +179,9 @@
   } else {
     document.documentElement.lang = "en";
     const englishTitles = {
+      "/codex/current-sky/": "Current Sky | The Codex",
+      "/codex/personal-pattern/": "Personal Pattern | The Codex",
+      "/codex/astrological-foundations/": "Astrological Foundations | The Codex",
       "/codex/angebote/": "Deeper Codex formats | Human Architecture",
       "/codex/blind-spot/": "Blind Spot Codex | Human Architecture",
       "/codex/overview/": "Complete Codex overview | Human Architecture"
