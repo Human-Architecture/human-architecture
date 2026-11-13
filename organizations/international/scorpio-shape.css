@@ -1,0 +1,4 @@
+.scorpio-season__mark{display:block;justify-self:end;width:132px;aspect-ratio:1;border:1px solid #cda86b;border-radius:50%;box-shadow:inset 0 0 0 12px #210e19,inset 0 0 0 13px #cda86b66;position:relative}
+.scorpio-season__mark:before,.scorpio-season__mark:after{content:"";position:absolute;left:50%;top:50%;background:#e2bb7c;transform:translate(-50%,-50%)}
+.scorpio-season__mark:before{width:1px;height:72px}
+.scorpio-season__mark:after{width:72px;height:1px}

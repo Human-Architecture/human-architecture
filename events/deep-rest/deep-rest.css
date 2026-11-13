@@ -11,5 +11,6 @@
 .ticket:hover{transform:translateY(-3px);box-shadow:0 20px 38px #0634421a}
 .ticket .button{width:100%;justify-content:center;box-sizing:border-box;margin-top:7px}
 .participation-policy{margin-top:0}
+.voucher-button{margin-top:14px}
 @media(max-width:760px){.handpan-visual{width:calc(100% - 40px);margin-top:30px}.handpan-visual img{aspect-ratio:1.55/1}}
 @media (prefers-reduced-motion:reduce){.ticket{transition:none}.ticket:hover{transform:none}}

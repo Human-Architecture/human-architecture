@@ -1,5 +1,15 @@
 /* Lightweight search control for public pages with bespoke headers. */
 document.addEventListener('DOMContentLoaded', () => {
+  // Founder-led Mihira pages need a direct, composed portrait. The candid
+  // phone image belongs in personal editorial context, not in the first
+  // authority impression of a private practice.
+  document.querySelectorAll('img[src*="/mihira-ceremonia/assets/mel-mihira-founder.webp"]').forEach((portrait) => {
+    portrait.src = '/assets/portraits/mel-organizations-founder-v2.png';
+    portrait.alt = 'Mel Mihira, Founder of Mihira Ceremonia and Human Architecture';
+    portrait.width = 1122;
+    portrait.height = 1402;
+  });
+
   const octoberEntry = document.querySelector('a[href^="/codex/book/?offer=codex_2027_entry"]');
   if (octoberEntry) {
     octoberEntry.href = 'https://www.paypal.com/ncp/payment/JPQF7Y4QTZX3G';

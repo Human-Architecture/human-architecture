@@ -1,35 +1,79 @@
 (() => {
-  const offers = { current_sky: { en: 'The Current Sky · €29', de: 'Current Sky · €29' }, personal_pattern: { en: 'The Personal Pattern · €49', de: 'Personal Pattern · €49' }, astrological_foundations: { en: 'Astrological Foundations · €59', de: 'Astrologische Grundlagen · €59' }, codex_2027_entry: { en: 'Codex 2027 · €222', de: 'Codex 2027 · €222' } };
-  const params = new URLSearchParams(location.search); const key = params.get('offer'); const lang = params.get('lang') === 'de' ? 'de' : 'en'; const german = lang === 'de';
-  const text = german ? { title: 'Sichere Codex-Buchung | Human Architecture', back: '← Zurück zum Codex', kicker: 'SICHERE BUCHUNG', heading: 'MIT DER PASSENDEN<br>INFORMATION BEGINNEN.', intro: 'Nach erfolgreicher Zahlung senden wir dir an die angegebene E-Mail-Adresse einen privaten Intake-Link. Bitte sende keine Geburtsdaten per E-Mail. Die Lieferzeit beginnt, sobald Zahlung und vollständiger privater Intake eingegangen sind.', name: 'Vollständiger Name', email: 'E-Mail-Adresse', privacy: 'Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung dieser Buchung verwendet werden.', submit: 'Sicher bezahlen', choose: 'Wähle bitte zuerst eine Einstiegslesung.', cancelled: 'Die Zahlung wurde abgebrochen. Du kannst es erneut versuchen, wenn du bereit bist.', error: 'Die Zahlung konnte nicht bestätigt werden. Bitte versuche es erneut oder kontaktiere uns.', opening: 'Sichere Zahlung wird geöffnet …', unavailable: 'Die sichere Zahlung ist gerade nicht verfügbar. Bitte kontaktiere hello@human-architecture.info.', priorityTitle: 'Brauchst du die Lesung innerhalb von 24 Stunden?', priority: 'Bitte frage die Prioritätsbearbeitung nach Beginn deiner Buchung per E-Mail an. Wir bestätigen zuerst die Verfügbarkeit; der Zuschlag von 30 € wird nur fällig, wenn wir die Anfrage annehmen. Bitte sende keine Geburtsdaten per E-Mail.', priorityLink: 'Prioritätsbearbeitung per E-Mail anfragen ↗', steps: ['Sichere Zahlung', 'Privater Intake-Link per E-Mail', 'Intake privat ausfüllen', 'Schriftliche Lesung innerhalb der genannten Lieferzeit per E-Mail'] } : { title: 'Secure Codex booking | Human Architecture', back: '← Back to The Codex', kicker: 'SECURE BOOKING', heading: 'BEGIN WITH THE<br>RIGHT AMOUNT OF INFORMATION.', intro: 'After successful payment, we send a private intake link to the email address you provide. Please do not email birth information. The delivery timeframe begins once payment and your complete private intake have both been received.', name: 'Full name', email: 'Email address', privacy: 'I have read the <a href="/datenschutz/" target="_blank" rel="noopener">privacy information</a> and agree that my details may be used to process this booking.', submit: 'Continue to secure payment', choose: 'Please choose one of the introductory readings first.', cancelled: 'The payment was cancelled. You can try again when you are ready.', error: 'The payment could not be verified. Please try again or contact us.', opening: 'Opening secure payment…', unavailable: 'Secure checkout is not available right now. Please contact hello@human-architecture.info.', priorityTitle: 'Need a reading within 24 hours?', priority: 'Request priority delivery by email after you have started your booking. We confirm availability first; the €30 priority supplement is due only when we accept the request. Please do not send birth details by email.', priorityLink: 'Request priority delivery by email ↗', steps: ['Secure payment', 'Private intake link by email', 'Complete the intake privately', 'Written reading delivered by email within its stated timeframe'] };
-  const form = document.querySelector('#booking-form'); const message = document.querySelector('#form-message');
-  document.documentElement.lang = lang; document.title = text.title;
-  document.querySelectorAll('[data-text]').forEach((element) => { const key = element.dataset.text; if (key === 'privacy') element.innerHTML = text[key]; else element.innerHTML = text[key]; });
-  document.querySelectorAll('[data-step]').forEach((element, index) => { element.textContent = text.steps[index]; });
-  if (!offers[key]) { form.hidden = true; message.textContent = text.choose; return; }
-  document.querySelector('#offer-name').textContent = offers[key][lang];
-  if (params.get('payment') === 'cancelled') message.textContent = text.cancelled;
-  if (params.get('payment') === 'error') message.textContent = text.error;
+  const german = new URLSearchParams(location.search).get('lang') === 'de';
+  const copy = german ? {
+    offers: { current_sky: 'Current Sky · €29', personal_pattern: 'Personal Pattern · €49', astrological_foundations: 'Astrologische Grundlagen · €59', codex_2027_entry: 'Codex 2027 · €222' },
+    unavailable: 'Der sichere Checkout wird gerade vorbereitet. Für diese Ausarbeitung schreibe bitte an hello@human-architecture.info.',
+    unavailableNow: 'Der sichere Checkout ist gerade nicht verfügbar. Bitte schreibe an hello@human-architecture.info.',
+    cancelled: 'Die Zahlung wurde abgebrochen. Du kannst es erneut versuchen, wenn du bereit bist.',
+    error: 'Die Zahlung konnte nicht bestätigt werden. Bitte versuche es erneut oder kontaktiere uns.',
+    opening: 'Sichere Zahlung wird geöffnet …', missing: 'Bitte wähle zuerst eine der Einstiegslesungen.',
+    directNotOpen: 'Direkte Buchung ist noch nicht geöffnet. Bitte schreibe an hello@human-architecture.info.'
+  } : {
+    offers: { current_sky: 'The Current Sky · €29', personal_pattern: 'The Personal Pattern · €49', astrological_foundations: 'Astrological Foundations · €59', codex_2027_entry: 'Codex 2027 · €222' },
+    unavailable: 'Secure checkout is being prepared. To request this reading, please contact hello@human-architecture.info.',
+    unavailableNow: 'Secure checkout is not available right now. Please contact hello@human-architecture.info.',
+    cancelled: 'The payment was cancelled. You can try again when you are ready.',
+    error: 'The payment could not be verified. Please try again or contact us.',
+    opening: 'Opening secure payment…', missing: 'Please choose one of the introductory readings first.',
+    directNotOpen: 'Direct booking is not open yet. Please contact us at hello@human-architecture.info.'
+  };
+  const params = new URLSearchParams(location.search);
+  const key = params.get('offer');
+  const promo = (params.get('promo') || '').toUpperCase();
+  const form = document.querySelector('#booking-form');
+  const message = document.querySelector('#form-message');
+
+  if (german) {
+    document.documentElement.lang = 'de';
+    document.title = 'Sichere Codex-Buchung | Human Architecture';
+    document.querySelector('.cr-brand').textContent = 'Mihira Ceremonia · Der Codex';
+    document.querySelector('.cr-back').textContent = '← Zurück zum Codex';
+    document.querySelector('.cr-kicker').textContent = 'SICHERE BUCHUNG';
+    document.querySelector('h1').innerHTML = 'BEGINNE MIT DER<br>PASSENDEN INFORMATIONSTIEFE.';
+    document.querySelectorAll('.cr-offer-grid > div > p')[1].textContent = 'Nach erfolgreicher Zahlung erhältst du deinen privaten Intake-Link. Bitte sende Geburtsdaten nicht per E-Mail.';
+    document.querySelectorAll('.cr-offer-grid > div > p')[2].innerHTML = 'Noch unsicher, welches Format passt? <a href="/orientierung/?lang=de">Nutze zuerst den kurzen Orientierungfragebogen.</a> Er fragt nicht nach Geburtsdaten.';
+    const labels = form.querySelectorAll('label');
+    labels[0].childNodes[0].nodeValue = 'Vollständiger Name';
+    labels[1].childNodes[0].nodeValue = 'E-Mail-Adresse';
+    labels[2].lastChild.nodeValue = ' Ich habe die Datenschutzinformationen gelesen und stimme zu, dass meine Angaben zur Bearbeitung dieser Buchung verwendet werden dürfen.';
+    form.querySelector('button').textContent = 'Weiter zur sicheren Zahlung';
+    const steps = document.querySelectorAll('.cr-facts li');
+    steps[0].innerHTML = '<b>Schritt 1</b>Sichere Zahlung';
+    steps[1].innerHTML = '<b>Schritt 2</b>Privater Intake-Link per E-Mail';
+    steps[2].innerHTML = '<b>Schritt 3</b>Schriftliche Ausarbeitung per E-Mail';
+  }
+
+  if (!copy.offers[key]) { form.hidden = true; message.textContent = copy.missing; return; }
+  if (key === 'codex_2027_entry') {
+    const label = document.createElement('label');
+    label.innerHTML = german
+      ? 'Oktober-Code <small>(optional)</small><input name="promo_code" autocomplete="off" maxlength="40">'
+      : 'October code <small>(optional)</small><input name="promo_code" autocomplete="off" maxlength="40">';
+    form.querySelector('.cr-check').before(label);
+    label.querySelector('input').value = promo;
+  }
+  document.querySelector('#offer-name').textContent = key === 'codex_2027_entry' && promo === 'MELMIHIRA27'
+    ? (german ? 'Codex 2027 · Oktober-Einstieg €111' : 'Codex 2027 · €111 October entry')
+    : copy.offers[key];
+  if (params.get('payment') === 'cancelled') message.textContent = copy.cancelled;
+  if (params.get('payment') === 'error') message.textContent = copy.error;
   const submit = form.querySelector('button');
+
   fetch('/api/body-language-booking?codex=status').then(response => response.json()).then(result => {
     if (result.available) return;
-    submit.disabled = true;
-    message.textContent = text.unavailable;
-  }).catch(() => {
-    submit.disabled = true;
-    message.textContent = text.unavailable;
-  });
+    submit.disabled = true; message.textContent = copy.unavailable;
+  }).catch(() => { submit.disabled = true; message.textContent = copy.unavailableNow; });
+
   form.addEventListener('submit', async event => {
-    event.preventDefault(); message.textContent = text.opening;
-    submit.disabled = true;
+    event.preventDefault(); message.textContent = copy.opening; submit.disabled = true;
     try {
-      const data = new FormData(form); const response = await fetch('/api/body-language-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ codex_booking: true, name: data.get('name'), email: data.get('email'), privacy: data.get('privacy') === 'on', offer: key, locale: lang }) });
-      const result = await response.json(); if (!response.ok || !result.approvalUrl) throw new Error(result.message || 'Payment could not be opened.');
+      const data = new FormData(form);
+      const response = await fetch('/api/body-language-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ codex_booking: true, name: data.get('name'), email: data.get('email'), privacy: data.get('privacy') === 'on', promo_code: data.get('promo_code'), offer: key }) });
+      const result = await response.json();
+      if (!response.ok || !result.approvalUrl) throw new Error(result.message || copy.error);
       location.assign(result.approvalUrl);
     } catch (error) {
-      message.textContent = error.message === 'Direct booking is not open yet. Please contact us at hello@human-architecture.info.'
-        ? text.unavailable
-        : error.message;
+      message.textContent = error.message === 'Direct booking is not open yet. Please contact us at hello@human-architecture.info.' ? copy.directNotOpen : error.message;
       submit.disabled = false;
     }
   });

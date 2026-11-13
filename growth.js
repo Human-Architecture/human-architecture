@@ -39,21 +39,31 @@ document.addEventListener('DOMContentLoaded', () => {
       document.head.appendChild(founderStyles);
     }
 
+    const methodHero = document.querySelector('.method-hero__inner');
+    const methodDefinition = methodHero?.querySelector('p strong');
+    const methodContext = methodDefinition?.closest('p')?.nextElementSibling;
+    if (methodDefinition) {
+      methodDefinition.textContent = 'Human Architecture is a structural system for considering how individual needs, bodily experience and context shape decisions, relationships and real-world execution.';
+    }
+    if (methodContext?.tagName === 'P') {
+      methodContext.innerHTML = 'Developed by Mel Mihira, it is organised into three distinct domains: <strong>Blueprint, Body &amp; Regulation, and Identity &amp; Transition</strong>.';
+    }
+
     const founder = document.getElementById('founder');
     if (founder) {
       let figure = founder.querySelector('.method-founder-figure');
       if (!figure) {
         figure = document.createElement('figure');
         figure.className = 'method-founder-figure';
-        figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-v2.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1122" height="1402" loading="lazy"><figcaption>Mel Mihira · Founder &amp; System Architect</figcaption>';
+        figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-warm-v3.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1086" height="1448" loading="lazy"><figcaption>Mel Mihira · Founder &amp; System Architect</figcaption>';
         founder.querySelector('h2')?.after(figure);
       }
       const founderImg = figure.querySelector('img');
-      if (founderImg) founderImg.src = '/assets/portraits/mel-organizations-founder-v2.png';
+      if (founderImg) founderImg.src = '/assets/portraits/mel-organizations-founder-warm-v3.png';
 
       // The public method page uses the composed founder portrait only. An
       // informal secondary image would dilute the calm, professional context.
-      if (document.body.dataset.showFounderLightness === 'true' && !founder.querySelector('.method-founder-lightness')) {
+      if (false && document.body.dataset.showFounderLightness === 'true' && !founder.querySelector('.method-founder-lightness')) {
         const panel = document.createElement('div');
         panel.className = 'method-founder-lightness';
         panel.innerHTML = '<figure><div class="method-founder-lightness__image"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wgARCADEAKADASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAEDAgQF/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB9AMRtQS9Bzo6jnaXIJehQC5zI6jj0nU+VnSQ0VheCoQayBoyxiZljMN4M6zQeaTNvFCvB3c5BXIiruoFkSdCJb1Qg7ZJFCsYqonXOjqheNmRijCw0rDRzRbKnnT1l00yxDQazorG00y2CGgrnlOO3HWa9Gc651rb89O+Rwbz6aj0GdplZV5bKE1ZYkF/M7vLxpNaWupRPU5t4siTsem/P7Eo8uqcXbyE2Fg1snwepwEqYMb3HbsasbzF7nB0w0ehvg6c66+Lt4rECsdJLeVz2JeY1rn0xvWbOuW305yhW+byWs86xfGzo4u3iMoVhlm843lkenl6ufTo4PS4TF4dOsypSUaEZ1qkqJ08PdwVnLLDK1vM6Zoc9E+e+hXmc15b1KocTEZ1rcqHXwd/DZNhZhUdRqjWdG6Z1mwS8dOe6PSyJjxrNM7rq8/0OJJMLCVqLDXRHpg0t510T0Zss9XPLMZCYBSd6sgThyFh0g10SDWMbCUqEq5AlwwhoCnUFn//xAAkEAACAgICAwEBAQADAAAAAAAAAQIREDESIQMgMkEiQhMwQP/aAAgBAQABBQL/AMsnWX7tDLxEqhYhLlh7ylXq127E7wyOisR+j9svNj7zd46zDQ9i2O7uRci5Fs5M5Ms5F0czkXjlRzP+RDkjxytj3iikcUcTicTiKAyiijicTiQjUx79UrKGkKh/9Ed+6G1Fc+Qxt8he0dn763R5fJzl4ZU/Ix0LLmk8x2dnZbLZePPL+RDlQqmVGKXkOf8AOzw24YjssssssZ5n2hFlUS8cZEouI5sh21WVseezsmyXbyhTqL8nJUcXUJid4Wx79Hpn5Ek8fmFJovuMhSsWx7ykM8u0IkRVnAa6azQmeJ3IlvNlkk7KxHb+Zaq1JUJM4MUEiH0PePyP1Eno/IR5Yi7jVxXT9IfQ94fzE8eGeLaSiiG0Tj3uOYfQ94l81UYCf9SPE+pfMV3qQ+1+Zh9D+sSHbjG7qnPcBMrueI6a6zD6HvDJCH9+RENqqY0f7HrMPslvDZdi3/qQooimUeV9PUj8orEPse8PXXFb/wBdFE/lO4T/AKd/z6w+yX1h6bfFKkhi6E7UtRgSVP1h9HkVSw9eGNkoYrEV0u2if16+NYq1JUxng+BrCJa/Pyf16QVs/8QAGREBAQEAAwAAAAAAAAAAAAAAATAQESBQ/9oACAEDAQE/AfCJE2A492pEgnGEHCDD/8QAGxEBAAIDAQEAAAAAAAAAAAAAARAgABEwMVD/2gAIAQIBAT8B+IcihyJSuoIMaMlWG77wHcMbxakMNijT/8QAIhAAAQQBBAMBAQAAAAAAAAAAAQAQESAwITFAUFFhcUEC/9oACAEBAAY/Auk0c+R1R1wbNstn2Wzx2MlekFH5wfTzww54W7eWE8KGkWPUGkXKD7VNSvj/ABi0YyUUW2lGBDQoWiFjY1GE0mscf6vdzk/k4DQSvDato8YDQQp/c/2km04JbXIb/wD/xAAiEAACAgEEAwEBAQAAAAAAAAAAAREhMRBBUWEgcYGhkbH/2gAIAQEAAT8h0+n0+n0+n0+n0+n0+n0rk+krk++GEj2ReiRPVuiJZJHRhUCZvA9MJQyNJPBTYZBuWYVZF705U6YHkZQcsooi9oqdR6MqJ5IKu5uN20KRBMZIFGYE0OrEiGIKdSWhjCthJRzXAnHoehuPW3HYdh3CSevRlwN2oYT7CWiU9tE1R7izDIVTIlNpNzIQuCFwQ4JtkdBAgRICFb/gie3iEdMAzcyeYSLY9I4GpGGzK8sIsjy/FaJwQh5sBITYlimJthrTDywiyPKi9Hh6JqRqg7qYIacEKzKYyKUrodNNzSEt1h6QRvwwm43Ik9B0HoLBC6XrRykJkuUohpioK9jFR+hLZjfPakPYwsMggSosjs/Dqw8IlhqKcSNGTXZotU2pE+EnIzvQzQ5FCjSEIFknLxkvkhkaFI0rMQ9IoaHIlDnYuVHDf2UFylmBqrTSx6iyfu0WlyI2MmbDgURpGRBhmGZO7GLcgGOIgWTN70kkkdkIjRSR7MiVBRTtuRoUG4kUwyPI3oFk/VqrcGSQncci0nuYFuHcFVF/gZ3RyR9uRnATKbSOyMAsn7NZs0PP6LG/YPMiUOTXGwSIU8wQgkfIIjIsXrgFkz+9JGhhofSMGpfoZEG0gk5ryPeB829Cw5EMxMg21wCyfuHq4LyLlH+BoiDyZ3TH6UmPjEBUyez8MQsj/wBBkvgah1GqcI5pSW+nRDNkpjymRlsaYGZ4PUWR71uPsmXH8oR7mC6QsOdDAQaSIFV2QKWcHsFmqFxNwJlSRgLIz+xLJclcwUCT6jxEpe9BKrA95FDktvEZJjc6UCFwKoULJ+421Up3DY6vpit2JgknoZqKR3oGbNCSDcDcqz/NKMGIWT9BBGmmjIfIlhYZYZ9lwKjazsbSr0IbvJM+WE3J5xWhQYxaO6HCHTKwOXUMwQkWmW9qKj2O9Z0s6aNIkkQ1LbTAw+9FECIeKbIShBj9BtrsJtMUj//aAAwDAQACAAMAAAAQjYwBIQ4znNQEmIod8yWqIXA9fppsb3p4x2bbkS2c/wB7x9gpUmorNVYku1imweIuvrhQExVbArfcLLW5sfCquRAGInq7GqAXd0FvHrIcIhNIfa9Pu40OFDkd4P8A/wAB/dej/wDf/8QAHREAAgIDAQEBAAAAAAAAAAAAAAEQESAhMUEwUf/aAAgBAwEBPxAorCvsostGvi9CWUvBrWdQpJUOmVLi4Q1F4OG6LHQjZll2Jng5LTh7hJlQ4cPh+h9F2WMQ2NaLGLsuFJqGpHRrQlLjmOBCy5FHgsP/xAAdEQADAAMBAQEBAAAAAAAAAAAAAREQITEgQTBR/9oACAECAQE/EP256ZCMjIzeGb8I6NwrG35mL8GNxUe47lCCGJUmvRKkVRiISD+vBRKsLWxjKF8Fw4Lp/AuHGUIYkJBNiHzKEO6EJWJpMWwjmVh4KHQzT11n6deP/8QAJhABAAICAgEFAAMBAQEAAAAAAQARITFBUWFxgZGhsRDB8eEg8P/aAAgBAQABPxCXwTWwSzrLOss6zEYjEYjEWdZZ1+ZZ1l9PySx4wTRfcmIzwjBjE7ffUMtq0dwNsF3cCF5A4qA2F3LjIkN63FNMDILbqKCnFZPMEhLMmFByPXEqCAJvBheLmUAVanLKWm4I2phlDJD+4fiKxfLKpFhzABs+YN82QQ5BbL4hFsXDjqqgVKaOZiAeTiIcuJaiUlNSvZJtEFlovcsvCxhVtxu9zbCDgEZxuH4h8mGJvV9QLlIws4sTiFDbUu0L7Sm1RuyKovMruxKl39wcXDgiKoFlqcsBm6/5Hb7SilWXF4A9I1xAZptjf0S7FD8QOIL495XxfYmMOHiLto+Iio7zkmHJ8J4j4me4oCfeViZmszt+0b3br1iY3DzEbm003cT0swLN9IpVHDEvtZezxD8QGl2/wP8A4BLf+IgMHtHrR6/uV6PuWcfcPN8zAPymKRXYaiDFs7WxLEP+Rb/Inv6j4Oi/yH4lvcYX/BqGv4vdBzDqBEioeRALEdpgnBDAypUr+NwQ/CE95lYmOWrlUL4nBMkCAADiORhyzD9EcsBAUAOqjdckMnr/ABsj/wCLP4H4Sxkbh0IL1BYBmp6lQAZYepbbbKP9yiVvt6lTQzAq4AJMKt5lsCF4JcWXkGI2kJMyhdYLljdN11FhmKB+JZUczxMOVfEf8suZfpLoUC5Z6r/UC5jI23QXgt9on0TkLGYgO1Xcprg36acRXQMvUot1di19IUrWBOZ6j4ir2fEQZT4n4Sv1ppDzg/WOgvf8fRX1lmanZHUAhJxZLByIhuyMLXIDJ8S/pnE1BmhbitRULMr6jrEA0GohFOIQUufhAK3ZtgKsPmeS/e5wNsAJhPSW31jUVKGAQMsqJXiPnTIClKhM1XzFUpAcsOKAAbetR4tcrYfaIbGYjM/CXu8o+LgTMpTMr3OY0q8cstkK8TgjFVz ndziUuoDdZDV4YjZ19y1vM2wTtbqOmxzDoW4E98T8JWteU5s4ilLY71p5jXLB9wGjRuAvW3czFwBKL9MvTzKDtFOG6YT2bKg9yshhWHzAJxHmNh9IEzzn4RNB2jrWZd7BhoG5UYmcULQ4hB1y3AbHU2QfYY/pTLHbUyB04iBaDFxGOkNps8weiesMLz7dfEAUgGePE/CV95F4f9lXxMMAhLU4zG7yDUY4bD4YfcSZ2a5lPeLGU32LL/AFcvXoYVj2dn1i+TJMqYJLwbgnxP0z8I711abc2S29S9PMvAQPvLEdkI9btcqI4YMCkquIkpFpz8Tm5Wfc8VFvMtb0DFwSMLLDzHvOmCcsMumXRUZjrn8n4T7D9iw1xF52aJq9bi3yPfibQrkzEUdFg9Jgt4bwQrnuA1TUEG4Ejpt7xVXm6s8wyfvqFx5shxVX5h/eYm58e5+EuEyCt4MyzpDNVzMgO2oBUzUVM4g2RgZg7qBGtVuYEPTE1MclmAvUrY0mYjXiKD80+5CdbmYt4zOc+7Hu7hzmWG7zPwjAiKfDGFFrfFS1YrHgh72KmfWAEoF3Mj4INvPJiURV3D4VZqaZlEvIFjBAKiL4A2ncStYuBqM3ZArYU6Y9hbialLzr0n4SgW71XrCxxAB5iFjp5JWyqK5mbcCmI32szNRsMol2HN9Q87QCDmD4wp9SEo4uF2iSjnuUt0S/w1Ccwv8AJ+EwZ7xwu9x9OIMTxCgZwDZmSBfK/JiV4xmDA1WvSGA1bTBdg7HEUVxZTDeSAoHqGAVoekITZJdAcPuOUzvcpFO+mJttivF3+T8IaqbyX5mSZiMpuYeyYU0bNzPtaF1LqxsL95UBXMLorsQ9YMLS4WYUAHZrmAIM3/Uu0gYb9ZQPcvGpY5xjviG19fyaD7R9grGYHrESsHDPmQgrMPULdv7kSIamsy2TDev4akO9eIWszY8sBZeIGPiCXyxFDH3FTr3gcixL0y1rWB6xmPRcNrGlwCl6Jr9IK8yY5JaupVck6RFbyCEI1UxVdkATDkdS8sSVcUK1eIgAKJ//2Q==" alt="Mel Mihira laughing while holding a banana like a telephone" loading="lazy"></div></figure><blockquote><p>There is more than one angle on every reality. Let’s explore the lens through which you experience yours.</p><footer>Human Architecture</footer></blockquote></div>';
@@ -72,11 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  if (location.pathname === '/angebote/' || location.pathname === '/angebote/index.html') {
+    const offerHeroLead = document.querySelector('.ha-hero .ha-lead');
+    const offerEntryIntro = document.querySelector('#vertiefen > p:not(.ha-eyebrow)');
+    if (offerHeroLead) {
+      offerHeroLead.dataset.de = 'Wähle den Kontext, in dem du gerade arbeitest. Jede Seite macht Zweck, Umfang und den nächsten Schritt vor einer Anfrage sichtbar.';
+      offerHeroLead.dataset.en = 'Choose the context you are working in. Every route makes purpose, scope and the next step visible before an enquiry.';
+      offerHeroLead.textContent = language === 'en' ? offerHeroLead.dataset.en : offerHeroLead.dataset.de;
+    }
+    if (offerEntryIntro) {
+      offerEntryIntro.dataset.de = 'Beginne mit dem Kontext. Jedes Format benennt Zweck, Umfang, Preis und den nächsten Schritt klar, bevor du anfragst oder buchst.';
+      offerEntryIntro.dataset.en = 'Begin with the context. Every format states purpose, scope, fee and the next step clearly before you enquire or book.';
+      offerEntryIntro.textContent = language === 'en' ? offerEntryIntro.dataset.en : offerEntryIntro.dataset.de;
+    }
+  }
+
   const founderPlaceholder = document.querySelector('#about .about__portrait-placeholder');
   if (founderPlaceholder) {
     const figure = document.createElement('figure');
     figure.className = 'about__portrait reveal is-visible';
-    figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-v2.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1122" height="1402" loading="lazy"><figcaption data-en="Mel Mihira · Founder &amp; System Architect" data-de="Mel Mihira · Gründerin &amp; Systemarchitektin">Mel Mihira · Founder &amp; System Architect</figcaption>';
+    figure.innerHTML = '<img src="/assets/portraits/mel-organizations-founder-warm-v3.png" alt="Mel Mihira, Founder and System Architect of Human Architecture" width="1086" height="1448" loading="lazy"><figcaption data-en="Mel Mihira · Founder &amp; System Architect" data-de="Mel Mihira · Gründerin &amp; Systemarchitektin">Mel Mihira · Founder &amp; System Architect</figcaption>';
     founderPlaceholder.replaceWith(figure);
   }
 
@@ -87,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lead = aboutSection.querySelector('.lead');
     if (eyebrow) { eyebrow.dataset.en = 'Founder & Origin'; eyebrow.dataset.de = 'Gründerin & Entstehung'; eyebrow.textContent = language === 'de' ? eyebrow.dataset.de : eyebrow.dataset.en; }
     if (title) { title.dataset.en = 'Human Architecture begins with the human — and was built by Mel Mihira around that principle.'; title.dataset.de = 'Human Architecture beginnt beim Menschen – und wurde von Mel Mihira genau um dieses Prinzip herum entwickelt.'; title.textContent = language === 'de' ? title.dataset.de : title.dataset.en; }
-    if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as an interdisciplinary system for understanding inherent structure, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als interdisziplinäres System, um angelegte Struktur, gelebte Verkörperung und menschlichen Kontext zu verstehen – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
+    if (lead) { lead.dataset.en = 'Mel Mihira developed Human Architecture as a structural system for considering individual needs, lived embodiment and human context without reducing a person to a single method.'; lead.dataset.de = 'Mel Mihira entwickelte Human Architecture als strukturelles System, das individuelle Bedürfnisse, gelebte Verkörperung und menschlichen Kontext berücksichtigt – ohne einen Menschen auf eine einzelne Methode zu reduzieren.'; lead.textContent = language === 'de' ? lead.dataset.de : lead.dataset.en; }
   }
 
   // Keep the organisation pathway simple: three flagship experiences lead the
@@ -102,21 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const founderImage = document.querySelector('#begleitung .org-founder');
     if (founderImage) {
-      founderImage.src = '/assets/portraits/mel-organizations-founder-v2.png';
+      founderImage.src = '/assets/portraits/mel-organizations-founder-warm-v3.png';
       founderImage.alt = 'Mel Mihira, Founder and System Architect of Human Architecture';
-      founderImage.width = 1122;
-      founderImage.height = 1402;
+      founderImage.width = 1086;
+      founderImage.height = 1448;
       founderImage.style.objectPosition = 'center center';
-    }
-    const heroActions = document.querySelector('.org-hero .org-actions');
-    if (heroActions && !heroActions.querySelector('[href="#erlebnisformate"]')) {
-      const experienceRoute = document.createElement('a');
-      experienceRoute.className = 'org-button org-button--ghost';
-      experienceRoute.href = '#erlebnisformate';
-      experienceRoute.dataset.de = 'Eventformate für Teamtage';
-      experienceRoute.dataset.en = 'Hosted formats for team days';
-      experienceRoute.textContent = language === 'en' ? experienceRoute.dataset.en : experienceRoute.dataset.de;
-      heroActions.append(experienceRoute);
     }
     const experienceGrid = document.querySelector('#erlebnisformate .org-grid');
     const experienceHeading = document.querySelector('#erlebnisformate h2');

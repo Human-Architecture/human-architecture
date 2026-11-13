@@ -2040,7 +2040,8 @@ const payload = {
   email: formData.get("email") || "",
   organisation: formData.get("organisation") || "",
   context: formData.get("context") || "",
-  message: formData.get("message") || ""
+  message: formData.get("message") || "",
+  sensitiveDataChoice: formData.get("sensitiveDataChoice") || ""
 };
 
 fetch("/api/contact", {
@@ -2203,6 +2204,16 @@ fetch("/api/contact", {
 let currentLanguage = document.documentElement.lang || "en";
 const langButtons = document.querySelectorAll(".lang-button");
 
+function renderPrivacyNote(lang) {
+  const privacyNote = document.querySelector(".form-privacy-note[data-en][data-de]");
+  if (!privacyNote) return;
+
+  const privacyLink = document.createElement("a");
+  privacyLink.href = "/datenschutz/";
+  privacyLink.textContent = privacyNote.dataset[`${lang}Link`];
+  privacyNote.replaceChildren(`${privacyNote.dataset[lang]} `, privacyLink, ".");
+}
+
 langButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.dataset.lang;
@@ -2210,9 +2221,16 @@ langButtons.forEach((button) => {
 
     document.documentElement.lang = lang;
 
-     document.querySelectorAll("[data-en][data-de]").forEach((element) => {
-  element.textContent = element.dataset[lang];
+     document.querySelectorAll("[data-en][data-de]:not(.form-privacy-note)").forEach((element) => {
+  const translated = element.dataset[lang];
+  if (translated.includes("<")) {
+    element.innerHTML = translated;
+  } else {
+    element.textContent = translated;
+  }
 });
+
+    renderPrivacyNote(lang);
 
      document
   .querySelectorAll("[data-en-aria-label][data-de-aria-label]")
@@ -2264,6 +2282,8 @@ if (requestedLanguage === "de" || requestedLanguage === "en") {
     requestedButton.click();
   }
 }
+
+renderPrivacyNote(currentLanguage);
 
 });
 

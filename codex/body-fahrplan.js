@@ -1,6 +1,6 @@
 (() => {
   const params = new URLSearchParams(window.location.search);
-  const lang = params.get('lang') === 'de' ? 'de' : 'en';
+  const lang = params.get('lang') === 'en' ? 'en' : 'de';
   const pick = element => element.dataset[lang] || element.textContent;
   const render = (element, value) => {
     if (element.matches('.bf-enquiry-consent span')) {

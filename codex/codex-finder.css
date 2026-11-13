@@ -1,0 +1,83 @@
+.codex-finder {
+  border-top: 1px solid rgba(6, 52, 66, 0.12);
+}
+
+.codex-finder__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.codex-finder__choice {
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid rgba(6, 52, 66, 0.16);
+  color: #063442;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  min-height: 96px;
+  padding: 20px;
+  text-align: left;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.codex-finder__choice span {
+  color: #0b6272;
+  font: 600 .7rem/1.4 Manrope, sans-serif;
+  letter-spacing: .12em;
+}
+
+.codex-finder__choice strong {
+  font: 500 .94rem/1.55 Manrope, sans-serif;
+}
+
+.codex-finder__choice:hover,
+.codex-finder__choice:focus-visible,
+.codex-finder__choice[aria-pressed="true"] {
+  background: #063442;
+  border-color: #063442;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.codex-finder__choice:hover span,
+.codex-finder__choice:focus-visible span,
+.codex-finder__choice[aria-pressed="true"] span {
+  color: #d9c19b;
+}
+
+.codex-finder__results {
+  margin-top: 20px;
+}
+
+.codex-finder__result {
+  background: #063442;
+  color: #fff;
+  padding: clamp(26px, 4vw, 42px);
+}
+
+.codex-finder__result .ha-card-kicker {
+  color: #d9c19b;
+}
+
+.codex-finder__result h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 14px;
+}
+
+.codex-finder__result p:not(.ha-card-kicker) {
+  color: rgba(255, 255, 255, .84);
+  max-width: 680px;
+}
+
+.codex-finder__result .ha-button {
+  background: #d9c19b;
+  color: #063442;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .codex-finder__choices { grid-template-columns: 1fr; }
+}

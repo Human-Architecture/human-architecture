@@ -1,5 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/codex/orientierung",
+      "destination": "/orientierung/",
+      "permanent": true
+    },
+    {
+      "source": "/codex/orientierung/",
+      "destination": "/orientierung/",
+      "permanent": true
+    }
+  ],
   "crons": [
     { "path": "/api/body-language-payment-reminders", "schedule": "0 8 * * *" }
   ]
