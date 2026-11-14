@@ -33,6 +33,12 @@ In Vercel, open the Human Architecture project, then **Settings → Environment 
 
 Do not enable `CODEX_BOOKING_ENABLED` until all six items above are present. The Codex flow encrypts personal contact and intake information before it is stored.
 
+### OpenAI orientation guide — only if deliberately enabled
+
+- Keep `OPENAI_ORIENTATION_ENABLED` unset or set to `false` unless the OpenAI API route is intentionally used.
+- Before setting it to `true`, confirm the applicable OpenAI data-processing terms, any international-transfer safeguards, and that the published privacy notice matches the live configuration.
+- Do not enable it for health, therapeutic, birth-chart, or third-party data. The guide must remain a voluntary, non-binding website orientation tool.
+
 ### Required for RETURN
 
 - `RETURN_PAYMENT_URL_REGULAR`
@@ -57,6 +63,7 @@ No Vercel payment variable is needed. The verified solo and pair PayPal checkout
 4. On each form, complete only the non-submitting navigation and confirm the price, language, privacy notice, and payment wording are correct.
 5. For a real end-to-end test, use PayPal Sandbox first. Confirm that the return page, confirmation email, and—only for Codex—the private intake email arrive correctly.
 6. After sandbox is correct, switch only the verified production PayPal credentials and URLs to live. Keep one internal test booking available for a final real-money check and refund it immediately if appropriate.
+7. Before enabling any direct Codex checkout, obtain a German legal review of the exact checkout wording, price/tax display, terms incorporation, cancellation/withdrawal flow, and confirmation email. These must match the actual delivery timing and service.
 
 ## Stop and fix if any of these happen
 

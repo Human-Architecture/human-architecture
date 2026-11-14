@@ -20,7 +20,7 @@
     setBilingualText('.orientation-lead', 'Name the context. The orientation guide maps it to one relevant Human Architecture pathway, with a defined scope and next step.', 'Benenne den Kontext. Der Orientierungsguide ordnet ihn einem passenden Human-Architecture-Weg mit klarem Umfang und nächstem Schritt zu.');
     setBilingualText('.orientation-panel__intro h2', 'What needs to become clear now?', 'Was soll jetzt klarer werden?');
     setBilingualText('.orientation-panel__intro h2 + p', 'One or two sentences are enough. You receive one proposed route, not a diagnosis or prescription.', 'Ein oder zwei Sätze reichen. Du erhältst einen vorgeschlagenen Weg — keine Diagnose und keine Vorgabe.');
-    setBilingualText('.orientation-privacy', 'Your text is used to create this orientation response. Do not include medical, therapeutic or highly sensitive personal information.', 'Dein Text wird für diese Orientierung verwendet. Bitte teile keine medizinischen, therapeutischen oder besonders sensiblen persönlichen Angaben.');
+    setBilingualText('.orientation-privacy', 'Do not enter medical, therapeutic, birth-chart or other highly sensitive information, or data about other people. Depending on the secure guide configuration, your short text is mapped locally or processed through OpenAI’s API solely to generate this non-binding orientation response.', 'Bitte gib keine medizinischen, therapeutischen, Geburts- oder sonstigen besonders sensiblen Angaben und keine Daten anderer Personen ein. Je nach sicherer Konfiguration wird dein kurzer Text lokal zugeordnet oder ausschließlich zur Erstellung dieser unverbindlichen Orientierung über die OpenAI-API verarbeitet.');
     setBilingualText('#paths-title', 'Choose the route you already recognise.', 'Wähle den Weg, den du bereits erkennst.');
   }
 
@@ -29,6 +29,16 @@
     document.querySelectorAll('[data-en][data-de]').forEach((element) => {
       element.textContent = element.dataset[language];
     });
+    const privacy = document.querySelector('.orientation-privacy');
+    if (privacy) {
+      privacy.append(' ');
+      const privacyLink = document.createElement('a');
+      privacyLink.href = '/datenschutz/';
+      privacyLink.target = '_blank';
+      privacyLink.rel = 'noopener';
+      privacyLink.textContent = language === 'de' ? 'Datenschutzerklärung lesen' : 'Read the Privacy Notice';
+      privacy.append(privacyLink, '.');
+    }
     document.querySelectorAll('[data-en-placeholder][data-de-placeholder]').forEach((element) => {
       element.placeholder = element.dataset[`${language === 'de' ? 'de' : 'en'}Placeholder`];
     });
