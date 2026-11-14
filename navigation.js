@@ -5,7 +5,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   refinement.href='/orientierung/orientation-refinement.css';
   document.head.append(refinement);
  }
- const roots=document.querySelectorAll('.ha-wayfinding,.ha-site-directory,.ha-entry');
+ const roots=document.querySelectorAll('.ha-wayfinding,.ha-site-directory,.ha-entry,.ha-footer');
+ const addCustomGptTermsLink=()=>{
+  document.querySelectorAll('.ha-footer nav').forEach(nav=>{
+   if(nav.querySelector('[data-custom-gpt-terms-link]'))return;
+   const link=document.createElement('a');
+   link.href='/custom-gpt-terms/';
+   link.dataset.customGptTermsLink='';
+   link.dataset.de='Custom-GPT-Nutzung';
+   link.dataset.en='Custom GPT use';
+   nav.append(link);
+  });
+ };
+ addCustomGptTermsLink();
  const header=document.querySelector('.site-header');
  const wayfinding=document.querySelector('.ha-wayfinding');
  if(wayfinding&&!wayfinding.querySelector('[data-site-events-wayfinding]')){
@@ -84,7 +96,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(!raw||raw.startsWith('#')||a.hasAttribute('download'))return;
    const u=new URL(raw,location.href);
    if(u.origin!==location.origin || !/\/$|\.html$/.test(u.pathname))return;
-   const fixedLanguage=['/organizations/international/','/what-is-human-architecture/','/performance/intake/','/impressum/','/datenschutz/','/organizations/hr-brief.html'];
+   const fixedLanguage=['/organizations/international/','/what-is-human-architecture/','/performance/intake/','/impressum/','/datenschutz/','/custom-gpt-terms/','/organizations/hr-brief.html'];
    if(u.pathname==='/body-language/book/'){
     u.pathname=lang==='en'?'/body-language/en/book/':'/body-language/book/';
     u.searchParams.delete('lang');
