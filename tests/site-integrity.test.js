@@ -28,7 +28,7 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
   const references = [...html.matchAll(/\s(?:href|src)=["']([^"']+)["']/g)].map((match) => match[1]);
   for (const reference of references) {
-    if (!reference || /^(?:https?:|mailto:|tel:|data:|javascript:)/.test(reference)) continue;
+    if (!reference || /^(?:https?:|mailto:|tel:|data:|javascript:|\/_vercel\/)/.test(reference)) continue;
     const [rawPath, fragment = ''] = reference.split('#');
     const cleanPath = rawPath.split('?')[0];
     let target = file;
