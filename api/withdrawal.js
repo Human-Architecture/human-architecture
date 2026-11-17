@@ -6,6 +6,15 @@ module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Allow", "POST");
   if (req.method !== "POST") return res.status(405).json({ok:false,error:"Method not allowed"});
+  // Browser-origin check limits cross-site form abuse; server-to-server requests
+  // without an Origin header remain possible and require infrastructure rate limiting.
+  const origin=req.headers.origin;
+  if(origin && !["https://www.human-architecture.info","https://human-architecture.info"].includes(origin))
+    return res.status(403).json({ok:false,error:"Origin not permitted"});
+  const contentLength=Number(req.headers["content-length"] || 0);
+  if(contentLength>4096) return res.status(413).json({ok:false,error:"Submission too large"});
+  if(req.body === null || typeof req.body !== "object" || Array.isArray(req.body))
+    return res.status(400).json({ok:false,error:"Invalid submission"});
   const data = req.body || {};
   if (clean(data.website)) return res.status(400).json({ok:false,error:"Invalid submission"});
   const name=clean(data.name), contract=clean(data.contract), email=clean(data.email);
