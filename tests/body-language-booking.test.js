@@ -10,7 +10,7 @@ const config = context.window.BodyLanguageBooking;
 
 assert.equal(config.status, 'manual_verification');
 assert.equal(config.payment_provider, 'PayPal');
-assert.equal(config.booking_closes_at, '2026-11-14T23:59:59+01:00');
+assert.equal(config.booking_closes_at, '2026-11-28T15:00:00+01:00');
 assert.equal(config.studio_payment_venue, 'Clever Fit Amberg-Kümmersbruck');
 assert.equal(config.booking_confirmation_email, 'hello@human-architecture.info');
 assert.equal(config.terms_url, '/body-language/terms/');
@@ -58,10 +58,14 @@ assert.match(bookingApi, /payment_pending/);
 assert.match(bookingApi, /manualVerification: true/);
 assert.match(bookingApi, /BOOKING_CLOSES_AT/);
 assert.match(bookingApi, /manual_confirmation_token/);
+assert.match(bookingApi, /28 November 2026/);
+assert.doesNotMatch(bookingApi, /14 November 2026/);
 
 const reminderApi = fs.readFileSync(path.join(root, 'api/body-language-payment-reminders.js'), 'utf8');
 assert.match(reminderApi, /CRON_SECRET/);
 assert.match(reminderApi, /status='payment_pending'/);
+assert.match(reminderApi, /28 November 2026/);
+assert.doesNotMatch(reminderApi, /14 November 2026/);
 
 const confirmationApi = fs.readFileSync(path.join(root, 'api/body-language-manual-confirm.js'), 'utf8');
 assert.match(confirmationApi, /Zahlung zuordnen und Platz bestätigen/);
