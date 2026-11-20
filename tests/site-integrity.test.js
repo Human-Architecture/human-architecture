@@ -15,6 +15,18 @@ const walk = (directory) => {
 };
 walk(root);
 
+const eventsHtml = fs.readFileSync(path.join(root, 'events', 'index.html'), 'utf8');
+const expectedEventPosters = [
+  ['event-card--body-language', '/assets/events/posters/body-language-poster.jpg', 'BODY LANGUAGE workshop poster'],
+  ['event-card--astrology', '/assets/events/posters/astrology-poster.jpg', 'Advent of Astrology course poster'],
+  ['event-card--deep-rest', '/assets/events/deep-rest-poster-client-facing.jpg', 'Official DEEP REST event poster'],
+];
+for (const [cardClass, poster, alt] of expectedEventPosters) {
+  const card = eventsHtml.match(new RegExp(`<article class="event-card ${cardClass}">([\\s\\S]*?)</article>`));
+  assert.ok(card, `Missing ${cardClass} event card`);
+  assert.match(card[1], new RegExp(`<img src="${poster}" alt="${alt}"`), `Wrong poster on ${cardClass}`);
+}
+
 const idsByFile = new Map();
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
