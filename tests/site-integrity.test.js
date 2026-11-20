@@ -48,6 +48,9 @@ for (const {cardClass, poster, alt, homepageClass, info, book, voucher} of expec
   assert.match(voucherHtml, new RegExp(`<option value="${voucher}"`), `Missing ${voucher} voucher option`);
   assert.match(voucherScript, new RegExp(`${voucher}:'`), `Missing ${voucher} voucher choice`);
 }
+assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
+assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered as a current-event voucher');
+assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');
 
 const idsByFile = new Map();
 for (const file of htmlFiles) {

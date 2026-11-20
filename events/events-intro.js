@@ -17,15 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const eventJourneys = [
     {
-      selector: '.event-card--return',
-      info: '/mihira-ceremonia/return/',
-      book: '/mihira-ceremonia/return/#booking',
-      voucher: '/gutscheine/?voucher=return#anfrage',
-      labels: german
-        ? ['RETURN entdecken', 'Platz reservieren', 'RETURN als Gutschein schenken']
-        : ['Explore RETURN', 'Reserve a place', 'Give RETURN as a voucher']
-    },
-    {
       selector: '.event-card--body-language',
       info: '/body-language/',
       book: '/body-language/book/',
