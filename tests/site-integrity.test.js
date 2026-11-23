@@ -20,6 +20,7 @@ const eventsHtml = fs.readFileSync(path.join(root, 'events', 'index.html'), 'utf
 const homepageHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const eventJourneys = fs.readFileSync(path.join(root, 'events', 'events-intro.js'), 'utf8');
 const eventLanguage = fs.readFileSync(path.join(root, 'events', 'events-language.js'), 'utf8');
+const eventVisuals = fs.readFileSync(path.join(root, 'events', 'events-visuals.js'), 'utf8');
 const voucherHtml = fs.readFileSync(path.join(root, 'gutscheine', 'index.html'), 'utf8');
 const voucherScript = fs.readFileSync(path.join(root, 'growth.js'), 'utf8');
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
@@ -55,6 +56,7 @@ for (const {cardClass, poster, alt, homepageClass, info, book, voucher} of expec
   }
   assert.match(voucherHtml, new RegExp(`<option value="${voucher}"`), `Missing ${voucher} voucher option`);
   assert.match(voucherScript, new RegExp(`${voucher}:'`), `Missing ${voucher} voucher choice`);
+  assert.match(eventVisuals, new RegExp(`'${cardClass}'[\\s\\S]*?${regexEscape(poster)}`), `Wrong visual poster mapping for ${cardClass}`);
 }
 assert.match(bodyLanguageHtml, /Samstag, 28\. November 2026[\s\S]*?15:00–17:00 Uhr[\s\S]*?Clever Fit Kümmersbruck/, 'BODY LANGUAGE date, time and venue must remain aligned');
 assert.match(eventsHtml, /29 November · 6, 13 &amp; 20 December/, 'Astrology course dates must remain aligned on the event listing');
@@ -63,6 +65,7 @@ assert.match(deepRestHtml, /Friday · 11 December 2026[\s\S]*?18:00–19:30[\s\S
 assert.match(eventJourneys, /document\.readyState === 'loading'/, 'Event actions must initialize whether the page is newly loaded or restored');
 assert.match(eventJourneys, /enhanceEventsPage\(\)/, 'Event actions must be initialized by the page enhancer');
 assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
+assert.doesNotMatch(eventVisuals, /return-poster|event-card--return|querySelectorAll\('\.event-card'\)/, 'Event visuals must not retain RETURN or card-position assumptions');
 assert.doesNotMatch(eventLanguage, /RETURN|querySelectorAll\('\.event-card'\)\[\d+\]/, 'Event language controls must not use stale RETURN/card-position assumptions');
 assert.match(eventLanguage, /actions: \['BODY LANGUAGE entdecken', 'Platz wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'BODY LANGUAGE needs all three German action labels');
 assert.match(eventLanguage, /actions: \['Kurs entdecken', 'Platz wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'Astrology needs all three German action labels');
