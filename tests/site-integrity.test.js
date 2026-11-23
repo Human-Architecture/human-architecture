@@ -23,6 +23,9 @@ const eventLanguage = fs.readFileSync(path.join(root, 'events', 'events-language
 const voucherHtml = fs.readFileSync(path.join(root, 'gutscheine', 'index.html'), 'utf8');
 const voucherScript = fs.readFileSync(path.join(root, 'growth.js'), 'utf8');
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const bodyLanguageHtml = fs.readFileSync(path.join(root, 'body-language', 'index.html'), 'utf8');
+const astrologyHtml = fs.readFileSync(path.join(root, 'kurse', 'westliche-astrologie', 'index.html'), 'utf8');
+const deepRestHtml = fs.readFileSync(path.join(root, 'events', 'deep-rest', 'index.html'), 'utf8');
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const expectedEventPosters = [
   {
@@ -47,11 +50,16 @@ for (const {cardClass, poster, alt, homepageClass, info, book, voucher} of expec
   for (const route of [info, book, `/gutscheine/?voucher=${voucher}#anfrage`]) {
     assert.match(eventJourneys, new RegExp(`selector: '.${cardClass}',[\\s\\S]*?${regexEscape(route)}`), `Missing ${route} journey for ${cardClass}`);
     assert.match(homepageHtml, new RegExp(`href="${regexEscape(route)}"`), `Missing ${route} homepage route for ${cardClass}`);
+    assert.match(card[1], new RegExp(`href="${regexEscape(route)}"`), `Missing built-in ${route} route for ${cardClass}`);
     assert.match(eventsHtml, new RegExp(`<noscript>[\\s\\S]*?href="${regexEscape(route)}"`), `Missing no-script ${route} route`);
   }
   assert.match(voucherHtml, new RegExp(`<option value="${voucher}"`), `Missing ${voucher} voucher option`);
   assert.match(voucherScript, new RegExp(`${voucher}:'`), `Missing ${voucher} voucher choice`);
 }
+assert.match(bodyLanguageHtml, /Samstag, 28\. November 2026[\s\S]*?15:00–17:00 Uhr[\s\S]*?Clever Fit Kümmersbruck/, 'BODY LANGUAGE date, time and venue must remain aligned');
+assert.match(eventsHtml, /29 November · 6, 13 &amp; 20 December/, 'Astrology course dates must remain aligned on the event listing');
+assert.match(astrologyHtml, /29\.11\.2026[\s\S]*?06\.12\.2026[\s\S]*?13\.12\.2026[\s\S]*?20\.12\.2026/, 'Astrology session dates must remain aligned on the course page');
+assert.match(deepRestHtml, /Friday · 11 December 2026[\s\S]*?18:00–19:30[\s\S]*?ZEN CENTER, Regensburg/, 'DEEP REST date, time and venue must remain aligned');
 assert.match(eventJourneys, /document\.readyState === 'loading'/, 'Event actions must initialize whether the page is newly loaded or restored');
 assert.match(eventJourneys, /enhanceEventsPage\(\)/, 'Event actions must be initialized by the page enhancer');
 assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
