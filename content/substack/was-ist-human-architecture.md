@@ -1,12 +1,18 @@
 ---
-publication: Substack
+publication: Substack and Medium
 language: de
 title: "Was ist Human Architecture? Ein klarer Rahmen für Menschen, Teams und Organisationen"
-subtitle: "Human Architecture verbindet persönliche Orientierung, Körperwahrnehmung, Familienkontext und Zusammenarbeit – mit klaren Grenzen und einem passenden Einstieg."
-seo_description: "Was ist Human Architecture? Eine klare Einführung für Einzelpersonen, Familien, Teams und Unternehmen – mit Angeboten, Workshops, Corporate-Formaten und Orientierung."
-canonical_url: "https://www.human-architecture.info/what-is-human-architecture/"
+subtitle: "Ein Ansatz aus der Oberpfalz für persönliche Orientierung, Körperwahrnehmung, Familienkontext und Zusammenarbeit – mit klaren Grenzen und einem passenden Einstieg."
+seo_description: "Was ist Human Architecture? Einführung aus der Oberpfalz für Menschen, Familien, Teams und Unternehmen in Sulzbach-Rosenberg, Amberg, Regensburg und darüber hinaus."
+canonical_url: "https://www.human-architecture.info/was-ist-human-architecture/"
+author: "Mel Mihira · Human Architecture"
+region: "Oberpfalz · Sulzbach-Rosenberg · Amberg · Regensburg"
 suggested_tags:
   - Human Architecture
+  - Oberpfalz
+  - Sulzbach-Rosenberg
+  - Amberg
+  - Regensburg
   - Persönliche Orientierung
   - Teamarbeit
   - Führung
@@ -27,6 +33,14 @@ Human Architecture arbeitet mit Fragen, nicht mit Diagnosen.
 Die Methode ist keine medizinische oder psychotherapeutische Behandlung und ersetzt keine medizinische, psychologische, rechtliche oder unternehmerische Fachberatung. Symbolische Perspektiven werden als solche behandelt: als mögliche Sprache für Beobachtung und Reflexion, nicht als wissenschaftlicher Beweis, Eignungstest oder Vorhersage.
 
 Diese Grenze ist keine Einschränkung der Arbeit. Sie macht sie klarer.
+
+## Human Architecture in der Oberpfalz
+
+Human Architecture ist in Sulzbach-Rosenberg in der Oberpfalz beheimatet. Menschen aus Amberg, Kümmersbruck, Regensburg und der weiteren Region können über die Website aktuelle Workshops, persönliche Einstiege und Anfragen für Teams oder Organisationen finden.
+
+Dabei ist der Ort kein leeres Schlagwort. Er beschreibt einen tatsächlichen Ausgangspunkt: öffentliche Formate finden dort statt, wo Termin und Raum klar benannt sind; persönliche und organisationale Anfragen werden erst nach einer konkreten Klärung von Ziel, Rahmen und Verfügbarkeit vereinbart.
+
+Wer Human Architecture online entdeckt, soll schnell erkennen können, worum es geht und welcher Weg passt: Informationen lesen, einen aktuellen Eventplatz buchen, einen Gutschein anfragen oder ein Gespräch über einen persönlichen beziehungsweise organisationalen Kontext beginnen.
 
 ## Warum Human Architecture?
 
@@ -130,6 +144,24 @@ Für Firmen, Teams und Corporate-Anfragen beginnt der Prozess mit einer kurzen B
 - In welchem Ort, Zeitraum und Rahmen soll die Zusammenarbeit stattfinden?
 
 Danach werden Eignung, Umfang, Preis und Verfügbarkeit konkret abgestimmt. Eine Anfrage ist noch keine Buchung. Eine Zusammenarbeit wird erst verbindlich, wenn der vereinbarte Rahmen schriftlich bestätigt ist.
+
+## Häufige Fragen
+
+### Ist Human Architecture Coaching, Therapie oder medizinische Beratung?
+
+Nein. Human Architecture ist ein nicht-medizinischer, reflektierender und strukturierender Ansatz. Er ersetzt weder medizinische Diagnostik noch Psychotherapie, Rechtsberatung oder eine verbindliche Personalentscheidung. Wenn eine dieser Leistungen erforderlich ist, sind die jeweils qualifizierten Fachpersonen zuständig.
+
+### Wo findet Human Architecture statt?
+
+Der Ausgangspunkt liegt in Sulzbach-Rosenberg in der Oberpfalz. Öffentliche Workshops nennen Termin und Ort direkt auf der [Event-Seite](https://www.human-architecture.info/events/). Persönliche, Team- und Organisationsformate können je nach Auftrag vor Ort, an einem vereinbarten Ort oder online stattfinden.
+
+### Gibt es Angebote für Teams und Unternehmen in der Region?
+
+Ja. Human Architecture arbeitet mit Teams, Führungskräften und Organisationen an klaren Aufträgen rund um Zusammenarbeit, Rollen, Erwartungen und Entscheidungswege. Für Unternehmen in Amberg, Regensburg, der Oberpfalz und darüber hinaus beginnt die Zusammenarbeit mit einer [konkreten Organisationsanfrage](https://www.human-architecture.info/organizations/).
+
+### Wie finde ich den passenden Einstieg?
+
+Die [Orientierung](https://www.human-architecture.info/orientierung/) hilft bei persönlichen Fragen. Für aktuelle Workshops führt die [Event-Übersicht](https://www.human-architecture.info/events/) direkt zu Informationen, Buchung und Gutscheinen. Für Teams und Organisationen ist der Organisationsweg der passende Einstieg.
 
 ## Human Architecture: Klarheit vor Komplexität
 
