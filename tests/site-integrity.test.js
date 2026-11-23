@@ -19,6 +19,7 @@ walk(root);
 const eventsHtml = fs.readFileSync(path.join(root, 'events', 'index.html'), 'utf8');
 const homepageHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const eventJourneys = fs.readFileSync(path.join(root, 'events', 'events-intro.js'), 'utf8');
+const eventLanguage = fs.readFileSync(path.join(root, 'events', 'events-language.js'), 'utf8');
 const voucherHtml = fs.readFileSync(path.join(root, 'gutscheine', 'index.html'), 'utf8');
 const voucherScript = fs.readFileSync(path.join(root, 'growth.js'), 'utf8');
 const expectedEventPosters = [
@@ -52,6 +53,10 @@ for (const {cardClass, poster, alt, homepageClass, info, book, voucher} of expec
 assert.match(eventJourneys, /document\.readyState === 'loading'/, 'Event actions must initialize whether the page is newly loaded or restored');
 assert.match(eventJourneys, /enhanceEventsPage\(\)/, 'Event actions must be initialized by the page enhancer');
 assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
+assert.doesNotMatch(eventLanguage, /RETURN|querySelectorAll\('\.event-card'\)\[\d+\]/, 'Event language controls must not use stale RETURN/card-position assumptions');
+assert.match(eventLanguage, /actions: \['BODY LANGUAGE entdecken', 'Platz wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'BODY LANGUAGE needs all three German action labels');
+assert.match(eventLanguage, /actions: \['Kurs entdecken', 'Platz wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'Astrology needs all three German action labels');
+assert.match(eventLanguage, /actions: \['DEEP REST entdecken', 'Ticket wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'DEEP REST needs all three German action labels');
 assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered as a current-event voucher');
 assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');
 
