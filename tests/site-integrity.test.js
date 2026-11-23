@@ -22,6 +22,8 @@ const eventJourneys = fs.readFileSync(path.join(root, 'events', 'events-intro.js
 const eventLanguage = fs.readFileSync(path.join(root, 'events', 'events-language.js'), 'utf8');
 const voucherHtml = fs.readFileSync(path.join(root, 'gutscheine', 'index.html'), 'utf8');
 const voucherScript = fs.readFileSync(path.join(root, 'growth.js'), 'utf8');
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const expectedEventPosters = [
   {
     cardClass: 'event-card--body-language', poster: '/assets/events/posters/body-language-poster.jpg', alt: 'BODY LANGUAGE workshop poster',
@@ -59,6 +61,12 @@ assert.match(eventLanguage, /actions: \['Kurs entdecken', 'Platz wählen & direk
 assert.match(eventLanguage, /actions: \['DEEP REST entdecken', 'Ticket wählen & direkt zahlen', 'Als Gutschein schenken'\]/, 'DEEP REST needs all three German action labels');
 assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered as a current-event voucher');
 assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');
+assert.match(sitemap, /https:\/\/www\.human-architecture\.info\/events\/deep-rest\//, 'Current DEEP REST event page must be discoverable in the sitemap');
+assert.doesNotMatch(sitemap, /mihira-ceremonia\/return/, 'Retired RETURN page must not be promoted in the sitemap');
+for (const source of ['/body-language/book/(.*)', '/body-language/en/book/(.*)']) {
+  const rule = vercelConfig.headers.find((header) => header.source === source);
+  assert.ok(rule?.headers.some((header) => header.key === 'X-Robots-Tag' && header.value === 'noindex, follow'), `Booking route ${source} must not compete with public offer pages in search`);
+}
 
 const idsByFile = new Map();
 for (const file of htmlFiles) {
