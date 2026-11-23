@@ -51,6 +51,18 @@ assert.match(bookingScript, /manual_verification/);
 assert.match(bookingScript, /payment_method/);
 assert.match(bookingScript, /studio_cash/);
 assert.match(bookingScript, /PayPal or card/);
+assert.match(bookingScript, /href="\/impressum\/"/);
+assert.match(bookingScript, /href="\/widerruf\/"/);
+
+const astrologyScript = fs.readFileSync(path.join(root, 'kurse/westliche-astrologie/course.js'), 'utf8');
+assert.match(astrologyScript, /href="\/impressum\/"/);
+assert.match(astrologyScript, /href="\/datenschutz\/"/);
+assert.match(astrologyScript, /href="\/widerruf\/"/);
+
+const codexBookingScript = fs.readFileSync(path.join(root, 'codex/book/booking.js'), 'utf8');
+assert.match(codexBookingScript, /href="\/impressum\/"/);
+assert.match(codexBookingScript, /href="\/datenschutz\/"/);
+assert.match(codexBookingScript, /href="\/widerruf\/"/);
 
 const bookingApi = fs.readFileSync(path.join(root, 'api/body-language-booking.js'), 'utf8');
 assert.match(bookingApi, /MANUAL_PAYMENT_LINKS/);

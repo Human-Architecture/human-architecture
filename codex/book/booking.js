@@ -23,6 +23,13 @@
   const form = document.querySelector('#booking-form');
   const message = document.querySelector('#form-message');
 
+  const legalLinks = document.createElement('p');
+  legalLinks.className = 'cr-draft';
+  legalLinks.innerHTML = german
+    ? 'Vor dem Weitergehen zur Zahlung: <a href="/impressum/" target="_blank" rel="noopener">Anbieterangaben</a> · <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> · <a href="/widerruf/" target="_blank" rel="noopener">Informationen zum Widerruf</a>'
+    : 'Before continuing to payment: <a href="/impressum/" target="_blank" rel="noopener">provider details</a> · <a href="/datenschutz/" target="_blank" rel="noopener">privacy information</a> · <a href="/widerruf/" target="_blank" rel="noopener">withdrawal information</a>';
+  form.querySelector('button').before(legalLinks);
+
   if (german) {
     document.documentElement.lang = 'de';
     document.title = 'Sichere Codex-Buchung | Human Architecture';

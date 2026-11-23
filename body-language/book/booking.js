@@ -39,6 +39,12 @@
   }
   $('#privacy-label').textContent = copy.privacy;
   $('#terms-label').textContent = copy.terms;
+  const legalLinks = document.createElement('p');
+  legalLinks.className = 'notice';
+  legalLinks.innerHTML = locale === 'de'
+    ? 'Vor dem Weitergehen zur Zahlung: <a href="/impressum/" target="_blank" rel="noopener">Anbieterangaben</a> · <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> · <a href="/widerruf/" target="_blank" rel="noopener">Informationen zum Widerruf</a>'
+    : 'Before continuing to payment: <a href="/impressum/" target="_blank" rel="noopener">provider details</a> · <a href="/datenschutz/" target="_blank" rel="noopener">privacy information</a> · <a href="/widerruf/" target="_blank" rel="noopener">withdrawal information</a>';
+  $('#payment').before(legalLinks);
   if (c.terms_url) {
     const termsLink = document.createElement('a');
     termsLink.href = c.terms_url;

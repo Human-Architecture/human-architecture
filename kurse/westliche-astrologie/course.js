@@ -38,6 +38,12 @@
 
   const form = document.querySelector('#astrology-booking-form');
   if (!form) return;
+  const legalLinks = document.createElement('p');
+  legalLinks.className = 'form-note legal-links';
+  legalLinks.innerHTML = language === 'en'
+    ? 'Before continuing to payment: <a href="/impressum/" target="_blank" rel="noopener">provider details</a> · <a href="/datenschutz/" target="_blank" rel="noopener">privacy information</a> · <a href="/widerruf/" target="_blank" rel="noopener">withdrawal information</a>'
+    : 'Vor dem Weitergehen zur Zahlung: <a href="/impressum/" target="_blank" rel="noopener">Anbieterangaben</a> · <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> · <a href="/widerruf/" target="_blank" rel="noopener">Informationen zum Widerruf</a>';
+  form.querySelector('.submit-button').before(legalLinks);
   const pairFields = form.querySelector('#participant-two');
   const pairInputs = [...pairFields.querySelectorAll('input')];
   const bookingLabel = form.querySelector('#booking-label');
