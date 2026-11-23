@@ -44,3 +44,12 @@ The numbers must never be swapped. WhatsApp is not a default channel for sensiti
 - `impressum/index.html` and `datenschutz/index.html` contain confirmed provider address and correct separate numbers. Still verify W-IdNr and other mandatory details, and processing accuracy.
 - No complete `agb/index.html` was found at the inspected path; this does NOT prove no terms exist elsewhere. Search all routes and booking funnels before release.
 - Production build status, forms, accessibility, checkout and security have NOT been independently tested.
+
+## Page-by-page spot audit (23 Nov 2026; source inspection only)
+Inspected: /angebote/, /organizations/, /gutscheine/, /babymesse/, /body-language/, /mihira-ceremonia/return/, /kurse/westliche-astrologie/, /kooperationen/familie/, /what-is-human-architecture/, /mensch-und-tier/, /impressum/, /datenschutz/, /widerruf/, /rechtliches/, /vertraege/, and /api/withdrawal. This is NOT an exhaustive crawl of every repository route or external checkout.
+- Astrology course page currently advertises FOUR ADVENT SUNDAYS: 29 Nov, 6 Dec, 13 Dec, 20 Dec 2026, including Course JSON-LD dates. Prior business planning referenced FOUR SATURDAYS in December. **Owner must confirm actual scheduled days before marketing, payment or launch.** Do not silently change dates.
+- Voucher page references event offers and direct payments including BODY LANGUAGE 28 Nov 2026, Advent of Astrology, DEEP REST 11 Dec 2026 and a Codex 2027 "Oktober-Angebot". Confirm current inventory, event status, checkout destinations, pricing, voucher terms, tax display and outdated promotion. Avoid stale sales links.
+- RETURN and astrology course pages contain forms. Audit consent, validation, server endpoints, anti-abuse, confirmation, retention and any health/birth information actually collected.
+- Organization, family cooperation, animal and other landing pages have legal links; audit every language variant, internal navigation, CTA destination, service-scope claims and accessibility.
+- The privacy page describes OpenAI API orientation and Custom GPT links. Verify actual deployment and data flows; do not assume privacy statements match live code.
+- Source-level page inspection cannot establish external payment success, browser accessibility, legal compliance or conversion rates. Carry out a browser journey audit and professional legal review before release.
