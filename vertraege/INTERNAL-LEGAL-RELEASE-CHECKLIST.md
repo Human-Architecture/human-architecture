@@ -53,3 +53,11 @@ Inspected: /angebote/, /organizations/, /gutscheine/, /babymesse/, /body-languag
 - Organization, family cooperation, animal and other landing pages have legal links; audit every language variant, internal navigation, CTA destination, service-scope claims and accessibility.
 - The privacy page describes OpenAI API orientation and Custom GPT links. Verify actual deployment and data flows; do not assume privacy statements match live code.
 - Source-level page inspection cannot establish external payment success, browser accessibility, legal compliance or conversion rates. Carry out a browser journey audit and professional legal review before release.
+
+## Additional routes and conversion review (23 Nov 2026)
+Source-inspected /, /sessions/, /codex/, /mihira-ceremonia/, /body-language/book/ and /body-language/en/book/ (alongside previously inspected pages). No live browser or payment tests performed.
+- Both BODY LANGUAGE booking review screens now display direct withdrawal-information and email-contact links, including English. This improves visibility but does not replace mandatory pre-contract disclosures, correct right-of-withdrawal instruction, checkout terms or § 356a backend testing.
+- /codex/ source contains a privacy link but no obvious impressum/withdrawal link in the extracted href audit. Review full navigation and any purchase path; ensure globally accessible legal links.
+- /sessions/ and /mihira-ceremonia/ link Impressum and Datenschutz, but scope-of-practice, claims, booking conditions and prices require professional review.
+- /body-language/book/ and /body-language/en/book/ each contain forms and a shared booking script. Verify translated disclosures, explicit consents, safety intake, payment handoff, accessibility and mobile behavior.
+- Never present the site as legally bulletproof, promise all visitors will convert, or imply that source-level review equals deployment validation.
