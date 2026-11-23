@@ -33,3 +33,14 @@ The current `impressum/index.html` and `datenschutz/index.html` contain an addre
 **Business-WhatsApp (Nachrichten):** +49 1520 3131871
 
 The numbers must never be swapped. WhatsApp is not a default channel for sensitive health data.
+
+## Code-level audit findings (23 Nov 2026; not a production test)
+- `widerruf/index.html` contains a two-stage UI and POSTs to `/api/withdrawal`.
+- `api/withdrawal.js` sends owner and customer acknowledgement through Resend. If owner delivery succeeds but customer acknowledgement fails, it returns 202 with `ok:true` and a manual follow-up message. No persistent queue, retry, alerting or auditable durable storage is evident in this file. Test failures and implement operational fallback before declaring compliant.
+- The acknowledgement text includes the ISO UTC timestamp and submitted details; verify actual email content, sender configuration, deliverability and whether the consumer can retain it.
+- The browser UI requires name, contract and email. Check whether the selected email is a suitable electronic confirmation channel; do not require additional reasons.
+- `vercel.json` defines security headers and a daily cron; this alone does not verify security or that every API endpoint is access-controlled. Audit all endpoints, secrets, and production deployment.
+- `package.json` lists Neon, Resend and Vercel Analytics. Verify deployed uses, privacy disclosure, processing agreements, transfer mechanisms and consent requirements; dependencies alone do not prove processing.
+- `impressum/index.html` and `datenschutz/index.html` contain confirmed provider address and correct separate numbers. Still verify W-IdNr and other mandatory details, and processing accuracy.
+- No complete `agb/index.html` was found at the inspected path; this does NOT prove no terms exist elsewhere. Search all routes and booking funnels before release.
+- Production build status, forms, accessibility, checkout and security have NOT been independently tested.
