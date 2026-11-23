@@ -74,14 +74,14 @@ module.exports = async function handler(req, res) {
       const reference = bookingId.slice(0, 8).toUpperCase();
       const route = paymentMethod === 'studio_cash'
         ? (locale === 'en'
-          ? `Please pay in cash at Clever Fit Amberg-Kümmersbruck by 14 November 2026. Please give your full name and booking reference at the studio.`
-          : `Bitte bezahle bis einschließlich 14. November 2026 bar im Clever Fit Amberg-Kümmersbruck. Nenne im Studio deinen vollständigen Namen und deine Buchungsreferenz.`)
+          ? `Please pay in cash at Clever Fit Amberg-Kümmersbruck before the workshop begins at 15:00 on 28 November 2026. Please give your full name and booking reference at the studio.`
+          : `Bitte bezahle am 28. November 2026 vor Workshopbeginn um 15:00 Uhr bar im Clever Fit Amberg-Kümmersbruck. Nenne im Studio deinen vollständigen Namen und deine Buchungsreferenz.`)
         : (locale === 'en'
           ? `Please complete payment online via PayPal or card: ${paymentUrl}\nApple Pay is available only where PayPal can offer it.`
           : `Bitte schließe die Zahlung online über PayPal oder Karte ab: ${paymentUrl}\nApple Pay wird angezeigt, wenn PayPal es für deine Zahlung anbieten kann.`);
       const customerText = locale === 'en'
-        ? `Hello ${participantName},\n\nwe received your BODY LANGUAGE booking details.\n\n${route}\n\nBooking reference: ${reference}\nSelected option: ${label}\nAmount: ${amount}\n\nBookings and payments close on 14 November 2026. This is not yet a confirmation of a place. We will match the payment to your booking and email you once your place is confirmed.\n\nHuman Architecture®\nhello@human-architecture.info`
-        : `Hallo ${participantName},\n\nwir haben deine Buchungsdaten für BODY LANGUAGE erhalten.\n\n${route}\n\nBuchungsreferenz: ${reference}\nGewählte Option: ${label}\nBetrag: ${amount}\n\nAnmeldungen und Zahlungen sind bis einschließlich 14. November 2026 möglich. Dies ist noch keine Platzbestätigung. Wir ordnen die Zahlung deiner Anmeldung zu und senden dir anschließend die Bestätigung per E-Mail.\n\nHuman Architecture®\nhello@human-architecture.info`;
+        ? `Hello ${participantName},\n\nwe received your BODY LANGUAGE booking details.\n\n${route}\n\nBooking reference: ${reference}\nSelected option: ${label}\nAmount: ${amount}\n\nBookings and payments are available until the workshop begins at 15:00 on 28 November 2026. This is not yet a confirmation of a place. We will match the payment to your booking and email you once your place is confirmed.\n\nHuman Architecture®\nhello@human-architecture.info`
+        : `Hallo ${participantName},\n\nwir haben deine Buchungsdaten für BODY LANGUAGE erhalten.\n\n${route}\n\nBuchungsreferenz: ${reference}\nGewählte Option: ${label}\nBetrag: ${amount}\n\nAnmeldungen und Zahlungen sind bis Workshopbeginn am 28. November 2026 um 15:00 Uhr möglich. Dies ist noch keine Platzbestätigung. Wir ordnen die Zahlung deiner Anmeldung zu und senden dir anschließend die Bestätigung per E-Mail.\n\nHuman Architecture®\nhello@human-architecture.info`;
       const confirmationUrl = `${requestBase(req)}/api/body-language-manual-confirm?booking=${bookingId}&token=${confirmationToken}`;
       const staffText = bookingNotificationText({ bookingId, participantName, email, phone, intake, label, amount, seats: selected.seats, paymentRoute: paymentMethod === 'studio_cash' ? 'Barzahlung im Clever Fit Amberg-Kümmersbruck' : 'Online PayPal / Karte', confirmationUrl });
       await Promise.all([

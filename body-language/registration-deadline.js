@@ -12,7 +12,7 @@
     }
 
     const days = Math.ceil(remaining / 86400000);
-    target.textContent = `Anmeldeschluss: 14. November 2026 · noch ${days} ${days === 1 ? 'Tag' : 'Tage'}`;
+    target.textContent = `Online-Anmeldung bis Workshopbeginn: 28. November 2026 · 15:00 Uhr · noch ${days} ${days === 1 ? 'Tag' : 'Tage'}`;
   };
 
   update();
