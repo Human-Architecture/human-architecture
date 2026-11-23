@@ -17,13 +17,6 @@
     if (!events || events.dataset.completeProgramme === 'true') return;
     events.dataset.completeProgramme = 'true';
 
-    const returnCard = card({
-        label: 'UPCOMING EVENING', day: '14', month: 'Nov', weekday: 'Saturday',
-        title: { kicker: 'RETURN · BREATHWORK, YOGA NIDRA & DEEP REST', heading: 'Return to breath, body and rest.' },
-        description: 'A guided group experience for breath, body awareness, regulation, Yoga Nidra and deep rest.',
-        details: ['18:00–19:30 · allow time until 20:00', 'Sulzbach-Rosenberg', '€28 regular · DALI cash option', 'Bring a Friend: 10% for both'],
-        primary: { href: '/mihira-ceremonia/return/', label: 'Register & continue to payment' }
-      });
     const astrologyCard = card({
         label: 'LIVE ONLINE COURSE', day: '29', month: 'Nov', weekday: 'Four Sundays',
         title: { kicker: 'ADVENT OF ASTROLOGY', heading: 'Understand Western astrology.' },
@@ -33,7 +26,6 @@
       });
     const bodyLanguageCard = Array.from(events.children).find((item) => item.textContent.includes('BODY LANGUAGE'));
     const deepRestCard = Array.from(events.children).find((item) => item.textContent.includes('DEEP REST'));
-    events.insertBefore(returnCard, bodyLanguageCard || events.firstChild);
     events.insertBefore(astrologyCard, deepRestCard || null);
   });
 })();

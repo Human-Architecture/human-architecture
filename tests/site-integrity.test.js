@@ -27,6 +27,9 @@ const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 const bodyLanguageHtml = fs.readFileSync(path.join(root, 'body-language', 'index.html'), 'utf8');
 const astrologyHtml = fs.readFileSync(path.join(root, 'kurse', 'westliche-astrologie', 'index.html'), 'utf8');
 const deepRestHtml = fs.readFileSync(path.join(root, 'events', 'deep-rest', 'index.html'), 'utf8');
+const returnHtml = fs.readFileSync(path.join(root, 'mihira-ceremonia', 'return', 'index.html'), 'utf8');
+const returnApi = fs.readFileSync(path.join(root, 'api', 'return-public.js'), 'utf8');
+const legacyEventsScript = fs.readFileSync(path.join(root, 'events', 'events.js'), 'utf8');
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const expectedEventPosters = [
   {
@@ -74,6 +77,11 @@ assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered a
 assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');
 assert.match(sitemap, /https:\/\/www\.human-architecture\.info\/events\/deep-rest\//, 'Current DEEP REST event page must be discoverable in the sitemap');
 assert.doesNotMatch(sitemap, /mihira-ceremonia\/return/, 'Retired RETURN page must not be promoted in the sitemap');
+assert.doesNotMatch(returnHtml, /14\. November|November Session|voucher=return/, 'RETURN format page must not present the finished public session as active');
+assert.match(returnHtml, /Öffentliche Sessions/, 'RETURN format page must remain available for future public dates');
+assert.doesNotMatch(returnApi, /14 November|Sulzbach|paypal\.com/, 'Expired RETURN registration endpoint must not retain a payment route');
+assert.match(returnApi, /status\(410\)/, 'Expired RETURN registration endpoint must reject past-session registrations');
+assert.doesNotMatch(legacyEventsScript, /returnCard|Sulzbach-Rosenberg|Register & continue to payment/, 'Legacy event enhancement must not reinsert the finished RETURN session');
 for (const source of ['/body-language/book/(.*)', '/body-language/en/book/(.*)']) {
   const rule = vercelConfig.headers.find((header) => header.source === source);
   assert.ok(rule?.headers.some((header) => header.key === 'X-Robots-Tag' && header.value === 'noindex, follow'), `Booking route ${source} must not compete with public offer pages in search`);
