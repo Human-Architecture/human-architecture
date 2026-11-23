@@ -65,6 +65,8 @@ assert.match(bodyLanguageHtml, /Samstag, 28\. November 2026[\s\S]*?15:00–17:00
 assert.match(eventsHtml, /29 November · 6, 13 &amp; 20 December/, 'Astrology course dates must remain aligned on the event listing');
 assert.match(astrologyHtml, /29\.11\.2026[\s\S]*?06\.12\.2026[\s\S]*?13\.12\.2026[\s\S]*?20\.12\.2026/, 'Astrology session dates must remain aligned on the course page');
 assert.match(deepRestHtml, /Friday · 11 December 2026[\s\S]*?18:00–19:30[\s\S]*?ZEN CENTER, Regensburg/, 'DEEP REST date, time and venue must remain aligned');
+assert.match(deepRestHtml, /href="https:\/\/www\.paypal\.com\/ncp\/payment\/EXGYF8VE28KKY" target="_blank" rel="noopener"[\s\S]*?Book one place/, 'DEEP REST single ticket must open its direct PayPal payment link');
+assert.match(deepRestHtml, /href="https:\/\/www\.paypal\.com\/ncp\/payment\/WRN57NR7MYY6E" target="_blank" rel="noopener"[\s\S]*?Book two places/, 'DEEP REST pair ticket must open its direct PayPal payment link');
 assert.match(eventJourneys, /document\.readyState === 'loading'/, 'Event actions must initialize whether the page is newly loaded or restored');
 assert.match(eventJourneys, /enhanceEventsPage\(\)/, 'Event actions must be initialized by the page enhancer');
 assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
