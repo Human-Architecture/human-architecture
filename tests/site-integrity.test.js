@@ -28,7 +28,6 @@ const bodyLanguageHtml = fs.readFileSync(path.join(root, 'body-language', 'index
 const astrologyHtml = fs.readFileSync(path.join(root, 'kurse', 'westliche-astrologie', 'index.html'), 'utf8');
 const deepRestHtml = fs.readFileSync(path.join(root, 'events', 'deep-rest', 'index.html'), 'utf8');
 const returnHtml = fs.readFileSync(path.join(root, 'mihira-ceremonia', 'return', 'index.html'), 'utf8');
-const returnApi = fs.readFileSync(path.join(root, 'api', 'return-public.js'), 'utf8');
 const legacyEventsScript = fs.readFileSync(path.join(root, 'events', 'events.js'), 'utf8');
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const expectedEventPosters = [
@@ -81,8 +80,8 @@ assert.match(sitemap, /https:\/\/www\.human-architecture\.info\/events\/deep-res
 assert.doesNotMatch(sitemap, /mihira-ceremonia\/return/, 'Retired RETURN page must not be promoted in the sitemap');
 assert.doesNotMatch(returnHtml, /14\. November|November Session|voucher=return/, 'RETURN format page must not present the finished public session as active');
 assert.match(returnHtml, /Öffentliche Sessions/, 'RETURN format page must remain available for future public dates');
-assert.doesNotMatch(returnApi, /14 November|Sulzbach|paypal\.com/, 'Expired RETURN registration endpoint must not retain a payment route');
-assert.match(returnApi, /status\(410\)/, 'Expired RETURN registration endpoint must reject past-session registrations');
+assert.ok(!fs.existsSync(path.join(root, 'api', 'return-public.js')), 'Expired RETURN registration endpoint must not be deployed');
+assert.doesNotMatch(fs.readFileSync(path.join(root, 'mihira-ceremonia', 'return', 'return.js'), 'utf8'), /return-public|public-booking-form/, 'RETURN format page must not retain the finished-session registration flow');
 assert.doesNotMatch(legacyEventsScript, /returnCard|Sulzbach-Rosenberg|Register & continue to payment/, 'Legacy event enhancement must not reinsert the finished RETURN session');
 for (const source of ['/body-language/book/(.*)', '/body-language/en/book/(.*)']) {
   const rule = vercelConfig.headers.find((header) => header.source === source);
