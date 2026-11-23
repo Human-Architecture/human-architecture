@@ -23,6 +23,14 @@ Status: source-level review, 23 November 2026. This is a release-control documen
 6. **International selling** — define the countries actively targeted and obtain country-specific review before marketing consumer services outside Germany.
 7. **Operational proof** — test live PayPal capture, Resend delivery, withdrawal acknowledgement, database retention/deletion, and incident handling after deployment. Source tests cannot prove production credentials or live service behaviour.
 
+## Deeper form and API findings
+
+- The source contains 19 non-search HTML forms and 11 serverless API routes. Most data-collecting public forms link to `/datenschutz/`.
+- The German international-organisations enquiry describes its privacy purpose but currently does not link directly to `/datenschutz/`; add the link before publication.
+- The Bella Blu request form is explicitly a local, non-transmitting preview. It does not require a live privacy notice until a receiving endpoint is enabled; do not activate it without one.
+- Several inactive RETURN endpoints remain in the repository. They are not part of the current events flow, but should be disabled or removed before a public launch if the service is no longer offered.
+- The publicly exposed API surface has uneven safeguards. The withdrawal endpoint has method, origin, content-type and payload-size controls; comparable rate limiting, request-size limits, and abuse controls require production-platform configuration or endpoint-by-endpoint implementation.
+
 ## Legal baseline checked
 
 - BGB § 312j: clear pre-contract information and an unambiguous payment-obligation step.
