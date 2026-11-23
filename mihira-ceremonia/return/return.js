@@ -134,69 +134,6 @@
     });
   };
 
-  const publicForm = document.querySelector('#public-booking-form');
-  if (publicForm) {
-    const euro = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
-    const friendFields = publicForm.querySelector('#friend-fields');
-    const friendInputs = [...friendFields.querySelectorAll('input')];
-    const primaryPrice = publicForm.querySelector('#primary-price');
-    const friendPriceRow = publicForm.querySelector('#friend-price-row');
-    const friendPrice = publicForm.querySelector('#friend-price');
-    const totalPrice = publicForm.querySelector('#total-price');
-    const discountNote = publicForm.querySelector('#discount-note');
-    const paymentNote = publicForm.querySelector('#payment-route-note');
-    const basePrice = (type) => type === 'dali' ? 25 : type === 'regular' ? 28 : null;
-
-    const syncBooking = () => {
-      const hasFriend = publicForm.elements.bringFriend.value === 'yes';
-      friendFields.classList.toggle('is-visible', hasFriend);
-      friendFields.setAttribute('aria-hidden', String(!hasFriend));
-      friendInputs.forEach((input) => { input.required = hasFriend; });
-      friendPriceRow.hidden = !hasFriend;
-      discountNote.hidden = !hasFriend;
-
-      const primaryBase = basePrice(publicForm.elements.priceType.value);
-      const secondaryBase = hasFriend ? basePrice(publicForm.elements.friendPriceType.value) : null;
-      const primaryAmount = primaryBase === null ? null : primaryBase * (hasFriend ? 0.9 : 1);
-      const secondaryAmount = secondaryBase === null ? null : secondaryBase * 0.9;
-      primaryPrice.textContent = primaryAmount === null ? '–' : euro.format(primaryAmount);
-      friendPrice.textContent = secondaryAmount === null ? '–' : euro.format(secondaryAmount);
-      const total = primaryAmount === null || (hasFriend && secondaryAmount === null)
-        ? null
-        : primaryAmount + (secondaryAmount || 0);
-      totalPrice.textContent = total === null ? '–' : euro.format(total);
-      const containsDali = publicForm.elements.priceType.value === 'dali'
-        || (hasFriend && publicForm.elements.friendPriceType.value === 'dali');
-      if (paymentNote) {
-        paymentNote.hidden = total === null;
-        paymentNote.textContent = containsDali
-          ? (root.lang === 'en'
-            ? 'This booking includes a DALI ticket: please pay the full amount in cash on the evening.'
-            : 'Diese Buchung enthält ein DALI Ticket: Bitte bezahle den Gesamtbetrag am Abend passend in bar.')
-          : (root.lang === 'en'
-            ? 'After registration, secure online payment opens for this booking.'
-            : 'Nach der Anmeldung öffnet sich die sichere Online-Zahlung für diese Buchung.');
-      }
-    };
-
-    publicForm.addEventListener('change', (event) => {
-      if (['priceType', 'bringFriend', 'friendPriceType'].includes(event.target.name)) syncBooking();
-    });
-    languageButtons.forEach((button) => button.addEventListener('click', syncBooking));
-    publicForm.addEventListener('reset', () => setTimeout(syncBooking, 0));
-    syncBooking();
-
-    const safetyNote = publicForm.elements.safetyNote;
-    const healthConsent = publicForm.elements.healthConsent;
-    const syncHealthConsent = () => { healthConsent.required = Boolean(safetyNote.value.trim()); };
-    safetyNote.addEventListener('input', syncHealthConsent);
-    syncHealthConsent();
-    submitForm(publicForm, '/api/return-public', {
-      de: 'Deine Anmeldung ist eingegangen. Wir senden dir den sicheren Zahlungsweg und die nächsten Informationen. Dein Platz ist erst nach bestätigter Zahlung gesichert.',
-      en: 'Your registration has been received. We will send the secure payment route and next information. Your place is secured only after payment is confirmed.'
-    });
-  }
-
   const organizationForm = document.querySelector('#organization-form');
   if (organizationForm) submitForm(organizationForm, '/api/return-partner', {
     de: 'Danke. Wir prüfen deine Anfrage und melden uns mit einer Empfehlung für Format, Aufbau und nächsten Schritt.',
