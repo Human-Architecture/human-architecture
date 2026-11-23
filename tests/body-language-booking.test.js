@@ -10,7 +10,7 @@ const config = context.window.BodyLanguageBooking;
 
 assert.equal(config.status, 'manual_verification');
 assert.equal(config.payment_provider, 'PayPal');
-assert.equal(config.booking_closes_at, '2026-11-28T15:00:00+01:00');
+assert.equal(config.booking_closes_at, '2026-11-28T17:00:00+01:00');
 assert.equal(config.studio_payment_venue, 'Clever Fit Amberg-Kümmersbruck');
 assert.equal(config.booking_confirmation_email, 'hello@human-architecture.info');
 assert.equal(config.terms_url, '/body-language/terms/');

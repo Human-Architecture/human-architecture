@@ -8,7 +8,7 @@
     policy: 'Flexible Teilnahme: Du kannst deinen Platz an eine andere Person übertragen. Bei schriftlicher Absage bis spätestens 7 Kalendertage vor Workshopbeginn erhältst du 70 % des gezahlten Betrags zurück. Danach ist keine Rückerstattung möglich.',
     required: 'Bitte fülle die markierten Pflichtfelder aus und wähle maximal drei Fokusbereiche.',
     privacy: 'Ich habe die Datenschutzhinweise gelesen. *', terms: 'Ich akzeptiere die Teilnahmebedingungen. *',
-    unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung', close: 'Anmeldungen und Zahlungen sind bis zum Workshopbeginn am 28. November 2026 um 15:00 Uhr möglich.'
+    unavailable: 'Buchung wird vorbereitet', route: 'BODY LANGUAGE · Buchung', close: 'Anmeldungen und Zahlungen sind bis zum Workshopende am 28. November 2026 um 17:00 Uhr möglich.'
   } : {
     tbc: 'To be configured', date: 'Date & time', venue: 'Venue', duration: 'Duration', price: 'Price',
     select: 'Continue to booking', back: 'Back', review: 'Review your details', pay: 'Continue with payment',
@@ -16,7 +16,7 @@
     policy: 'Flexible participation: You may transfer your place to another person. If you cancel in writing at least 7 calendar days before the workshop begins, we refund 70% of the amount paid. After that deadline, refunds are not possible.',
     required: 'Please complete the required fields and choose no more than three focus areas.',
     privacy: 'I have read the privacy information. *', terms: 'I accept the participation terms. *',
-    unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking', close: 'Bookings and payments are open until the workshop begins at 15:00 on 28 November 2026.'
+    unavailable: 'Booking is being prepared', route: 'BODY LANGUAGE · Booking', close: 'Bookings and payments are open until the workshop ends at 17:00 on 28 November 2026.'
   };
   const $ = s => document.querySelector(s);
   const eventDate = c.date && c.start_time ? `${new Intl.DateTimeFormat(locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(`${c.date}T12:00:00`))} · ${c.start_time}${c.end_time ? `–${c.end_time}` : ''}` : copy.tbc;
