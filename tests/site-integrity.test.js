@@ -44,10 +44,13 @@ for (const {cardClass, poster, alt, homepageClass, info, book, voucher} of expec
   for (const route of [info, book, `/gutscheine/?voucher=${voucher}#anfrage`]) {
     assert.match(eventJourneys, new RegExp(`selector: '.${cardClass}',[\\s\\S]*?${regexEscape(route)}`), `Missing ${route} journey for ${cardClass}`);
     assert.match(homepageHtml, new RegExp(`href="${regexEscape(route)}"`), `Missing ${route} homepage route for ${cardClass}`);
+    assert.match(eventsHtml, new RegExp(`<noscript>[\\s\\S]*?href="${regexEscape(route)}"`), `Missing no-script ${route} route`);
   }
   assert.match(voucherHtml, new RegExp(`<option value="${voucher}"`), `Missing ${voucher} voucher option`);
   assert.match(voucherScript, new RegExp(`${voucher}:'`), `Missing ${voucher} voucher choice`);
 }
+assert.match(eventJourneys, /document\.readyState === 'loading'/, 'Event actions must initialize whether the page is newly loaded or restored');
+assert.match(eventJourneys, /enhanceEventsPage\(\)/, 'Event actions must be initialized by the page enhancer');
 assert.doesNotMatch(eventJourneys, /event-card--return|voucher=return/, 'RETURN must not appear in the current-event journey');
 assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered as a current-event voucher');
 assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');

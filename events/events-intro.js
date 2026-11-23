@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function enhanceEventsPage() {
   const lead = document.querySelector('.events-lead');
   if (!lead || document.querySelector('.events-orientation')) return;
   const german = new URLSearchParams(window.location.search).get('lang') === 'de';
@@ -67,4 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<strong>Flexible participation across all public formats</strong> You may transfer your place or ticket to another person. If you cancel in writing at least 7 calendar days before the start of the relevant event – or before the first live session for the course – we refund 70% of the amount paid. After that deadline, refunds are not possible. <a href="mailto:hello@human-architecture.info?subject=Transfer%20or%20cancellation">Request a transfer or cancellation by email</a>.';
     eventList.insertAdjacentElement('afterend', policy);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', enhanceEventsPage, { once: true });
+} else {
+  enhanceEventsPage();
+}
