@@ -1,5 +1,12 @@
 /* Lightweight search control for public pages with bespoke headers. */
 document.addEventListener('DOMContentLoaded', () => {
+  if (location.pathname === '/mihira-ceremonia/experience/' || location.pathname === '/mihira-ceremonia/experience/index.html') {
+    const languageGuide = document.createElement('script');
+    languageGuide.src = '/mihira-ceremonia/experience-language.js';
+    languageGuide.defer = true;
+    document.head.append(languageGuide);
+  }
+
   if (!document.querySelector('[data-site-experience-system]')) {
     const experience = document.createElement('link');
     experience.rel = 'stylesheet';
