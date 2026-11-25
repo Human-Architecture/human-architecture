@@ -54,3 +54,10 @@ body.ha-growth[data-page="codex"] .ha-codex-group .ha-card p:not(.ha-card-kicker
 
 /* Voucher photography gives the page a human moment while the product images retain the practical detail. */
 .voucher-gift-moment{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(240px,.72fr);align-items:end;margin:0 0 64px;background:#e8e1d6;border:1px solid #b9ad9b}.voucher-gift-moment__image{margin:0;min-height:360px}.voucher-gift-moment__image img{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center 48%}.voucher-gift-moment__copy{padding:clamp(28px,4vw,54px)}.voucher-gift-moment__copy p:last-child{margin:0;line-height:1.7}@media(max-width:760px){.voucher-gift-moment{grid-template-columns:1fr;margin-bottom:42px}.voucher-gift-moment__image,.voucher-gift-moment__image img{min-height:0}.voucher-gift-moment__image img{aspect-ratio:4/3;object-position:center 50%}}
+
+/* Shared public routes: a calm editorial pace across every offer, without changing its individual purpose. */
+.ha-growth .ha-content{max-width:1280px}
+.ha-growth .ha-section{padding-block:clamp(72px,8vw,124px)}
+.ha-growth .ha-grid{gap:clamp(20px,2.5vw,36px);margin-top:clamp(28px,3vw,42px)}
+.ha-growth .ha-card{padding-block:clamp(26px,3vw,40px)}
+@media(max-width:760px){.ha-growth .ha-section{padding-block:clamp(48px,12vw,76px)}}

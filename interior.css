@@ -278,3 +278,15 @@ body.ha-interior.ha-growth[data-page="mihira-ceremonia"] .ha-hero{
   background:linear-gradient(105deg,rgba(24,24,33,.89),rgba(36,38,47,.53)),url('/assets/BACKGROUNDS/TRANSITION%20BG2.jpeg') center 46% / cover no-repeat;
 }
 body.ha-interior.ha-growth[data-page="mihira-ceremonia"] .ha-card{border-top-color:#b9a17e;background:#faf6f0}
+
+/* Shared interior routes: a composed reading pace without flattening the offers into one template. */
+body.ha-interior:not(.ha-growth) .ha-content { max-width: 1280px; }
+body.ha-interior:not(.ha-growth) .ha-section { padding-block: clamp(68px, 8vw, 118px); }
+body.ha-interior:not(.ha-growth) .ha-grid { gap: clamp(20px, 2.5vw, 34px); margin-top: clamp(28px, 3vw, 42px); }
+body.ha-interior .founder-section { padding-block: clamp(72px, 9vw, 132px); }
+body.ha-interior .method-section { padding-bottom: clamp(52px, 6vw, 88px); margin-bottom: clamp(52px, 6vw, 88px); }
+@media (max-width: 760px) {
+  body.ha-interior:not(.ha-growth) .ha-section,
+  body.ha-interior .founder-section { padding-block: clamp(48px, 12vw, 76px); }
+  body.ha-interior .method-section { padding-bottom: 46px; margin-bottom: 46px; }
+}
