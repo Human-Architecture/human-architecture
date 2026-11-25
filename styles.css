@@ -2081,10 +2081,15 @@ p {
    13 — OFFERINGS
 ========================================================= */
 
-.offerings__intro {
-  grid-column: 3 / span 6;
+.offerings .section-marker {
+  grid-column: 4 / span 6;
+  margin-bottom: 26px;
+}
 
-  margin-bottom: 62px;
+.offerings__intro {
+  grid-column: 4 / span 6;
+
+  margin-bottom: 72px;
 }
 
 .offerings__intro h2 {
