@@ -2349,6 +2349,11 @@ aria-expanded="true"
   isolation: isolate;
   overflow: hidden;
   padding-top: calc(var(--section-y) + 48px);
+  background:
+    linear-gradient(90deg, rgba(4, 42, 54, .97), rgba(4, 42, 54, .91) 52%, rgba(4, 42, 54, .96)),
+    linear-gradient(180deg, rgba(3, 37, 47, .18), rgba(3, 37, 47, .62)),
+    url("assets/ocean/ocean-hero.png") center 62% / cover no-repeat,
+    var(--atlantic-abyss);
 }
 
 .partnerships::before {
