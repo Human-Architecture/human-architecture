@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   launcher.dataset.en='Find your next step';
   launcher.setAttribute('aria-label','Find your next step');
   launcher.innerHTML='<span class="orientation-launcher__mark" aria-hidden="true">↗</span><span class="orientation-launcher__label">Find your next step</span>';
+  launcher.querySelector('.orientation-launcher__label').style.color='#f9f3e9';
   document.body.append(launcher);
   return launcher;
  };

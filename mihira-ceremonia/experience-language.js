@@ -11,6 +11,13 @@
 
   document.documentElement.lang = isGerman ? 'de' : 'en';
   document.title = isGerman ? 'Mihira Ceremonia — Private Praxis' : 'Mihira Ceremonia — Private practice';
+  const heroPortrait = document.querySelector('.hero-image');
+  if (heroPortrait) {
+    heroPortrait.src = '/assets/portraits/mel-mihira-private-practice-outdoor.jpeg';
+    heroPortrait.alt = 'Mel Mihira outdoors with a notebook and phone';
+    heroPortrait.width = 1241;
+    heroPortrait.height = 1600;
+  }
 
   const primaryNav = document.querySelector('.site-header > nav[aria-label="Primary navigation"]');
   if (primaryNav && !primaryNav.querySelector('.mc-language-switch')) {
