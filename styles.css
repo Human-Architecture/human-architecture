@@ -1453,15 +1453,17 @@ p {
 
   padding: clamp(28px, 3vw, 40px);
 
-  border: 1px solid rgba(11,98,114,.16);
+  border: 1px solid rgba(217, 231, 229, .28);
 
   border-radius:
     44% 44% 20% 20% /
     22% 22% 12% 12%;
 
-  background: rgba(255,255,255,.24);
+  background:
+    radial-gradient(circle at 88% 14%, rgba(169, 200, 201, .2), transparent 28%),
+    linear-gradient(145deg, #0b4655 0%, #073642 62%, #062e39 100%);
 
-  color: var(--atlantic-abyss);
+  color: var(--ocean-foam);
 
   text-align: left;
 
@@ -1478,12 +1480,20 @@ p {
   border-radius:
     28% 48% 28% 42% /
     18% 31% 22% 29%;
+
+  background:
+    radial-gradient(circle at 82% 14%, rgba(222, 195, 144, .2), transparent 27%),
+    linear-gradient(145deg, #145262 0%, #0a3e4c 58%, #062f3a 100%);
 }
 
 .entry-domain-selector > button:nth-child(3) {
   border-radius:
     42% 29% 47% 24% /
     28% 18% 34% 21%;
+
+  background:
+    radial-gradient(circle at 86% 16%, rgba(169, 200, 201, .18), transparent 28%),
+    linear-gradient(145deg, #0d4856 0%, #07313d 64%, #052b35 100%);
 }
 
 .entry-domain-selector > button::after {
@@ -1497,8 +1507,10 @@ p {
   right: 24px;
   top: 24px;
 
-  border: 1px solid rgba(11,98,114,.11);
+  border: 1px solid rgba(222, 195, 144, .58);
   border-radius: 50%;
+  filter: brightness(0) invert(1) sepia(.12) saturate(.65);
+  opacity: .82;
 
   transition:
     transform 500ms var(--ease),
@@ -1535,11 +1547,13 @@ p {
 .entry-domain-selector > button[aria-pressed="true"] {
   transform: translateY(-6px);
 
-  background: rgba(255,255,255,.76);
+  background:
+    radial-gradient(circle at 85% 14%, rgba(222, 195, 144, .26), transparent 27%),
+    linear-gradient(145deg, #155b6b 0%, #0a4150 62%, #06313c 100%);
 
-  border-color: rgba(11,98,114,.30);
+  border-color: rgba(222, 195, 144, .74);
 
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 24px 52px rgba(3, 37, 47, .2);
 }
 
 .entry-domain-selector > button:hover::after,
@@ -1547,7 +1561,7 @@ p {
 .entry-domain-selector > button[aria-pressed="true"]::after {
   transform: scale(1.12);
 
-  border-color: var(--tidal-teal);
+  border-color: rgba(244, 247, 243, .88);
 }
 
 .entry-domain-selector > button > span {
@@ -1555,7 +1569,7 @@ p {
 
   margin-bottom: 42px;
 
-  color: var(--human-sand);
+  color: #e4c99a;
 
   font-size: .61rem;
   letter-spacing: .17em;
@@ -1569,7 +1583,7 @@ p {
 
   max-width: 310px;
 
-  color: var(--atlantic-abyss);
+  color: var(--ocean-foam);
 
   font-family: var(--display);
   font-size: clamp(1.7rem, 2.25vw, 2.45rem);
@@ -1582,7 +1596,7 @@ p {
 
   margin-top: 24px;
 
-  color: var(--living-ocean);
+  color: #a8d8d7;
 
   font-size: .61rem;
   font-weight: 600;
