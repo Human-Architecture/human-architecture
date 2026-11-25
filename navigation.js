@@ -70,6 +70,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(controls)controls.insertBefore(searchLink,controls.querySelector('.ha-menu')||null); else if(nav)nav.append(searchLink); else siteHeader.append(searchLink);
  };
  document.querySelectorAll('header').forEach(addSearchControl);
+ const addSharedRefinement=()=>{
+  if(document.querySelector('[data-shared-luxury-styles]'))return;
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/site-luxury-refinement.css';
+  stylesheet.dataset.sharedLuxuryStyles='';
+  document.head.append(stylesheet);
+ };
+ addSharedRefinement();
  const addOrientationLauncher=()=>{
   if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return;
   const stylesheet=document.createElement('link');
