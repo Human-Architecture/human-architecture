@@ -110,6 +110,94 @@ body.ha-growth .ha-section > p > .ha-button {
   margin-top: 1.25rem;
 }
 
+/* App-like wayfinding: the primary controls stay available while a visitor
+   compares an offer, without forcing persistent panels into the content. */
+@media (min-width: 801px) {
+  body.ha-interior .ha-header {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    box-shadow: 0 10px 26px rgba(3, 35, 46, .16);
+  }
+}
+
+/* Contextual visual moments. These are confined to decision sections, so
+   imagery provides orientation and depth without turning reading pages into
+   a continuous wallpaper. */
+body.ha-interior.ha-growth[data-page="sessions"] #ablauf,
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format,
+body.ha-interior.ha-growth[data-page="gruender"] #teams {
+  position: relative;
+  isolation: isolate;
+  margin-inline: clamp(-60px, -5vw, -24px);
+  padding-inline: clamp(24px, 5vw, 60px);
+  overflow: hidden;
+  color: var(--ha-ivory);
+}
+
+body.ha-interior.ha-growth[data-page="sessions"] #ablauf::before,
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format::before,
+body.ha-interior.ha-growth[data-page="gruender"] #teams::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body.ha-interior.ha-growth[data-page="sessions"] #ablauf::before {
+  background-image: linear-gradient(105deg, rgba(3, 35, 46, .94), rgba(6, 52, 66, .72)), url('/assets/BACKGROUNDS/BODYBACKGROUND1.jpeg');
+}
+
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format::before {
+  background-image: linear-gradient(105deg, rgba(38, 24, 32, .94), rgba(57, 36, 46, .7)), url('/assets/BACKGROUNDS/TRANSITION%20BG2.jpeg');
+}
+
+body.ha-interior.ha-growth[data-page="gruender"] #teams::before {
+  background-image: linear-gradient(105deg, rgba(3, 35, 46, .95), rgba(6, 52, 66, .68)), url('/assets/images/organizations/organizations-hero-workshop-v1.png');
+}
+
+body.ha-interior.ha-growth[data-page="sessions"] #ablauf :is(h2, h3, p),
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format :is(h2, h3, p),
+body.ha-interior.ha-growth[data-page="gruender"] #teams :is(h2, h3, p) {
+  color: inherit;
+}
+
+body.ha-interior.ha-growth[data-page="sessions"] #ablauf .ha-button,
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format .ha-button,
+body.ha-interior.ha-growth[data-page="gruender"] #teams .ha-button {
+  background: var(--ha-ivory);
+  border-color: var(--ha-ivory);
+  color: var(--ha-abyss) !important;
+}
+
+body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #orientierung {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(42px, 6vw, 82px);
+  margin-top: clamp(26px, 4vw, 54px);
+  border: 1px solid rgba(6, 52, 66, .13);
+  background: linear-gradient(100deg, rgba(245, 240, 231, .98) 0%, rgba(245, 240, 231, .93) 52%, rgba(245, 240, 231, .67) 100%), url('/assets/portraits/mel-founder-authority-warmth.jpg') right center / cover no-repeat;
+}
+
+@media (max-width: 800px) {
+  body.ha-interior.ha-growth[data-page="sessions"] #ablauf,
+  body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #return-format,
+  body.ha-interior.ha-growth[data-page="gruender"] #teams {
+    margin-inline: -24px;
+    padding-inline: 24px;
+  }
+
+  body.ha-interior.ha-growth[data-page="mihira-ceremonia"] #orientierung {
+    padding: 32px 24px;
+    background-image: linear-gradient(100deg, rgba(245, 240, 231, .98), rgba(245, 240, 231, .89)), url('/assets/portraits/mel-founder-authority-warmth.jpg');
+    background-position: center, 72% center;
+  }
+}
+
 /* The organisation route carries a denser information load: keep it clear. */
 body.org-page .org-section {
   padding-block: clamp(68px, 9vw, 132px);
