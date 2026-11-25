@@ -34,6 +34,11 @@ body.ha-interior .founder-portrait img{aspect-ratio:4/5;object-position:50% 20%}
 .footer__navigation a:hover{text-decoration:underline;text-decoration-color:#c8af8b;text-underline-offset:5px}
 .footer__meta{padding-top:6px}
 .footer__disclaimer{padding-top:3px}
+/* Partnership map: make each route unmistakably tappable and readable at a glance. */
+.ecosystem-group{width:clamp(286px,19vw,332px);min-height:164px;padding:22px 24px 24px;border-left-width:2px;background:linear-gradient(105deg,rgba(12,66,80,.5),rgba(12,66,80,.09))}
+.ecosystem-group h3{font-size:clamp(1.95rem,2.15vw,2.3rem)}
+.ecosystem-group p{font-size:.87rem;color:rgba(217,231,229,.8)}
+.ecosystem-group:hover{box-shadow:0 18px 38px rgba(1,31,39,.23)}
 body.ha-growth .ha-footer{padding-block:clamp(48px,6vw,78px)}
 body.ha-growth .ha-footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;gap:4px clamp(24px,4vw,56px);margin-block:24px 30px}
 body.ha-growth .ha-footer nav a{padding-block:7px;color:#e7eee9;text-decoration:none}
@@ -46,4 +51,5 @@ body.ha-growth details>summary:hover{color:#0b6272}
 @media(max-width:720px){body.ha-interior .founder-portrait{justify-self:start;width:min(86%,360px)}}
 @media(max-width:520px){body.ha-growth .ha-footer nav{grid-template-columns:1fr;gap:2px;margin-block:20px 26px}}
 @media(max-width:640px){.footer__connections{grid-template-columns:1fr}.footer__navigation{gap:9px 16px}}
+@media(max-width:760px){.ecosystem-group{width:auto;min-height:0;padding:26px 0;background:transparent}.ecosystem-group h3{font-size:clamp(1.7rem,8vw,2.15rem)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
