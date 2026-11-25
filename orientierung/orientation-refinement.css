@@ -5,6 +5,19 @@ body.orientation-page .orientation-paths__lead {
   color: var(--ink-soft);
 }
 
+/* The guide offers a concise structured route as well as free text. */
+body.orientation-page .orientation-questionnaire{display:grid;gap:22px;margin:0 0 28px;padding:24px 0 4px;border-top:1px solid rgba(6,52,66,.2)}
+body.orientation-page .orientation-questionnaire__intro{margin:0;color:var(--ink-soft);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.orientation-page .orientation-questionnaire fieldset{min-width:0;margin:0;padding:0;border:0}
+body.orientation-page .orientation-questionnaire legend{margin:0 0 10px;color:var(--ink);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+body.orientation-page .orientation-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+body.orientation-page .orientation-choice-grid--compact{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.orientation-page .orientation-choice-grid label{position:relative;display:flex;min-height:58px;align-items:center;padding:11px 13px;border:1px solid rgba(6,52,66,.25);background:rgba(245,240,231,.48);color:var(--ink);font-size:12px;line-height:1.42;cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease}
+body.orientation-page .orientation-choice-grid input{position:absolute;inline-size:1px;block-size:1px;opacity:0}
+body.orientation-page .orientation-choice-grid label:has(input:checked){border-color:var(--ink);background:var(--ink);color:var(--paper)}
+body.orientation-page .orientation-choice-grid label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:620px){body.orientation-page .orientation-choice-grid,body.orientation-page .orientation-choice-grid--compact{grid-template-columns:1fr}}
+
 body.orientation-page .orientation-paths__grid {
   grid-template-columns: repeat(3, 1fr);
 }

@@ -56,7 +56,87 @@
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
+  const guidedRoutes = {
+    codex: {
+      href: '/codex/',
+      label: { en: 'Explore The Codex', de: 'Den Codex entdecken' },
+      title: { en: 'Begin with your personal framework', de: 'Beginne mit deinem persönlichen Rahmen' },
+      summary: { en: 'The Codex is a clear first route when you want to understand recurring patterns, decisions or the wider context of your life more precisely.', de: 'Der Codex ist ein klarer erster Weg, wenn du wiederkehrende Muster, Entscheidungen oder deinen weiteren Lebenskontext präziser verstehen möchtest.' }
+    },
+    sessions: {
+      href: '/sessions/',
+      label: { en: 'Explore sessions', de: 'Sessions entdecken' },
+      title: { en: 'Explore a body-centred route', de: 'Erkunde einen körpernahen Weg' },
+      summary: { en: 'A session is the more relevant place to begin when your question is connected to body, regulation or a personal in-person format.', de: 'Eine Session ist der passendere Einstieg, wenn dein Anliegen mit Körper, Regulation oder einem persönlichen Präsenzformat verbunden ist.' }
+    },
+    mihira: {
+      href: '/mihira-ceremonia/',
+      label: { en: 'Explore Mihira Ceremonia', de: 'Mihira Ceremonia entdecken' },
+      title: { en: 'A considered space for transition', de: 'Ein bewusster Raum für Übergang' },
+      summary: { en: 'Mihira Ceremonia is the more fitting route when identity, relationship or a meaningful transition needs a held, deliberate frame.', de: 'Mihira Ceremonia ist der passendere Weg, wenn Identität, Beziehung oder ein bedeutsamer Übergang einen gehaltenen, bewussten Rahmen brauchen.' }
+    },
+    families: {
+      href: '/familien/',
+      label: { en: 'Explore families & parents', de: 'Familien & Eltern entdecken' },
+      title: { en: 'A route for family context', de: 'Ein Weg für den Familienkontext' },
+      summary: { en: 'For a question involving family life, parenting or a young person, the families route gives the clearest overview of the relevant formats.', de: 'Bei einem Anliegen rund um Familienalltag, Elternschaft oder junge Menschen bietet der Familienbereich den klarsten Überblick über passende Formate.' }
+    },
+    organizations: {
+      href: '/organizations/',
+      label: { en: 'For teams & organisations', de: 'Für Teams & Organisationen' },
+      title: { en: 'A route for a shared work context', de: 'Ein Weg für einen gemeinsamen Arbeitskontext' },
+      summary: { en: 'For a team, leadership or organisational question, the organisations route is the clearest place to understand the available shared formats.', de: 'Bei einem Team-, Führungs- oder Organisationsanliegen ist der Organisationsbereich der klarste Ort, um die verfügbaren gemeinsamen Formate zu verstehen.' }
+    }
+  };
+
+  function renderQuestionnaire() {
+    const labelNode = form.querySelector('label[for="orientation-message"]');
+    if (!labelNode || form.querySelector('[data-orientation-questionnaire]')) return;
+    const questionnaire = document.createElement('div');
+    questionnaire.className = 'orientation-questionnaire';
+    questionnaire.dataset.orientationQuestionnaire = '';
+    questionnaire.innerHTML = `
+      <p class="orientation-questionnaire__intro"><span data-en="Or choose the path that feels closest" data-de="Oder wähle den Weg, der deinem Anliegen am nächsten ist">Or choose the path that feels closest</span></p>
+      <fieldset><legend><span data-en="1 · What is most present?" data-de="1 · Was ist gerade am präsentesten?">1 · What is most present?</span></legend>
+        <div class="orientation-choice-grid">
+          <label><input type="radio" name="guide-focus" value="codex"><span data-en="A recurring pattern or question about myself" data-de="Ein wiederkehrendes Muster oder eine Frage zu mir selbst">A recurring pattern or question about myself</span></label>
+          <label><input type="radio" name="guide-focus" value="sessions"><span data-en="My body, regulation or a personal session" data-de="Mein Körper, Regulation oder eine persönliche Session">My body, regulation or a personal session</span></label>
+          <label><input type="radio" name="guide-focus" value="mihira"><span data-en="Identity, relationship or a meaningful transition" data-de="Identität, Beziehung oder ein bedeutsamer Übergang">Identity, relationship or a meaningful transition</span></label>
+          <label><input type="radio" name="guide-focus" value="families"><span data-en="Family life, parenting or a young person" data-de="Familienalltag, Elternschaft oder ein junger Mensch">Family life, parenting or a young person</span></label>
+          <label><input type="radio" name="guide-focus" value="organizations"><span data-en="A team, leadership or organisational question" data-de="Eine Team-, Führungs- oder Organisationsfrage">A team, leadership or organisational question</span></label>
+        </div>
+      </fieldset>
+      <fieldset><legend><span data-en="2 · Where does this belong?" data-de="2 · In welchem Kontext liegt es?">2 · Where does this belong?</span></legend>
+        <div class="orientation-choice-grid orientation-choice-grid--compact">
+          <label><input type="radio" name="guide-setting" value="personal"><span data-en="My personal life" data-de="Mein persönliches Leben">My personal life</span></label>
+          <label><input type="radio" name="guide-setting" value="family"><span data-en="My family or partnership" data-de="Meine Familie oder Partnerschaft">My family or partnership</span></label>
+          <label><input type="radio" name="guide-setting" value="work"><span data-en="My work or team" data-de="Meine Arbeit oder mein Team">My work or team</span></label>
+        </div>
+      </fieldset>`;
+    labelNode.before(questionnaire);
+  }
+
+  function questionnaireDirection() {
+    const focus = form.querySelector('input[name="guide-focus"]:checked')?.value;
+    const setting = form.querySelector('input[name="guide-setting"]:checked')?.value;
+    if (!focus || !setting) return null;
+    const route = setting === 'work' ? 'organizations' : setting === 'family' && focus !== 'organizations' ? 'families' : focus;
+    return guidedRoutes[route] ? { route, ...guidedRoutes[route] } : null;
+  }
+
+  function showGuidance(direction) {
+    title.textContent = direction.title[language];
+    summary.textContent = direction.summary[language];
+    link.href = direction.href;
+    label.textContent = direction.label[language];
+    link.removeAttribute('target');
+    link.removeAttribute('rel');
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
   applyClarityCopy();
+  renderQuestionnaire();
   document.querySelectorAll('[data-suggestion-en]').forEach((button) => {
     button.addEventListener('click', () => {
       textarea.value = button.dataset[`suggestion${language === 'de' ? 'De' : 'En'}`];
@@ -71,12 +151,23 @@
 
   document.querySelector('[data-orientation-reset]').addEventListener('click', () => {
     result.hidden = true;
+    form.reset();
     textarea.focus();
   });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const message = textarea.value.trim();
+    const selectedDirection = questionnaireDirection();
+    if (!message && !selectedDirection) {
+      showError(language === 'de' ? 'Beschreibe dein Anliegen kurz oder beantworte die beiden Fragen.' : 'Briefly describe your context or answer the two questions.');
+      return;
+    }
+
+    if (selectedDirection && !message) {
+      showGuidance(selectedDirection);
+      return;
+    }
     if (message.length < 8) {
       showError(language === 'de' ? 'Beschreibe deinen Kontext bitte in einem kurzen Satz.' : 'Please describe your context in one short sentence.');
       return;

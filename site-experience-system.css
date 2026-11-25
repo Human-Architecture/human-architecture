@@ -48,6 +48,14 @@ body.ha-interior .founder-portrait img{aspect-ratio:4/5;object-position:50% 22%}
 .ecosystem-group--work{left:12%;bottom:5%}
 .ecosystem-group--health{right:12%;bottom:5%}
 .orientation-launcher.is-map-obscured{opacity:0;pointer-events:none;transform:translateY(14px)}
+/* Homepage threshold: a quiet breath of ocean, not a second hero competing with the content. */
+.philosophy{padding-bottom:clamp(48px,5vw,76px)}
+.philosophy-line{height:clamp(52px,4vw,72px);margin-top:clamp(28px,4vw,54px);margin-bottom:0}
+.home-intro-divider{min-height:clamp(96px,9vw,136px);background:linear-gradient(90deg,rgba(3,37,47,.67),rgba(3,37,47,.38) 50%,rgba(3,37,47,.58)),url("/assets/ocean/ocean-hero.png") center 58%/cover no-repeat}
+.home-intro-divider::before{inset:0;border:0;background:linear-gradient(180deg,rgba(244,247,243,.04),rgba(3,37,47,.14))}
+.home-intro-divider__line{grid-template-columns:1fr 10px 1fr;gap:12px;opacity:.78}
+.home-intro-divider__line i{width:10px;border-color:rgba(222,195,144,.82);background:rgba(3,37,47,.28)}
+.home-intro-divider__line i::before{width:3px;height:3px;margin:3px}
 body.ha-growth .ha-footer{padding-block:clamp(48px,6vw,78px)}
 body.ha-growth .ha-footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;gap:4px clamp(24px,4vw,56px);margin-block:24px 30px}
 body.ha-growth .ha-footer nav a{padding-block:7px;color:#e7eee9;text-decoration:none}

@@ -193,13 +193,24 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="ha-eyebrow" data-de="DEIN AUSGANGSPUNKT" data-en="YOUR STARTING POINT">DEIN AUSGANGSPUNKT</p>
         <h2 id="session-decision-title" data-de="Du musst die Methode nicht selbst auswählen." data-en="You do not need to choose the method yourself.">Du musst die Methode nicht selbst auswählen.</h2>
         <p data-de="Beginne bei dem, was du gerade brauchst. Öffne bei jeder Session zuerst Mehr über diese Session, wenn du Ablauf und Rahmen genauer verstehen möchtest. Danach kannst du gezielt anfragen – oder dein Anliegen zuerst beschreiben." data-en="Begin with what you need right now. Open More about this session on any option when you want to understand its process and scope first. Then enquire specifically—or simply describe your situation first.">Beginne bei dem, was du gerade brauchst. Öffne bei jeder Session zuerst Mehr über diese Session, wenn du Ablauf und Rahmen genauer verstehen möchtest. Danach kannst du gezielt anfragen – oder dein Anliegen zuerst beschreiben.</p>
-        <div class="ha-session-decision-grid">
-          <a href="#struktur"><strong data-de="Klarheit über deinen Fokus" data-en="Clarity about your focus">Klarheit über deinen Fokus</strong><span data-de="Für Orientierung und einen strukturierten Blick auf dein Anliegen." data-en="For orientation and a structured view of what brings you here.">Für Orientierung und einen strukturierten Blick auf dein Anliegen.</span></a>
-          <a href="#koerperarbeit"><strong data-de="Hands-on Körperarbeit" data-en="Hands-on bodywork">Hands-on Körperarbeit</strong><span data-de="Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper." data-en="For agreed touch, massage or manual work with the body.">Für vereinbarte Berührung, Massage oder manuelle Arbeit am Körper.</span></a>
-          <a href="#regulation"><strong data-de="Ruhe, Atem &amp; Wahrnehmung" data-en="Rest, breath &amp; awareness">Ruhe, Atem &amp; Wahrnehmung</strong><span data-de="Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck." data-en="For a calmer guided setting without performance pressure.">Für einen ruhigeren, angeleiteten Rahmen ohne Leistungsdruck.</span></a>
-          <a href="#bewegung"><strong data-de="Bewegung integrieren" data-en="Integrate movement">Bewegung integrieren</strong><span data-de="Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag." data-en="For individual guided movement, coordination and everyday practice.">Für individuell angeleitete Bewegung, Koordination und Praxis im Alltag.</span></a>
+        <div class="ha-session-question" role="group" aria-labelledby="session-guide-focus">
+          <p id="session-guide-focus" class="ha-card-kicker" data-de="01 · WAS WÜRDE DIR JETZT AM MEISTEN HELFEN?" data-en="01 · WHAT WOULD BE MOST HELPFUL RIGHT NOW?">01 · WAS WÜRDE DIR JETZT AM MEISTEN HELFEN?</p>
+          <div class="ha-session-decision-grid">
+            <button type="button" data-session-focus="struktur" aria-pressed="false" data-de="Klarheit über meinen Fokus" data-en="Clarity about my focus">Klarheit über meinen Fokus</button>
+            <button type="button" data-session-focus="koerperarbeit" aria-pressed="false" data-de="Vereinbarte Körperarbeit oder Massage" data-en="Agreed bodywork or massage">Vereinbarte Körperarbeit oder Massage</button>
+            <button type="button" data-session-focus="regulation" aria-pressed="false" data-de="Ruhe, Atem oder Wahrnehmung" data-en="Rest, breath or awareness">Ruhe, Atem oder Wahrnehmung</button>
+            <button type="button" data-session-focus="bewegung" aria-pressed="false" data-de="Bewegung alltagstauglich integrieren" data-en="Integrate movement into everyday life">Bewegung alltagstauglich integrieren</button>
+          </div>
         </div>
-        <p class="ha-session-decision-note" data-de="Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt." data-en="Not sure yet? That is completely fine: simply describe your situation — the right session is agreed before any booking.">Noch unsicher? Das ist ausdrücklich in Ordnung: Beschreibe einfach dein Anliegen – die passende Session wird vor einer Buchung abgestimmt.</p>
+        <div class="ha-session-question" role="group" aria-labelledby="session-guide-readiness">
+          <p id="session-guide-readiness" class="ha-card-kicker" data-de="02 · WAS BRAUCHST DU ALS NÄCHSTES?" data-en="02 · WHAT DO YOU NEED NEXT?">02 · WAS BRAUCHST DU ALS NÄCHSTES?</p>
+          <div class="ha-session-readiness">
+            <button type="button" data-session-readiness="explore" aria-pressed="false" data-de="Ich möchte zuerst die passenden Session-Optionen ansehen." data-en="I want to view the fitting session options first.">Ich möchte zuerst die passenden Session-Optionen ansehen.</button>
+            <button type="button" data-session-readiness="clarify" aria-pressed="false" data-de="Ich möchte meinen Rahmen vor einer Buchung erst persönlich klären." data-en="I want to clarify my scope personally before booking.">Ich möchte meinen Rahmen vor einer Buchung erst persönlich klären.</button>
+          </div>
+        </div>
+        <div class="ha-session-guide-result" aria-live="polite" hidden></div>
+        <p class="ha-session-decision-note" data-de="Dieser Guide dient der Orientierung, nicht einer medizinischen Einschätzung. Bei akuten oder ungeklärten Beschwerden ist zunächst eine geeignete Fachperson die richtige Anlaufstelle." data-en="This guide is for orientation, not medical assessment. For acute or unexplained symptoms, an appropriate healthcare professional should be your first point of contact.">Dieser Guide dient der Orientierung, nicht einer medizinischen Einschätzung. Bei akuten oder ungeklärten Beschwerden ist zunächst eine geeignete Fachperson die richtige Anlaufstelle.</p>
         <aside class="ha-session-calendar" aria-label="Dezember-Termine / December appointments">
           <p class="ha-eyebrow" data-de="DEZEMBER · VOR ORT IN REGENSBURG" data-en="DECEMBER · IN PERSON IN REGENSBURG">DEZEMBER · VOR ORT IN REGENSBURG</p>
           <h3 data-de="Mittwochs Zeit für deinen Körper reservieren." data-en="Reserve dedicated time for your body on Wednesdays.">Mittwochs Zeit für deinen Körper reservieren.</h3>
@@ -210,6 +221,47 @@ document.addEventListener('DOMContentLoaded', () => {
         </aside>
       `;
       sessionOverview.before(guide);
+
+      const focusButtons = Array.from(guide.querySelectorAll('[data-session-focus]'));
+      const readinessButtons = Array.from(guide.querySelectorAll('[data-session-readiness]'));
+      const result = guide.querySelector('.ha-session-guide-result');
+      const labels = {
+        struktur: { de: 'Strukturelle Grundlage', en: 'Structural foundation', href: '#struktur' },
+        koerperarbeit: { de: 'Körperarbeit & Integration', en: 'Bodywork & integration', href: '#koerperarbeit' },
+        regulation: { de: 'Regulation & Wahrnehmung', en: 'Regulation & awareness', href: '#regulation' },
+        bewegung: { de: 'Bewegung & Integration', en: 'Movement & integration', href: '#bewegung' }
+      };
+      let selectedFocus = null;
+      let selectedReadiness = null;
+      const renderSessionResult = () => {
+        if (!selectedFocus || !selectedReadiness || !result) return;
+        const selected = labels[selectedFocus];
+        const isEnglish = language === 'en';
+        const title = selectedReadiness === 'clarify'
+          ? (isEnglish ? 'Clarify the frame before you book.' : 'Kläre den Rahmen, bevor du buchst.')
+          : (isEnglish ? `Begin with ${selected.en}.` : `Beginne mit ${selected.de}.`);
+        const copy = selectedReadiness === 'clarify'
+          ? (isEnglish ? `You selected ${selected.en.toLowerCase()}. Send a short enquiry and we will clarify fit, consent, setting and the next practical step before any booking.` : `Du hast ${selected.de} gewählt. Sende eine kurze Anfrage; Passung, Einverständnis, Rahmen und der nächste praktische Schritt werden vor einer Buchung geklärt.`)
+          : (isEnglish ? `The overview below shows the sessions within ${selected.en.toLowerCase()}. You can review process, duration and final price before deciding whether to enquire.` : `In der Übersicht unten findest du die Sessions innerhalb von ${selected.de}. Du kannst Ablauf, Dauer und Endpreis ansehen, bevor du entscheidest, ob du anfragen möchtest.`);
+        const action = selectedReadiness === 'clarify'
+          ? `<a class="ha-button" href="#anfragen">${isEnglish ? 'Clarify my session' : 'Meine Session klären'}</a>`
+          : `<a class="ha-button" href="${selected.href}">${isEnglish ? 'View suitable sessions' : 'Passende Sessions ansehen'}</a>`;
+        result.innerHTML = `<p class="ha-card-kicker">${isEnglish ? 'YOUR NEXT CLEAR STEP' : 'DEIN NÄCHSTER KLARER SCHRITT'}</p><h3>${title}</h3><p>${copy}</p>${action}`;
+        result.hidden = false;
+      };
+      focusButtons.forEach(button => button.addEventListener('click', () => {
+        selectedFocus = button.dataset.sessionFocus;
+        focusButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderSessionResult();
+      }));
+      readinessButtons.forEach(button => button.addEventListener('click', () => {
+        selectedReadiness = button.dataset.sessionReadiness;
+        readinessButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderSessionResult();
+      }));
+      document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => {
+        window.setTimeout(renderSessionResult, 0);
+      }));
     }
 
     const sessionExplanations = {
@@ -288,6 +340,46 @@ document.addEventListener('DOMContentLoaded', () => {
       link.textContent = language === 'en' ? link.dataset.en : link.dataset.de;
       copy?.appendChild(link);
     });
+  }
+
+  if (document.body.dataset.page === 'mihira-ceremonia') {
+    const guide = document.querySelector('.ha-mihira-guide');
+    if (guide) {
+      const focusButtons = Array.from(guide.querySelectorAll('[data-mihira-focus]'));
+      const readinessButtons = Array.from(guide.querySelectorAll('[data-mihira-readiness]'));
+      const result = guide.querySelector('.ha-mihira-guide-result');
+      let selectedFocus = null;
+      let selectedReadiness = null;
+      const renderMihiraResult = () => {
+        if (!selectedFocus || !selectedReadiness || !result) return;
+        const isEnglish = language === 'en';
+        const deeperPage = selectedFocus === 'transition' ? '/mihira-ceremonia/mentoring/' : '/mihira-ceremonia/experience/';
+        const title = selectedReadiness === 'clarify'
+          ? (isEnglish ? 'Clarify the setting together.' : 'Kläre den Rahmen gemeinsam.')
+          : (isEnglish ? 'Begin with the practice and its possible formats.' : 'Beginne bei der Praxis und ihren möglichen Formaten.');
+        const copy = selectedReadiness === 'clarify'
+          ? (isEnglish ? 'A first conversation can clarify whether the scope, timing and form of support fit your situation. An enquiry is not a booking.' : 'In einem ersten Gespräch kann geklärt werden, ob Umfang, Zeitpunkt und Form der Begleitung zu deiner Situation passen. Eine Anfrage ist keine Buchung.')
+          : (isEnglish ? 'The deeper page explains the approach and available formats so you can decide at your own pace which next step feels right.' : 'Die vertiefende Seite erklärt Ansatz und mögliche Formate, damit du in deinem Tempo entscheiden kannst, welcher nächste Schritt stimmig ist.');
+        const action = selectedReadiness === 'clarify'
+          ? `<a class="ha-button" href="#anfragen">${isEnglish ? 'Clarify my situation' : 'Mein Anliegen klären'}</a>`
+          : `<a class="ha-button" href="${deeperPage}">${isEnglish ? 'Explore the practice' : 'Die Praxis vertiefen'}</a>`;
+        result.innerHTML = `<p class="ha-card-kicker">${isEnglish ? 'YOUR NEXT CLEAR STEP' : 'DEIN NÄCHSTER KLARER SCHRITT'}</p><h3>${title}</h3><p>${copy}</p>${action}`;
+        result.hidden = false;
+      };
+      focusButtons.forEach(button => button.addEventListener('click', () => {
+        selectedFocus = button.dataset.mihiraFocus;
+        focusButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderMihiraResult();
+      }));
+      readinessButtons.forEach(button => button.addEventListener('click', () => {
+        selectedReadiness = button.dataset.mihiraReadiness;
+        readinessButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderMihiraResult();
+      }));
+      document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => {
+        window.setTimeout(renderMihiraResult, 0);
+      }));
+    }
   }
 
   if (location.pathname.includes('/sessions/koerperarbeit/') && !document.querySelector('.ha-session-calendar')) {
