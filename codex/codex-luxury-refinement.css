@@ -1,0 +1,157 @@
+/* Codex: a quieter, more considered decision surface. */
+body.ha-growth[data-page="codex"] .ha-codex-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+body.ha-growth[data-page="codex"] .ha-codex-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: .65;
+  background:
+    radial-gradient(circle at 82% 22%, rgba(213, 186, 143, .2), transparent 27%),
+    linear-gradient(90deg, transparent 72%, rgba(245, 240, 231, .13) 72.1%, transparent 72.2%);
+}
+
+body.ha-growth[data-page="codex"] .ha-codex-hero .ha-hero-inner {
+  max-width: 1160px;
+}
+
+body.ha-growth[data-page="codex"] .codex-hero-assurances {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  max-width: 920px;
+  margin: clamp(42px, 5vw, 68px) 0 0;
+  border-top: 1px solid rgba(245, 240, 231, .3);
+  border-bottom: 1px solid rgba(245, 240, 231, .22);
+}
+
+body.ha-growth[data-page="codex"] .codex-hero-assurances div {
+  min-height: 112px;
+  padding: 21px 26px 20px 0;
+}
+
+body.ha-growth[data-page="codex"] .codex-hero-assurances div + div {
+  padding-left: 26px;
+  border-left: 1px solid rgba(245, 240, 231, .22);
+}
+
+body.ha-growth[data-page="codex"] .codex-hero-assurances dt {
+  color: #dfc7a4;
+  font-family: Manrope, sans-serif;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+body.ha-growth[data-page="codex"] .codex-hero-assurances dd {
+  max-width: 22ch;
+  margin: 10px 0 0;
+  color: #f7f3eb;
+  font-size: .88rem;
+  line-height: 1.55;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder {
+  position: relative;
+  margin-inline: calc(clamp(24px, 4vw, 54px) * -1);
+  padding: clamp(68px, 8vw, 112px) clamp(24px, 4vw, 54px);
+  border-top: 0;
+  border-bottom: 1px solid rgba(6, 52, 66, .14);
+  background:
+    radial-gradient(circle at 96% 4%, rgba(205, 224, 220, .72), transparent 24%),
+    linear-gradient(135deg, #eef5f2 0%, #f8f6f0 58%, #f1eadf 100%);
+}
+
+body.ha-growth[data-page="codex"] .codex-finder > * { max-width: 1040px; }
+
+body.ha-growth[data-page="codex"] .codex-finder h2 { max-width: 15ch; }
+
+body.ha-growth[data-page="codex"] .codex-finder__choices {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 42px;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__choice {
+  min-height: 148px;
+  padding: 22px 22px 25px;
+  border-color: rgba(6, 52, 66, .16);
+  border-top: 2px solid rgba(182, 155, 119, .78);
+  background: rgba(255, 253, 248, .77);
+  box-shadow: 0 14px 34px rgba(6, 52, 66, .045);
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__choice strong {
+  font-size: .93rem;
+  line-height: 1.55;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__choice:hover,
+body.ha-growth[data-page="codex"] .codex-finder__choice:focus-visible,
+body.ha-growth[data-page="codex"] .codex-finder__choice[aria-pressed="true"] {
+  box-shadow: 0 20px 42px rgba(6, 52, 66, .14);
+  transform: translateY(-3px);
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__scope {
+  max-width: 100%;
+  margin-top: 42px;
+  padding: 24px 0 0;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__scope-choices {
+  max-width: 800px;
+  gap: 14px;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__scope-choices button {
+  min-height: 88px;
+  padding: 20px 22px;
+  background: rgba(255, 253, 248, .5);
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__prompt {
+  max-width: 800px;
+  margin: 20px 0 0;
+  padding: 15px 19px;
+  border-left: 2px solid #b69b77;
+  color: #365961;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+body.ha-growth[data-page="codex"] .codex-finder__result {
+  max-width: 920px;
+  margin-top: 28px;
+  border: 1px solid rgba(200, 175, 139, .56);
+  border-left: 3px solid #d9c19b;
+  box-shadow: 18px 18px 0 rgba(6, 52, 66, .07);
+}
+
+body.ha-growth[data-page="codex"] #codex-contexts .ha-grid { margin-top: 38px; }
+body.ha-growth[data-page="codex"] #codex-contexts .ha-card { min-height: 320px; }
+
+@media (max-width: 900px) {
+  body.ha-growth[data-page="codex"] .codex-finder__choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  body.ha-growth[data-page="codex"] .codex-hero-assurances { grid-template-columns: 1fr; margin-top: 38px; }
+  body.ha-growth[data-page="codex"] .codex-hero-assurances div { min-height: 0; padding: 17px 0; }
+  body.ha-growth[data-page="codex"] .codex-hero-assurances div + div { padding-left: 0; border-left: 0; border-top: 1px solid rgba(245, 240, 231, .2); }
+  body.ha-growth[data-page="codex"] .codex-finder { margin-inline: -17px; padding: 58px 17px; }
+  body.ha-growth[data-page="codex"] .codex-finder__choices { grid-template-columns: 1fr; margin-top: 30px; }
+  body.ha-growth[data-page="codex"] .codex-finder__choice { min-height: 0; }
+  body.ha-growth[data-page="codex"] .codex-finder__scope { margin-top: 32px; }
+  body.ha-growth[data-page="codex"] .codex-finder__result { box-shadow: 10px 10px 0 rgba(6, 52, 66, .07); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.ha-growth[data-page="codex"] .codex-finder__choice { transition: none; }
+  body.ha-growth[data-page="codex"] .codex-finder__choice:hover { transform: none; }
+}
