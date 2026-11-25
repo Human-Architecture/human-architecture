@@ -22,5 +22,13 @@ body.ha-growth .ha-button,body.ha-interior .ha-button{min-height:48px;padding-in
 .site-header nav a,.ha-header a,.cr-header a{transition:color .22s ease,opacity .22s ease}
 .site-header nav a:hover,.ha-header a:hover,.cr-header a:hover{opacity:.76}
 .site-footer,.ha-footer{isolation:isolate}
+body.ha-growth .ha-footer{padding-block:clamp(48px,6vw,78px)}
+body.ha-growth .ha-footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:4px clamp(24px,4vw,56px);margin-block:24px 30px}
+body.ha-growth .ha-footer nav a{padding-block:7px;color:#e7eee9;text-decoration:none}
+body.ha-growth .ha-footer nav a:hover{text-decoration:underline;text-decoration-color:#c8af8b;text-underline-offset:6px}
+body.ha-growth details>summary{transition:color .2s ease}
+body.ha-growth details>summary:hover{color:#0b6272}
+.codex-reading details>summary,.cr-page details>summary{padding-block:4px}
+.codex-reading .cr-note,.cr-page .cr-note{line-height:1.65}
 @media(max-width:760px){html{scroll-padding-top:82px}body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:clamp(50px,13vw,78px)}.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(50px,13vw,80px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
