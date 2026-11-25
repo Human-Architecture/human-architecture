@@ -52,6 +52,39 @@
   margin-top: 20px;
 }
 
+.codex-finder__scope {
+  margin-top: 28px;
+  max-width: 760px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(6, 52, 66, 0.16);
+}
+
+.codex-finder__scope-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.codex-finder__scope-choices button {
+  min-height: 76px;
+  padding: 16px 18px;
+  border: 1px solid rgba(6, 52, 66, 0.2);
+  background: transparent;
+  color: #063442;
+  cursor: pointer;
+  font: 500 .92rem/1.45 Manrope, sans-serif;
+  text-align: left;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.codex-finder__scope-choices button:hover,
+.codex-finder__scope-choices button:focus-visible,
+.codex-finder__scope-choices button[aria-pressed="true"] {
+  background: #0b6272;
+  border-color: #0b6272;
+  color: #fff;
+}
+
 .codex-finder__result {
   background: #063442;
   color: #fff;
@@ -80,4 +113,5 @@
 
 @media (max-width: 720px) {
   .codex-finder__choices { grid-template-columns: 1fr; }
+  .codex-finder__scope-choices { grid-template-columns: 1fr; }
 }
