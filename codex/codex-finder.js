@@ -9,12 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedScope = null;
 
   const orientation = finder.querySelector('[data-codex-result="orientation"]');
+  const prompt = finder.querySelector('[data-codex-finder-prompt]');
 
   const showResult = () => {
-    if (!selectedChoice || !selectedScope) return;
     results.forEach((result) => {
       result.hidden = true;
     });
+    if (prompt) prompt.hidden = !(selectedChoice && !selectedScope);
+    if (!selectedChoice || !selectedScope) return;
+    if (prompt) prompt.hidden = true;
     if (selectedScope === 'clarify') {
       if (orientation) orientation.hidden = false;
       return;
