@@ -17,8 +17,8 @@
       : 'RETURN · Breathwork, Yoga Nidra & Deep Rest | Mihira Ceremonia';
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = lang === 'en'
-      ? 'RETURN is a guided group experience for breath, body awareness, regulation, Yoga Nidra and deep rest—available publicly or for private groups.'
-      : 'RETURN ist eine geführte Gruppenerfahrung für Atem, Körperwahrnehmung, Regulation, Yoga Nidra und tiefe Ruhe – öffentlich oder privat buchbar.';
+      ? 'RETURN is a guided group experience for breath, body awareness, regulation, Yoga Nidra and deep rest—available for future public dates and private groups.'
+      : 'RETURN ist eine geführte Gruppenerfahrung für Atem, Körperwahrnehmung, Regulation, Yoga Nidra und tiefe Ruhe – für künftige öffentliche Termine und private Gruppen.';
     if (updateUrl) {
       const url = new URL(window.location.href);
       if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
