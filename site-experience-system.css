@@ -1,0 +1,22 @@
+/* Shared finish: readable contrast, generous space and consistent alignment. */
+:root{--ha-page-space:clamp(24px,5vw,86px);--ha-section-space:clamp(64px,8vw,132px);--ha-readable-ink:#17323a;--ha-readable-muted:#46616a;--ha-fine-line:rgba(23,50,58,.14)}
+html{scroll-padding-top:112px}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #c8af8b;outline-offset:4px}
+body.ha-growth .ha-content,body.ha-interior .ha-content{width:min(100% - (var(--ha-page-space) * 2),1280px)}
+body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:var(--ha-section-space)}
+body.ha-growth .ha-grid,body.ha-interior .ha-grid{gap:clamp(18px,2.4vw,34px)}
+body.ha-growth .ha-card,body.ha-interior .ha-card{height:100%;border-color:var(--ha-fine-line);box-shadow:0 14px 34px rgba(5,42,51,.045)}
+body.ha-growth .ha-card :is(p,li),body.ha-interior .ha-card :is(p,li){color:var(--ha-readable-muted)}
+body.ha-growth .ha-card :is(.ha-text-link,.ha-button),body.ha-interior .ha-card :is(.ha-text-link,.ha-button){margin-top:auto}
+body.ha-growth .ha-card:hover,body.ha-interior .ha-card:hover{border-color:rgba(183,143,92,.64);box-shadow:0 20px 42px rgba(5,42,51,.085)}
+body.ha-growth .ha-button,body.ha-interior .ha-button{min-height:48px;padding-inline:1.35rem}
+.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(64px,8vw,118px)}
+.codex-reading .cr-card,.cr-page .cr-card{border-right:1px solid rgba(23,50,58,.12);border-bottom:1px solid rgba(23,50,58,.12);box-shadow:0 12px 30px rgba(5,42,51,.045)}
+.codex-reading .cr-card :is(p,dd),.cr-page .cr-card :is(p,dd){color:#3d5960}
+.codex-reading .cr-card h3,.cr-page .cr-card h3,.codex-reading .cr-section h2,.cr-page .cr-section h2{color:var(--ha-readable-ink)}
+.codex-reading .cr-card-actions,.cr-page .cr-card-actions{padding-top:17px;border-top:1px solid var(--ha-fine-line)}
+.codex-reading :is(input,textarea,select),.cr-page :is(input,textarea,select),.ha-growth :is(input,textarea,select){color:var(--ha-readable-ink);border-color:rgba(23,50,58,.3);background-color:#fffdf9}
+.hero-image-wrap .hero-image,.portrait-secondary img{object-fit:cover;object-position:center 24%}
+.site-footer,.ha-footer{isolation:isolate}
+@media(max-width:760px){html{scroll-padding-top:82px}body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:clamp(50px,13vw,78px)}.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(50px,13vw,80px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

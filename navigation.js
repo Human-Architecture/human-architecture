@@ -78,7 +78,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   stylesheet.dataset.sharedLuxuryStyles='';
   document.head.append(stylesheet);
  };
+ const addExperienceSystem=()=>{
+  if(document.querySelector('[data-site-experience-system]'))return;
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/site-experience-system.css';
+  stylesheet.dataset.siteExperienceSystem='';
+  document.head.append(stylesheet);
+ };
  addSharedRefinement();
+ addExperienceSystem();
  const addOrientationLauncher=()=>{
   if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return;
   const stylesheet=document.createElement('link');
