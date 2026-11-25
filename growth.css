@@ -54,3 +54,59 @@ body.ha-growth[data-page="codex"] .ha-codex-group .ha-card p:not(.ha-card-kicker
 
 /* Voucher photography gives the page a human moment while the product images retain the practical detail. */
 .voucher-gift-moment{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(240px,.72fr);align-items:end;margin:0 0 64px;background:#e8e1d6;border:1px solid #b9ad9b}.voucher-gift-moment__image{margin:0;min-height:360px}.voucher-gift-moment__image img{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center 48%}.voucher-gift-moment__copy{padding:clamp(28px,4vw,54px)}.voucher-gift-moment__copy p:last-child{margin:0;line-height:1.7}@media(max-width:760px){.voucher-gift-moment{grid-template-columns:1fr;margin-bottom:42px}.voucher-gift-moment__image,.voucher-gift-moment__image img{min-height:0}.voucher-gift-moment__image img{aspect-ratio:4/3;object-position:center 50%}}
+
+/* Shared public routes: a calm editorial pace across every offer, without changing its individual purpose. */
+.ha-growth .ha-content{max-width:1280px}
+.ha-growth .ha-section{padding-block:clamp(72px,8vw,124px)}
+.ha-growth .ha-grid{gap:clamp(20px,2.5vw,36px);margin-top:clamp(28px,3vw,42px)}
+.ha-growth .ha-card{padding-block:clamp(26px,3vw,40px)}
+@media(max-width:760px){.ha-growth .ha-section{padding-block:clamp(48px,12vw,76px)}}
+
+/* Partnerships: a quiet visual atmosphere keeps the page human without competing with the decision-making copy. */
+body.partnership-page .partnership-hero{background-image:linear-gradient(90deg,rgba(4,35,46,.96) 0%,rgba(4,35,46,.88) 43%,rgba(4,35,46,.45) 100%),url('/assets/ocean/ocean-hero.png');background-position:center,center;background-size:cover,cover;background-repeat:no-repeat}
+body.partnership-page .partnership-jump-grid a{position:relative;isolation:isolate;overflow:hidden;color:#f7f3ec;background:#063442}
+body.partnership-page .partnership-jump-grid a::before{content:"";position:absolute;z-index:0;inset:0;background-image:linear-gradient(145deg,rgba(4,35,46,.9),rgba(4,35,46,.57)),var(--partnership-image);background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .45s ease,filter .35s ease}
+body.partnership-page .partnership-jump-grid a>*{position:relative;z-index:1}
+body.partnership-page .partnership-jump-grid a:hover::before,body.partnership-page .partnership-jump-grid a:focus-visible::before{transform:scale(1.045);filter:brightness(1.1)}
+body.partnership-page .partnership-jump-grid a span{color:#dfc7a4}
+body.partnership-page .partnership-jump-grid a:nth-child(1),body.partnership-page .partnership-jump-grid a:nth-child(5){--partnership-image:url('/assets/images/organizations/organizations-hero-workshop-v1.png')}
+body.partnership-page .partnership-jump-grid a:nth-child(2){--partnership-image:url('/assets/portraits/mel-method-professional-warm.png')}
+body.partnership-page .partnership-jump-grid a:nth-child(3),body.partnership-page .partnership-jump-grid a:nth-child(4),body.partnership-page .partnership-jump-grid a:nth-child(6){--partnership-image:url('/assets/ocean/ocean-hero.png')}
+body.partnership-page #familien{position:relative;isolation:isolate;overflow:hidden}
+body.partnership-page #familien::before{content:"";position:absolute;z-index:0;inset:0;background-image:linear-gradient(90deg,#f7f3ec 0%,rgba(247,243,236,.96) 44%,rgba(247,243,236,.55) 100%),url('/assets/portraits/mel-method-professional-warm.png');background-position:center,right 18% center;background-size:cover,auto 112%;background-repeat:no-repeat}
+body.partnership-page #familien>*{position:relative;z-index:1}
+body.partnership-page #familien .partnership-three article{background:rgba(247,243,236,.93)}
+@media(max-width:800px){body.partnership-page .partnership-hero{background-image:linear-gradient(90deg,rgba(4,35,46,.95),rgba(4,35,46,.78)),url('/assets/ocean/ocean-hero.png')}body.partnership-page #familien::before{background-image:linear-gradient(90deg,rgba(247,243,236,.98),rgba(247,243,236,.87)),url('/assets/portraits/mel-method-professional-warm.png');background-position:center,right center;background-size:cover,auto 100%}}
+@media(prefers-reduced-motion:reduce){body.partnership-page .partnership-jump-grid a::before{transition:none}}
+
+/* Organizations: a more deliberate editorial rhythm makes each decision point easy to locate. */
+body.org-page .org-bar__inner{max-width:1280px}
+body.org-page .org-stat{min-height:118px;padding:clamp(22px,2.5vw,32px) clamp(20px,2.4vw,34px);display:flex;flex-direction:column;justify-content:center}
+body.org-page .org-stat+ .org-stat{border-left-color:rgba(6,47,59,.18)}
+body.org-page .org-wrap{max-width:1280px}
+body.org-page .org-section{position:relative;padding-block:clamp(84px,9vw,138px);border-bottom:0}
+body.org-page .org-section::after{content:"";position:absolute;bottom:0;left:50%;width:min(1180px,calc(100% - 2.5rem));height:1px;background:rgba(6,47,59,.16);transform:translateX(-50%)}
+body.org-page .org-offers::after{background:rgba(255,255,255,.2)}
+body.org-page .org-cta::after{display:none}
+body.org-page .org-section .org-kicker{margin:0 0 1rem}
+body.org-page .org-section h2{max-width:18ch;margin:0 0:1.7rem}
+body.org-page .org-section .org-intro{max-width:64ch}
+body.org-page .org-grid{gap:clamp(16px,2vw,28px);margin-top:clamp(34px,4vw,54px)}
+body.org-page .org-card{min-height:18rem;padding:clamp(28px,3.3vw,44px);border-color:rgba(6,47,59,.17);border-top:2px solid var(--org-gold)}
+body.org-page .org-card h3{margin-top:1rem}
+body.org-page .org-offers .org-card{border-color:rgba(255,255,255,.22);border-top-color:var(--org-gold)}
+body.org-page .org-feature{gap:clamp(36px,6vw,84px)}
+body.org-page .org-feature__panel{padding:clamp(28px,3.5vw,46px);border-top:2px solid var(--org-gold)}
+body.org-page .org-agenda{margin-top:clamp(18px,2.2vw,30px)}
+body.org-page .org-agenda article{padding-block:clamp(24px,2.8vw,38px)}
+body.org-page .org-timeline{margin-top:clamp(34px,4vw,54px)}
+body.org-page .org-week{padding:clamp(24px,2.5vw,34px)}
+@media(max-width:620px){body.org-page .org-section{padding-block:60px}body.org-page .org-section::after{width:calc(100% - 2.5rem)}body.org-page .org-stat{min-height:auto}body.org-page .org-stat+.org-stat{border-left:0;border-top:1px solid rgba(6,47,59,.18)}body.org-page .org-card{min-height:0;padding:28px 24px}}
+body.org-page .org-offers .org-card{justify-content:flex-start}
+body.org-page .org-offer-detail{width:100%;margin-top:1.8rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.22)}
+body.org-page .org-offer-detail summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;color:#f5f0e7;font-size:.75rem;font-weight:600;letter-spacing:.1em;line-height:1.45;text-transform:uppercase;list-style:none}
+body.org-page .org-offer-detail summary::-webkit-details-marker{display:none}
+body.org-page .org-offer-detail summary::after{content:"+";flex:0 0 auto;font-size:1.1rem;font-weight:400;color:var(--org-gold)}
+body.org-page .org-offer-detail[open] summary::after{content:"–"}
+body.org-page .org-offer-detail p{margin:1rem 0 .9rem;color:#e0e9e9;font-size:.88rem;line-height:1.7}
+body.org-page .org-offer-detail a{display:inline-block;color:var(--org-sand);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-underline-offset:5px}

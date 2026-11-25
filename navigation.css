@@ -15,3 +15,29 @@
 .ha-wayfinding{align-items:center;min-height:68px;gap:12px 20px;padding-block:11px;background:linear-gradient(90deg,#f7f3eb,#f1ece2);border-bottom-color:rgba(6,52,66,.13);box-shadow:inset 0 1px rgba(255,255,255,.76)}
 .ha-wayfinding>a{min-height:40px;padding:0 2px;font-size:.84rem;text-decoration:none}.ha-wayfinding>a:hover{text-decoration:underline;text-underline-offset:6px}.ha-domain-menu summary{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid rgba(6,52,66,.22);border-radius:999px;list-style:none;font-size:.82rem;letter-spacing:.02em}.ha-domain-menu summary::-webkit-details-marker{display:none}.ha-domain-menu summary::before{content:'Explore';font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8a704d}.ha-domain-menu[open] summary{background:#063442;border-color:#063442;color:#f5f0e7}.ha-domain-menu[open] summary::before{color:#d8c39f}.ha-domain-menu ul{margin-top:12px;padding:16px 24px;border-color:#a78d6e;box-shadow:0 18px 40px rgba(6,52,66,.18)}.ha-domain-menu a{padding:9px 0}.ha-wayfinding>a[data-site-events-wayfinding]{margin-left:auto;padding-left:22px;border-left:1px solid rgba(6,52,66,.16);font-weight:700}.ha-wayfinding>a[data-site-events-wayfinding]::before{content:'Calendar';display:block;margin-bottom:1px;color:#8a704d;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 @media(max-width:640px){.ha-wayfinding{min-height:auto;padding-block:10px}.ha-domain-menu{margin-left:auto}.ha-domain-menu summary::before{display:none}.ha-wayfinding>a[data-site-events-wayfinding]{width:100%;margin-left:0;padding-left:0;border-left:0;border-top:1px solid rgba(6,52,66,.13);padding-top:9px}.ha-wayfinding>a[data-site-events-wayfinding]::before{display:inline;margin-right:8px}}
+
+/* Homepage entry point: a warmer, more legible invitation into the six pathways. */
+#find-your-way.ha-entry{position:relative;isolation:isolate;padding-block:clamp(84px,9vw,132px);background:radial-gradient(circle at 86% 0,rgba(177,214,210,.34),transparent 27%),linear-gradient(180deg,#f7f3eb 0%,#f2ede2 100%)}
+#find-your-way.ha-entry::before{content:"";position:absolute;z-index:-1;inset:0;background:url('/assets/ocean/ocean-hero.png') center/cover no-repeat;opacity:.055}
+#find-your-way .ha-entry-intro{max-width:850px;margin-bottom:clamp(38px,5vw,60px)}
+#find-your-way .ha-entry-eyebrow{color:#2f6975;font-size:.71rem;font-weight:700}
+#find-your-way h2{max-width:16ch;font-size:clamp(3rem,5vw,5.5rem);line-height:.96}
+#find-your-way .ha-entry-intro>p:last-child{max-width:58ch;color:#315965;font-size:clamp(1rem,1.35vw,1.15rem)}
+#find-your-way .ha-entry-grid{gap:clamp(18px,2vw,30px)}
+#find-your-way .ha-entry-card{position:relative;isolation:isolate;overflow:hidden;min-height:270px;padding:clamp(28px,3vw,42px);border:1px solid rgba(6,52,66,.15);border-top:3px solid #b19469;background:#fbf9f3;box-shadow:0 16px 34px rgba(6,52,66,.045);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+#find-your-way .ha-entry-card::before{content:"";position:absolute;z-index:-1;inset:0;background-image:linear-gradient(145deg,rgba(251,249,243,.98),rgba(251,249,243,.8)),var(--entry-image);background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .5s ease}
+#find-your-way .ha-entry-card>*{position:relative;z-index:1}
+#find-your-way .ha-entry-card:nth-child(1){--entry-image:url('/assets/images/codex/codex-entry-hero-v1.png')}
+#find-your-way .ha-entry-card:nth-child(2){--entry-image:url('/assets/ocean/ocean-hero.png')}
+#find-your-way .ha-entry-card:nth-child(3){--entry-image:url('/assets/portraits/mel-method-professional-warm.png')}
+#find-your-way .ha-entry-card:nth-child(4){--entry-image:url('/assets/images/organizations/organizations-hero-workshop-v1.png')}
+#find-your-way .ha-entry-card:nth-child(5),#find-your-way .ha-entry-card:nth-child(6){--entry-image:url('/assets/ocean/ocean-hero.png')}
+#find-your-way .ha-entry-card:hover,#find-your-way .ha-entry-card:focus-visible{transform:translateY(-5px);background:#fffdf8;border-color:rgba(169,135,82,.78);box-shadow:0 24px 48px rgba(6,52,66,.13)}
+#find-your-way .ha-entry-card:hover::before,#find-your-way .ha-entry-card:focus-visible::before{transform:scale(1.04)}
+#find-your-way .ha-entry-card-index{display:block;margin:0 0 1.35rem;font:700 .68rem/1 Manrope,Arial,sans-serif;letter-spacing:.16em;color:#9d7c4a}
+#find-your-way .ha-entry-card h3{max-width:17ch;margin:0 0 1rem;font-size:clamp(1.75rem,2vw,2.25rem);line-height:1.06}
+#find-your-way .ha-entry-card p{max-width:31ch;margin:0 0 1.6rem;color:#315965;line-height:1.6}
+#find-your-way .ha-entry-card span{color:#1b5664;font-size:.78rem;letter-spacing:.03em}
+#find-your-way .ha-entry-bottom{margin-top:clamp(34px,5vw,54px);padding-top:22px;border-top-color:rgba(6,52,66,.16)}
+@media(max-width:540px){#find-your-way.ha-entry{padding-block:60px}#find-your-way .ha-entry-card{min-height:230px}}
+@media(prefers-reduced-motion:reduce){#find-your-way .ha-entry-card,#find-your-way .ha-entry-card::before{transition:none}}
