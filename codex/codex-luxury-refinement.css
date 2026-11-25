@@ -136,6 +136,51 @@ body.ha-growth[data-page="codex"] .codex-finder__result {
 body.ha-growth[data-page="codex"] #codex-contexts .ha-grid { margin-top: 38px; }
 body.ha-growth[data-page="codex"] #codex-contexts .ha-card { min-height: 320px; }
 
+body.ha-growth[data-page="codex"] .ha-card--whole-link {
+  display: grid;
+  grid-template-rows: auto minmax(4.6rem, auto) minmax(0, 1fr) auto;
+  color: inherit;
+  text-decoration: none;
+}
+
+body.ha-growth[data-page="codex"] .ha-card--whole-link .ha-text-link {
+  display: block;
+  padding-top: 15px;
+  border-top: 1px solid rgba(6, 52, 66, .16);
+}
+
+body.ha-growth[data-page="codex"] .ha-card--whole-link:hover .ha-text-link,
+body.ha-growth[data-page="codex"] .ha-card--whole-link:focus-visible .ha-text-link {
+  color: #063442;
+  text-decoration-color: #b69b77;
+}
+
+body.ha-growth[data-page="codex"] .ha-card--clickable { position: relative; cursor: pointer; }
+body.ha-growth[data-page="codex"] .ha-card--clickable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+body.ha-growth[data-page="codex"] .ha-card--clickable:hover::after { border-color: rgba(182, 155, 119, .72); }
+
+body.ha-growth[data-page="codex"] #codex-info {
+  max-width: 880px;
+  margin-inline: auto;
+  padding-block: clamp(78px, 9vw, 132px);
+}
+
+body.ha-growth[data-page="codex"] #codex-info p { max-width: 65ch; font-size: 1.04rem; line-height: 1.82; }
+
+body.ha-growth[data-page="codex"] #codex-clarity,
+body.ha-growth[data-page="codex"] #format-guide,
+body.ha-growth[data-page="codex"] #process,
+body.ha-growth[data-page="codex"] #next-step {
+  border-top: 1px solid rgba(6, 52, 66, .13);
+}
+
 @media (max-width: 900px) {
   body.ha-growth[data-page="codex"] .codex-finder__choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -149,6 +194,7 @@ body.ha-growth[data-page="codex"] #codex-contexts .ha-card { min-height: 320px; 
   body.ha-growth[data-page="codex"] .codex-finder__choice { min-height: 0; }
   body.ha-growth[data-page="codex"] .codex-finder__scope { margin-top: 32px; }
   body.ha-growth[data-page="codex"] .codex-finder__result { box-shadow: 10px 10px 0 rgba(6, 52, 66, .07); }
+  body.ha-growth[data-page="codex"] .ha-card--whole-link { grid-template-rows: auto auto auto auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
