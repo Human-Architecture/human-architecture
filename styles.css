@@ -2501,30 +2501,47 @@ aria-expanded="true"
 .ecosystem-group {
   position: absolute;
 
-  width: 228px;
+  box-sizing: border-box;
+  width: 272px;
+  min-height: 142px;
+  padding: 18px 20px 20px;
+
+  border: 1px solid rgba(169, 200, 201, .16);
+  border-left-color: rgba(222, 195, 144, .56);
+
+  background: linear-gradient(105deg, rgba(12, 66, 80, .34), rgba(12, 66, 80, .05));
 
   transition:
-    transform 420ms var(--ease);
+    transform 420ms var(--ease),
+    border-color 320ms ease,
+    background-color 320ms ease;
 }
 
 .ecosystem-group:hover {
   transform: translateY(-5px);
+  border-color: rgba(222, 195, 144, .72);
+  background: linear-gradient(105deg, rgba(12, 66, 80, .62), rgba(12, 66, 80, .16));
+}
+
+.ecosystem-group:focus-visible {
+  outline-color: var(--human-sand);
+  outline-offset: 6px;
 }
 
 .ecosystem-group > span {
   color: var(--human-sand);
 
-  font-size: .58rem;
+  font-size: .65rem;
   letter-spacing: .16em;
 }
 
 .ecosystem-group h3 {
-  margin: 7px 0 6px;
+  margin: 10px 0 8px;
 
   color: var(--white);
 
   font-family: var(--display);
-  font-size: 1.62rem;
+  font-size: clamp(1.78rem, 1.85vw, 2.05rem);
   font-weight: 400;
   line-height: 1.06;
 }
@@ -2534,7 +2551,8 @@ aria-expanded="true"
 
   color: var(--sea-glass);
 
-  font-size: .72rem;
+  font-size: .81rem;
+  line-height: 1.55;
 }
 
 .ecosystem-group--education {
@@ -3731,12 +3749,18 @@ p:not(.eyebrow) {
     position: static;
 
     width: auto;
+    min-height: 0;
 
-    padding: 22px 0;
+    padding: 24px 0;
 
     border-top:
       1px solid
       rgba(255,255,255,.13);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+
+    background: transparent;
   }
 
   .ecosystem-group:last-child {
