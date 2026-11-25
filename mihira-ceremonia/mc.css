@@ -23,7 +23,7 @@ h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(60px,7.6vw,126
 .text-link { font-size:10px; text-transform:uppercase; letter-spacing:.13em; border-bottom:1px solid var(--mist); padding:18px 0 10px; }
 .text-link span { color:var(--gold); margin-left:10px; }
 .hero-image-wrap { position:relative; min-height:640px; background:#5d5d58; }
-.hero-image { object-fit:cover; object-position:47% center; filter:saturate(.72) contrast(.96); }
+.hero-image { content:url('/assets/portraits/mel-mihira-private-practice-outdoor.jpeg'); object-fit:cover; object-position:55% 42%; filter:saturate(.78) contrast(.98) brightness(.94); }
 .hero-image-wrap::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(23,23,19,.05),rgba(23,23,19,.22)); }
 .image-note { position:absolute; left:34px; bottom:32px; z-index:2; color:white; font-family:Georgia,serif; font-size:17px; line-height:1.2; }
 .image-note span { font-family:var(--font-sans); font-size:8px; letter-spacing:.16em; text-transform:uppercase; opacity:.75; }
@@ -65,6 +65,7 @@ h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(60px,7.6vw,126
   h1 { font-size:clamp(60px,19vw,88px); }
   .hero-actions { align-items:flex-start; flex-direction:column; gap:12px; }
   .hero-image-wrap { min-height:72vh; }
+  .hero-image { object-position:56% 36%; }
   .vertical-note { display:none; }
   .manifesto { padding:90px 30px 100px; }
   .manifesto-grid,.dark-thesis,.framework,.threshold,.two-col,.ha-definition,.private-intro,.fit-section,.hu-panel { grid-template-columns:1fr; }
