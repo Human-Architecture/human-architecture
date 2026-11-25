@@ -2345,7 +2345,43 @@ aria-expanded="true"
 ========================================================= */
 
 .partnerships {
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
+  padding-top: calc(var(--section-y) + 48px);
+}
+
+.partnerships::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 34px;
+  right: var(--page-x);
+  left: var(--page-x);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 231, 229, .42) 18%, rgba(217, 231, 229, .42) 82%, transparent);
+  pointer-events: none;
+}
+
+.partnerships::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 27px;
+  left: 50%;
+  width: 14px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(222, 195, 144, .92);
+  border-radius: 50%;
+  background: var(--atlantic-abyss);
+  box-shadow: 0 0 0 7px var(--atlantic-abyss);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.partnerships > .page-grid {
+  position: relative;
+  z-index: 1;
 }
 
 .partnerships__statement {
