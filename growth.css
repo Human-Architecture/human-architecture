@@ -78,3 +78,27 @@ body.partnership-page #familien>*{position:relative;z-index:1}
 body.partnership-page #familien .partnership-three article{background:rgba(247,243,236,.93)}
 @media(max-width:800px){body.partnership-page .partnership-hero{background-image:linear-gradient(90deg,rgba(4,35,46,.95),rgba(4,35,46,.78)),url('/assets/ocean/ocean-hero.png')}body.partnership-page #familien::before{background-image:linear-gradient(90deg,rgba(247,243,236,.98),rgba(247,243,236,.87)),url('/assets/portraits/mel-method-professional-warm.png');background-position:center,right center;background-size:cover,auto 100%}}
 @media(prefers-reduced-motion:reduce){body.partnership-page .partnership-jump-grid a::before{transition:none}}
+
+/* Organizations: a more deliberate editorial rhythm makes each decision point easy to locate. */
+body.org-page .org-bar__inner{max-width:1280px}
+body.org-page .org-stat{min-height:118px;padding:clamp(22px,2.5vw,32px) clamp(20px,2.4vw,34px);display:flex;flex-direction:column;justify-content:center}
+body.org-page .org-stat+ .org-stat{border-left-color:rgba(6,47,59,.18)}
+body.org-page .org-wrap{max-width:1280px}
+body.org-page .org-section{position:relative;padding-block:clamp(84px,9vw,138px);border-bottom:0}
+body.org-page .org-section::after{content:"";position:absolute;bottom:0;left:50%;width:min(1180px,calc(100% - 2.5rem));height:1px;background:rgba(6,47,59,.16);transform:translateX(-50%)}
+body.org-page .org-offers::after{background:rgba(255,255,255,.2)}
+body.org-page .org-cta::after{display:none}
+body.org-page .org-section .org-kicker{margin:0 0 1rem}
+body.org-page .org-section h2{max-width:18ch;margin:0 0:1.7rem}
+body.org-page .org-section .org-intro{max-width:64ch}
+body.org-page .org-grid{gap:clamp(16px,2vw,28px);margin-top:clamp(34px,4vw,54px)}
+body.org-page .org-card{min-height:18rem;padding:clamp(28px,3.3vw,44px);border-color:rgba(6,47,59,.17);border-top:2px solid var(--org-gold)}
+body.org-page .org-card h3{margin-top:1rem}
+body.org-page .org-offers .org-card{border-color:rgba(255,255,255,.22);border-top-color:var(--org-gold)}
+body.org-page .org-feature{gap:clamp(36px,6vw,84px)}
+body.org-page .org-feature__panel{padding:clamp(28px,3.5vw,46px);border-top:2px solid var(--org-gold)}
+body.org-page .org-agenda{margin-top:clamp(18px,2.2vw,30px)}
+body.org-page .org-agenda article{padding-block:clamp(24px,2.8vw,38px)}
+body.org-page .org-timeline{margin-top:clamp(34px,4vw,54px)}
+body.org-page .org-week{padding:clamp(24px,2.5vw,34px)}
+@media(max-width:620px){body.org-page .org-section{padding-block:60px}body.org-page .org-section::after{width:calc(100% - 2.5rem)}body.org-page .org-stat{min-height:auto}body.org-page .org-stat+.org-stat{border-left:0;border-top:1px solid rgba(6,47,59,.18)}body.org-page .org-card{min-height:0;padding:28px 24px}}
