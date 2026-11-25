@@ -4,6 +4,8 @@ html{scroll-padding-top:112px}
 :where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #c8af8b;outline-offset:4px}
 body.ha-growth .ha-content,body.ha-interior .ha-content{width:min(100% - (var(--ha-page-space) * 2),1280px)}
 body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:var(--ha-section-space)}
+body.ha-growth .ha-section>:is(h2,h3),body.ha-interior .ha-section>:is(h2,h3){max-width:19ch}
+body.ha-growth .ha-section>p:not(.ha-eyebrow),body.ha-interior .ha-section>p:not(.ha-eyebrow){max-width:66ch;color:var(--ha-readable-muted)}
 body.ha-growth .ha-grid,body.ha-interior .ha-grid{gap:clamp(18px,2.4vw,34px)}
 body.ha-growth .ha-card,body.ha-interior .ha-card{height:100%;border-color:var(--ha-fine-line);box-shadow:0 14px 34px rgba(5,42,51,.045)}
 body.ha-growth .ha-card :is(p,li),body.ha-interior .ha-card :is(p,li){color:var(--ha-readable-muted)}
@@ -17,6 +19,8 @@ body.ha-growth .ha-button,body.ha-interior .ha-button{min-height:48px;padding-in
 .codex-reading .cr-card-actions,.cr-page .cr-card-actions{padding-top:17px;border-top:1px solid var(--ha-fine-line)}
 .codex-reading :is(input,textarea,select),.cr-page :is(input,textarea,select),.ha-growth :is(input,textarea,select){color:var(--ha-readable-ink);border-color:rgba(23,50,58,.3);background-color:#fffdf9}
 .hero-image-wrap .hero-image,.portrait-secondary img{object-fit:cover;object-position:center 24%}
+.site-header nav a,.ha-header a,.cr-header a{transition:color .22s ease,opacity .22s ease}
+.site-header nav a:hover,.ha-header a:hover,.cr-header a:hover{opacity:.76}
 .site-footer,.ha-footer{isolation:isolate}
 @media(max-width:760px){html{scroll-padding-top:82px}body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:clamp(50px,13vw,78px)}.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(50px,13vw,80px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
