@@ -25,13 +25,14 @@
 #find-your-way .ha-entry-intro>p:last-child{max-width:58ch;color:#315965;font-size:clamp(1rem,1.35vw,1.15rem)}
 #find-your-way .ha-entry-grid{gap:clamp(18px,2vw,30px)}
 #find-your-way .ha-entry-card{position:relative;isolation:isolate;overflow:hidden;min-height:270px;padding:clamp(28px,3vw,42px);border:1px solid rgba(6,52,66,.15);border-top:3px solid #b19469;background:#fbf9f3;box-shadow:0 16px 34px rgba(6,52,66,.045);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-#find-your-way .ha-entry-card::before{content:"";position:absolute;z-index:-1;inset:0;background-image:linear-gradient(145deg,rgba(251,249,243,.98),rgba(251,249,243,.8)),var(--entry-image);background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .5s ease}
+#find-your-way .ha-entry-card::before{content:"";position:absolute;z-index:-1;inset:0;background-image:linear-gradient(145deg,rgba(251,249,243,.9),rgba(251,249,243,.66)),var(--entry-image);background-position:var(--entry-position,center);background-size:cover;background-repeat:no-repeat;transition:transform .5s ease}
 #find-your-way .ha-entry-card>*{position:relative;z-index:1}
 #find-your-way .ha-entry-card:nth-child(1){--entry-image:url('/assets/images/codex/codex-entry-hero-v1.png')}
-#find-your-way .ha-entry-card:nth-child(2){--entry-image:url('/assets/ocean/ocean-hero.png')}
-#find-your-way .ha-entry-card:nth-child(3){--entry-image:url('/assets/portraits/mel-method-professional-warm.png')}
-#find-your-way .ha-entry-card:nth-child(4){--entry-image:url('/assets/images/organizations/organizations-hero-workshop-v1.png')}
-#find-your-way .ha-entry-card:nth-child(5),#find-your-way .ha-entry-card:nth-child(6){--entry-image:url('/assets/ocean/ocean-hero.png')}
+#find-your-way .ha-entry-card:nth-child(2){--entry-image:url('/assets/BACKGROUNDS/CARD2BGHUMAN.png');--entry-position:center 42%}
+#find-your-way .ha-entry-card:nth-child(3){--entry-image:url('/assets/babymesse/mama-baby-codex.webp');--entry-position:center 32%}
+#find-your-way .ha-entry-card:nth-child(4){--entry-image:url('/assets/images/organizations/organizations-hero-workshop-v1.png');--entry-position:center}
+#find-your-way .ha-entry-card:nth-child(5){--entry-image:url('/assets/BACKGROUNDS/COMPASSCARDBG5.png');--entry-position:center 34%}
+#find-your-way .ha-entry-card:nth-child(6){--entry-image:url('/assets/images/kids/bella-blu-concept-hero-v1.png');--entry-position:center}
 #find-your-way .ha-entry-card:hover,#find-your-way .ha-entry-card:focus-visible{transform:translateY(-5px);background:#fffdf8;border-color:rgba(169,135,82,.78);box-shadow:0 24px 48px rgba(6,52,66,.13)}
 #find-your-way .ha-entry-card:hover::before,#find-your-way .ha-entry-card:focus-visible::before{transform:scale(1.04)}
 #find-your-way .ha-entry-card-index{display:block;margin:0 0 1.35rem;font:700 .68rem/1 Manrope,Arial,sans-serif;letter-spacing:.16em;color:#9d7c4a}
