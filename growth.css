@@ -61,3 +61,20 @@ body.ha-growth[data-page="codex"] .ha-codex-group .ha-card p:not(.ha-card-kicker
 .ha-growth .ha-grid{gap:clamp(20px,2.5vw,36px);margin-top:clamp(28px,3vw,42px)}
 .ha-growth .ha-card{padding-block:clamp(26px,3vw,40px)}
 @media(max-width:760px){.ha-growth .ha-section{padding-block:clamp(48px,12vw,76px)}}
+
+/* Partnerships: a quiet visual atmosphere keeps the page human without competing with the decision-making copy. */
+body.partnership-page .partnership-hero{background-image:linear-gradient(90deg,rgba(4,35,46,.96) 0%,rgba(4,35,46,.88) 43%,rgba(4,35,46,.45) 100%),url('/assets/ocean/ocean-hero.png');background-position:center,center;background-size:cover,cover;background-repeat:no-repeat}
+body.partnership-page .partnership-jump-grid a{position:relative;isolation:isolate;overflow:hidden;color:#f7f3ec;background:#063442}
+body.partnership-page .partnership-jump-grid a::before{content:"";position:absolute;z-index:0;inset:0;background-image:linear-gradient(145deg,rgba(4,35,46,.9),rgba(4,35,46,.57)),var(--partnership-image);background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .45s ease,filter .35s ease}
+body.partnership-page .partnership-jump-grid a>*{position:relative;z-index:1}
+body.partnership-page .partnership-jump-grid a:hover::before,body.partnership-page .partnership-jump-grid a:focus-visible::before{transform:scale(1.045);filter:brightness(1.1)}
+body.partnership-page .partnership-jump-grid a span{color:#dfc7a4}
+body.partnership-page .partnership-jump-grid a:nth-child(1),body.partnership-page .partnership-jump-grid a:nth-child(5){--partnership-image:url('/assets/images/organizations/organizations-hero-workshop-v1.png')}
+body.partnership-page .partnership-jump-grid a:nth-child(2){--partnership-image:url('/assets/portraits/mel-method-professional-warm.png')}
+body.partnership-page .partnership-jump-grid a:nth-child(3),body.partnership-page .partnership-jump-grid a:nth-child(4),body.partnership-page .partnership-jump-grid a:nth-child(6){--partnership-image:url('/assets/ocean/ocean-hero.png')}
+body.partnership-page #familien{position:relative;isolation:isolate;overflow:hidden}
+body.partnership-page #familien::before{content:"";position:absolute;z-index:0;inset:0;background-image:linear-gradient(90deg,#f7f3ec 0%,rgba(247,243,236,.96) 44%,rgba(247,243,236,.55) 100%),url('/assets/portraits/mel-method-professional-warm.png');background-position:center,right 18% center;background-size:cover,auto 112%;background-repeat:no-repeat}
+body.partnership-page #familien>*{position:relative;z-index:1}
+body.partnership-page #familien .partnership-three article{background:rgba(247,243,236,.93)}
+@media(max-width:800px){body.partnership-page .partnership-hero{background-image:linear-gradient(90deg,rgba(4,35,46,.95),rgba(4,35,46,.78)),url('/assets/ocean/ocean-hero.png')}body.partnership-page #familien::before{background-image:linear-gradient(90deg,rgba(247,243,236,.98),rgba(247,243,236,.87)),url('/assets/portraits/mel-method-professional-warm.png');background-position:center,right center;background-size:cover,auto 100%}}
+@media(prefers-reduced-motion:reduce){body.partnership-page .partnership-jump-grid a::before{transition:none}}
