@@ -19,10 +19,11 @@ body.ha-growth .ha-button,body.ha-interior .ha-button{min-height:48px;padding-in
 .codex-reading .cr-card-actions,.cr-page .cr-card-actions{padding-top:17px;border-top:1px solid var(--ha-fine-line)}
 .codex-reading :is(input,textarea,select),.cr-page :is(input,textarea,select),.ha-growth :is(input,textarea,select){color:var(--ha-readable-ink);border-color:rgba(23,50,58,.3);background-color:#fffdf9}
 .hero-image-wrap .hero-image,.portrait-secondary img{object-fit:cover;object-position:center 24%}
-/* Founder portrait: deliberate scale, quieter framing and a stable crop at every width. */
-body.ha-interior .founder-hero{grid-template-columns:minmax(0,1.08fr) minmax(300px,.72fr);align-items:center}
-body.ha-interior .founder-portrait{width:min(100%,430px);justify-self:end;box-shadow:0 22px 48px rgba(5,42,51,.12)}
-body.ha-interior .founder-portrait img{aspect-ratio:4/5;object-position:50% 20%}
+/* Founder portrait: a generous editorial opening, with the person and introduction held in one composition. */
+body.ha-interior .founder-hero{width:min(1280px,calc(100% - 72px));grid-template-columns:minmax(0,1fr) minmax(350px,.78fr);gap:clamp(48px,8vw,126px);align-items:center;min-height:min(760px,calc(100svh - 92px));padding:clamp(64px,7vw,112px) 0}
+body.ha-interior .founder-hero>div{max-width:620px}
+body.ha-interior .founder-portrait{width:min(100%,480px);padding:8px;border-top-width:2px;justify-self:end;box-shadow:0 22px 48px rgba(5,42,51,.12)}
+body.ha-interior .founder-portrait img{aspect-ratio:4/5;object-position:50% 22%}
 .site-header nav a,.ha-header a,.cr-header a{transition:color .22s ease,opacity .22s ease}
 .site-header nav a:hover,.ha-header a:hover,.cr-header a:hover{opacity:.76}
 .site-footer,.ha-footer{isolation:isolate}
@@ -56,7 +57,7 @@ body.ha-growth details>summary:hover{color:#0b6272}
 .codex-reading details>summary,.cr-page details>summary{padding-block:4px}
 .codex-reading .cr-note,.cr-page .cr-note{line-height:1.65}
 @media(max-width:760px){html{scroll-padding-top:82px}body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:clamp(50px,13vw,78px)}.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(50px,13vw,80px)}}
-@media(max-width:720px){body.ha-interior .founder-portrait{justify-self:start;width:min(86%,360px)}}
+@media(max-width:720px){body.ha-interior .founder-hero{width:min(100% - 40px,1280px);min-height:0;padding-block:56px 64px}.founder-hero>div{max-width:none}body.ha-interior .founder-portrait{justify-self:start;width:min(86%,360px)}}
 @media(max-width:520px){body.ha-growth .ha-footer nav{grid-template-columns:1fr;gap:2px;margin-block:20px 26px}}
 @media(max-width:640px){.footer__connections{grid-template-columns:1fr}.footer__navigation{gap:9px 16px}}
 @media(max-width:760px){.ecosystem{min-height:0}.ecosystem-group{width:auto;min-height:0;padding:26px 0;background:transparent}.ecosystem-group h3{font-size:clamp(1.7rem,8vw,2.15rem)}}
