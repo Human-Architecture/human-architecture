@@ -89,12 +89,24 @@ for (const source of ['/body-language/book/(.*)', '/body-language/en/book/(.*)']
 }
 
 const idsByFile = new Map();
+const presentationIssues = [];
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
+  const viewportTags = html.match(/<meta[^>]+name=["']viewport["'][^>]*>/gi) || [];
+  if (viewportTags.length !== 1) presentationIssues.push(`${path.relative(root, file)} must have exactly one viewport meta tag`);
+  for (const image of html.matchAll(/<img\b([^>]*)>/gi)) {
+    if (!/\balt=["'][^"']*["']/i.test(image[1])) presentationIssues.push(`${path.relative(root, file)} contains an image without alt text`);
+  }
+  for (const link of html.matchAll(/<a\b[^>]*>/gi)) {
+    if (/\btarget=["']_blank["']/i.test(link[0]) && !/\brel=["'][^"']*\bnoopener\b/i.test(link[0])) {
+      presentationIssues.push(`${path.relative(root, file)} opens a new tab without noopener protection`);
+    }
+  }
   const ids = [...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]);
   assert.equal(new Set(ids).size, ids.length, `Duplicate id in ${path.relative(root, file)}`);
   idsByFile.set(file, new Set(ids));
 }
+assert.deepEqual(presentationIssues, [], `Presentation integrity issues:\n${presentationIssues.join('\n')}`);
 
 const missing = [];
 for (const file of htmlFiles) {

@@ -1,5 +1,13 @@
 /* Lightweight search control for public pages with bespoke headers. */
 document.addEventListener('DOMContentLoaded', () => {
+  if (!document.querySelector('[data-site-experience-system]')) {
+    const experience = document.createElement('link');
+    experience.rel = 'stylesheet';
+    experience.href = '/site-experience-system.css';
+    experience.dataset.siteExperienceSystem = '';
+    document.head.append(experience);
+  }
+
   // Founder-led Mihira pages need a direct, composed portrait. The candid
   // phone image belongs in personal editorial context, not in the first
   // authority impression of a private practice.

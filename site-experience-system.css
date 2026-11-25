@@ -1,0 +1,55 @@
+/* Shared finish: readable contrast, generous space and consistent alignment. */
+:root{--ha-page-space:clamp(24px,5vw,86px);--ha-section-space:clamp(64px,8vw,132px);--ha-readable-ink:#17323a;--ha-readable-muted:#46616a;--ha-fine-line:rgba(23,50,58,.14)}
+html{scroll-padding-top:112px}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #c8af8b;outline-offset:4px}
+body.ha-growth .ha-content,body.ha-interior .ha-content{width:min(100% - (var(--ha-page-space) * 2),1280px)}
+body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:var(--ha-section-space)}
+body.ha-growth .ha-section>:is(h2,h3),body.ha-interior .ha-section>:is(h2,h3){max-width:19ch}
+body.ha-growth .ha-section>p:not(.ha-eyebrow),body.ha-interior .ha-section>p:not(.ha-eyebrow){max-width:66ch;color:var(--ha-readable-muted)}
+body.ha-growth .ha-grid,body.ha-interior .ha-grid{gap:clamp(18px,2.4vw,34px)}
+body.ha-growth .ha-card,body.ha-interior .ha-card{height:100%;border-color:var(--ha-fine-line);box-shadow:0 14px 34px rgba(5,42,51,.045)}
+body.ha-growth .ha-card :is(p,li),body.ha-interior .ha-card :is(p,li){color:var(--ha-readable-muted)}
+body.ha-growth .ha-card :is(.ha-text-link,.ha-button),body.ha-interior .ha-card :is(.ha-text-link,.ha-button){margin-top:auto}
+body.ha-growth .ha-card:hover,body.ha-interior .ha-card:hover{border-color:rgba(183,143,92,.64);box-shadow:0 20px 42px rgba(5,42,51,.085)}
+body.ha-growth .ha-button,body.ha-interior .ha-button{min-height:48px;padding-inline:1.35rem}
+.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(64px,8vw,118px)}
+.codex-reading .cr-card,.cr-page .cr-card{border-right:1px solid rgba(23,50,58,.12);border-bottom:1px solid rgba(23,50,58,.12);box-shadow:0 12px 30px rgba(5,42,51,.045)}
+.codex-reading .cr-card :is(p,dd),.cr-page .cr-card :is(p,dd){color:#3d5960}
+.codex-reading .cr-card h3,.cr-page .cr-card h3,.codex-reading .cr-section h2,.cr-page .cr-section h2{color:var(--ha-readable-ink)}
+.codex-reading .cr-card-actions,.cr-page .cr-card-actions{padding-top:17px;border-top:1px solid var(--ha-fine-line)}
+.codex-reading :is(input,textarea,select),.cr-page :is(input,textarea,select),.ha-growth :is(input,textarea,select){color:var(--ha-readable-ink);border-color:rgba(23,50,58,.3);background-color:#fffdf9}
+.hero-image-wrap .hero-image,.portrait-secondary img{object-fit:cover;object-position:center 24%}
+/* Founder portrait: deliberate scale, quieter framing and a stable crop at every width. */
+body.ha-interior .founder-hero{grid-template-columns:minmax(0,1.08fr) minmax(300px,.72fr);align-items:center}
+body.ha-interior .founder-portrait{width:min(100%,430px);justify-self:end;box-shadow:0 22px 48px rgba(5,42,51,.12)}
+body.ha-interior .founder-portrait img{aspect-ratio:4/5;object-position:50% 20%}
+.site-header nav a,.ha-header a,.cr-header a{transition:color .22s ease,opacity .22s ease}
+.site-header nav a:hover,.ha-header a:hover,.cr-header a:hover{opacity:.76}
+.site-footer,.ha-footer{isolation:isolate}
+/* The primary footer should read as a calm set of routes, never as one dense line. */
+.footer{row-gap:26px;align-items:start;padding-bottom:18px}
+.footer__connections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;line-height:1.5;color:rgba(217,231,229,.78)}
+.footer__navigation{display:flex;flex-wrap:wrap;align-content:start;gap:10px 20px;max-width:640px;line-height:1.5}
+.footer__navigation a{display:inline-block;text-decoration:none}
+.footer__navigation a:hover{text-decoration:underline;text-decoration-color:#c8af8b;text-underline-offset:5px}
+.footer__meta{padding-top:6px}
+.footer__disclaimer{padding-top:3px}
+/* Partnership map: make each route unmistakably tappable and readable at a glance. */
+.ecosystem-group{width:clamp(286px,19vw,332px);min-height:164px;padding:22px 24px 24px;border-left-width:2px;background:linear-gradient(105deg,rgba(12,66,80,.5),rgba(12,66,80,.09))}
+.ecosystem-group h3{font-size:clamp(1.95rem,2.15vw,2.3rem)}
+.ecosystem-group p{font-size:.87rem;color:rgba(217,231,229,.8)}
+.ecosystem-group:hover{box-shadow:0 18px 38px rgba(1,31,39,.23)}
+body.ha-growth .ha-footer{padding-block:clamp(48px,6vw,78px)}
+body.ha-growth .ha-footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;gap:4px clamp(24px,4vw,56px);margin-block:24px 30px}
+body.ha-growth .ha-footer nav a{padding-block:7px;color:#e7eee9;text-decoration:none}
+body.ha-growth .ha-footer nav a:hover{text-decoration:underline;text-decoration-color:#c8af8b;text-underline-offset:6px}
+body.ha-growth details>summary{transition:color .2s ease}
+body.ha-growth details>summary:hover{color:#0b6272}
+.codex-reading details>summary,.cr-page details>summary{padding-block:4px}
+.codex-reading .cr-note,.cr-page .cr-note{line-height:1.65}
+@media(max-width:760px){html{scroll-padding-top:82px}body.ha-growth .ha-section,body.ha-interior .ha-section{padding-block:clamp(50px,13vw,78px)}.codex-reading .cr-section,.cr-page .cr-section{padding-block:clamp(50px,13vw,80px)}}
+@media(max-width:720px){body.ha-interior .founder-portrait{justify-self:start;width:min(86%,360px)}}
+@media(max-width:520px){body.ha-growth .ha-footer nav{grid-template-columns:1fr;gap:2px;margin-block:20px 26px}}
+@media(max-width:640px){.footer__connections{grid-template-columns:1fr}.footer__navigation{gap:9px 16px}}
+@media(max-width:760px){.ecosystem-group{width:auto;min-height:0;padding:26px 0;background:transparent}.ecosystem-group h3{font-size:clamp(1.7rem,8vw,2.15rem)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

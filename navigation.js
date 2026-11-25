@@ -70,6 +70,41 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(controls)controls.insertBefore(searchLink,controls.querySelector('.ha-menu')||null); else if(nav)nav.append(searchLink); else siteHeader.append(searchLink);
  };
  document.querySelectorAll('header').forEach(addSearchControl);
+ const addSharedRefinement=()=>{
+  if(document.querySelector('[data-shared-luxury-styles]'))return;
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/site-luxury-refinement.css';
+  stylesheet.dataset.sharedLuxuryStyles='';
+  document.head.append(stylesheet);
+ };
+ const addExperienceSystem=()=>{
+  if(document.querySelector('[data-site-experience-system]'))return;
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/site-experience-system.css';
+  stylesheet.dataset.siteExperienceSystem='';
+  document.head.append(stylesheet);
+ };
+ addSharedRefinement();
+ addExperienceSystem();
+ const addOrientationLauncher=()=>{
+  if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return;
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/orientierung/launcher.css';
+  document.head.append(stylesheet);
+  const launcher=document.createElement('a');
+  launcher.href='/orientierung/';
+  launcher.className='orientation-launcher';
+  launcher.dataset.orientationLauncher='';
+  launcher.dataset.de='Passenden Einstieg finden';
+  launcher.dataset.en='Find your next step';
+  launcher.setAttribute('aria-label','Find your next step');
+  launcher.innerHTML='<span class="orientation-launcher__mark" aria-hidden="true">↗</span><span class="orientation-launcher__label">Find your next step</span>';
+  document.body.append(launcher);
+ };
+ addOrientationLauncher();
  if(header&&wayfinding){
   const placeNavigation=()=>{wayfinding.style.marginTop=getComputedStyle(header).position==='fixed'?header.getBoundingClientRect().height+'px':'';};
   placeNavigation();
@@ -89,6 +124,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
    document.querySelectorAll('[data-site-events-link]').forEach(link=>{link.textContent=lang==='en'?'Upcoming events':'Nächste Termine';link.setAttribute('aria-label',lang==='en'?'View upcoming events':'Nächste Veranstaltungen ansehen');});
    document.querySelectorAll('[data-site-search-link]').forEach(link=>{const label=lang==='en'?'Search':'Suche';const labelNode=link.querySelector('.site-search-control__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',lang==='en'?'Search the Human Architecture site':'Human-Architecture-Website durchsuchen');});
+   document.querySelectorAll('[data-orientation-launcher]').forEach(link=>{const label=lang==='en'?'Find your next step':'Passenden Einstieg finden';const labelNode=link.querySelector('.orientation-launcher__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',label);});
   document.querySelectorAll('a[data-en="Explore workshop (German)"]').forEach(link=>{link.dataset.en='Explore workshop';link.textContent=link.dataset[lang];link.setAttribute('href',lang==='en'?'/body-language/en/':'/body-language/');});
   document.querySelectorAll('[data-de*="90-minütige Workshop"]').forEach(el=>{el.dataset.de=el.dataset.de.replace('90-minütige','90–120-minütige');el.dataset.en=el.dataset.en.replace('90-minute','90–120 minute').replace(' The workshop page is in German.','');el.textContent=el.dataset[lang];});
   document.querySelectorAll('a[href]').forEach(a=>{

@@ -1,0 +1,70 @@
+/* A dedicated contrast system for the deeper Codex formats. */
+.codex-offers-page .cr-hero {
+  background:
+    radial-gradient(circle at 83% 19%, rgba(198, 164, 122, .22) 0 1px, transparent 2px),
+    linear-gradient(120deg, rgba(4, 43, 54, .98), rgba(6, 58, 70, .96));
+}
+
+.codex-offers-page .cr-hero .cr-lead,
+.codex-offers-page .cr-hero .cr-text-link {
+  color: #fdf8f0;
+}
+
+.codex-offers-page .cr-hero .cr-note {
+  max-width: 62ch;
+  margin-top: clamp(30px, 4vw, 48px);
+  padding: clamp(19px, 2.2vw, 28px) clamp(20px, 2.7vw, 34px);
+  border-left: 2px solid var(--cr-gold);
+  background: rgba(248, 244, 237, .98);
+  box-shadow: 0 14px 32px rgba(0, 21, 29, .16);
+  color: var(--cr-ink);
+  font-size: .97rem;
+  line-height: 1.68;
+}
+
+.codex-offers-page .cr-note strong {
+  color: var(--cr-ink);
+}
+
+.codex-offers-page .cr-note a,
+.codex-offers-page .cr-card-actions a,
+.codex-offers-page .cr-card-link,
+.codex-offers-page .cr-text-link {
+  color: #0a5060;
+  text-decoration-color: var(--cr-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.codex-offers-page .cr-section-heading > p,
+.codex-offers-page .cr-card p,
+.codex-offers-page .cr-card dd {
+  color: #35545b;
+}
+
+.codex-offers-page .cr-card {
+  border: 1px solid rgba(23, 50, 58, .14);
+  border-top: 3px solid var(--cr-gold);
+  box-shadow: 0 10px 24px rgba(23, 50, 58, .06);
+}
+
+.codex-offers-page .cr-card--accent {
+  background: linear-gradient(145deg, #f0e6d7, #f8f3ea);
+}
+
+.codex-offers-page .cr-card-actions {
+  padding-top: 18px;
+  border-top: 1px solid rgba(23, 50, 58, .14);
+}
+
+.codex-offers-page .cr-card-actions a:hover,
+.codex-offers-page .cr-card-link:hover,
+.codex-offers-page .cr-text-link:hover {
+  color: #073442;
+}
+
+@media (max-width: 760px) {
+  .codex-offers-page .cr-hero .cr-note {
+    font-size: .94rem;
+  }
+}
