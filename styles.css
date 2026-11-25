@@ -1038,15 +1038,32 @@ p {
   stroke-dashoffset: 0;
 }
 
-/* A calm ocean horizon between the introductory philosophy and the system view. */
+/* A quiet photographic threshold between the introductory philosophy and the system view. */
 .home-intro-divider {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: clamp(180px, 20vw, 280px);
   padding-inline: var(--page-x);
-  background: linear-gradient(90deg, rgba(217,231,229,.88), rgba(244,247,243,.96) 48%, rgba(169,200,201,.50));
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(3, 37, 47, .82), rgba(3, 37, 47, .42) 48%, rgba(3, 37, 47, .72)),
+    linear-gradient(180deg, rgba(3, 37, 47, .1), rgba(3, 37, 47, .5)),
+    url("assets/ocean/ocean-hero.png") center 56% / cover no-repeat;
+}
+
+.home-intro-divider::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 18px;
+  border: 1px solid rgba(244, 247, 243, .22);
+  pointer-events: none;
 }
 
 .home-intro-divider__line {
   width: min(100%, var(--content-max));
-  height: 76px;
+  height: 100%;
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 20px 1fr;
@@ -1056,20 +1073,20 @@ p {
 
 .home-intro-divider__line > span {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(11,98,114,.48));
+  background: linear-gradient(90deg, transparent, rgba(244,247,243,.68));
 }
 
 .home-intro-divider__line > span:last-child {
-  background: linear-gradient(90deg, rgba(11,98,114,.48), transparent);
+  background: linear-gradient(90deg, rgba(244,247,243,.68), transparent);
 }
 
 .home-intro-divider__line i {
   position: relative;
   width: 20px;
   aspect-ratio: 1;
-  border: 1px solid rgba(169,135,82,.72);
+  border: 1px solid rgba(222, 195, 144, .92);
   border-radius: 50%;
-  background: rgba(244,247,243,.92);
+  background: rgba(3, 37, 47, .46);
 }
 
 .home-intro-divider__line i::before {
@@ -1079,7 +1096,7 @@ p {
   height: 4px;
   margin: 7px;
   border-radius: 50%;
-  background: var(--aged-brass);
+  background: #dec390;
 }
 
 
