@@ -2691,8 +2691,9 @@ aria-expanded="true"
   overflow: hidden;
 
   background:
-    radial-gradient(circle at 84% 8%, rgba(191, 164, 113, .16), transparent 31%),
-    linear-gradient(145deg, var(--living-ocean), var(--atlantic-abyss));
+    radial-gradient(circle at 84% 8%, rgba(191, 164, 113, .18), transparent 31%),
+    linear-gradient(112deg, rgba(4, 49, 61, .95) 0%, rgba(5, 76, 90, .89) 48%, rgba(3, 39, 51, .92) 100%),
+    url('assets/ocean/ocean-hero.png') center / cover no-repeat;
 
   padding:
     clamp(114px, 9vw, 144px)
