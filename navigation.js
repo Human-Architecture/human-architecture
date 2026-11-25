@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  addSharedRefinement();
  addExperienceSystem();
  const addOrientationLauncher=()=>{
-  if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return;
+  if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return null;
   const stylesheet=document.createElement('link');
   stylesheet.rel='stylesheet';
   stylesheet.href='/orientierung/launcher.css';
@@ -103,8 +103,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   launcher.setAttribute('aria-label','Find your next step');
   launcher.innerHTML='<span class="orientation-launcher__mark" aria-hidden="true">↗</span><span class="orientation-launcher__label">Find your next step</span>';
   document.body.append(launcher);
+  return launcher;
  };
- addOrientationLauncher();
+ const orientationLauncher=addOrientationLauncher();
+ const protectEcosystemMap=()=>{
+  const ecosystem=document.querySelector('.ecosystem');
+  if(!orientationLauncher||!ecosystem||typeof IntersectionObserver==='undefined')return;
+  new IntersectionObserver(entries=>{
+   orientationLauncher.classList.toggle('is-map-obscured',entries.some(entry=>entry.isIntersecting));
+  },{threshold:.12}).observe(ecosystem);
+ };
+ protectEcosystemMap();
  if(header&&wayfinding){
   const placeNavigation=()=>{wayfinding.style.marginTop=getComputedStyle(header).position==='fixed'?header.getBoundingClientRect().height+'px':'';};
   placeNavigation();
