@@ -28,6 +28,8 @@ const bodyLanguageHtml = fs.readFileSync(path.join(root, 'body-language', 'index
 const astrologyHtml = fs.readFileSync(path.join(root, 'kurse', 'westliche-astrologie', 'index.html'), 'utf8');
 const deepRestHtml = fs.readFileSync(path.join(root, 'events', 'deep-rest', 'index.html'), 'utf8');
 const returnHtml = fs.readFileSync(path.join(root, 'mihira-ceremonia', 'return', 'index.html'), 'utf8');
+const methodEnglishHtml = fs.readFileSync(path.join(root, 'what-is-human-architecture', 'index.html'), 'utf8');
+const methodGermanHtml = fs.readFileSync(path.join(root, 'was-ist-human-architecture', 'index.html'), 'utf8');
 const legacyEventsScript = fs.readFileSync(path.join(root, 'events', 'events.js'), 'utf8');
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const expectedEventPosters = [
@@ -77,6 +79,10 @@ assert.match(eventLanguage, /actions: \['DEEP REST entdecken', 'Ticket wählen &
 assert.doesNotMatch(voucherHtml, /value="return"/, 'RETURN must not be offered as a current-event voucher');
 assert.doesNotMatch(voucherScript, /return:'RETURN|voucherPayments[^;]*return:/, 'RETURN must not have a current-event payment route');
 assert.match(sitemap, /https:\/\/www\.human-architecture\.info\/events\/deep-rest\//, 'Current DEEP REST event page must be discoverable in the sitemap');
+assert.match(sitemap, /https:\/\/www\.human-architecture\.info\/was-ist-human-architecture\//, 'German method page must be discoverable in the sitemap');
+assert.match(methodEnglishHtml, /href="\/was-ist-human-architecture\/"[\s\S]*?hreflang="de"/, 'English method page must link directly to its German counterpart');
+assert.match(methodGermanHtml, /href="\/what-is-human-architecture\/" hreflang="en"/, 'German method page must link directly to its English counterpart');
+assert.match(methodGermanHtml, /<html lang="de">/, 'German method page must declare German content');
 assert.doesNotMatch(sitemap, /mihira-ceremonia\/return/, 'Retired RETURN page must not be promoted in the sitemap');
 assert.doesNotMatch(returnHtml, /14\. November|November Session|voucher=return/, 'RETURN format page must not present the finished public session as active');
 assert.match(returnHtml, /Öffentliche Sessions/, 'RETURN format page must remain available for future public dates');

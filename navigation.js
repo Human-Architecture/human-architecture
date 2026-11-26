@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(!raw||raw.startsWith('#')||a.hasAttribute('download'))return;
    const u=new URL(raw,location.href);
    if(u.origin!==location.origin || !/\/$|\.html$/.test(u.pathname))return;
-   const fixedLanguage=['/organizations/international/','/what-is-human-architecture/','/performance/intake/','/impressum/','/datenschutz/','/custom-gpt-terms/','/organizations/hr-brief.html'];
+   const fixedLanguage=['/organizations/international/','/what-is-human-architecture/','/was-ist-human-architecture/','/performance/intake/','/impressum/','/datenschutz/','/custom-gpt-terms/','/organizations/hr-brief.html'];
    if(u.pathname==='/body-language/book/'){
     u.pathname=lang==='en'?'/body-language/en/book/':'/body-language/book/';
     u.searchParams.delete('lang');
