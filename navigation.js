@@ -89,7 +89,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  addSharedRefinement();
  addExperienceSystem();
  const addOrientationLauncher=()=>{
-  if(location.pathname.replace(/\/$/,'')==='/orientierung'||document.querySelector('[data-orientation-launcher]'))return null;
+  const currentPath=location.pathname.replace(/\/$/,'');
+  // The Codex has its own decision guide. A second floating guide would obscure
+  // its results and give visitors two competing next steps.
+  if(currentPath==='/orientierung'||currentPath==='/codex'||document.querySelector('[data-orientation-launcher]'))return null;
   const stylesheet=document.createElement('link');
   stylesheet.rel='stylesheet';
   stylesheet.href='/orientierung/launcher.css';
