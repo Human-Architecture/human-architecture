@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/mihira-ceremonia/overview.html",
+      "destination": "/mihira-ceremonia/",
+      "permanent": true
+    },
+    {
       "source": "/codex/orientierung",
       "destination": "/orientierung/",
       "permanent": true
@@ -19,6 +24,42 @@
     }
   ],
   "headers": [
+    {
+      "source": "/body-language/book/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/body-language/en/book/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/body-language/terms/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/vertraege/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
     {
       "source": "/body-language/book/(.*)",
       "headers": [

@@ -64,9 +64,10 @@ body.ha-interior.ha-growth[data-page="codex"] .codex-visual-pause {
 body.ha-interior.ha-growth[data-page="codex"] .codex-visual-pause img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 8;
   object-fit: cover;
-  object-position: center;
+  object-position: 62% 32%;
+  filter: saturate(.86) contrast(.98) brightness(.9);
 }
 body.ha-interior.ha-growth .ha-content { max-width: 1280px; }
 body.ha-interior.ha-growth .ha-section { padding-block: clamp(58px, 7vw, 108px); }
@@ -215,7 +216,7 @@ body.ha-interior .ha-entry-card { border-top-color: var(--ha-sand); }
   body.ha-interior.ha-growth .ha-hero h1 { font-size: clamp(2.8rem, 10vw, 4.3rem); }
   body.ha-interior.ha-growth .ha-card { padding: 25px; }
   body.ha-interior.ha-growth[data-page="codex"] .codex-visual-pause { width: min(100% - 34px, 1180px); margin-top: 28px; box-shadow: 10px 10px 0 rgba(200, 175, 139, .14); }
-  body.ha-interior.ha-growth[data-page="codex"] .codex-visual-pause img { aspect-ratio: 16 / 10; }
+  body.ha-interior.ha-growth[data-page="codex"] .codex-visual-pause img { aspect-ratio: 4 / 5; object-position: 60% 28%; }
   body.ha-interior .ha-site-directory { padding-block: 50px; }
   .ha-session-key { margin-top: 35px; grid-template-columns: 1fr; gap: 6px; }
   .ha-session-key-prices { text-align: center; }
