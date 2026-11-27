@@ -31,23 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
     octoberEntry.setAttribute('aria-label', 'Secure the Codex 2027 October entry for €111');
   }
 
-  if (document.querySelector('[data-site-search-link], a[href="/search/"]')) return;
-
   const header = document.querySelector('header');
   if (!header) return;
 
   const style = document.createElement('style');
-  style.textContent = '.site-search-control{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 15px;border:1px solid currentColor;border-radius:999px;color:inherit;text-decoration:none;line-height:1;font:600 .62rem/1 Manrope,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}.site-search-control svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round}.site-search-control__label{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;white-space:normal}.site-search-control:hover{background:#f5f0e7;color:#063442}.site-search-control:focus-visible{outline:3px solid #c8af8b;outline-offset:4px}@media(max-width:900px){.site-search-control{width:42px;min-width:42px;min-height:42px;padding:0;border-radius:50%}.site-search-control__label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}}';
+  style.textContent = '.site-search-control,.site-orientation-control{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 15px;border:1px solid currentColor;border-radius:999px;color:inherit;text-decoration:none;line-height:1;font:600 .62rem/1 Manrope,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}.site-search-control svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round}.site-search-control__label,.site-orientation-control__label{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;white-space:normal}.site-search-control:hover,.site-orientation-control:hover{background:#f5f0e7;color:#063442}.site-search-control:focus-visible,.site-orientation-control:focus-visible{outline:3px solid #c8af8b;outline-offset:4px}@media(max-width:900px){.site-search-control{width:42px;min-width:42px;min-height:42px;padding:0;border-radius:50%}.site-search-control__label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.site-orientation-control{min-height:38px;padding:0 12px;font-size:.55rem;letter-spacing:.1em}}';
   document.head.append(style);
 
-  const search = document.createElement('a');
-  search.href = '/search/';
-  search.dataset.siteSearchLink = '';
-  search.className = 'site-search-control';
-  search.setAttribute('aria-label', 'Search the Human Architecture site');
-  search.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m15.2 15.2 5 5"></path></svg><span class="site-search-control__label">Search</span>';
-
   const nav = header.querySelector('nav[aria-label="Primary navigation"], .nav, nav');
-  if (nav) nav.append(search);
-  else header.append(search);
+  const target = nav || header;
+  const orientation = document.querySelector('[data-site-orientation-link]');
+  const language = () => new URLSearchParams(location.search).get('lang') === 'de' || document.documentElement.lang.toLowerCase().startsWith('de') ? 'de' : 'en';
+
+  if (!orientation) {
+    const guide = document.createElement('a');
+    guide.dataset.siteOrientationLink = '';
+    guide.className = 'site-orientation-control';
+    guide.innerHTML = '<span aria-hidden="true">↗</span><span class="site-orientation-control__label"></span>';
+    target.append(guide);
+  }
+
+  const syncOrientation = () => {
+    const guide = document.querySelector('[data-site-orientation-link]');
+    if (!guide) return;
+    const isGerman = language() === 'de';
+    guide.href = `/orientierung/?lang=${isGerman ? 'de' : 'en'}`;
+    guide.setAttribute('aria-label', isGerman ? 'Passenden Einstieg finden' : 'Find your next step');
+    const label = guide.querySelector('.site-orientation-control__label');
+    if (label) label.textContent = isGerman ? 'Passenden Einstieg finden' : 'Find your next step';
+  };
+  syncOrientation();
+  new MutationObserver(syncOrientation).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+  if (!document.querySelector('[data-site-search-link], a[href="/search/"]')) {
+    const search = document.createElement('a');
+    search.href = '/search/';
+    search.dataset.siteSearchLink = '';
+    search.className = 'site-search-control';
+    search.setAttribute('aria-label', 'Search the Human Architecture site');
+    search.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m15.2 15.2 5 5"></path></svg><span class="site-search-control__label">Search</span>';
+    target.append(search);
+  }
 });
