@@ -31,8 +31,10 @@
     });
     const privacy = document.querySelector('.orientation-privacy');
     if (privacy) {
+      privacy.querySelectorAll('[data-privacy-link]').forEach((existingLink) => existingLink.remove());
       privacy.append(' ');
       const privacyLink = document.createElement('a');
+      privacyLink.dataset.privacyLink = '';
       privacyLink.href = '/datenschutz/';
       privacyLink.target = '_blank';
       privacyLink.rel = 'noopener';
@@ -49,7 +51,7 @@
   function showError(message) {
     title.textContent = language === 'de' ? 'Noch kein passender Einstieg' : 'No matching entry point yet';
     summary.textContent = message;
-    link.href = '/angebote/';
+    link.href = localizedHref('/angebote/');
     label.textContent = language === 'de' ? 'Alle Angebote ansehen' : 'Explore all offers';
     link.removeAttribute('target');
     result.hidden = false;
@@ -86,8 +88,35 @@
       label: { en: 'For teams & organisations', de: 'Für Teams & Organisationen' },
       title: { en: 'A route for a shared work context', de: 'Ein Weg für einen gemeinsamen Arbeitskontext' },
       summary: { en: 'For a team, leadership or organisational question, the organisations route is the clearest place to understand the available shared formats.', de: 'Bei einem Team-, Führungs- oder Organisationsanliegen ist der Organisationsbereich der klarste Ort, um die verfügbaren gemeinsamen Formate zu verstehen.' }
+    },
+    animals: {
+      href: '/mensch-und-tier/',
+      label: { en: 'Explore people & animals', de: 'Mensch & Tier entdecken' },
+      title: { en: 'A route for life with animals', de: 'Ein Weg für das Leben mit Tieren' },
+      summary: { en: 'For a question about everyday life with an animal or an equestrian context, the people & animals route gives the clearest overview of the relevant formats.', de: 'Bei einem Anliegen rund um das Leben mit einem Tier oder den Reitsport bietet der Bereich Mensch & Tier den klarsten Überblick über passende Formate.' }
     }
   };
+
+  function localizedHref(href) {
+    const destination = new URL(href, window.location.origin);
+    if (destination.origin === window.location.origin) destination.searchParams.set('lang', language);
+    return destination.origin === window.location.origin
+      ? `${destination.pathname}${destination.search}${destination.hash}`
+      : href;
+  }
+
+  function localDirection(message) {
+    const text = message.toLowerCase();
+    const has = (terms) => terms.some((term) => text.includes(term));
+    let route = null;
+    if (has(['team', 'organisation', 'organization', 'leadership', 'führung', 'unternehmen', 'workplace'])) route = 'organizations';
+    else if (has(['familie', 'family', 'parent', 'eltern', 'mama', 'baby', 'kind', 'child', 'jugend'])) route = 'families';
+    else if (has(['pferd', 'horse', 'reiten', 'equestrian', 'hund', 'dog', 'katze', 'cat', 'tier', 'animal'])) route = 'animals';
+    else if (has(['ceremony', 'ceremonia', 'transition', 'übergang', 'trauer', 'grief', 'hochzeit', 'wedding', 'identity', 'identität'])) route = 'mihira';
+    else if (has(['massage', 'bodywork', 'körper', 'körperarbeit', 'touch', 'berührung', 'regulation', 'regulierung', 'in-person', 'vor ort'])) route = 'sessions';
+    else if (has(['pattern', 'muster', 'understand', 'verstehen', 'codex', 'self', 'selbst', 'relationship', 'beziehung'])) route = 'codex';
+    return route ? { route, ...guidedRoutes[route] } : null;
+  }
 
   function renderQuestionnaire() {
     const labelNode = form.querySelector('label[for="orientation-message"]');
@@ -127,7 +156,7 @@
   function showGuidance(direction) {
     title.textContent = direction.title[language];
     summary.textContent = direction.summary[language];
-    link.href = direction.href;
+    link.href = localizedHref(direction.href);
     label.textContent = direction.label[language];
     link.removeAttribute('target');
     link.removeAttribute('rel');
@@ -187,7 +216,7 @@
       if (!response.ok || !data.ok) throw new Error(data.error || 'Unavailable');
       title.textContent = data.title;
       summary.textContent = data.summary;
-      link.href = data.href;
+      link.href = localizedHref(data.href);
       label.textContent = data.label;
       if (data.external) {
         link.target = '_blank';
@@ -199,7 +228,12 @@
       result.hidden = false;
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (error) {
-      showError(error.message);
+      const fallbackDirection = selectedDirection || localDirection(message);
+      if (fallbackDirection) {
+        showGuidance(fallbackDirection);
+      } else {
+        showError(language === 'de' ? 'Dein Anliegen braucht etwas mehr Raum. Sieh dir die Angebote an oder beschreibe es in einem kurzen Satz anders.' : 'Your context may need a little more space. Explore the offers or describe it again in one short sentence.');
+      }
     } finally {
       submit.disabled = false;
       submit.innerHTML = original;
