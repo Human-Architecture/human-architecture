@@ -42,6 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const target = nav || header;
   const orientation = document.querySelector('[data-site-orientation-link]');
   const language = () => new URLSearchParams(location.search).get('lang') === 'de' || document.documentElement.lang.toLowerCase().startsWith('de') ? 'de' : 'en';
+  const guideSource = () => {
+    const page = document.body?.dataset?.page;
+    if (page && /^[a-z0-9-]{1,48}$/i.test(page)) return page;
+    const segment = location.pathname.split('/').filter(Boolean)[0] || 'website';
+    return /^[a-z0-9-]{1,48}$/i.test(segment) ? segment : 'website';
+  };
 
   if (!orientation) {
     const guide = document.createElement('a');
@@ -55,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const guide = document.querySelector('[data-site-orientation-link]');
     if (!guide) return;
     const isGerman = language() === 'de';
-    guide.href = `/orientierung/?lang=${isGerman ? 'de' : 'en'}`;
+    const params = new URLSearchParams({ lang: isGerman ? 'de' : 'en', source: guideSource() });
+    guide.href = `/orientierung/?${params}`;
     guide.setAttribute('aria-label', isGerman ? 'Passenden Einstieg finden' : 'Find your next step');
     const label = guide.querySelector('.site-orientation-control__label');
     if (label) label.textContent = isGerman ? 'Passenden Einstieg finden' : 'Find your next step';

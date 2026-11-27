@@ -275,3 +275,15 @@ body:has(form#intake) {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Preserve the visitor's entry context on the shared orientation guide. */
+.orientation-context {
+  max-width: 490px !important;
+  margin: 0 0 18px !important;
+  padding: 10px 12px;
+  border-left: 2px solid var(--gold);
+  background: rgba(6, 52, 66, .06);
+  color: var(--ink-soft) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}

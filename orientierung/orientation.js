@@ -8,6 +8,18 @@
   const toggle = document.querySelector('[data-language-toggle]');
   const textarea = document.querySelector('#orientation-message');
   let language = new URLSearchParams(window.location.search).get('lang') === 'de' || document.documentElement.lang === 'de' ? 'de' : 'en';
+  const source = new URLSearchParams(window.location.search).get('source') || '';
+  const sourceContexts = Object.freeze({
+    codex: { en: 'The Codex', de: 'den Codex' },
+    sessions: { en: 'sessions', de: 'Sessions' },
+    'mihira-ceremonia': { en: 'Mihira Ceremonia', de: 'Mihira Ceremonia' },
+    familien: { en: 'families & parents', de: 'Familien & Eltern' },
+    organizations: { en: 'teams & organisations', de: 'Teams & Organisationen' },
+    kooperationen: { en: 'partnerships', de: 'Kooperationen' },
+    'mensch-und-tier': { en: 'people & animals', de: 'Mensch & Tier' },
+    reitsport: { en: 'equestrian work', de: 'Pferde & Reitsport' },
+    'body-language': { en: 'the human system', de: 'das menschliche System' }
+  });
 
   function setBilingualText(selector, en, de) {
     const element = document.querySelector(selector);
@@ -22,6 +34,20 @@
     setBilingualText('.orientation-panel__intro h2 + p', 'One or two sentences are enough. You receive one proposed route, not a diagnosis or prescription.', 'Ein oder zwei Sätze reichen. Du erhältst einen vorgeschlagenen Weg — keine Diagnose und keine Vorgabe.');
     setBilingualText('.orientation-privacy', 'Do not enter medical, therapeutic, birth-chart or other highly sensitive information, or data about other people. Depending on the secure guide configuration, your short text is mapped locally or processed through OpenAI’s API solely to generate this non-binding orientation response.', 'Bitte gib keine medizinischen, therapeutischen, Geburts- oder sonstigen besonders sensiblen Angaben und keine Daten anderer Personen ein. Je nach sicherer Konfiguration wird dein kurzer Text lokal zugeordnet oder ausschließlich zur Erstellung dieser unverbindlichen Orientierung über die OpenAI-API verarbeitet.');
     setBilingualText('#paths-title', 'Choose the route you already recognise.', 'Wähle den Weg, den du bereits erkennst.');
+  }
+
+  function addSourceContext() {
+    const context = sourceContexts[source];
+    const intro = document.querySelector('.orientation-panel__intro');
+    if (!context || !intro || intro.querySelector('[data-orientation-source]')) return;
+
+    const hint = document.createElement('p');
+    hint.className = 'orientation-context';
+    hint.dataset.orientationSource = '';
+    hint.dataset.en = `You are exploring ${context.en}. This guide can still point you to another route if that is clearer for your current question.`;
+    hint.dataset.de = `Du erkundest gerade ${context.de}. Dieser Guide kann dich trotzdem zu einem anderen Weg führen, wenn er für dein aktuelles Anliegen klarer passt.`;
+    hint.textContent = hint.dataset[language];
+    intro.prepend(hint);
   }
 
   function translate() {
@@ -165,6 +191,7 @@
   }
 
   applyClarityCopy();
+  addSourceContext();
   renderQuestionnaire();
   document.querySelectorAll('[data-suggestion-en]').forEach((button) => {
     button.addEventListener('click', () => {

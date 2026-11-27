@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded',()=>{
  const button=form.querySelector('button[type="submit"]');
  let sending=false;
 
+ if(isGerman){
+  const privacy=form.querySelector('.privacy');
+  if(privacy&&!privacy.querySelector('a')){
+   const privacyLink=document.createElement('a');
+   privacyLink.href='/datenschutz/';privacyLink.target='_blank';privacyLink.rel='noopener';privacyLink.textContent='Datenschutzerklärung lesen';
+   privacy.append(' ',privacyLink,'.');
+  }
+ }
+
  if(!isGerman){
   const germanPageLink=document.querySelector('header nav a[href="/organizations/?lang=de"]');
   if(germanPageLink){
@@ -100,7 +109,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   ].join('\n');
   sending=true;button.disabled=true;button.textContent=isGerman?'Ihre Anfrage wird gesendet…':'Sending your enquiry…';status.textContent='';fallback.hidden=true;
   try{
-   const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:get('name'),email:get('email'),organisation:get('organisation'),context:'International corporate programme — '+get('region'),message})});
+   const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:get('name'),email:get('email'),organisation:get('organisation'),context:'International corporate programme — '+get('region'),message,sensitiveDataChoice:'no-special-category'})});
    const result=await response.json();
    if(!response.ok||result.success!==true)throw new Error('Not confirmed');
    status.textContent=isGerman?'Vielen Dank. Ihre Anfrage ist eingegangen. Wir prüfen Ihren Kontext und melden uns persönlich zum nächsten Schritt.':'Thank you. Your enquiry has been received. We will review your context and respond personally to discuss the next step.';

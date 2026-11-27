@@ -5,12 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const source = allowedSources.has(q.get('source')) ? q.get('source') : (document.body.dataset.page || 'website');
   let language = q.get('lang') === 'en' ? 'en' : (document.documentElement.lang || 'de');
   document.querySelectorAll('.ha-menu nav').forEach(nav => {
-    if (nav.querySelector('a[href^="/angebote/"]')) return;
-    const entry = document.createElement('a');
-    entry.href = '/angebote/'; entry.className = 'ha-nav-link';
-    entry.dataset.de = 'Angebote & Orientierung'; entry.dataset.en = 'Offers & orientation';
-    entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
-    nav.prepend(entry);
+    if (!nav.querySelector('a[href^="/angebote/"]')) {
+      const entry = document.createElement('a');
+      entry.href = '/angebote/'; entry.className = 'ha-nav-link';
+      entry.dataset.de = 'Angebote & Orientierung'; entry.dataset.en = 'Offers & orientation';
+      entry.textContent = language === 'en' ? entry.dataset.en : entry.dataset.de;
+      nav.prepend(entry);
+    }
+    if (!nav.querySelector('[data-global-orientation-link]')) {
+      const source = (document.body.dataset.page || location.pathname.split('/').filter(Boolean)[0] || 'website').replace(/[^a-z0-9-]/gi, '').slice(0, 48) || 'website';
+      const guide = document.createElement('a');
+      guide.href = `/orientierung/?${new URLSearchParams({ lang: language === 'en' ? 'en' : 'de', source })}`;
+      guide.className = 'ha-nav-link';
+      guide.dataset.globalOrientationLink = '';
+      guide.dataset.de = 'Passenden Einstieg finden';
+      guide.dataset.en = 'Find your next step';
+      guide.textContent = language === 'en' ? guide.dataset.en : guide.dataset.de;
+      nav.append(guide);
+    }
   });
   if (document.body.dataset.page === 'kooperationen') {
     const heroLinks = document.querySelector('.partnership-hero .ha-hero-links');

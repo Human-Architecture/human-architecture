@@ -63,7 +63,8 @@
           name: form.elements.name.value.trim(),
           email: form.elements.email.value.trim(),
           context: 'Body Fahrplan cohort enquiry',
-          message
+          message,
+          sensitiveDataChoice: 'no-special-category'
         })
       });
       const result = await response.json().catch(() => ({}));
