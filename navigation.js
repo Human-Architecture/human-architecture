@@ -110,6 +110,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   return launcher;
  };
  const orientationLauncher=addOrientationLauncher();
+ const orientationSource=()=>{
+  const page=document.body?.dataset?.page;
+  if(page&&/^[a-z0-9-]{1,48}$/i.test(page))return page;
+  const segment=location.pathname.split('/').filter(Boolean)[0]||'website';
+  return /^[a-z0-9-]{1,48}$/i.test(segment)?segment:'website';
+ };
  const protectEcosystemMap=()=>{
   const ecosystem=document.querySelector('.ecosystem');
   if(!orientationLauncher||!ecosystem||typeof IntersectionObserver==='undefined')return;
@@ -137,7 +143,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    document.querySelectorAll('a[data-de-href][data-en-href]').forEach(link=>{link.setAttribute('href',link.dataset[lang==='en'?'enHref':'deHref']);});
    document.querySelectorAll('[data-site-events-link]').forEach(link=>{link.textContent=lang==='en'?'Upcoming events':'Nächste Termine';link.setAttribute('aria-label',lang==='en'?'View upcoming events':'Nächste Veranstaltungen ansehen');});
    document.querySelectorAll('[data-site-search-link]').forEach(link=>{const label=lang==='en'?'Search':'Suche';const labelNode=link.querySelector('.site-search-control__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',lang==='en'?'Search the Human Architecture site':'Human-Architecture-Website durchsuchen');});
-   document.querySelectorAll('[data-orientation-launcher]').forEach(link=>{const label=lang==='en'?'Find your next step':'Passenden Einstieg finden';const labelNode=link.querySelector('.orientation-launcher__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',label);});
+   document.querySelectorAll('[data-orientation-launcher]').forEach(link=>{const label=lang==='en'?'Find your next step':'Passenden Einstieg finden';const labelNode=link.querySelector('.orientation-launcher__label');if(labelNode)labelNode.textContent=label;link.setAttribute('aria-label',label);link.href=`/orientierung/?${new URLSearchParams({lang,source:orientationSource()})}`;});
   document.querySelectorAll('a[data-en="Explore workshop (German)"]').forEach(link=>{link.dataset.en='Explore workshop';link.textContent=link.dataset[lang];link.setAttribute('href',lang==='en'?'/body-language/en/':'/body-language/');});
   document.querySelectorAll('[data-de*="90-minütige Workshop"]').forEach(el=>{el.dataset.de=el.dataset.de.replace('90-minütige','90–120-minütige');el.dataset.en=el.dataset.en.replace('90-minute','90–120 minute').replace(' The workshop page is in German.','');el.textContent=el.dataset[lang];});
   document.querySelectorAll('a[href]').forEach(a=>{
