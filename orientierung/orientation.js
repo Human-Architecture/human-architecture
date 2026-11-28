@@ -10,6 +10,7 @@
   let language = new URLSearchParams(window.location.search).get('lang') === 'de' || document.documentElement.lang === 'de' ? 'de' : 'en';
   const source = new URLSearchParams(window.location.search).get('source') || '';
   const sourceContexts = Object.freeze({
+    angebote: { en: 'all offers', de: 'alle Angebote' },
     codex: { en: 'The Codex', de: 'den Codex' },
     sessions: { en: 'sessions', de: 'Sessions' },
     'mihira-ceremonia': { en: 'Mihira Ceremonia', de: 'Mihira Ceremonia' },
@@ -19,7 +20,12 @@
     'mensch-und-tier': { en: 'people & animals', de: 'Mensch & Tier' },
     reitsport: { en: 'equestrian work', de: 'Pferde & Reitsport' },
     events: { en: 'public events', de: 'öffentliche Termine' },
-    'body-language': { en: 'the human system', de: 'das menschliche System' }
+    'body-language': { en: 'the human system', de: 'das menschliche System' },
+    gruender: { en: 'founders & leaders', de: 'Gründung & Führung' },
+    gutscheine: { en: 'gift vouchers', de: 'Gutscheine' },
+    babymesse: { en: 'family offers', de: 'Familienangebote' },
+    schools: { en: 'schools', de: 'Schulen' },
+    'women-in-tech': { en: 'Women in Tech', de: 'Women in Tech' }
   });
 
   function setBilingualText(selector, en, de) {
