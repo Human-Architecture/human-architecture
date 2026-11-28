@@ -90,9 +90,11 @@ document.addEventListener('DOMContentLoaded',()=>{
  addExperienceSystem();
  const addOrientationLauncher=()=>{
   const currentPath=location.pathname.replace(/\/$/,'');
+  const documentOnlyPaths=new Set(['/datenschutz','/impressum','/widerruf','/rechtliches','/vertraege','/custom-gpt-terms']);
   // The Codex has its own decision guide. A second floating guide would obscure
-  // its results and give visitors two competing next steps.
-  if(currentPath==='/orientierung'||currentPath==='/codex'||document.querySelector('[data-orientation-launcher]'))return null;
+  // its results and give visitors two competing next steps. Legal and contract
+  // pages remain document-focused rather than introducing a conversion prompt.
+  if(currentPath==='/orientierung'||currentPath==='/codex'||documentOnlyPaths.has(currentPath)||document.querySelector('[data-orientation-launcher]'))return null;
   const stylesheet=document.createElement('link');
   stylesheet.rel='stylesheet';
   stylesheet.href='/orientierung/launcher.css';
