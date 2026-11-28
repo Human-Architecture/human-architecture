@@ -230,11 +230,12 @@
     anchor.setAttribute('href', `${linkUrl.pathname}${linkUrl.search}${linkUrl.hash}`);
   });
 
-  const orientationHref = `/orientierung/?lang=${german ? 'de' : 'en'}`;
+  const orientationHref = `/orientierung/?lang=${german ? 'de' : 'en'}&source=codex`;
   document.querySelectorAll('.cr-nav').forEach((navigation) => {
     if (navigation.querySelector('[data-codex-orientation-link], a[href*="/orientierung/"]')) return;
     const orientationLink = document.createElement('a');
     orientationLink.dataset.codexOrientationLink = 'true';
+    orientationLink.dataset.globalOrientationLink = '';
     orientationLink.href = orientationHref;
     orientationLink.textContent = german ? 'Orientierungfragebogen' : 'Orientation questionnaire';
     orientationLink.setAttribute('aria-label', german ? 'Orientierungfragebogen öffnen' : 'Open the orientation questionnaire');
