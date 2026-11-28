@@ -18,6 +18,7 @@
     kooperationen: { en: 'partnerships', de: 'Kooperationen' },
     'mensch-und-tier': { en: 'people & animals', de: 'Mensch & Tier' },
     reitsport: { en: 'equestrian work', de: 'Pferde & Reitsport' },
+    events: { en: 'public events', de: 'öffentliche Termine' },
     'body-language': { en: 'the human system', de: 'das menschliche System' }
   });
 
@@ -120,6 +121,12 @@
       label: { en: 'Explore people & animals', de: 'Mensch & Tier entdecken' },
       title: { en: 'A route for life with animals', de: 'Ein Weg für das Leben mit Tieren' },
       summary: { en: 'For a question about everyday life with an animal or an equestrian context, the people & animals route gives the clearest overview of the relevant formats.', de: 'Bei einem Anliegen rund um das Leben mit einem Tier oder den Reitsport bietet der Bereich Mensch & Tier den klarsten Überblick über passende Formate.' }
+    },
+    events: {
+      href: '/events/',
+      label: { en: 'View upcoming dates', de: 'Nächste Termine ansehen' },
+      title: { en: 'A public way to begin', de: 'Ein öffentlicher Einstieg' },
+      summary: { en: 'A public event is a clear way to get to know a format in a shared setting. The events page shows the current dates and practical details.', de: 'Ein öffentlicher Termin ist ein klarer Weg, ein Format in einem gemeinsamen Rahmen kennenzulernen. Auf der Terminseite findest du aktuelle Daten und praktische Informationen.' }
     }
   };
 
@@ -138,6 +145,7 @@
     if (has(['team', 'organisation', 'organization', 'leadership', 'führung', 'unternehmen', 'workplace'])) route = 'organizations';
     else if (has(['familie', 'family', 'parent', 'eltern', 'mama', 'baby', 'kind', 'child', 'jugend'])) route = 'families';
     else if (has(['pferd', 'horse', 'reiten', 'equestrian', 'hund', 'dog', 'katze', 'cat', 'tier', 'animal'])) route = 'animals';
+    else if (has(['event', 'workshop', 'termin', 'date', 'deep rest', 'body language', 'astrology'])) route = 'events';
     else if (has(['ceremony', 'ceremonia', 'transition', 'übergang', 'trauer', 'grief', 'hochzeit', 'wedding', 'identity', 'identität'])) route = 'mihira';
     else if (has(['massage', 'bodywork', 'körper', 'körperarbeit', 'touch', 'berührung', 'regulation', 'regulierung', 'in-person', 'vor ort'])) route = 'sessions';
     else if (has(['pattern', 'muster', 'understand', 'verstehen', 'codex', 'self', 'selbst', 'relationship', 'beziehung'])) route = 'codex';
@@ -159,6 +167,8 @@
           <label><input type="radio" name="guide-focus" value="mihira"><span data-en="Identity, relationship or a meaningful transition" data-de="Identität, Beziehung oder ein bedeutsamer Übergang">Identity, relationship or a meaningful transition</span></label>
           <label><input type="radio" name="guide-focus" value="families"><span data-en="Family life, parenting or a young person" data-de="Familienalltag, Elternschaft oder ein junger Mensch">Family life, parenting or a young person</span></label>
           <label><input type="radio" name="guide-focus" value="organizations"><span data-en="A team, leadership or organisational question" data-de="Eine Team-, Führungs- oder Organisationsfrage">A team, leadership or organisational question</span></label>
+          <label><input type="radio" name="guide-focus" value="animals"><span data-en="Life with an animal or an equestrian question" data-de="Das Leben mit einem Tier oder eine Reitsportfrage">Life with an animal or an equestrian question</span></label>
+          <label><input type="radio" name="guide-focus" value="events"><span data-en="A workshop, public event or shared introduction" data-de="Ein Workshop, öffentlicher Termin oder gemeinsamer Einstieg">A workshop, public event or shared introduction</span></label>
         </div>
       </fieldset>
       <fieldset><legend><span data-en="2 · Where does this belong?" data-de="2 · In welchem Kontext liegt es?">2 · Where does this belong?</span></legend>
@@ -175,7 +185,11 @@
     const focus = form.querySelector('input[name="guide-focus"]:checked')?.value;
     const setting = form.querySelector('input[name="guide-setting"]:checked')?.value;
     if (!focus || !setting) return null;
-    const route = setting === 'work' ? 'organizations' : setting === 'family' && focus !== 'organizations' ? 'families' : focus;
+    const route = setting === 'work'
+      ? 'organizations'
+      : setting === 'family' && ['codex', 'sessions', 'mihira', 'families'].includes(focus)
+        ? 'families'
+        : focus;
     return guidedRoutes[route] ? { route, ...guidedRoutes[route] } : null;
   }
 
